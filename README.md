@@ -7,14 +7,22 @@
 3. [Đề cương kiểm chứng](docs/KE_HOACH_KIEM_CHUNG.md): sáu phép thử nhỏ trước khi xây toàn bộ; chưa chạy.
 4. [Phép thử đầu tiên](docs/PHEP_THU_DAU_TIEN.md): ranh giới quan sát trên dữ liệu giả, 16 tình huống và tiêu chí đánh giá; mới chuẩn bị, chưa chạy.
 
-Đang chuẩn bị và rà soát yêu cầu. Chưa chọn công nghệ hoặc viết ứng dụng nhân vật. Windows 11, tiếng Việt, hai mức cơ bản/nâng cao; công khai miễn phí bản đầu, chưa công khai mã nguồn.
+Đã có mẫu kiểm tra quyền native C# + WPF với dữ liệu giả. Chưa có ứng dụng nhân vật đầy đủ, Unity hoặc AI local được tích hợp. Mục tiêu sản phẩm: Windows 11, tiếng Việt, hai mức cơ bản/nâng cao; công khai miễn phí bản đầu, chưa công khai mã nguồn.
+
+## Mẫu đang dùng thử
+
+- [Mở ứng dụng kiểm tra quyền](labs/policy-native/artifacts/app/PolicyLab.App.exe).
+- [Hướng dẫn dùng và chạy kiểm tra](labs/policy-native/README.md).
+- [Kết quả đã kiểm chứng và giới hạn](labs/policy-native/RESULTS.md).
+
+53 kiểm thử tự động đạt; 35 trường hợp giả cũng đã chạy trong giao diện WPF. Chờ người dùng dùng thử; chưa coi đã nghiệm thu E02a đầy đủ hoặc chứng minh khả năng đọc máy thật.
 
 ## Quy trình làm sản phẩm
 
 - [Quy trình team](docs/QUY_TRINH_TEAM_SAN_PHAM.md): trách nhiệm, đầu ra, điều kiện chuyển bước và cách làm mỗi buổi.
 - [Bản đồ khả năng](CAPABILITY_MAP.md): ranh giới đề xuất cần rà trước đặc tả từng phần.
 - [Đặc tả phép thử quyền hạn](SPEC-policy.md): E02a trên dữ liệu giả đã được duyệt; chưa có code hoặc kết quả chạy.
-- [Kế hoạch xây mẫu native](tasks/plan.md) và [danh sách việc](tasks/todo.md): C# + WPF, đang chờ rà trước triển khai; đặc tả E02a đã được duyệt.
+- [Kế hoạch xây mẫu native](tasks/plan.md) và [danh sách việc](tasks/todo.md): đã được duyệt và có triển khai; xem trạng thái kiểm chứng/dùng thử ở danh sách việc.
 - [Tiêu chuẩn chất lượng](CONSTRAINTS.md): quy tắc bằng văn bản và các kiểm chứng chưa chạy.
 
 ## Trang chọn quyền nhân vật — bản lịch sử
@@ -31,6 +39,6 @@ Bộ hướng dẫn dành cho một người mới học cùng một AI.
 2. [Mẫu mô tả app đầu tiên](docs/Y_TUONG_APP.md) là tài liệu học, không thay bản yêu cầu đã hợp nhất.
 3. Với dự án này, đọc ba tài liệu hiện hành ở trên trước khi tiếp tục; không bắt đầu phỏng vấn lại từ đầu.
 
-Chưa có lệnh chạy/build/test cho ứng dụng nhân vật. Các ví dụ app công việc trong hướng dẫn học không phải yêu cầu của dự án.
+Lệnh build/test hiện có dành cho mẫu E02a trong hướng dẫn ở trên; chưa có ứng dụng nhân vật hoàn chỉnh. Các ví dụ app công việc trong hướng dẫn học không phải yêu cầu của dự án.
 
 Tiến độ và quyết định được lưu tại [Bộ nhớ dự án](.agents/PROJECT_MEMORY.md).

@@ -1,6 +1,6 @@
 # Kế hoạch xây mẫu E02a — C# + WPF
 
-Ngày: 2026-11-13. Trạng thái: **kế hoạch và danh sách việc chờ rà trước triển khai**. [Đặc tả](../SPEC-policy.md) đã được người dùng duyệt. Chưa cài SDK, tạo project hoặc chạy kiểm thử.
+Ngày: 2026-11-13. Trạng thái: **đã được người dùng duyệt, đã triển khai mẫu; xem todo.md và RESULTS.md cho phần đã kiểm chứng/còn mở**. [Đặc tả](../SPEC-policy.md) đã được người dùng duyệt. Đã cài SDK riêng workspace, tạo project và chạy kiểm thử. Các mô tả dự kiến bên dưới giữ làm kế hoạch gốc; lệnh/môi trường thực tế ở labs/policy-native/README.md.
 
 ## Phần dành cho người dùng
 

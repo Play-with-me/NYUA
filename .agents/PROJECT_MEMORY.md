@@ -2,6 +2,13 @@
 
 ## Trạng thái ưu tiên — sau yêu cầu “Proceed” ngày 2026-11-13
 
+- Mới nhất: người dùng đã duyệt kế hoạch và yêu cầu bắt đầu xây. Mẫu native E02a đã triển khai tại labs/policy-native: Core C#, Scenarios, WPF App, MSTest. Không Unity/AI/capture thật. Bản self-contained win-x64 mở tại labs/policy-native/artifacts/app/PolicyLab.App.exe, đã để mở cho người dùng thử.
+- SDK 10.0.404/runtime10.0.15 cài riêng C:\Pet\.tools\dotnet bằng script Microsoft, không đổi PATH/registry; dotnet.exe chữ ký Valid. Git cục bộ đã khởi tạo và có các mốc tài liệu/core/coordinator/catalog/WPF; không push/remote. .tools/bin/obj/TestResults/artifacts được ignore.
+- Kết quả thật: 53/53 MSTest Release đạt (35 trường hợp A/B + các kiểm tra core/coordinator/inventory); build0 warnings/errors, publish self-contained thành công. Audit NuGet Tests không thấy vulnerable packages theo nguồn hiện có; snapshot runtime TCP0/UDP0. Rà cùng AI, không độc lập.
+- Runtime đã quan sát A01 chặn, A05 chỉ SAFE-A, tắt quan sát xóa đầu vào cũ nhưng giữ geometry, A09 thử lại/sửa vùng/thử lại, A10-revoke hủy đúng. Bộ chạy UI35/35 trước sửa cuối chỉ về label tổng kết; bản cuối mở được, chưa chạy lại UI35 vì phát hiện người dùng thao tác, đã nhường. Không tự thao tác tiếp trên cửa sổ khi người dùng đang dùng.
+- Chưa đủ bằng chứng resize tối thiểu/full keyboard hoặc user acceptance. tasks/todo.md còn các ô này và C3 mở; không báo E02a nghiệm thu toàn bộ. README/RESULTS ghi hướng dẫn, kết quả từng case từ TRX, hạn chế. JSON gốc Downloads và docs cùng hash. Chưa cài Unity/model, không đọc dữ liệu thật.
+- Bước sau: người dùng thử mẫu và phản hồi; kiểm tra tiếp các mục UI còn mở trước đóng C3. Sau đó đặc tả phép thử Unity–C# riêng và đường nguồn thật riêng, không tự mở rộng app.
+
 - Sau “Tiếp tục theo quy trình chuẩn”: đã tạo tasks/plan.md và tasks/todo.md cho E02a native C# + WPF, .NET 10 LTS/MSTest đề xuất, 7 task T00–T06 và checkpoint C1–C3. Kế hoạch chờ rà trước triển khai, toàn bộ task chưa chạy. Không cài SDK/Unity/model, không tạo project hoặc Git trong lượt này.
 - E02a giữ dữ liệu giả, không Unity/AI/quan sát máy thật. Tích hợp Unity–Windows phải đặc tả/phép thử riêng; hướng sản phẩm hybrid đã được người dùng tiếp tục thảo luận/chấp nhận, chưa chứng minh transparency/click-through/IPC/hiệu năng.
 - Nguồn đã đọc: Microsoft WPF overview, .NET support policy (.NET10 LTS còn hỗ trợ), MSTest tutorial. dotnet không PATH/hai vị trí chuẩn, Git có nhưng .git chưa tồn tại. Phiên bản SDK/package phải xác minh lúc cài; không dùng số ví dụ từ docs.

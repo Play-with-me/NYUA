@@ -2,6 +2,8 @@
 
 Ngày: 2026-11-13. **Mức hiện tại: quy tắc bằng văn bản; chưa có pipeline kiểm tra tự động.** Không coi một con số trong tài liệu là cơ chế thực thi đã hoạt động.
 
+Mẫu E02a nay có MSTest và compiler warnings-as-errors chạy cục bộ, chưa có CI hoặc floor guard. Release đã chạy 53 kiểm thử đạt; không đặt threshold coverage. Lệnh thực tế tại [README mẫu](labs/policy-native/README.md). Trạng thái ở các bảng dưới cho phần sản phẩm chưa triển khai vẫn giữ nguyên; kết quả mẫu xem [RESULTS.md](labs/policy-native/RESULTS.md), không thay bằng chứng E02 thật.
+
 ## Nền tảng áp dụng ngay
 
 - Không chứa mật khẩu, khóa AI hay dữ liệu cá nhân thật trong mã nguồn, dữ liệu thử hoặc bằng chứng.

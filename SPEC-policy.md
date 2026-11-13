@@ -1,6 +1,6 @@
 # Đặc tả policy — E02a: cổng quyền trên dữ liệu giả
 
-Ngày: 2026-11-13. Trạng thái: **người dùng đã duyệt đặc tả và cho tiếp tục lập kế hoạch xây mẫu; chưa có code hoặc kết quả chạy**. Công nghệ của mẫu đang được rà theo hướng native, không mặc định web.
+Ngày: 2026-11-13. Trạng thái: **đã duyệt đặc tả/kế hoạch và có mẫu native C# + WPF; còn kiểm tra UI và nghiệm thu người dùng**. Xem [bản chạy và công cụ thực tế](labs/policy-native/README.md), [kết quả](labs/policy-native/RESULTS.md). Các phần ghi chưa chọn/chưa chạy bên dưới mô tả thời điểm đặc tả được duyệt; không phải trạng thái thực thi mới nhất.
 
 Phần sở hữu: `policy` theo [bản đồ đã được chấp nhận](CAPABILITY_MAP.md). Nguồn nghiệp vụ: [yêu cầu hiện hành](docs/YEU_CAU_HIEN_HANH.md). Danh sách thử gốc: [A01–A16](docs/PHEP_THU_DAU_TIEN.md). Đặc tả này làm rõ phép thử, không thay yêu cầu sản phẩm.
 

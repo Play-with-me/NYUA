@@ -44,4 +44,4 @@ policy + life-state ── distribution
 
 ## Điểm cần duyệt
 
-Đã được người dùng chấp nhận qua ô câu hỏi trong cuộc trò chuyện. Đặc tả đầu tiên: [SPEC-policy.md](SPEC-policy.md), chỉ phạm vi E02a, đã được duyệt. [Kế hoạch native](tasks/plan.md) đang chờ rà trước thực thi. Các phần khác chưa có đặc tả; không viết bảy đặc tả đầy đủ cùng lúc.
+Đã được người dùng chấp nhận qua ô câu hỏi trong cuộc trò chuyện. Đặc tả đầu tiên: [SPEC-policy.md](SPEC-policy.md), chỉ phạm vi E02a, đã được duyệt. [Kế hoạch native](tasks/plan.md) đã được duyệt và có mẫu native; chưa nghiệm thu E02a đầy đủ. Các phần khác chưa có đặc tả; không viết bảy đặc tả đầy đủ cùng lúc.
