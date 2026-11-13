@@ -1,0 +1,185 @@
+# Bộ nhớ dự án
+
+## Trạng thái ưu tiên — sau yêu cầu “Proceed” ngày 2026-11-13
+
+- Sau “Tiếp tục theo quy trình chuẩn”: đã tạo tasks/plan.md và tasks/todo.md cho E02a native C# + WPF, .NET 10 LTS/MSTest đề xuất, 7 task T00–T06 và checkpoint C1–C3. Kế hoạch chờ rà trước triển khai, toàn bộ task chưa chạy. Không cài SDK/Unity/model, không tạo project hoặc Git trong lượt này.
+- E02a giữ dữ liệu giả, không Unity/AI/quan sát máy thật. Tích hợp Unity–Windows phải đặc tả/phép thử riêng; hướng sản phẩm hybrid đã được người dùng tiếp tục thảo luận/chấp nhận, chưa chứng minh transparency/click-through/IPC/hiệu năng.
+- Nguồn đã đọc: Microsoft WPF overview, .NET support policy (.NET10 LTS còn hỗ trợ), MSTest tutorial. dotnet không PATH/hai vị trí chuẩn, Git có nhưng .git chưa tồn tại. Phiên bản SDK/package phải xác minh lúc cài; không dùng số ví dụ từ docs.
+
+- Mới nhất MC04/AI03: người dùng muốn AI local nhẹ xử lý cảm xúc nhanh, kiểm tra cấu hình để đề xuất hai mức phù hợp. Chưa chọn model/runtime hoặc benchmark; không tự hứa dưới 1 giây. Giữ MC02: người dùng tự chọn/bật thử, không tự đổi mức.
+- Người dùng đã duyệt SPEC-policy.md và cho lập kế hoạch xây mẫu. Chưa tạo tasks/plan.md/todo.md vì đang so sánh nền tảng. Đề xuất web/Node chưa được duyệt, người dùng yêu cầu native. Người dùng đề xuất Unity hiển thị nhân vật, C# + WPF phần app; hướng này cần phép thử tích hợp, chưa coi transparency/click-through/IPC/hiệu năng đã đạt, chưa cài .NET/Unity.
+
+- Mới nhất: người dùng chấp nhận bản đồ bảy phần và yêu cầu tiếp tục đặc tả phép thử. CAPABILITY_MAP.md đã ghi duyệt ranh giới; không phải duyệt stack/phát hành.
+- Đã tạo SPEC-policy.md cho E02a: hai lớp người dùng/kỹ thuật, hợp đồng metadata/đầu vào đã lọc/bộ nhận, revision chống dữ liệu cũ, SafetyHold và thử lại, trạng thái UI, truy vết A01–A16 kèm biến thể và B01–B06. Chỉ dữ liệu giả, không đọc màn hình/clipboard/điều khiển thật; chưa code/test/kết quả.
+- Điểm dừng hiện tại theo spec-driven-development: đặc tả chờ người dùng duyệt trước bước Plan. Chưa tạo tasks/plan.md hoặc tasks/todo.md; chưa chọn stack/runner/lệnh chạy. README đã liên kết đặc tả. Các dòng cũ nói bản đồ chờ duyệt đã được thay bởi quyết định mới này.
+
+- Người dùng yêu cầu áp dụng skill để tổ chức như team sản phẩm chuyên nghiệp. Đã tạo docs/QUY_TRINH_TEAM_SAN_PHAM.md (vai trò, bước/đầu ra/gate, tiêu chí bắt đầu/hoàn thành, thay đổi/lỗi/phát hành, truy vết và cách làm mỗi buổi), CAPABILITY_MAP.md (7 mã giữ từ đề cương, đề xuất chờ rà), CONSTRAINTS.md (chỉ quy tắc viết, chưa kiểm tra tự động). README đã nối.
+- Ranh giới hiện tại: cần rà bản đồ khả năng trước đặc tả từng phần theo spec-driven-development Phase 0; chưa viết đặc tả module/backlog triển khai, chưa chạy E02a hay chọn stack/cài công cụ. Không đồng nhất vai trò AI với nhiều người rà độc lập. Không tự thêm telemetry hoặc backup tự động.
+- Quy trình đề xuất giữ E02a là phép thử cổng quyền đầu, E01/E04 cần bằng chứng riêng. Chỉ chia việc thực thi chi tiết khi đặc tả phạm vi tương ứng đã được rà. Mọi lượt code đọc CONSTRAINTS.md; chưa thiết lập Git/test runner/CI.
+
+- Người dùng đã đồng ý rà yêu cầu rồi chuẩn bị phép thử nhỏ và nhắn Proceed. Đã rà tài liệu, đồng bộ XP13 với XP14 và sửa mô tả điểm chưa chắc; không phỏng vấn lại các lựa chọn mới BH09–BH13/XP10–XP16.
+- Bước chuẩn bị hoàn tất: docs/PHEP_THU_DAU_TIEN.md chọn E02a, 16 tình huống nguồn giả/cổng quyền/bộ nhận đầu vào. Không có code thử hoặc kết quả chạy; không chứng minh capture thật/lọc bí mật tổng quát. E01/E04 vẫn phải thực hiện riêng. README và đề cương E02 đã liên kết tài liệu này.
+- Tiếp theo: dựng mẫu thử E02a theo tài liệu và quy trình UI trước khi nối nguồn thật; chưa triển khai app đầy đủ, chưa cài tiện ích/model hoặc dùng dịch vụ tốn phí. Không nhầm việc chuẩn bị đã xong với phép thử đã đạt.
+
+- BH13 thời hạn đã chốt: lịch sử thao tác giữ 30 ngày rồi tự xóa, vẫn cho xóa sớm.
+
+- BH13: lịch sử thao tác cục bộ trong cài đặt, xem/xóa được; thời điểm, app/website, thao tác, kết quả; không ảnh màn hình/nội dung riêng tư, tách ký ức. Chưa chốt thời hạn giữ.
+
+- BH12: lưu bài học cho chọn rõ bấm kết quả đầu tiên hay đúng nội dung đã chỉ; không tự đoán từ cú bấm mẫu. Vẫn kiểm tra quyền/an toàn.
+
+- BH11: cho đổi nội dung tìm kiếm trước mỗi lần chạy bài học, giữ nguyên các bước đã dạy; không mở rộng quyền gõ sang tài liệu/chat/biểu mẫu.
+
+- XP16: người dùng chọn Chrome hoặc Edge trong cài đặt để tự mở phim/nhạc; không tự chọn theo trình duyệt mặc định hoặc tự cấp quyền.
+
+- XP15: tự mở phim/nhạc dùng tab riêng, giữ nguyên các tab người dùng; không thay nội dung tab của người dùng.
+
+- XP14: dựa thao tác người dùng chuyển tập/kênh/video/nhạc để nhận biết xem/nghe và học gu; không thêm nút xác nhận. Tự phát tiếp hoặc nhân vật thao tác không phải bằng chứng người dùng hiện diện. XP12/13 đọc cùng XP14.
+
+- XP13: học gu phim từ ít nhất 20 phút xem; nhạc nghe lặp lại hoặc nhiều bài cùng kiểu. Chỉ là tín hiệu sở thích. Chưa chốt hiện diện khi xem/nghe thụ động; không tự dùng mốc 60 giây của quan hệ.
+
+- XP12: nội dung nhân vật tự mở vẫn có thể học gu nếu người dùng quay lại và tiếp tục xem/nghe đủ lâu. Chưa chốt dấu hiệu hiện diện khi không thao tác/ngưỡng thời gian; không dùng thời gian phát lúc vắng mặt để kết luận thích.
+
+- XP11 cập nhật: học gu từ nội dung người dùng chủ động mở và xem/nghe lâu, chỉ trong phạm vi quan sát đã cấp; không tự đọc lịch sử trình duyệt hoặc phân tích âm thanh. Mở thử không đủ để coi là thích.
+
+- XP11: tự chọn phim/nhạc chủ yếu học và theo gu người dùng. Chưa chốt tín hiệu học gu; không đồng nghĩa cho phép đọc lịch sử trình duyệt hoặc nội dung nền.
+
+- BH10: việc người dùng giao ưu tiên hơn tự tìm phim/khám phá ứng dụng; dừng khám phá để nhận việc, vẫn được trì hoãn một lần theo tâm trạng.
+
+- BH09: tự ẩn vì buồn/tổn thương hủy việc đang làm, giữ các việc chưa chạy tạm dừng. Trở lại vẫn phải bấm Tiếp tục hàng đợi, không tự chạy hoặc phục hồi việc đã hủy.
+
+- XP10: không nhìn được phim thì tự chọn ở lại xem hoặc chuyển sang chơi/ăn/sinh hoạt khác tùy tâm trạng, không bắt buộc xem tiếp. Không suy diễn đã hiểu hình ảnh không quan sát được.
+
+- QD15/H16: không xác định chắc vùng an toàn thì ngừng đọc cửa sổ và báo lý do, người dùng xử lý sau; vẫn sinh hoạt. Điều khiển cửa sổ cũng bị chặn vì cần đọc an toàn trước. Chưa chốt cách cho đọc lại.
+- QD15/H16 mới hơn: chỉ bấm Thử đọc lại mới kiểm tra an toàn để tiếp tục; không bỏ bộ lọc hoặc tự đọc lại khi đổi cửa sổ. Hành vi đã chốt, còn E02 kiểm chứng.
+
+- Cập nhật ưu tiên mới nhất: NYUA được chọn làm ứng viên tên, chưa chốt nhãn hiệu. Đã tra WIPO qua UI: Embedded NYUA không kết quả; Fuzzy + VN + nhóm 9 có 32 gợi ý chưa rà hết; mở NYNA thấy hàng bảo hộ và trạng thái Từ chối. IPPlatform hiện vào được form nhưng gửi NYUA trả lỗi máy chủ. Không tuyên bố tên an toàn; xem docs/TEN_UNG_VIEN.md.
+- Đã đọc cấu hình không benchmark: Windows 11 Pro build 26300, Ryzen 9 8945HX, RAM 15.8 GiB, RTX 5070 Laptop 8151 MiB, driver 592.01. Xem docs/KHAO_SAT_MOI_TRUONG.md; không phải cấu hình tối thiểu hoặc bằng chứng đạt AI.
+
+- H04 đã được trả lời: Tắt quan sát vẫn cho biết vị trí/kích thước cửa sổ để sinh hoạt trên cạnh; không đọc nội dung hoặc điều khiển app. Đã cập nhật DK04 và bảng điểm chưa chắc.
+- H01: giữ một phím + kéo để chuyển vị trí dù nhân vật từ chối nhấc; không phải chơi/quăng, không ảnh hưởng xấu quan hệ. Chưa chọn phím cụ thể; đã ghi NV11.
+- H05: thao tác mở khóa không reset thời gian chờ; input tiếp theo trong desktop mới reset mốc 60 giây/5 phút. Đã cập nhật XP08.
+- H06: sửa nội dung ký ức không đổi mức thân thiết; xóa vẫn có thể ảnh hưởng theo đóng góp. Đã cập nhật KN02.
+- H07: nội dung tập tin/thư mục cho đọc chỉ dùng tức thời, không tạo ký ức lâu dài. Đã cập nhật QD07.
+- H09 bổ sung: trì hoãn bài học vẫn giữ yêu cầu; xong hoạt động hiện tại tự thực hiện khi đủ quyền/giao diện/điều kiện. Chưa chốt hàng đợi/hủy.
+- H09/BH06 mới hơn: hàng đợi nhiều việc, xem thứ tự/hủy từng việc riêng. Chưa chốt cách xử lý phần còn lại nếu một việc lỗi.
+- BH06 bổ sung: việc lỗi dừng riêng, các việc sau tiếp tục nếu từng việc đủ quyền/điều kiện. Không tự chạy lại việc lỗi hoặc ghi là thành công.
+- BH07: thoát app báo rõ và hủy các việc chưa hoàn thành; không tự chạy hàng đợi khi mở lại. Giữ bài học đã lưu.
+- BH07/H09 mới nhất: đổi hồ sơ cũng báo rõ/hủy việc chưa xong, không chuyển việc sang hồ sơ khác. Nhóm hàng đợi đã chốt hành vi chính.
+- H10/SH07: tối đa 5 đồ ảo để lại, không tính đồ đang cầm/dùng; cách xử lý khi đầy chưa chốt.
+- H10/SH07 mới hơn: đủ 5 thì tự cất bớt bằng hoạt ảnh trước khi để thêm đồ mới.
+- QD10: được biết riêng vị trí/kích thước cửa sổ chưa cấp Đọc để đi lại, không đọc tiêu đề/nội dung, không tự cấp Điều khiển.
+- H02/QH06: giận nhẹ không thời gian từ chối nhấc cố định; tùy tâm trạng và cách được dỗ, không tự đặt vài phút.
+- XP09/H10: nhân vật/sofa che phụ đề thì người dùng tự kéo ra chỗ khác, không yêu cầu tự né phụ đề.
+- QD11: tài liệu mở trong app như Word chỉ được nhớ tên/chủ đề đang đọc, không chi tiết nội dung; đọc file trực tiếp vẫn tức thời theo QD07. Không dùng quyền nhớ màn hình để vượt giới hạn này.
+- HS03: Đặt lại nhân vật chỉ reset ký ức/quan hệ/trạng thái hồ sơ đang chọn, giữ hồ sơ khác và quyền chung; bài học khi reset chưa chốt.
+- HS03 mới hơn: đặt lại xóa cả mọi bài học của hồ sơ đó; không ảnh hưởng hồ sơ khác/quyền chung.
+- Đã bắt đầu khảo sát đọc-only nguồn chính thức Chrome content scripts/permissions, Edge native messaging, Windows UI Automation. Ghi docs/KHAO_SAT_SO_BO.md; chưa chọn stack hoặc cài gì. Câu kế tiếp: người dùng có chấp nhận cài tiện ích hỗ trợ khi bật tương tác website hay không.
+- QD12 mới nhất: người dùng chấp nhận tiện ích Chrome/Edge tùy chọn khi bật tương tác web; cơ bản không cần, không tự cấp mọi website. Chưa cài/chọn phương án.
+- SP07/H15: tính cách có thể thay đổi lâu dài theo trải nghiệm/cách đối xử, không chỉ tâm trạng/sở thích. Cần hỏi ví dụ/giới hạn; không phải tự sửa code.
+- SP07/H15 ví dụ được xác nhận: ban đầu tinh nghịch/làm trước nghĩ sau, qua trải nghiệm/hướng dẫn dần cân nhắc hơn nhưng vẫn có ý muốn riêng. Chưa chốt áp dụng mức nào.
+- SP07/H15 mới hơn: phát triển tính cách chỉ ở nâng cao; cơ bản giữ tính cách ban đầu, vẫn thay đổi tâm trạng. Đã cập nhật bảng hai mức.
+- MC03 mới hơn: giữ tính cách đã phát triển khi hạ cơ bản; nâng cao bật lại tiếp nối, không reset.
+- SP07/H15: luôn giữ tò mò/tinh nghịch/ý muốn riêng; chỉ thay đổi cách thể hiện và biết cân nhắc hơn, không biến thành tính cách khác hoàn toàn.
+- SP08/H15: chỉ học cách hành xử từ tương tác/trải nghiệm, không nút đánh giá hành vi; không tự coi bỏ qua lời rủ khi bận là phê bình.
+- QD13/H11: người dùng chọn phương án 2 sau giải thích: cho dùng riêng khung video khác nguồn nhúng trong trang phim được phép, không cho mở/khám phá toàn website nguồn; không áp sang quảng cáo hoặc khung khác. Cần kiểm chứng nhận diện đúng.
+- QD13 bổ sung: chưa chắc khung video thì nhờ người dùng chỉ và xác nhận trước khi dùng, không tự mở rộng quyền.
+- QD14: được nhớ nhận diện ô video trên đúng trang, lần sau kiểm tra lại/không khớp thì hỏi; không dùng tọa độ cũ hoặc tự gọi bài học.
+- DK03: Dừng khẩn cấp hủy việc đang chạy; giữ việc chưa chạy tạm dừng. Không tự chạy lại sau 60 giây.
+- DK04 mới hơn: Tắt quan sát/Ẩn cũng hủy việc đang chạy, giữ việc chưa chạy tạm dừng. Các ngoại lệ metadata vị trí/kích thước khi tắt quan sát vẫn giữ.
+- BH08: bật lại chức năng/hiện nhân vật không tự chạy việc cũ; phải bấm Tiếp tục hàng đợi riêng, không phục hồi việc đã hủy. E03 đã thêm kiểm chứng vòng đời này.
+- K04 khảo sát tài liệu Microsoft: GetHistoryItemsAsync, các trạng thái Success/AccessDenied/ClipboardHistoryDisabled và IsHistoryEnabled. Chưa gọi API hoặc đọc clipboard thật, chưa chứng minh detect Win+V; ghi KHAO_SAT_SO_BO.md.
+- H13: TCYP (Take Care Your Pet) chỉ là tên người dùng đề xuất, chưa chốt. Muốn tên ngắn gọn/sang trọng, có thể khác hoàn toàn TCYP. Chưa đổi tên tài liệu/dự án.
+- H13 mới hơn: người dùng muốn tránh xung đột “bản quyền” tên. Chưa chốt TCYP/Ylune/Sylmi/Aelvi; chưa có tra cứu nhãn hiệu đủ để xác nhận an toàn. Đã đọc hướng dẫn WIPO về nhãn hiệu/tra cứu cả cơ sở quốc gia; cần hỏi thị trường phát hành, không hứa rủi ro bằng không.
+- SP03/H13 mới nhất: phát hành Việt Nam trước, quốc tế để sau; phạm vi tra cứu tên ban đầu là Việt Nam. Chưa chốt tên chính thức.
+- H13 mới nhất: bỏ TCYP, tìm tên mới ngắn/sang trọng. Không dùng các tên gợi ý trước như đã được xác nhận an toàn; chưa chốt thương hiệu.
+- Đợt sàng lọc tên mới: đề xuất hai hướng Ylavi (i-la-vi) và Ylavyn (i-la-vin), chưa được chọn/chưa clearance nhãn hiệu. Chi tiết docs/TEN_UNG_VIEN.md. Chỉ tìm web sơ bộ; không tuyên bố đã tra cứu đầy đủ cơ sở Việt Nam/WIPO. Tài khoản cá nhân Ylavi xuất hiện trên web không được tự coi là quyền nhãn hiệu.
+- H13 mới nhất: đã loại Ylavi/Ylavyn vì không hợp gu. Người dùng thích tên AIRI từng thấy GitHub; chỉ tham chiếu phong cách, chưa chọn tên chính thức hoặc đồng ý dùng tên gần giống. Cần hỏi thích điểm nào thay vì tiếp tục đoán tên kỳ ảo.
+- H13 gu đã xác nhận: mềm như tên nhân vật + hình thức gọn, hiện đại; thích kết hợp hai điểm này ở AIRI. Không phải chọn AIRI hoặc tên gần giống, vẫn cần sàng lọc nhãn hiệu VN.
+- Đang đề xuất tên theo gu mới: UYRI (uy-ri), NYUA (nyu-a); chỉ ứng viên, chưa được người dùng chọn và chưa clearance nhãn hiệu. Đã tìm web sơ bộ; không coi ít kết quả là bằng chứng an toàn.
+- Quyết định mới nhất QD07/H07/K06: đọc tập tin/thư mục chọn riêng để cập nhật sau. Không hỏi tiếp định dạng, không khảo sát parser hoặc triển khai chức năng đó trong bản đầu. Không đồng nhất với quan sát màn hình hoặc xuất/nhập sao lưu vẫn còn trong phạm vi.
+
+- Đã được cho tiến hành: hợp nhất yêu cầu, phân loại điểm chưa chắc và lập đề cương phép thử nhỏ. Chưa cho xây ứng dụng đầy đủ; lượt này chỉ sửa tài liệu.
+- Đọc docs/YEU_CAU_HIEN_HANH.md làm nguồn yêu cầu hiện tại; docs/DIEM_CHUA_CHAC.md và docs/KE_HOACH_KIEM_CHUNG.md cho câu hỏi/khảo sát/phép thử còn mở. Các phần bên dưới và hai file phỏng vấn là lịch sử.
+- Đã hợp nhất cả các câu trả lời sau lần lưu PHONG_VAN_BO_SUNG: Windows + V đọc toàn lịch sử khi mở, không nhớ lâu; danh bạ/email/lịch qua giao diện; thư mục gồm thư mục con; thu hồi quyền cho chọn xóa ký ức.
+- Sao lưu chỉ xuất thủ công, bắt buộc mật khẩu + mã khôi phục, không khóa AI. Nhập thêm hồ sơ, chỉ một hoạt động; hồ sơ không chọn đóng băng mọi trạng thái; quyền chung trên máy, không tự nhập quyền từ file.
+- Mốc thiếu quan tâm là tổng 48–72 giờ thao tác người dùng đủ điều kiện, dừng sau 60 giây không thao tác; không còn 3 ngày lịch. Tin tưởng gần 72, tổn thương gần 48; buồn trước rồi mới tự ẩn nếu kéo dài. Dỗ qua vài buổi, không một lần là hết.
+- Quà là đồ ăn/thú bông; mời ra/tặng từ cửa sổ khay hệ thống hoặc biểu tượng nhỏ chỗ ẩn. Đọc chỉ cửa sổ/tab đang thực sự hiện, cả hai khi chia màn hình có quyền; tự chọn chú ý theo sở thích, không phải luôn theo mọi cảnh.
+- Gỡ app hỏi giữ/xóa dữ liệu và nhắc xuất. Chưa công khai mã nguồn. Chuyển động pixel mượt mềm mại.
+- Sáu phép thử mới chỉ là đề cương, chưa triển khai/chạy. Không công bố đạt dưới 1 giây, che bí mật hoàn hảo, hỗ trợ mọi app, cấu hình tối thiểu hoặc model đã chọn.
+- Bước tiếp: rà điểm sản phẩm ảnh hưởng phép thử đầu và hỏi từng câu; khảo sát nguồn chính thức để đề xuất phương án thử. Không quay lại hỏi các điểm đã được chốt.
+- Không có app native, Graphify hay Git trong workspace được thiết lập ở lượt này. Không đổi permissions.html/JSON quyền gốc hoặc DESIGN.md.
+
+## Đọc trước: trạng thái hiện hành
+
+- Cập nhật mới nhất sau nhiều vòng hỏi: đọc docs/PHONG_VAN_BO_SUNG.md trước; tài liệu này bổ sung/thay thế quyết định cũ ở các điểm mâu thuẫn. Phỏng vấn vẫn đang tiếp tục, người dùng chưa cho chuyển bước.
+- Điểm dừng mới nhất: bài học yêu cầu trực tiếp có thể trì hoãn một lần theo tâm trạng, yêu cầu lần hai thì thực hiện nếu đủ quyền/điều kiện; dọn đồ có thể từ chối theo tâm trạng. Chưa gửi câu tiếp theo sau mốc này.
+
+- Người dùng yêu cầu lưu tiến độ phỏng vấn ngày 2026-11-13. Xem docs/PHONG_VAN_DU_AN.md để biết các quyết định mới nhất; các mục bên dưới là lịch sử và có thể đã bị thay thế.
+- Dự án: cô gái anime trưởng thành chibi pixel 128×128 sống tự do trên desktop/cạnh cửa sổ. Tóc trắng bạc dài ngang eo, mái thưa; mắt đỏ hồng; áo len rộng hồng nhạt, chân váy xám đậm; chân trần.
+- Đã chốt quyền theo app và theo website: đọc/điều khiển riêng, mặc định tắt; che vùng không được đọc; nhường chuột/phím, chờ 60 giây người dùng không thao tác để trở lại.
+- Âm thanh tạm gác. Gửi chữ tới AI phải xem và hỏi mỗi lần. Tự cập nhật riêng app nhân vật. Không tác vụ sửa dữ liệu/gửi tin/mua hàng; cần làm rõ ngoại lệ dữ liệu riêng.
+- Bản sao file quyền gốc: docs/quyen-nhan-vat-da-chon.json; quyết định phỏng vấn sau đó ưu tiên hơn file.
+- Tiếp tục interview-me qua ô câu hỏi từng câu; người dùng muốn chọn từng chi tiết trước tạo mẫu. Điểm dừng: tóc dài ngang eo; tiếp theo hỏi màu da. Chưa tạo mẫu hoặc code nhân vật; chưa có xác nhận ý định cuối.
+
+## Mục tiêu và cách phối hợp
+
+- Người dùng mới học vibe code, muốn vừa làm vừa học cùng AI.
+- Giải thích bằng tiếng Việt dễ hiểu; hỏi từng câu về nhu cầu thực tế.
+- Làm từng phần nhỏ: mô tả → triển khai → AI kiểm tra → người dùng dùng thử → lưu mốc.
+- Không tự biến ví dụ app công việc thành yêu cầu sản phẩm.
+
+## Trạng thái ngày 2026-11-13
+
+- Thư mục ban đầu trống; đã tạo bộ hướng dẫn Markdown, mẫu mô tả ý tưởng và bộ nhớ này.
+- Chưa chọn ý tưởng, nền tảng, công nghệ hay dịch vụ; chưa có code ứng dụng.
+- Chưa thiết lập Git, lệnh chạy hoặc triển khai. Không tuyên bố có mốc khôi phục khi chưa thiết lập.
+- Chưa có Graphify hoặc DESIGN.md; chỉ tạo khi có dự án và nhu cầu tương ứng.
+
+## Tài liệu
+
+- README.md: điểm bắt đầu.
+- docs/QUY_TRINH_VIBE_CODE.md: quy trình, câu nhắn mẫu và cách kiểm tra.
+- docs/Y_TUONG_APP.md: mẫu để người dùng điền trước khi xây dựng.
+
+## Kiểm chứng
+
+- Tài liệu được đọc lại và kiểm tra liên kết tương đối, cấu trúc khối mã sau khi tạo.
+- Chưa có app để chạy hoặc kiểm thử; người dùng chưa dùng thử tài liệu.
+
+## Bước tiếp theo
+
+Người dùng điền mô tả app hoặc kể ý tưởng bằng lời. AI làm rõ từng câu, chốt phạm vi và luồng sử dụng trước khi chọn công nghệ hay viết code.
+
+## Cập nhật: phỏng vấn và trang chọn quyền
+
+- Ý tưởng đã được kể: nhân vật anime pixel 128×128 sống trên máy, hoạt bát, tò mò và tinh nghịch; chào khi mở máy, tự ngủ/thức, không bắt buộc trò chuyện.
+- Muốn nhìn nội dung màn hình, cùng xem phim trên sofa ảo, ăn bắp ngô, nhảy theo nhạc; leo giao diện và bấm chuyển tập thật.
+- Đây chưa phải bản yêu cầu đã xác nhận đầy đủ. Tiếp tục interview-me, từng câu bằng ô câu hỏi; không tự đoán các phần còn thiếu.
+- Người dùng yêu cầu danh sách quyền chi tiết và trang HTML/CSS để tick. Đã tạo permissions.html với 160 quyền A01–L12, 12 nhóm; điều kiện riêng, hỏi mỗi lần hoặc tự làm trong giới hạn, tìm kiếm, lọc, lưu localStorage có báo lỗi và xuất JSON.
+- Quyền nhóm L và các thao tác tập tin nhạy cảm giữ chế độ hỏi mỗi lần. Mọi quyền ban đầu chưa chọn; không có quyền hệ thống thực nào được cấp.
+- Trang chạy trực tiếp trong trình duyệt, không mạng hay thư viện. DESIGN.md ghi quy ước giao diện. README.md thêm hướng dẫn mở.
+- Kiểm tra thực tế: Node biên dịch JavaScript thành công; kiểm đếm dữ liệu được 160 quyền / 12 nhóm. Chưa kiểm tra trong trình duyệt thật; chưa xác minh thao tác tick, tải file và hiển thị. Chưa có trình tự động kiểm tra trình duyệt được cài trong dự án.
+- Thư mục chưa phải kho Git; không có commit hoặc mốc khôi phục Git.
+- Bước tiếp theo: người dùng mở permissions.html, chọn quyền và tải JSON; dùng lựa chọn đó để tiếp tục phỏng vấn về giới hạn và hành vi nhân vật.
+
+## Điều chỉnh phạm vi danh sách quyền
+
+- Người dùng chỉ muốn chọn quyền truy cập/tác động lên máy, không hỏi hành vi sinh hoạt; hành vi nhân vật sẽ bàn sau.
+- Đã thay danh sách bằng 132 quyền trong 9 nhóm: màn hình, đầu vào, âm thanh/camera, trình duyệt, tập tin, hệ điều hành, dữ liệu cá nhân/tài khoản, lưu trữ và mạng/AI.
+- Đổi nhãn thành “Xin phép khi dùng quyền”; giữ giới hạn riêng. Mặc định tất cả chưa chọn.
+- Dùng khóa lưu anime-access-permissions-v2 và schemaVersion 2; không áp lựa chọn cũ vào mã quyền đã đổi. Dữ liệu v1 không bị xóa.
+- Kiểm tra Node thành công: cú pháp, 132 ID duy nhất, 9 nhóm và khóa lưu riêng. Trình duyệt công cụ chặn truy cập file:// nên chưa xác minh trực quan bản sửa.
+
+## Lựa chọn toàn quyền
+
+- Theo yêu cầu người dùng, mỗi mục có thêm mode full: “Toàn quyền đối với quyền này”, không hỏi lại/không giới hạn bổ sung cho riêng mục. Không cấp các quyền khác, không bỏ giới hạn bắt buộc hay điều kiện trong tên quyền.
+- Full vô hiệu hóa ô giới hạn và xuất note rỗng; giữ nội dung cũ trên trình duyệt để người dùng đổi lại chế độ. Mode limited thiếu giới hạn sẽ chặn xuất và đưa focus tới ô cần điền.
+- Bỏ cơ chế ép chế độ ask ở một số mục trên bản yêu cầu; mọi mục đều có ba lựa chọn. Không có thực thi hoặc thay đổi quyền hệ thống.
+- Giữ khóa lưu v2 để bảo toàn lựa chọn hiện tại, nâng schema JSON lên 3. Đã kiểm tra cú pháp và cấu trúc mã bằng Node; chưa xác minh tương tác trong trình duyệt.
+
+## Mô tả từng quyền
+
+- Đã bổ sung 132 mô tả riêng ngay dưới 132 quyền trong permissions.html, gồm ý nghĩa, ví dụ và ranh giới với quyền khác khi phù hợp.
+- Mô tả luôn nhìn thấy trước khi tick, gắn aria-describedby vào checkbox; tìm kiếm bao gồm mô tả, JSON xuất kèm explanation, schemaVersion 4.
+- Giữ nguyên ID và khóa lưu v2 nên không chủ động xóa lựa chọn đã lưu của người dùng.
+- Node kiểm tra cú pháp, đủ 132 mô tả đúng ID, liên kết mô tả trợ năng và tích hợp xuất JSON thành công; chưa kiểm chứng hiển thị trong trình duyệt.

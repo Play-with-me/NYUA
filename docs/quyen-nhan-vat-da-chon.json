@@ -1,0 +1,1064 @@
+{
+  "schemaVersion": 4,
+  "documentType": "proposed-permissions-only",
+  "exportedAt": "2026-11-12T20:29:30.378Z",
+  "notice": "Bản yêu cầu, không cấp quyền hệ thống. Chưa chọn nghĩa là chưa cho phép.",
+  "permissions": [
+    {
+      "id": "A01",
+      "description": "Đọc tên ứng dụng đang mở",
+      "explanation": "Biết bạn đang mở những phần mềm nào, ví dụ trình duyệt và trình soạn thảo; chưa được đọc nội dung bên trong.",
+      "allowed": true,
+      "mode": "limited",
+      "note": "Mọi app và trình duyệt web"
+    },
+    {
+      "id": "A02",
+      "description": "Đọc tiêu đề cửa sổ đang dùng",
+      "explanation": "Biết dòng tên ở đầu cửa sổ; ví dụ tên tài liệu hoặc video có thể xuất hiện trong tiêu đề dù chưa chụp màn hình.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "A03",
+      "description": "Đọc vị trí và kích thước cửa sổ",
+      "explanation": "Biết các khung cửa sổ nằm ở đâu và lớn bao nhiêu; dùng làm bản đồ vị trí, không cho đọc nội dung.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "A04",
+      "description": "Chụp và phân tích cửa sổ bạn chỉ định",
+      "explanation": "Lấy hình ảnh trong một cửa sổ bạn chọn để hiểu thứ đang hiện; ví dụ chỉ cửa sổ xem phim, không phải toàn desktop.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "A05",
+      "description": "Chụp và phân tích toàn bộ màn hình chính",
+      "explanation": "Lấy ảnh toàn màn hình chính, có thể thấy cả cửa sổ, thanh tác vụ và thông báo đang hiện trên đó.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "A06",
+      "description": "Chụp và phân tích màn hình phụ",
+      "explanation": "Lấy ảnh các màn hình phụ được cho phép; không tự có quyền này chỉ vì đã cho xem màn hình chính.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "A07",
+      "description": "Đọc chữ đang hiển thị trên màn hình",
+      "explanation": "Nhận dạng và đọc chữ nhìn thấy, ví dụ phụ đề hoặc đoạn tài liệu; không tự cho phép mở tập tin gốc.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "A08",
+      "description": "Đọc cấu trúc giao diện và thông tin nút bấm của ứng dụng",
+      "explanation": "Đọc thông tin giao diện do ứng dụng cung cấp, như tên nút, nhãn và giá trị ô nhập; có thể lộ dữ liệu không rõ trên ảnh.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "A09",
+      "description": "Quan sát màn hình liên tục trong phiên được phép",
+      "explanation": "Lặp lại việc quan sát trong phiên bạn cho phép thay vì chỉ nhìn một lần; cần quyền nguồn ảnh hoặc chữ tương ứng.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "A10",
+      "description": "Quan sát màn hình khi ứng dụng đang chạy nền",
+      "explanation": "Tiếp tục quan sát khi cửa sổ nhân vật không ở phía trước; không đồng nghĩa được xem khi máy khóa hay vượt phạm vi đã chọn.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "B01",
+      "description": "Đọc vị trí con trỏ chuột",
+      "explanation": "Biết mũi tên chuột đang ở tọa độ nào; chưa được tự di chuyển hoặc nhấp chuột.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "B02",
+      "description": "Nhận biết có hoạt động chuột và bàn phím, không đọc nội dung phím",
+      "explanation": "Biết bạn đang thao tác hay đã nghỉ, nhưng không thu lại chữ bạn gõ hoặc phím cụ thể.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "B03",
+      "description": "Đọc phím tắt bạn dành riêng cho nhân vật",
+      "explanation": "Nhận các tổ hợp phím bạn dành cho nhân vật, ví dụ phím gọi hoặc dừng; không phải đọc mọi phím.",
+      "allowed": false,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "B04",
+      "description": "Đọc nội dung phím gõ trong ứng dụng được chỉ định",
+      "explanation": "Đọc phím bạn gõ trong phần mềm đã cho phép; có thể chứa tin nhắn hoặc thông tin riêng tư, cần loại trừ ô mật khẩu.",
+      "allowed": false,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "B05",
+      "description": "Di chuyển con trỏ chuột thật",
+      "explanation": "Tự đổi vị trí con trỏ thật, có thể ảnh hưởng thao tác của bạn; nhấp hoặc gõ cần quyền riêng.",
+      "allowed": true,
+      "mode": "limited",
+      "note": "Người dùng có quyền từ chối nếu không bằng cách di chuyển chuột mạnh, nếu di chuyển chậm và nhẹ thì nhân vật vẫn có quyền tự đổi vị trí con trỏ"
+    },
+    {
+      "id": "B06",
+      "description": "Gửi thao tác nhấp chuột trái",
+      "explanation": "Gửi một lần bấm chuột trái lên ứng dụng khác; hậu quả tùy nút được bấm và còn cần quyền cho tác vụ tương ứng.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "B07",
+      "description": "Gửi thao tác nhấp đúp",
+      "explanation": "Gửi hai lần bấm nhanh; ví dụ mở tập tin trong trình quản lý, nhưng đọc hay chạy tập tin cần quyền riêng.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "B08",
+      "description": "Gửi thao tác nhấp chuột phải",
+      "explanation": "Mở menu chuột phải tại vị trí được phép; chọn mục trong menu là một thao tác tiếp theo.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "B09",
+      "description": "Gửi thao tác cuộn",
+      "explanation": "Cuộn nội dung lên, xuống hoặc ngang trong cửa sổ; không tự cấp quyền đọc nội dung vừa xuất hiện.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "B10",
+      "description": "Gửi thao tác kéo thả",
+      "explanation": "Giữ chuột rồi kéo một đối tượng; ví dụ kéo thanh trượt, hoặc di chuyển tập tin nếu có thêm quyền tập tin tương ứng.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "B11",
+      "description": "Gõ văn bản vào ứng dụng khác",
+      "explanation": "Nhập chữ thay bạn vào ô của phần mềm khác; ví dụ ô tìm kiếm, không tự được gửi tin hoặc gửi biểu mẫu.",
+      "allowed": true,
+      "mode": "limited",
+      "note": "Tôi chỉ cho phép một số ứng dụng có thể sử dung, sau này chúng ta có một menu trong phần dự án để chọn các app có thể sử dụng"
+    },
+    {
+      "id": "B12",
+      "description": "Gửi tổ hợp phím tắt tới ứng dụng khác",
+      "explanation": "Gửi phím như Ctrl+L hoặc Space tới phần mềm khác; các phím xóa, đóng hoặc gửi vẫn chịu quyền tác vụ tương ứng.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "B13",
+      "description": "Đọc nội dung bộ nhớ tạm",
+      "explanation": "Đọc thứ bạn vừa sao chép, có thể là chữ, hình hoặc thông tin nhạy cảm; độc lập với quyền xem màn hình.",
+      "allowed": true,
+      "mode": "limited",
+      "note": "Chỉ được đọc mỗi khi tôi mở bộ nhớ tạm"
+    },
+    {
+      "id": "B14",
+      "description": "Ghi nội dung vào bộ nhớ tạm",
+      "explanation": "Đặt nội dung mới vào vùng sao chép để bạn dán; có thể thay thế nội dung bạn đang giữ ở đó.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "C01",
+      "description": "Đọc trạng thái phát và tên nội dung đa phương tiện nếu có",
+      "explanation": "Biết nội dung đang phát, tên bài hoặc trạng thái dừng nếu ứng dụng cung cấp; không thu âm lời nói.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "C02",
+      "description": "Thu âm thanh hệ thống",
+      "explanation": "Thu tiếng phát ra từ máy, có thể bao gồm nhạc, cuộc gọi và thông báo; không bao gồm micro nếu chưa cấp riêng.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "C03",
+      "description": "Thu âm thanh từ ứng dụng được chỉ định nếu hệ thống hỗ trợ",
+      "explanation": "Chỉ lấy âm thanh từ phần mềm được chọn thay vì toàn máy; nếu không hỗ trợ phải báo, không tự thu toàn hệ thống.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "C04",
+      "description": "Phân tích âm thanh ngay trên máy",
+      "explanation": "Phân tích âm thanh cục bộ, ví dụ nhịp và đoạn có tiếng; vẫn cần quyền thu nguồn âm thanh đó.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "C05",
+      "description": "Dùng micro khi bạn chủ động bật",
+      "explanation": "Nhận tiếng từ micro sau khi bạn bật; có thể nghe cả người khác hoặc tiếng trong phòng.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "C06",
+      "description": "Duy trì nghe micro trong phiên được phép",
+      "explanation": "Tiếp tục nghe micro trong suốt phiên cho phép, không chỉ khi bạn bấm một lần; cần chỉ báo đang nghe.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "C07",
+      "description": "Dùng camera khi bạn chủ động bật",
+      "explanation": "Nhận hình ảnh từ camera sau khi bạn bật; có thể thấy người, căn phòng và vật riêng tư.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "C08",
+      "description": "Duy trì camera trong phiên được phép",
+      "explanation": "Giữ camera hoạt động trong phiên cho phép; không tự cho phép ghi hình xuống máy hoặc gửi ra ngoài.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "D01",
+      "description": "Đọc địa chỉ trang web đang dùng",
+      "explanation": "Biết URL của trang đang mở; URL đôi khi chứa từ tìm kiếm hoặc thông tin riêng, không tự cho đọc trang.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "D02",
+      "description": "Đọc danh sách tab và tiêu đề tab",
+      "explanation": "Biết các tab đang tồn tại và tên của chúng, kể cả tab chưa được chọn; không tự đọc nội dung từng tab.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "D03",
+      "description": "Đọc nội dung trang web được chỉ định",
+      "explanation": "Đọc chữ và nội dung trang được cho phép, có thể gồm nội dung tài khoản đã đăng nhập; không tự gửi hoặc sửa.",
+      "allowed": true,
+      "mode": "limited",
+      "note": "Chỉ đọc được những gì hiện ngay trên màn hình"
+    },
+    {
+      "id": "D04",
+      "description": "Đọc cấu trúc trang và vị trí nút bấm",
+      "explanation": "Đọc tên, trạng thái và vị trí phần tử trang để tìm đúng nút; có thể gồm dữ liệu ô nhập mà trang cung cấp.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "D05",
+      "description": "Điều khiển tab trong trang web được phép",
+      "explanation": "Thực hiện thao tác trong tab được phép; gửi dữ liệu, giao dịch hoặc tác động tài khoản vẫn cần quyền riêng.",
+      "allowed": true,
+      "mode": "limited",
+      "note": "Được thao tác nhưng không được đúng đến các gói mua hoặc những nơi ảnh hưởng đến người dùng thật sự"
+    },
+    {
+      "id": "D06",
+      "description": "Mở tab và truy cập địa chỉ web",
+      "explanation": "Tạo tab và đi tới URL; việc truy cập có thể gửi thông tin kết nối thông thường cho website, không tự được tải tập tin lên.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "D07",
+      "description": "Đóng tab được chỉ định",
+      "explanation": "Đóng tab bạn cho phép, có thể làm mất biểu mẫu chưa lưu; không tự được đóng toàn trình duyệt.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "D08",
+      "description": "Đọc lịch sử duyệt web",
+      "explanation": "Xem danh sách website đã truy cập trước đây; khác với chỉ biết tab đang mở.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "D09",
+      "description": "Đọc dấu trang",
+      "explanation": "Xem các liên kết bạn đã lưu làm dấu trang; chưa có quyền thay đổi hoặc xóa dấu trang.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "D10",
+      "description": "Đọc danh sách tải xuống",
+      "explanation": "Xem tên, địa chỉ nguồn và trạng thái các mục tải xuống; không tự đọc nội dung tập tin tải về.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "D11",
+      "description": "Tải tập tin từ web",
+      "explanation": "Lấy tập tin từ Internet về máy; chưa được mở, chạy hoặc cài tập tin đó.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "D12",
+      "description": "Tải dữ liệu lên trang web",
+      "explanation": "Gửi tập tin hoặc dữ liệu từ máy lên website; cần chỉ rõ dữ liệu và nơi nhận, không được hiểu là mọi website.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "D13",
+      "description": "Dùng phiên đăng nhập sẵn có để thao tác trên dịch vụ",
+      "explanation": "Thao tác dưới danh tính tài khoản đã đăng nhập; các việc gửi tin, đăng bài hoặc mua hàng cần quyền tương ứng riêng.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "D14",
+      "description": "Đọc cookie hoặc mã phiên đăng nhập",
+      "explanation": "Đọc dữ liệu duy trì đăng nhập; mã phiên có thể cho người khác truy cập tài khoản, không tự được gửi mã ra ngoài.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "E01",
+      "description": "Đọc dữ liệu trong thư mục riêng của nhân vật",
+      "explanation": "Đọc dữ liệu ứng dụng lưu trong thư mục nhân vật, ví dụ cấu hình; không bao gồm thư mục cá nhân khác.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "E02",
+      "description": "Ghi dữ liệu trong thư mục riêng của nhân vật",
+      "explanation": "Tạo và cập nhật dữ liệu của ứng dụng trong thư mục riêng; không tự được sửa tài liệu bên ngoài.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "E03",
+      "description": "Đọc tập tin bạn chủ động chọn",
+      "explanation": "Đọc đúng tập tin bạn đưa qua nút chọn hoặc kéo thả; không tự mở các tập tin cùng thư mục.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "E04",
+      "description": "Liệt kê tập tin trong thư mục bạn chọn",
+      "explanation": "Xem danh sách tên tập tin và thư mục con trong vị trí bạn chọn; chưa đọc nội dung bên trong.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "E05",
+      "description": "Đọc nội dung tập tin trong thư mục bạn chọn",
+      "explanation": "Mở và đọc nội dung tập tin trong vị trí cho phép; ghi rõ có bao gồm thư mục con hay không.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "E06",
+      "description": "Đọc thông tin tập tin: kích thước, loại và thời gian sửa",
+      "explanation": "Xem loại, dung lượng và thời điểm sửa tập tin; không tự cho đọc phần nội dung.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "E07",
+      "description": "Tạo tập tin trong thư mục được phép",
+      "explanation": "Ghi tập tin mới trong thư mục được phép; ghi đè tập tin đã có cần quyền sửa riêng.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "E08",
+      "description": "Sửa nội dung tập tin hiện có",
+      "explanation": "Thay đổi hoặc ghi đè nội dung tập tin đã có; có thể mất nội dung cũ nếu không có bản sao.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "E09",
+      "description": "Đổi tên tập tin hoặc thư mục",
+      "explanation": "Đổi tên đối tượng đã có; có thể khiến đường dẫn hoặc liên kết cũ không còn đúng.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "E10",
+      "description": "Di chuyển tập tin hoặc thư mục",
+      "explanation": "Chuyển đối tượng sang vị trí khác; đối tượng sẽ không còn ở đường dẫn cũ.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "E11",
+      "description": "Sao chép tập tin hoặc thư mục",
+      "explanation": "Tạo bản sao ở vị trí khác; bản gốc vẫn còn, nơi nhận cũng phải nằm trong phạm vi cho phép.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "E12",
+      "description": "Đưa tập tin hoặc thư mục vào thùng rác",
+      "explanation": "Xóa theo cách có thể khôi phục từ thùng rác nếu vị trí hỗ trợ; không tự chuyển sang xóa vĩnh viễn nếu không hỗ trợ.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "E13",
+      "description": "Xóa vĩnh viễn tập tin hoặc thư mục",
+      "explanation": "Xóa không qua thùng rác; có thể không khôi phục được bằng cách thông thường.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "E14",
+      "description": "Đọc thư mục đồng bộ đám mây được chọn",
+      "explanation": "Đọc thư mục như OneDrive bạn chỉ định; tập tin có thể cần tải từ dịch vụ về trước khi đọc.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "E15",
+      "description": "Truy cập ổ ngoài hoặc thư mục mạng được chọn",
+      "explanation": "Truy cập vị trí trên USB, ổ ngoài hoặc máy trong mạng được chỉ định; quyền đọc, ghi, xóa vẫn tách riêng.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "E16",
+      "description": "Mở tập tin bằng ứng dụng liên kết",
+      "explanation": "Yêu cầu phần mềm mặc định mở tập tin; tập tin thực thi hoặc tập lệnh còn cần quyền chạy tương ứng.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F01",
+      "description": "Đọc danh sách tiến trình đang chạy",
+      "explanation": "Xem phần mềm và tác vụ đang chạy, kể cả chạy nền; chưa được dừng hoặc đọc dữ liệu của chúng.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "F02",
+      "description": "Đọc mức sử dụng CPU, RAM và GPU",
+      "explanation": "Đọc mức tải bộ xử lý và bộ nhớ để biết máy đang bận; không đọc nội dung nằm trong RAM.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "F03",
+      "description": "Đọc trạng thái pin và nguồn điện",
+      "explanation": "Biết phần trăm pin, đang sạc hay dùng pin; không thay đổi chế độ nguồn.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "F04",
+      "description": "Đọc dung lượng ổ đĩa",
+      "explanation": "Biết ổ còn bao nhiêu chỗ trống; chưa được liệt kê hoặc đọc tập tin.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "F05",
+      "description": "Đọc trạng thái kết nối mạng",
+      "explanation": "Biết máy có kết nối hay không và loại kết nối cơ bản; không đồng nghĩa được đọc lưu lượng mạng.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "F06",
+      "description": "Nhận biết khóa, mở khóa và thời gian không thao tác",
+      "explanation": "Biết máy vừa khóa, mở khóa hoặc bạn không thao tác bao lâu; không được tự mở khóa máy.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "F07",
+      "description": "Chuyển cửa sổ đang được chọn",
+      "explanation": "Đưa một cửa sổ lên trước để nhận thao tác; có thể gián đoạn công việc hiện tại của bạn.",
+      "allowed": true,
+      "mode": "limited",
+      "note": "Nếu tôi đang làm liên tục thì không được thực hiện hành động"
+    },
+    {
+      "id": "F08",
+      "description": "Di chuyển hoặc đổi kích thước cửa sổ khác",
+      "explanation": "Thay đổi vị trí hoặc kích thước khung ứng dụng; không sửa nội dung tài liệu bên trong.",
+      "allowed": true,
+      "mode": "limited",
+      "note": "Nếu tôi đang làm liên tục thì không được thực hiện hành động"
+    },
+    {
+      "id": "F09",
+      "description": "Thu nhỏ hoặc phóng to cửa sổ khác",
+      "explanation": "Thu cửa sổ xuống thanh tác vụ hoặc phóng lớn; không đóng ứng dụng.",
+      "allowed": true,
+      "mode": "limited",
+      "note": "Nếu tôi đang làm liên tục thì không được thực hiện hành động"
+    },
+    {
+      "id": "F10",
+      "description": "Mở ứng dụng trong danh sách cho phép",
+      "explanation": "Khởi chạy phần mềm đã được bạn cho phép; không tự cài phần mềm chưa có.",
+      "allowed": true,
+      "mode": "limited",
+      "note": "Sẽ có mục menu để thêm các app mà nhân vật có thể mở"
+    },
+    {
+      "id": "F11",
+      "description": "Đóng ứng dụng khác",
+      "explanation": "Yêu cầu ứng dụng đóng bình thường; có thể xuất hiện câu hỏi lưu tài liệu và cần xử lý riêng.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F12",
+      "description": "Buộc dừng tiến trình",
+      "explanation": "Chấm dứt tác vụ ngay cả khi không phản hồi; có thể mất dữ liệu chưa lưu.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F13",
+      "description": "Điều chỉnh âm lượng hệ thống",
+      "explanation": "Thay đổi âm lượng chung hoặc tắt tiếng máy; ảnh hưởng mọi ứng dụng phát âm thanh.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F14",
+      "description": "Điều chỉnh âm lượng từng ứng dụng",
+      "explanation": "Chỉnh âm lượng phần mềm riêng nếu hệ thống hỗ trợ; không tự thay đổi âm lượng chung khi không hỗ trợ.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F15",
+      "description": "Thay đổi độ sáng màn hình nếu hỗ trợ",
+      "explanation": "Chỉnh sáng màn hình được hỗ trợ; không tự thay đổi màu sắc hoặc cấu hình màn hình khác.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F16",
+      "description": "Thay đổi hình nền máy tính",
+      "explanation": "Đổi ảnh nền desktop; không tự tải ảnh ngoài mạng nếu chưa được cấp quyền mạng phù hợp.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F17",
+      "description": "Đăng ký tự chạy khi đăng nhập máy",
+      "explanation": "Đăng ký để ứng dụng nhân vật mở khi đăng nhập Windows; không phải quyền mở các ứng dụng khác.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "F18",
+      "description": "Chạy nền sau khi đóng cửa sổ nhân vật",
+      "explanation": "Giữ tiến trình nhân vật hoạt động sau khi đóng cửa sổ; phải có cách thoát rõ ràng và vẫn tuân theo quyền quan sát.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "F19",
+      "description": "Đọc thông báo hệ thống",
+      "explanation": "Đọc thông báo do hệ điều hành cung cấp; có thể thấy nội dung tin nhắn hoặc mã xác thực nên cần loại trừ phù hợp.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F20",
+      "description": "Tạo thông báo hệ thống",
+      "explanation": "Hiển thị thông báo của ứng dụng nhân vật; không được giả làm thông báo của ứng dụng khác.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F21",
+      "description": "Thay đổi thiết lập hệ thống",
+      "explanation": "Thay đổi mục cài đặt bạn chỉ định; cần ghi rõ mục nào, không tự coi là quyền sửa mọi thiết lập bảo mật.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F22",
+      "description": "Cài đặt hoặc gỡ phần mềm",
+      "explanation": "Thêm hoặc gỡ phần mềm, ảnh hưởng dung lượng và hoạt động máy; nguồn cài đặt phải được xác định.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F23",
+      "description": "Chạy lệnh hoặc tập lệnh trên máy",
+      "explanation": "Thực thi câu lệnh có thể đọc, sửa hoặc xóa dữ liệu; quyền tác động tương ứng vẫn cần có.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F24",
+      "description": "Yêu cầu quyền quản trị cho thao tác đã xác nhận",
+      "explanation": "Đề nghị nâng quyền cho tác vụ cụ thể; bạn vẫn tự xử lý hộp thoại quản trị, không vượt hoặc tắt cơ chế đó.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F25",
+      "description": "Khóa máy",
+      "explanation": "Chuyển máy về màn hình khóa; không tự đăng nhập lại thay bạn.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F26",
+      "description": "Đưa máy vào chế độ ngủ",
+      "explanation": "Cho máy ngủ, có thể ngắt hoạt động đang chạy hoặc kết nối đang dùng.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F27",
+      "description": "Khởi động lại máy",
+      "explanation": "Khởi động lại hệ điều hành, có thể đóng ứng dụng và làm mất phần chưa lưu.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "F28",
+      "description": "Tắt máy",
+      "explanation": "Tắt máy, dừng các ứng dụng và công việc hiện tại; cần tính đến tài liệu chưa lưu.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "G01",
+      "description": "Đọc hồ sơ cơ bản của tài khoản máy tính",
+      "explanation": "Đọc tên hiển thị và thông tin hồ sơ cơ bản; không bao gồm mật khẩu hoặc mã đăng nhập.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "G02",
+      "description": "Đọc danh bạ từ nguồn được chọn",
+      "explanation": "Đọc tên, số điện thoại hoặc email trong nguồn danh bạ bạn chọn; không tự được liên hệ với họ.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "G03",
+      "description": "Đọc lịch cá nhân từ nguồn được chọn",
+      "explanation": "Đọc lịch hẹn trong nguồn được chọn, có thể lộ thời gian và địa điểm; chưa được tạo hoặc sửa lịch.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "G04",
+      "description": "Đọc tin nhắn trong dịch vụ được chọn",
+      "explanation": "Đọc nội dung hội thoại trong dịch vụ chỉ định; khác quyền nhìn một đoạn đang hiển thị trên màn hình.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "G05",
+      "description": "Đọc email trong dịch vụ được chọn",
+      "explanation": "Đọc thư trong hộp thư được phép; không tự được gửi, xóa hoặc chuyển tiếp thư.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "G06",
+      "description": "Đọc tài liệu riêng tư trong nguồn được chọn",
+      "explanation": "Đọc tài liệu riêng tư từ nguồn chỉ định; tải lên AI hay chia sẻ tài liệu cần quyền riêng.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "G07",
+      "description": "Nhập dữ liệu vào biểu mẫu trực tuyến",
+      "explanation": "Điền ô trên website, có thể được website thu nhận ngay cả trước khi bấm gửi; phải xác định dữ liệu và nơi nhận.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "G08",
+      "description": "Gửi biểu mẫu trực tuyến",
+      "explanation": "Bấm gửi nội dung biểu mẫu; có thể tạo yêu cầu hoặc cam kết, phải kiểm tra tác động trước khi thực hiện.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "G09",
+      "description": "Gửi tin nhắn hoặc email bằng tài khoản của bạn",
+      "explanation": "Gửi nội dung dưới danh tính của bạn tới người nhận; không chỉ soạn nháp, phải xác định người nhận và nội dung.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "G10",
+      "description": "Đăng bài hoặc bình luận bằng tài khoản của bạn",
+      "explanation": "Đưa nội dung lên tài khoản của bạn; có thể công khai hoặc được người khác nhìn thấy ngay.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "G11",
+      "description": "Thực hiện giao dịch trả phí bằng tài khoản của bạn",
+      "explanation": "Sử dụng tài khoản để trả tiền hoặc mua dịch vụ; cần xác định bên nhận, số tiền và khoản phí liên quan.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "G12",
+      "description": "Đọc dữ liệu trong trình quản lý mật khẩu",
+      "explanation": "Truy cập thông tin đăng nhập đã lưu; mức nhạy cảm cao, không tự được dùng hoặc truyền đi nếu chưa được cho phép riêng.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "H01",
+      "description": "Lưu tùy chọn và quyền đã chọn",
+      "explanation": "Giữ lại các thiết lập và lựa chọn quyền sau khi đóng ứng dụng; không tự thu thập thêm thông tin.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "H02",
+      "description": "Lưu thông tin bạn chủ động cung cấp",
+      "explanation": "Lưu thông tin bạn trực tiếp đưa cho nhân vật, ví dụ tên muốn được gọi; bạn có thể xem và xóa.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "H03",
+      "description": "Lưu thông tin rút ra từ màn hình được phép quan sát",
+      "explanation": "Biến nội dung được nhìn thấy thành thông tin ghi nhớ; khác với chỉ nhìn rồi bỏ, cần loại trừ dữ liệu riêng tư.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "H04",
+      "description": "Lưu thông tin rút ra từ âm thanh được phép nghe",
+      "explanation": "Ghi nhớ điều rút ra từ âm thanh đã được nghe; không tự có quyền lưu bản ghi âm gốc.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "H05",
+      "description": "Lưu lịch sử tương tác giữa bạn và nhân vật",
+      "explanation": "Ghi lại các lần bạn tương tác với nhân vật, ví dụ thời điểm và lựa chọn; khác lưu toàn bộ hoạt động máy.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "H06",
+      "description": "Lưu ảnh chụp màn hình",
+      "explanation": "Giữ ảnh màn hình thành tập tin hoặc dữ liệu lâu dài; phải xác định thời hạn và cách xóa.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "H07",
+      "description": "Lưu bản ghi âm hệ thống",
+      "explanation": "Giữ bản âm thanh máy đã thu; có thể gồm cuộc gọi hoặc thông báo nếu nguồn thu chưa được giới hạn.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "H08",
+      "description": "Lưu bản ghi micro",
+      "explanation": "Giữ tiếng từ micro thành bản ghi; có thể gồm giọng người khác trong phòng.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "H09",
+      "description": "Lưu hình ảnh hoặc video camera",
+      "explanation": "Giữ hình ảnh camera thành ảnh hoặc video; khác chỉ xử lý hình ảnh trong lúc đang bật camera.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "H10",
+      "description": "Lưu nhật ký thao tác lên máy",
+      "explanation": "Ghi thao tác nhân vật đã thực hiện lên máy để bạn tra lại; tránh ghi kèm mật khẩu hoặc nội dung bí mật.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "H11",
+      "description": "Lưu nhật ký lỗi kỹ thuật",
+      "explanation": "Lưu thông tin giúp tìm lỗi, ví dụ thời điểm và loại lỗi; nội dung nhạy cảm cần được loại trước khi ghi.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "H12",
+      "description": "Giữ dữ liệu qua nhiều phiên sử dụng",
+      "explanation": "Không xóa dữ liệu được phép lưu khi kết thúc phiên; thời hạn cụ thể cần được thống nhất.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "H13",
+      "description": "Tạo bản sao lưu dữ liệu nhân vật trên máy",
+      "explanation": "Sao lưu dữ liệu nhân vật tới vị trí trên máy bạn chọn; bản sao cũng cần quy định giữ và xóa riêng.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "I01",
+      "description": "Kết nối tới dịch vụ AI bạn chỉ định",
+      "explanation": "Liên lạc với nhà cung cấp AI được chọn; chưa mặc nhiên được gửi tất cả loại dữ liệu ở các mục bên dưới.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "I02",
+      "description": "Gửi ảnh màn hình tới dịch vụ AI",
+      "explanation": "Gửi hình ảnh máy tính ra khỏi máy để AI phân tích; ảnh có thể chứa thông báo hoặc tài liệu riêng.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "I03",
+      "description": "Gửi chữ trích xuất từ màn hình tới dịch vụ AI",
+      "explanation": "Gửi chữ lấy từ màn hình thay vì ảnh; chữ vẫn có thể chứa thông tin riêng tư.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "I04",
+      "description": "Gửi âm thanh hệ thống tới dịch vụ AI",
+      "explanation": "Gửi tiếng máy đang phát cho AI bên ngoài; cần quyền thu nguồn âm thanh tương ứng.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "I05",
+      "description": "Gửi âm thanh micro tới dịch vụ AI",
+      "explanation": "Gửi tiếng micro tới AI bên ngoài; cần quyền micro riêng và xác định dịch vụ nhận.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "I06",
+      "description": "Gửi ảnh hoặc video camera tới dịch vụ AI",
+      "explanation": "Gửi hình từ camera ra ngoài; cần quyền camera riêng, không đồng nghĩa chỉ xử lý cục bộ.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "I07",
+      "description": "Gửi nội dung tập tin được chọn tới dịch vụ AI",
+      "explanation": "Gửi phần nội dung tập tin được chọn cho AI; khác chỉ cho đọc tập tin trên máy.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "I08",
+      "description": "Gửi ký ức và lịch sử tương tác tới dịch vụ AI",
+      "explanation": "Gửi thông tin đã nhớ và các tương tác trước cho AI; cần chọn phần nào và nhà cung cấp nào.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "I09",
+      "description": "Gửi thông tin ứng dụng và cửa sổ tới dịch vụ AI",
+      "explanation": "Gửi tên ứng dụng, tiêu đề hoặc vị trí cửa sổ; tiêu đề có thể tiết lộ tài liệu hay trang bạn đang dùng.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "I10",
+      "description": "Gửi thông tin tài nguyên máy tới dịch vụ bên ngoài",
+      "explanation": "Gửi thông số như tải CPU hoặc RAM ra ngoài; không bao gồm nội dung bộ nhớ hay tập tin.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "I11",
+      "description": "Gửi báo cáo lỗi sau khi bạn xem nội dung",
+      "explanation": "Gửi thông tin chẩn đoán sau khi bạn xem bản báo cáo; cần lọc đường dẫn, nội dung riêng và thông tin bí mật.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "I12",
+      "description": "Tìm kiếm thông tin trên Internet",
+      "explanation": "Gửi truy vấn và đọc kết quả web; không tự cho phép tải phần mềm hoặc đưa dữ liệu riêng vào truy vấn.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "I13",
+      "description": "Đồng bộ dữ liệu nhân vật lên nơi lưu trữ bạn chọn",
+      "explanation": "Lưu bản dữ liệu nhân vật trên nơi lưu trữ bên ngoài bạn chọn; cần xác định tài khoản và phạm vi đồng bộ.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "I14",
+      "description": "Kết nối thiết bị khác trong mạng nội bộ",
+      "explanation": "Liên lạc với thiết bị trong mạng nội bộ được chỉ định; không được quét hay điều khiển mọi thiết bị mặc định.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "I15",
+      "description": "Dùng API trả phí trong ngân sách đã đặt",
+      "explanation": "Tiêu thụ dịch vụ tính phí; đặt giới hạn tiền, chu kỳ tính và dừng khi đạt ngưỡng.",
+      "allowed": false,
+      "mode": "ask",
+      "note": ""
+    },
+    {
+      "id": "I16",
+      "description": "Kiểm tra bản cập nhật của ứng dụng nhân vật",
+      "explanation": "Hỏi nguồn cập nhật chính thức có phiên bản mới hay không; chưa tự được tải và cài phiên bản đó.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    },
+    {
+      "id": "I17",
+      "description": "Tải và cài bản cập nhật sau khi bạn xác nhận",
+      "explanation": "Tải và cài phiên bản ứng dụng nhân vật sau khi bạn xác nhận; không tự được cài phần mềm khác.",
+      "allowed": true,
+      "mode": "full",
+      "note": ""
+    }
+  ]
+}
