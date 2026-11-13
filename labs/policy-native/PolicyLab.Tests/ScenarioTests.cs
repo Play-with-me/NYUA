@@ -15,6 +15,7 @@ public class ScenarioTests
     {
         var scenario = ScenarioCatalog.All.Single(x => x.Id == id);
         var result = ScenarioRunner.Run(scenario);
+        Console.WriteLine(result.Summary);
         Assert.IsTrue(result.Passed, result.Summary);
         Assert.IsFalse(result.DiagnosticText.Contains("FORBIDDEN", StringComparison.Ordinal));
         Assert.IsFalse(result.ReceivedText.Contains("FORBIDDEN", StringComparison.Ordinal));

@@ -42,4 +42,40 @@ public class PolicyEvaluatorTests
         var result = PolicyEvaluator.Evaluate(Source, Permissions with { Sites = new Dictionary<string, Access>() }, true, true);
         Assert.AreEqual(Reason.SiteReadDenied, result.Reason);
     }
+
+    [TestMethod]
+    public void AppSourceDoesNotRequireUnrelatedWebsitePermission()
+    {
+        var result = PolicyEvaluator.Evaluate(Source with { Kind = SourceKind.App, SiteId = null },
+            Permissions with { Sites = new Dictionary<string, Access>() });
+        Assert.AreEqual(Outcome.Allow, result.Outcome);
+    }
+
+    [TestMethod]
+    public void MalformedNullRegionListFailsClosed()
+    {
+        Assert.AreEqual(Reason.InvalidInput,
+            PolicyEvaluator.Evaluate(Source with { Regions = null! }, Permissions).Reason);
+    }
+
+    [TestMethod]
+    public void DuplicatedRegionIdsFailClosed()
+    {
+        Assert.AreEqual(Reason.InvalidInput, PolicyEvaluator.Evaluate(Source with
+        { Regions = [new("safe", RegionKind.Safe), new("safe", RegionKind.Sensitive)] }, Permissions).Reason);
+    }
+
+    [TestMethod]
+    public void ControlRequiresReadAndDoesNotGrantIt()
+    {
+        Assert.IsFalse(PolicyEvaluator.CanEnableControl(new(false, true)));
+        Assert.IsTrue(PolicyEvaluator.CanEnableControl(new(true)));
+    }
+
+    [TestMethod]
+    public void RegionOutsideKnownWindowBoundsFailsClosed()
+    {
+        var source = Source with { Regions = [new("safe", RegionKind.Safe) { Bounds = new(310, 0, 20, 10) }] };
+        Assert.AreEqual(Reason.InvalidInput, PolicyEvaluator.Evaluate(source, Permissions).Reason);
+    }
 }

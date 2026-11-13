@@ -15,7 +15,11 @@ public enum Reason
 
 public sealed record Geometry(double X, double Y, double Width, double Height);
 public sealed record Access(bool Read = false, bool Control = false);
-public sealed record RegionDescriptor(string Id, RegionKind Classification);
+public sealed record RegionDescriptor(string Id, RegionKind Classification)
+{
+    // Fixture coordinates only; this lab never crops pixels or detects real sensitive regions.
+    public Geometry Bounds { get; init; } = new(0, 0, 1, 1);
+}
 public sealed record SourceDescriptor(string Id, string WindowId, string AppId,
     string? SiteId, SourceKind Kind, long Revision, Visibility Visibility,
     Privacy Privacy, Geometry Geometry, IReadOnlyList<RegionDescriptor> Regions);

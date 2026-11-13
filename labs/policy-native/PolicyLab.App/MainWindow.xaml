@@ -16,6 +16,9 @@
     <TextBlock DockPanel.Dock="Top" Text="Chọn tình huống" FontWeight="SemiBold" Margin="0,0,0,8"/>
     <ListBox x:Name="CaseList" ItemsSource="{Binding Cases}" SelectedItem="{Binding SelectedScenario}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
      AutomationProperties.Name="Danh sách tình huống giả" BorderThickness="0" Background="White">
+     <ListBox.ItemContainerStyle><Style TargetType="ListBoxItem">
+      <Setter Property="AutomationProperties.Name" Value="{Binding Title}"/>
+     </Style></ListBox.ItemContainerStyle>
      <ListBox.ItemTemplate><DataTemplate><StackPanel Margin="8">
       <TextBlock Text="{Binding Id}" FontSize="13" Foreground="#155E52" FontWeight="SemiBold"/>
       <TextBlock Text="{Binding Title}" MaxWidth="246" Margin="0,4,0,0"/>

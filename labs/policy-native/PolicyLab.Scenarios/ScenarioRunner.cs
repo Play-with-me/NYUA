@@ -55,8 +55,12 @@ public sealed class ScenarioSession
         if (Scenario.VerifyOtherSource)
         {
             var other = ScenarioCatalog.Source with { Id = "source-b", AppId = "app-b" };
-            var denied = PolicyEvaluator.Evaluate(other, Coordinator.Permissions);
-            passed &= denied.Outcome == Outcome.Block && denied.AllowedRegionIds.Count == 0;
+            var otherCalls = 0;
+            var otherCoordinator = new ReadCoordinator(other, Coordinator.Permissions,
+                new Dictionary<string, string> { ["safe"] = "FORBIDDEN-SOURCE-B" }, _ => otherCalls++);
+            var denied = otherCoordinator.Begin();
+            otherCoordinator.Complete();
+            passed &= denied.Outcome == Outcome.Block && otherCoordinator.Analysis is null && otherCalls == 0;
         }
         if (Scenario.VerifyGeometry) passed &= Coordinator.GetGeometry() == ScenarioCatalog.Source.Geometry && Coordinator.Analysis is null;
         return new(Scenario.Id, passed, actual.Outcome, actual.Reason, ReceiverCalls, text, diagnostics,

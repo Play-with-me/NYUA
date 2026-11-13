@@ -38,8 +38,14 @@ public static class PolicyEvaluator
         if (!double.IsFinite(g.X) || !double.IsFinite(g.Y) || !double.IsFinite(g.Width) ||
             !double.IsFinite(g.Height) || g.Width <= 0 || g.Height <= 0) return false;
         return s.Regions.All(r => r is not null && !string.IsNullOrWhiteSpace(r.Id) &&
-            Enum.IsDefined(r.Classification)) && s.Regions.Select(r => r.Id).Distinct().Count() == s.Regions.Count &&
+            Enum.IsDefined(r.Classification) && ValidRegionBounds(r.Bounds, g)) &&
+            s.Regions.Select(r => r.Id).Distinct().Count() == s.Regions.Count &&
             p.Apps.All(x => !string.IsNullOrWhiteSpace(x.Key) && x.Value is not null) &&
             p.Sites.All(x => !string.IsNullOrWhiteSpace(x.Key) && x.Value is not null);
     }
+
+    private static bool ValidRegionBounds(Geometry b, Geometry window) => b is not null &&
+        double.IsFinite(b.X) && double.IsFinite(b.Y) && double.IsFinite(b.Width) && double.IsFinite(b.Height) &&
+        b.X >= 0 && b.Y >= 0 && b.Width > 0 && b.Height > 0 &&
+        b.X + b.Width <= window.Width && b.Y + b.Height <= window.Height;
 }

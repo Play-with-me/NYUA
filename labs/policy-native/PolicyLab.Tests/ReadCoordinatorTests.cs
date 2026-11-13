@@ -71,4 +71,25 @@ public class ReadCoordinatorTests
         Assert.IsTrue(lab.IsPending);
         Assert.IsNull(lab.Analysis);
     }
+
+    [TestMethod]
+    public void ReturnedPermissionSnapshotCannotMutateCoordinator()
+    {
+        var lab = Create(); lab.Begin();
+        var snapshot = (Dictionary<string, Access>)lab.Permissions.Apps;
+        snapshot.Clear();
+        Assert.AreEqual(Outcome.Allow, lab.Complete().Outcome);
+    }
+
+    [TestMethod]
+    public void RevocationClearsPreviouslyDeliveredCurrentInput()
+    {
+        var lab = Create(); lab.Begin(); lab.Complete();
+        Assert.IsNotNull(lab.Analysis);
+        lab.UpdatePermissions(lab.Permissions with { ObservationEnabled = false });
+        Assert.IsNull(lab.Analysis);
+        Assert.IsNotNull(lab.GetGeometry());
+        lab.UpdatePermissions(lab.Permissions with { CharacterVisible = false });
+        Assert.IsNull(lab.GetGeometry());
+    }
 }
