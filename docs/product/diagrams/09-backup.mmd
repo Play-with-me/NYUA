@@ -1,0 +1,17 @@
+sequenceDiagram
+ participant U as User
+ participant H as Host
+ participant F as Archive
+ U->>H: Export chosen profile
+ H->>U: Require password, explain recovery code
+ U->>H: Password via secure UI
+ H->>H: Whitelist data, exclude grants and keys
+ H->>F: Authenticated encrypted data
+ H-->>U: Recovery code held separately
+ U->>H: Import file + password or recovery code
+ H->>H: Validate format, limits, integrity and schema
+ alt Valid
+ H-->>U: New separate profile, current machine grants
+ else Invalid
+ H-->>U: Reject without altering existing profiles
+ end

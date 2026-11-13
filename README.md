@@ -1,5 +1,14 @@
 # Dự án nhân vật sống trên desktop
 
+## Hồ sơ toàn sản phẩm — hai bản đọc
+
+- [Trang bắt đầu của bộ hồ sơ](docs/product/README.md).
+- [Dành cho người đọc](docs/product/HUMAN/README.md): sản phẩm, toàn bộ yêu cầu, trải nghiệm, nghiệp vụ, bản đồ và từng việc dễ hiểu.
+- [Dành cho AI/kỹ thuật](docs/product/AI/README.md): SRS, 7 module specs, kiến trúc/hợp đồng/dữ liệu/bảo mật/AI/UX/art/test/release, backlog và truy vết.
+- [Sơ đồ và hình vẽ](docs/product/diagrams/README.md): 15 nguồn Mermaid, atlas và 4 cặp PNG/SVG.
+
+Baseline tài liệu 0.1 để rà: 109 mục yêu cầu và 52 task dự kiến. Phần chưa chốt/đo được ghi rõ; không tự cho triển khai toàn backlog. Mẫu E02a và task còn mở vẫn được giữ riêng.
+
 ## Đọc trước — trạng thái hiện hành
 
 1. [Yêu cầu hiện hành](docs/YEU_CAU_HIEN_HANH.md): các quyết định đã hợp nhất và những lựa chọn cũ được thay thế.

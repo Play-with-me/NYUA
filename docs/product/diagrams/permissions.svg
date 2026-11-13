@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1450" viewBox="0 0 1800 1450">
+<rect width="100%" height="100%" fill="#f5f6f8"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10" fill="#5c726d"/></marker></defs>
+<text x="64" y="77" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="42">Cổng quyền trước khi phân tích</text>
+<text x="64" y="122" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">Sơ đồ ý nghĩa; nhận dạng vùng thật chưa được chứng minh bởi mẫu E02a.</text>
+<polyline points="330.0,360 330.0,500" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="330.0,660 330.0,800" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<text x="297.5" y="720.0" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">Hợp lệ</text>
+<polyline points="330.0,980 330.0,1120" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<text x="272.5" y="1040.0" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">Vẫn an toàn</text>
+<polyline points="580,580.0 790.0,580.0 790.0,580.0 1000,580.0" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<text x="725.0" y="570.0" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">Không hợp lệ</text>
+<polyline points="580,890.0 790.0,890.0 790.0,910.0 1000,910.0" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<text x="740.5" y="890.0" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">Chưa chắc</text>
+<rect x="80" y="200" width="500" height="160" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="102" y="244" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Nguồn đang hiển thị</text>
+<text x="102" y="282" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Danh tính app / website / khung cần xác</text>
+<text x="102" y="314" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">định.</text>
+<rect x="80" y="500" width="500" height="160" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="102" y="544" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Kiểm quyền và trạng thái</text>
+<text x="102" y="582" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Đủ cả trình duyệt và website, không riêng</text>
+<text x="102" y="614" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">tư, không tắt/ẩn.</text>
+<rect x="80" y="800" width="500" height="180" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="102" y="844" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Lọc và kiểm an toàn</text>
+<text x="102" y="882" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Không chắc thì chặn cửa sổ. Kiểm lại</text>
+<text x="102" y="914" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">phiên bản quyền và nguồn trước giao.</text>
+<rect x="80" y="1120" width="500" height="160" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="102" y="1164" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Chỉ nội dung an toàn</text>
+<text x="102" y="1202" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">OCR / AI / quyết định / ký ức tuân theo</text>
+<text x="102" y="1234" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">nguồn và mục đích.</text>
+<rect x="1000" y="500" width="650" height="160" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="1022" y="544" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Chặn hoặc hủy</text>
+<text x="1022" y="582" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Không có nội dung tới phần phân tích; giải thích lý do.</text>
+<rect x="1000" y="820" width="650" height="180" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="1022" y="864" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Thử đọc lại</text>
+<text x="1022" y="902" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Bạn bấm mới kiểm tra lại. Nút không bỏ qua bộ lọc.</text>
+<rect x="1000" y="1120" width="650" height="160" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="1022" y="1164" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Ngoại lệ chỉ hình học</text>
+<text x="1022" y="1202" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Vị trí/kích thước để sinh hoạt; không tiêu đề/nội dung.</text>
+<text x="64" y="1420" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">2026-11-13 · Bản thiết kế để rà; các phần chưa thử không được coi là đã hoạt động.</text>
+</svg>

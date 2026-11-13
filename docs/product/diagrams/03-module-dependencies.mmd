@@ -1,0 +1,12 @@
+flowchart LR
+ policy --> desktopbody["desktop-body"]
+ policy --> perception
+ policy --> tasks["task-execution"]
+ perception --> tasks
+ desktopbody --> tasks
+ life["life-state"] --> companion
+ perception --> companion
+ desktopbody --> companion
+ tasks --> companion
+ policy --> distribution
+ life --> distribution

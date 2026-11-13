@@ -1,0 +1,11 @@
+flowchart TD
+ Source["Nguồn đang hiển thị"] --> Identity{"Identity / grants đủ?"}
+ Identity -->|"Không"| Deny["Chặn, không phân tích"]
+ Identity -->|"Có"| Private{"Riêng tư hoặc vùng nhạy cảm không chắc?"}
+ Private -->|"Có"| Hold["Chặn cửa sổ; giữ hold nếu unsafe"]
+ Private -->|"Không"| Filter["Lọc vùng cấm trước OCR/model"]
+ Filter --> Rev{"Generation vẫn đúng?"}
+ Rev -->|"Không"| Discard["Hủy dữ liệu/kết quả cũ"]
+ Rev -->|"Có"| Safe["Safe snapshot tới local analysis"]
+ Hold -->|"User bấm Thử đọc lại"| Identity
+ Metadata["Chỉ geometry khi được phép"] --> Body["Sinh hoạt: không title/text"]

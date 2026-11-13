@@ -1,0 +1,11 @@
+flowchart TD
+ Start["Advanced own-media intent"] --> Gate{"Idle enough, unlocked, no media?"}
+ Gate -->|"No"| Life["Self life; no interruption"]
+ Gate -->|"Yes"| Grants{"Chosen browser and site allowed?"}
+ Grants -->|"No"| Life
+ Grants -->|"Yes"| Tab["Own tab; preserve user tabs"]
+ Tab --> Free{"Free and accessible?"}
+ Free -->|"Yes"| Play["Play; yield controls on user return"]
+ Free -->|"No"| Count{"Fewer than 3 candidates?"}
+ Count -->|"Yes"| Tab
+ Count -->|"No"| Life

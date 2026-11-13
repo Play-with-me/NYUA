@@ -1,0 +1,22 @@
+stateDiagram-v2
+ [*] --> Queued
+ Queued --> DelayedOnce: mood delay
+ DelayedOnce --> Checking: xong hoạt động hoặc user yêu cầu lại
+ Queued --> Checking: eligible
+ Checking --> Approaching
+ Approaching --> Rechecking
+ Rechecking --> Acting: valid permit
+ Acting --> Verifying
+ Verifying --> Succeeded: postcondition true
+ Checking --> FailedNeedsTeaching: mismatch
+ Rechecking --> FailedNeedsTeaching: changed target
+ Approaching --> YieldedHuman: human input
+ YieldedHuman --> Checking: idle 60s and revalidate
+ Queued --> Paused: stop/off/hide
+ Paused --> Checking: explicit ResumeQueue and eligible
+ Acting --> Cancelled: stop/off/hide
+ Approaching --> Cancelled: stop/off/hide
+ Queued --> Cancelled: exit/profile switch
+ Paused --> Cancelled: exit/profile switch
+ Succeeded --> [*]
+ Cancelled --> [*]

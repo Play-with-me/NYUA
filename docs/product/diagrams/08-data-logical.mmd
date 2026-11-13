@@ -1,0 +1,13 @@
+erDiagram
+ INSTALLATION ||--o{ SOURCE_GRANT : owns
+ INSTALLATION ||--o{ PROFILE : stores
+ PROFILE ||--|| CHARACTER_STATE : has
+ PROFILE ||--|| RELATIONSHIP_STATE : has
+ PROFILE ||--o{ MEMORY : remembers
+ MEMORY ||--o{ CONTRIBUTION : associates
+ PROFILE ||--o{ LESSON : learns
+ PROFILE ||--o{ PROP_STATE : contains
+ PROFILE ||--o{ MEDIA_PREFERENCE : infers
+ INSTALLATION ||--o{ ACTION_HISTORY : records
+ PROFILE ||--o{ EXPORT_ARCHIVE : manually_exports
+ INSTALLATION ||--o{ CREDENTIAL_REFERENCE : protects

@@ -2,15 +2,15 @@
 
 Cập nhật: 2026-11-13. Trạng thái: **hợp nhất kết quả phỏng vấn để rà soát**, chưa phải đặc tả kỹ thuật đã duyệt hoặc cam kết mọi khả năng đều khả thi.
 
-Người dùng đã yêu cầu tiến hành ba việc: hợp nhất yêu cầu, phân loại điểm chưa chắc và chuẩn bị thử nghiệm nhỏ. Chưa triển khai ứng dụng nhân vật.
+Đã có mẫu E02a C# + WPF trên dữ liệu giả, chưa có ứng dụng nhân vật đầy đủ. Người dùng hiện yêu cầu bộ hồ sơ toàn sản phẩm riêng cho người đọc và AI, gồm SRS, sơ đồ và task chi tiết. Tài liệu mới ở docs/product là baseline để rà, không tự cho triển khai các phần chưa kiểm chứng.
 
 ## 1. Cách sử dụng tài liệu
 
 - Đây là nơi tra yêu cầu hiện hành. Ghi chép phỏng vấn và JSON gốc giữ làm lịch sử.
 - Quyết định cụ thể mới hơn thay quyết định cũ về cùng vấn đề. Nội dung chưa xác định được ghi ở [Điểm chưa chắc](DIEM_CHUA_CHAC.md), không tự điền thành yêu cầu.
-- [Đề cương kiểm chứng](KE_HOACH_KIEM_CHUNG.md) là đề xuất chuẩn bị thử nghiệm; chưa có thử nghiệm nào đạt.
+- [Đề cương kiểm chứng](KE_HOACH_KIEM_CHUNG.md) phân biệt từng phép thử; E02a có kết quả kỹ thuật hẹp, còn kiểm tra UI/nghiệm thu. Không có bằng chứng đã đạt các phép thử toàn sản phẩm.
 - Những quyền mô tả ở đây dành cho sản phẩm tương lai, không phải giấy phép cho AI hiện tại truy cập hoặc điều khiển máy.
-- Không mặc định tên sản phẩm, công nghệ, mô hình AI, cấu hình tối thiểu, thời hạn phát hành hay chi phí đã được chọn.
+- Không tự chốt tên chính thức, chi tiết công nghệ/phiên bản, mô hình AI, cấu hình tối thiểu, thời hạn phát hành hay chi phí. Hướng công cụ đã thống nhất ở SP09 không chứng minh mọi chi tiết đã khả thi.
 
 ## 2. Mục tiêu, đối tượng và phạm vi phát hành
 
@@ -24,6 +24,7 @@ Người dùng đã yêu cầu tiến hành ba việc: hợp nhất yêu cầu, 
 | SP06 | Ưu tiên công cụ/dịch vụ miễn phí; mọi khoản chi phát triển phải hỏi trước. Chưa có ngân sách số cụ thể hoặc quyền tự chi. |
 | SP07 | Ở nâng cao, tính cách phát triển qua trải nghiệm/cách đối xử: từ làm trước nghĩ sau dần biết cân nhắc. Luôn giữ tò mò, tinh nghịch và ý muốn riêng; thay đổi cách thể hiện, không xóa các nét cốt lõi này. Cơ bản giữ tính cách ban đầu, vẫn đổi tâm trạng. Không phải quyền tự sửa code. |
 | SP08 | Học cách hành xử qua tương tác và trải nghiệm, không thêm nút đánh giá hành vi. Không tự đánh đồng người dùng bận/không đáp lời rủ với phê bình; chế độ làm mẫu thao tác ứng dụng vẫn là chức năng riêng. |
+| SP09 | Hướng đã thống nhất để tiếp tục: Unity phụ trách hiển thị/hoạt ảnh nhân vật; C# + WPF phụ trách phần ứng dụng, điều phối và quản lý; AI local phân tích ngữ cảnh/cảm xúc. Phiên bản, cách kết nối, topology tiến trình, hiệu năng và độ tin cậy còn cần thiết kế/kiểm chứng. Không xây giao diện sản phẩm bằng web theo đề xuất cũ. |
 
 ## 3. Ngoại hình và chuyển động
 
@@ -176,7 +177,7 @@ Không mặc định cấp tài khoản, vượt màn hình bảo vệ hoặc h�
 
 ## 12. Những gì chưa làm hoặc không thuộc bản đầu
 
-- Chưa có code nhân vật, ảnh mẫu được duyệt, thử nghiệm kỹ thuật hay đo hiệu năng. Chỉ có tài liệu và trang HTML chọn quyền lịch sử.
+- Chưa có code nhân vật hoặc ảnh mẫu được duyệt. Đã có mẫu E02a native với 53 kiểm thử đạt và 35 tình huống giả; còn kiểm tra UI/nghiệm thu. Chưa đo hiệu năng AI/Unity hoặc thử nguồn màn hình thật.
 - Không đưa vào bản đầu: đọc tập tin/thư mục chọn riêng, hệ điều hành khác, ngôn ngữ khác, nhiều ngoại hình, tạo thêm hồ sơ bằng nút mới, tài khoản/đồng bộ cloud, trò chuyện, phân tích âm thanh/micro/camera/nhảy nhịp, nội dung sách/tranh/game thật, giao dịch thật, công khai mã nguồn.
-- Chưa chọn stack/API/types/định dạng dữ liệu thực thi, công nghệ AI hoặc các giới hạn số chưa được hỏi. Không tạo lệnh build/test giả khi chưa có ứng dụng.
+- Hướng công cụ theo SP09, mẫu E02a dùng .NET10/WPF/MSTest. Chưa chốt stack/API/types/định dạng dữ liệu production hoặc mô hình AI và các giới hạn chưa hỏi. Lệnh có thật của mẫu không được ghi thành lệnh toàn sản phẩm.
 - Phiên ổn định 8 giờ là yêu cầu kiểm chứng, chưa phải bằng chứng đã đạt; cấu hình, độ chính xác, tỷ lệ lỗi và chi phí cần khảo sát theo [đề cương kiểm chứng](KE_HOACH_KIEM_CHUNG.md).

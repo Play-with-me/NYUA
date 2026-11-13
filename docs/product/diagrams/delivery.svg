@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1450" viewBox="0 0 1800 1450">
+<rect width="100%" height="100%" fill="#f5f6f8"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10" fill="#5c726d"/></marker></defs>
+<text x="64" y="77" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="42">Quy trình phát triển theo bằng chứng</text>
+<text x="64" y="122" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">Không qua bước chỉ vì đã viết tài liệu; không tự hạ yêu cầu để báo đạt.</text>
+<polyline points="900.0,310 900.0,370" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="900.0,500 900.0,560" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="900.0,690 900.0,750" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="900.0,880 900.0,940" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="900.0,1070 900.0,1130" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<rect x="340" y="180" width="1120" height="130" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="362" y="224" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Rà yêu cầu và SRS</text>
+<text x="362" y="262" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Hai bản cùng nguồn; chỗ chưa biết ghi rõ.</text>
+<rect x="340" y="370" width="1120" height="130" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="362" y="414" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Thử các rủi ro chính</text>
+<text x="362" y="452" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Quyền nguồn, Unity desktop, AI local.</text>
+<rect x="340" y="560" width="1120" height="130" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="362" y="604" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Duyệt lát làm tiếp</text>
+<text x="362" y="642" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Spec + hợp đồng + task + tiêu chí kiểm.</text>
+<rect x="340" y="750" width="1120" height="130" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="362" y="794" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Xây và kiểm tra nhỏ</text>
+<text x="362" y="832" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Code, test, rà soát và chạy thật.</text>
+<rect x="340" y="940" width="1120" height="130" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="362" y="984" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Người dùng dùng thử</text>
+<text x="362" y="1022" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Chưa dùng thử không ghi nghiệm thu.</text>
+<rect x="340" y="1130" width="1120" height="130" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="362" y="1174" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Tích hợp và phát hành</text>
+<text x="362" y="1212" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Hai mức, offline, 8 giờ, dữ liệu, giấy phép.</text>
+<text x="64" y="1420" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">2026-11-13 · Bản thiết kế để rà; các phần chưa thử không được coi là đã hoạt động.</text>
+</svg>

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:desktop-companion:dossier:requirements:0.1",
+  "title": "Requirement registry for review, not production configuration",
+  "type": "object",
+  "required": ["document_version", "date", "source_sha256", "status", "records"],
+  "properties": {
+    "document_version": {"const": "0.1"},
+    "date": {"type": "string"},
+    "source_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "status": {"const": "full_product_review_draft"},
+    "records": {"type": "array", "items": {"$ref": "#/$defs/record"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "record": {
+      "type": "object",
+      "required": ["id", "source_id", "source_text", "source_path", "source_kind", "scope", "requirement_status", "module", "acceptance_id", "acceptance", "human_acceptance", "acceptance_status", "task", "use_case", "evidence"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^SRS-[A-Z]+[0-9]{2}$"},
+        "source_id": {"type": "string"},
+        "source_text": {"type": "string", "minLength": 1},
+        "source_path": {"type": "string"},
+        "source_kind": {"enum": ["explicit_id", "mode_table"]},
+        "scope": {"enum": ["release1", "deferred"]},
+        "requirement_status": {"const": "user_decided"},
+        "module": {"enum": ["policy", "life-state", "desktop-body", "perception", "task-execution", "companion", "distribution"]},
+        "acceptance_id": {"type": "string", "pattern": "^AT-[A-Z]+[0-9]{2}$"},
+        "acceptance": {"type": "string", "minLength": 1},
+        "human_acceptance": {"type": "string", "minLength": 1},
+        "acceptance_status": {"const": "draft_for_review"},
+        "task": {"type": "string"},
+        "use_case": {"type": "string", "pattern": "^UC-[0-9]{2}$"},
+        "evidence": {"enum": ["E02a_fake_partial", "not_verified_production"]}
+      },
+      "additionalProperties": false
+    }
+  }
+}

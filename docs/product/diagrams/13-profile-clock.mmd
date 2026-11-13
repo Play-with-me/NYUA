@@ -1,0 +1,12 @@
+stateDiagram-v2
+ [*] --> Active
+ Active --> AppClosed: controlled exit, queue cancelled
+ AppClosed --> Active: elapsed reconcile, no fabricated events
+ Active --> InactiveFrozen: switch profile, queue cancelled
+ InactiveFrozen --> Active: resume exact frozen state
+ Active --> Resetting: explicit reset current
+ Resetting --> Active: initial state, lessons cleared
+ note right of InactiveFrozen
+ No hunger, mood, relation or clock progress
+ Shared installation grants unchanged
+ end note

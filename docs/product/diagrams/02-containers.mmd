@@ -1,0 +1,9 @@
+flowchart TB
+ WPF["WPF settings / tray"] --> Host["C# host: policy, life, tasks, storage"]
+ Unity["Unity renderer"] <-->|"Typed local messages: đề xuất"| Host
+ Browser["Chrome / Edge bridge tùy chọn"] -->|"Evidence nguồn"| Host
+ Windows["Windows adapter"] --> Host
+ Host -->|"Safe snapshot"| AI["Local AI worker: đề xuất"]
+ AI -->|"Validated observation"| Host
+ Host --> Store[("Local state")]
+ Host -.->|"Consented text only"| External["External AI"]

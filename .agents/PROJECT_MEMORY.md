@@ -2,6 +2,15 @@
 
 ## Trạng thái ưu tiên — sau yêu cầu “Proceed” ngày 2026-11-13
 
+- Mới nhất: người dùng yêu cầu toàn bộ tài liệu tiền triển khai (đặc tả/SRS/task/sơ đồ/giải thích), rồi yêu cầu riêng bản người đọc và AI. Đã tạo docs/product/README.md làm entry, HUMAN và AI dùng chung registry; đây là baseline0.1 để rà, không tự phê duyệt toàn backlog.
+- Nội dung:109 mục (100 sourceIDs gồm SP09 ghi hướnghybrid đã thống nhất +9moderows), SRS/PRD/danh mục dễ đọc,7specmodule,18UC, nghiệp vụ/UX/art/architecture/interface/data/security/localAI/QA/release/team,52taskproposal códeps/criteria/files/blockers,RTM.csv,18điểm mở D-01..18,ADR001/002/005 với status thật.
+- Hình vẽ:15Mermaid sources+Atlas,4cặp PNG/SVG đã nhìn trực tiếp, sourcegenerator local. Task DAG đầy đủ sinh từ backlog. Không có Graphify production hoặc Mermaid engine renderproof; không giả graph đã extracted.
+- Đồng bộ: AI/sync_requirements.py, sync_backlog.py, diagrams/build_diagrams.py; validate_dossier.py kiểmsourcehash/text/coverage/reference/taskDAG/status/links/images. Đạt cleancontrol,3negativecontrols(hash/cycle/link) bị từchối. JSONSchema chưa validatebằngtoolđộclập. QUALITY_REPORT ghi giới hạn.
+- Canonical docs/YEU_CAU_HIEN_HANH.md đã cập nhật thực trạng E02a và SP09; các phần chưa chốt luôn proposed/TBD cóowner+gate. tasks/todo.md E02a không đổi, appcode không sửa, không cài/thử Unity/model hoặc phần production mới.
+- Bước tiếp: người dùng đọc HUMAN theo thứ tự, rà nhóm quyết định ảnh hưởng lát kế; không phỏng vấn lại toàn bộ hoặc tự bắt đầu52task. Tiếp tục khép UI/useracceptance E02a khi quay lại thực thi, rồi lập spec/plan scoped của hybridprobe theo bằng chứng.
+
+- Gói bàn giao tài liệu: C:\Pet\.tools\deliverables\Ho-so-san-pham-0.1.zip,87file tài liệu/hình/nguồn kèm manifestSHA256 và CRC kiểm tốt. Không .exe/.dll/model/SDK/key/Gitmetadata; notes giải thích liên kết workspace không có trong gói. Bộ docs/product có39Markdown,15mmd,4PNG+4SVG và dữ liệu/script đồng bộ. Bản HUMAN có human_acceptance_notes và human_task_notes riêng bằng lời thường, cùng registry/backlog với bản AI.
+
 - Mới nhất: người dùng đã duyệt kế hoạch và yêu cầu bắt đầu xây. Mẫu native E02a đã triển khai tại labs/policy-native: Core C#, Scenarios, WPF App, MSTest. Không Unity/AI/capture thật. Bản self-contained win-x64 mở tại labs/policy-native/artifacts/app/PolicyLab.App.exe, đã để mở cho người dùng thử.
 - SDK 10.0.404/runtime10.0.15 cài riêng C:\Pet\.tools\dotnet bằng script Microsoft, không đổi PATH/registry; dotnet.exe chữ ký Valid. Git cục bộ đã khởi tạo và có các mốc tài liệu/core/coordinator/catalog/WPF; không push/remote. .tools/bin/obj/TestResults/artifacts được ignore.
 - Kết quả thật: 53/53 MSTest Release đạt (35 trường hợp A/B + các kiểm tra core/coordinator/inventory); build0 warnings/errors, publish self-contained thành công. Audit NuGet Tests không thấy vulnerable packages theo nguồn hiện có; snapshot runtime TCP0/UDP0. Rà cùng AI, không độc lập.

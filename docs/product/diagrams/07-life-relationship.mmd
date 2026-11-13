@@ -1,0 +1,15 @@
+stateDiagram-v2
+ [*] --> Friends
+ Friends --> Closer: positive interactions
+ Closer --> Upset: repeated boundary violation or eligible neglect
+ Upset --> Withdrawn: unresolved hurt
+ Withdrawn --> SelfHidden: severity threshold TBD
+ SelfHidden --> Reconnecting: invitation or gift accepted
+ Reconnecting --> Closer: time and good treatment across sessions
+ Upset --> Closer: gradual repair
+ Closer --> RomanceExpression: user opt in and progression
+ RomanceExpression --> Friends: user opt out respected
+ note right of SelfHidden
+ No content observation or control
+ Settings and reset remain accessible
+ end note

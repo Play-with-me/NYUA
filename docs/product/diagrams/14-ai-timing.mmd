@@ -1,0 +1,7 @@
+flowchart LR
+ T0["Scene visible t0"] --> T1["Eligibility and filtering t1"]
+ T1 --> T2["Safe snapshot and OCR t2"]
+ T2 --> T3["Local inference t3"]
+ T3 --> T4["Validate and mood decision t4"]
+ T4 --> T5["Animation starts t5"]
+ T5 --> Measure["Measure t5 minus t0, quality and load"]

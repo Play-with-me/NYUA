@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1240" viewBox="0 0 1800 1240">
+<rect width="100%" height="100%" fill="#f5f6f8"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10" fill="#5c726d"/></marker></defs>
+<text x="64" y="77" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="42">Bản đồ hệ thống: ai làm việc gì?</text>
+<text x="64" y="122" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">Hướng đã chọn: Unity + C#/WPF + AI local. Cách kết nối cụ thể vẫn cần phép thử.</text>
+<polyline points="500,275.0 590.0,275.0 590.0,275.0 680,275.0" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="900.0,350 900.0,530" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<text x="818.0" y="430.0" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">Lệnh người dùng</text>
+<polyline points="500,660.0 590.0,660.0 590.0,650.0 680,650.0" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<polyline points="1120,650.0 1210.0,650.0 1210.0,290.0 1300,290.0" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<text x="1166.0" y="460.0" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">Hoạt ảnh</text>
+<polyline points="1120,650.0 1210.0,650.0 1210.0,660.0 1300,660.0" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<text x="1137.0" y="645.0" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">Dữ liệu an toàn</text>
+<polyline points="900.0,770 900.0,960" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<text x="847.5" y="855.0" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">Lưu cục bộ</text>
+<polyline points="1120,650.0 1210.0,650.0 1210.0,1035.0 1300,1035.0" fill="none" stroke="#5c726d" stroke-width="4" marker-end="url(#a)"/>
+<text x="1139.0" y="832.5" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">Duyệt từng lần</text>
+<rect x="60" y="200" width="440" height="150" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="82" y="244" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Người dùng</text>
+<text x="82" y="282" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Quyết định trải nghiệm, quyền, chi</text>
+<text x="82" y="314" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">phí và nghiệm thu.</text>
+<rect x="680" y="200" width="440" height="150" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="702" y="244" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">WPF: ứng dụng quản lý</text>
+<text x="702" y="282" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Cài đặt, hồ sơ, bài học, hàng đợi, ký</text>
+<text x="702" y="314" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">ức, dừng/ẩn.</text>
+<rect x="1300" y="200" width="440" height="180" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="1322" y="244" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Unity: nhân vật</text>
+<text x="1322" y="282" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Hoạt ảnh, biểu cảm, di chuyển và đồ</text>
+<text x="1322" y="314" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">vật. Không tự cấp quyền.</text>
+<rect x="60" y="570" width="440" height="180" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="82" y="614" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Windows / Chrome / Edge</text>
+<text x="82" y="652" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Nguồn và hình học được phép.</text>
+<text x="82" y="684" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Không mặc định mọi app đều hỗ trợ.</text>
+<rect x="680" y="530" width="440" height="240" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="702" y="574" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">C# Host: điều phối</text>
+<text x="702" y="612" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Policy kiểm quyền tại lúc dùng.</text>
+<text x="702" y="644" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Đời sống, ký ức và tác vụ.</text>
+<text x="702" y="676" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Lọc nội dung trước phân tích.</text>
+<rect x="1300" y="570" width="440" height="180" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="1322" y="614" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">AI local</text>
+<text x="1322" y="652" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Hiểu ngữ cảnh an toàn, trả nhận</text>
+<text x="1322" y="684" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">định. Không phát click hoặc mở</text>
+<text x="1322" y="716" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">quyền.</text>
+<rect x="680" y="960" width="440" height="150" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="702" y="1004" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Dữ liệu trên máy</text>
+<text x="702" y="1042" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Trạng thái bình thường; chỉ backup</text>
+<text x="702" y="1074" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">khi bạn bấm xuất.</text>
+<rect x="1300" y="960" width="440" height="150" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
+<text x="1322" y="1004" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">AI ngoài: tùy chọn</text>
+<text x="1322" y="1042" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Chỉ chữ bạn chủ động xem và duyệt</text>
+<text x="1322" y="1074" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">cho từng lần gửi.</text>
+<text x="64" y="1210" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="22">2026-11-13 · Bản thiết kế để rà; các phần chưa thử không được coi là đã hoạt động.</text>
+</svg>

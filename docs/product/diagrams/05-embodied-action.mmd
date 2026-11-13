@@ -1,0 +1,17 @@
+sequenceDiagram
+ participant User as Người dùng
+ participant Host as Host và policy
+ participant Body as Unity
+ participant OS as Windows adapter
+ User->>Host: Yêu cầu hoặc intent hợp lệ
+ Host->>Host: Kiểm quyền, nguồn, input gate
+ Host->>Body: Approach target + revisions
+ Body-->>Host: Arrival report
+ Host->>Host: Re-observe và final check
+ alt Thay đổi hoặc user thao tác
+ Host-->>Body: Dừng/yield, không bấm
+ else Vẫn hợp lệ
+ Host->>OS: Một input đã được phép
+ OS-->>Host: Delivery result
+ Host->>Host: Verify postcondition, không tự replay
+ end
