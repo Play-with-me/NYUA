@@ -7,6 +7,8 @@ def main():
         tmp=Path(name)
         for directory in ['docs','tasks']:
             shutil.copytree(ROOT/directory,tmp/directory,ignore=shutil.ignore_patterns('__pycache__'))
+        (tmp/'.agents').mkdir(exist_ok=True)
+        shutil.copy2(ROOT/'.agents/PROJECT_MEMORY.md',tmp/'.agents/PROJECT_MEMORY.md')
         for p in list(ROOT.glob('*.md'))+list((ROOT/'labs').rglob('*.md')):
             q=tmp/p.relative_to(ROOT);q.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,q)
         h=tmp/'docs/product/AI';p=h/'validate_dossier.py'
