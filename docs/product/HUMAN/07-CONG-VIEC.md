@@ -24,11 +24,11 @@ Kiểm tra: Record exact executable/version, license and bounded build/test invo
 
 ## B00-02 — Bootstrap verified tooling and fixtures: desktop-body
 
-Kết quả cần có: Bộ chạy kiểm tra và dữ liệu giả tối thiểu cho desktop-body; phiên bản/giấy phép và lệnh có bằng chứng.
+Kết quả cần có: Unity fixture bootstrap cô lập và lệnh batch có timeout; không phụ thuộc project renderer sản phẩm.
 
 Làm sau: P00-01.
 
-Kiểm tra: Record exact executable/version, license and bounded build/test invocation for desktop-body; run one passing fixture and one deliberately failing fixture, retain exit codes and explain unsupported environment. Document fixture rights, no personal data, explicit cleanup/stop plan, actual/proposed file map and recovery checkpoint; obtain scoped approval before creating product infrastructure.
+Kiểm tra: Project Unity fixture tối thiểu nằm đúng whitelist năm file; editor/package ghim phiên bản có license evidence, scene giả không quyền input/capture/network; không đọc hoặc yêu cầu project P02-01 để tạo fixture. Batch dương chạy đúng scene/build fixture, trả 0; nhánh âm cố ý sai trả khác 0; supervisor dừng sau tối đa 120 giây mỗi lượt. Báo cáo giữ exact executable/arguments/log/version/cleanup và NOT RUN cho đến khi có phép thử thực; không coi đọc file là test.
 
 [Thẻ đầy đủ](../../../tasks/phase-b00.md). Chưa chạy/chưa nghiệm thu.
 

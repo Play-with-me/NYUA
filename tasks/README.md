@@ -9,7 +9,7 @@
 1. Rà P00-01 và nguồn quyết định; yêu cầu hiện hành thắng chi tiết nháp. Chỉ giao phạm vi tài liệu đã cho phép.
 2. Với lát được chọn, đọc dependencies trong registry; chạy `python tasks/dispatch.py` để xem thứ tự topo. Thứ tự nhóm/pha không tạo dependency.
 3. R00 lập đề cương cho phần kỹ thuật chưa biết; A00 rà đề cương trước phép thử. Đây không phải chốt kết quả chưa đo và không hỏi lại quyết định đã xác nhận.
-4. B00 tạo fixture/runner trong whitelist đề xuất sau khi có phép riêng. B00 không cần runner đã chạy để bắt đầu; hoàn thành cần fixture dương chạy đạt và fixture âm trả lỗi, timeout/cleanup hữu hạn. Chỉ khi đó mới ghi lệnh thực vào task con; không task con nào Ready trước bootstrap.
+4. B00 tạo fixture/runner trong whitelist đề xuất sau khi có phép riêng. B00 không cần runner đã chạy để bắt đầu; B00-02 tự sở hữu fixture Unity riêng với năm đường dẫn tường minh, không đợi project P02-01; hoàn thành cần fixture dương chạy đạt và fixture âm trả lỗi, timeout/cleanup hữu hạn. Chỉ khi đó mới ghi lệnh thực vào task con; không task con nào Ready trước bootstrap.
 5. Khi có phép thực thi riêng, giao từng P-task theo dependencies và file boundary; các V-task kiểm từng điều khoản sau owner triển khai. N-task kiểm ngưỡng thực; số chưa chốt giữ Blocked. Dùng bản nháp/NOT RUN khi chưa có kết quả.
 6. C00-04 gom mọi V/N; P60-04 và P60-05 nằm sau gate này. Nghiệm thu E02a, mẫu hình/hoạt ảnh và nghiệm thu toàn sản phẩm cần phản hồi người dùng thật. Checkpoint không cấp quyền triển khai/công bố.
 
@@ -41,3 +41,7 @@ $py = 'C:/Users/phamp/AppData/Local/Programs/Python/Python312/python.exe'
 ```
 
 `$py` là interpreter thực dùng trong phiên này, có Pillow; máy khác cần Python có Pillow để đọc container ảnh. `python` mặc định trên máy này là MSYS thiếu Pillow. Không chạy Get-Content thay test. JSON Schema độc lập chưa chạy vì không có jsonschema. Không có lệnh build/test production đã chứng minh; chúng do B00 thiết lập và chặn trước Ready.
+
+Task document_review (P00/R00/A00/checkpoint) không có prerequisite runner thực thi; chỉ cần nguồn và kiểm hồ sơ thực có. Checkpoint completion vẫn đòi bằng chứng các producer dependencies.
+
+Dossier controls có thể chạy lại an toàn bằng Python312 docs/product/AI/check_dossier_controls.py; script chỉ sửa bản sao TEMP rồi tự dọn.

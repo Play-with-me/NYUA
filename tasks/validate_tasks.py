@@ -35,7 +35,10 @@ def errors(data,req,generated=False):
         for a in t['acceptance']:
             check(isinstance(a,str) and len(a.strip())>=40 and not re.fullmatch(r'(?i)(TBD|TODO|pass|done|test|ok)[.! ]*',a.strip()),'invalid acceptance '+k)
         check(len(t['steps'])>=3 and all(len(s)>40 for s in t['steps']),'unactionable steps '+k)
-        fv=t['future_verification'];check(fv['state']=='GATED_NOT_RUN' and fv['command'] is None and len(fv['gate'])>=80,'future command gate '+k)
+        fv=t['future_verification']
+        if t.get('task_kind')=='document_review':
+            check(fv['state']=='NOT_APPLICABLE_DOCUMENT_REVIEW' and fv['owner'] is None and t['bootstrap_owner'] is None and 'no executable bootstrap prerequisite' in fv['gate'],'document runner deadlock '+k)
+        else:check(fv['state']=='GATED_NOT_RUN' and fv['command'] is None and len(fv['gate'])>=80,'future command gate '+k)
         b=t['bootstrap_owner']
         if b:check(b in anc[k] and fv['owner']==b,'bootstrap ordering '+k)
         for d in t['open_decisions']:check('A00-'+d.split('-')[1] in anc[k],'decision ordering '+k+' '+d)
@@ -68,7 +71,11 @@ def errors(data,req,generated=False):
         check(required<=anc[tid],'release bypass '+tid)
     for t in ts:
         if t['id'].startswith('B00-'):
-            check(any(p.startswith('tests/bootstrap/') for p in t['proposed_files']) and any(p.startswith('tools/verify/') for p in t['proposed_files']),'bootstrap fixture scope '+t['id'])
+            if t['id']=='B00-02':
+                expected={'docs/experiments/bootstrap-desktop-body.md','tests/bootstrap/desktop-body/UnityFixture/ProjectSettings/ProjectVersion.txt','tests/bootstrap/desktop-body/UnityFixture/Packages/manifest.json','tests/bootstrap/desktop-body/UnityFixture/Assets/Editor/BootstrapBuild.cs','tests/bootstrap/desktop-body/UnityFixture/Assets/Bootstrap.unity'}
+                check(set(t['proposed_files'])==expected,'Unity fixture ownership '+t['id'])
+                check('P02-01' not in anc[t['id']],'Unity fixture ownership circularity')
+            else:check(any(p.startswith('tests/bootstrap/') for p in t['proposed_files']) and any(p.startswith('tools/verify/') for p in t['proposed_files']),'bootstrap fixture scope '+t['id'])
             check('does not require a pre-existing' in t['future_verification']['gate'],'bootstrap self-deadlock '+t['id'])
     for source,forbidden in [('NV11','buổi làm lành'),('QH05','Shift'),('SH04','tai cáo')]:
         row=next(r for r in req if r['source_id']==source)
@@ -99,6 +106,8 @@ def main():
         x=copy.deepcopy(data);x['tasks'][0]['execution']['model']='pro';cases['invalid role']=x
         x=copy.deepcopy(data);next(t for t in x['tasks'] if t['bootstrap_owner'])['bootstrap_owner']='MISSING';cases['bootstrap ordering']=x
         x=copy.deepcopy(data);next(t for t in x['tasks'] if t['id']=='P60-04')['dependencies']=[v for v in next(t for t in x['tasks'] if t['id']=='P60-04')['dependencies'] if v!='C00-04'];cases['release bypass']=x
+        x=copy.deepcopy(data);next(t for t in x['tasks'] if t['id']=='P00-01')['future_verification']['state']='GATED_NOT_RUN';cases['document runner deadlock']=x
+        x=copy.deepcopy(data);next(t for t in x['tasks'] if t['id']=='B00-02')['proposed_files'].pop();cases['Unity fixture ownership']=x
         for name,x in cases.items():
             result=errors(x,req)
             if not any(name in s for s in result):print('NEGATIVE CONTROL FAILED: '+name);return 1

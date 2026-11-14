@@ -61,11 +61,11 @@ docs/checkpoints/C00-01.md
 
 **Lệnh thực có — chỉ kiểm hồ sơ:**
 
-python tasks/validate_tasks.py (documentation consistency only; never product evidence)
+python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.
 
 **Kiểm chứng tương lai — CHƯA CHẠY:**
 
-{"state": "GATED_NOT_RUN", "owner": null, "command": null, "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."}
+{"state": "NOT_APPLICABLE_DOCUMENT_REVIEW", "owner": null, "command": null, "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."}
 
 **Chủ nhiệm chuẩn bị công cụ:**
 
@@ -142,11 +142,11 @@ docs/checkpoints/C00-02.md
 
 **Lệnh thực có — chỉ kiểm hồ sơ:**
 
-python tasks/validate_tasks.py (documentation consistency only; never product evidence)
+python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.
 
 **Kiểm chứng tương lai — CHƯA CHẠY:**
 
-{"state": "GATED_NOT_RUN", "owner": null, "command": null, "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."}
+{"state": "NOT_APPLICABLE_DOCUMENT_REVIEW", "owner": null, "command": null, "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."}
 
 **Chủ nhiệm chuẩn bị công cụ:**
 
@@ -223,11 +223,11 @@ docs/checkpoints/C00-03.md
 
 **Lệnh thực có — chỉ kiểm hồ sơ:**
 
-python tasks/validate_tasks.py (documentation consistency only; never product evidence)
+python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.
 
 **Kiểm chứng tương lai — CHƯA CHẠY:**
 
-{"state": "GATED_NOT_RUN", "owner": null, "command": null, "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."}
+{"state": "NOT_APPLICABLE_DOCUMENT_REVIEW", "owner": null, "command": null, "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."}
 
 **Chủ nhiệm chuẩn bị công cụ:**
 
@@ -304,11 +304,11 @@ docs/checkpoints/C00-04.md
 
 **Lệnh thực có — chỉ kiểm hồ sơ:**
 
-python tasks/validate_tasks.py (documentation consistency only; never product evidence)
+python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.
 
 **Kiểm chứng tương lai — CHƯA CHẠY:**
 
-{"state": "GATED_NOT_RUN", "owner": null, "command": null, "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."}
+{"state": "NOT_APPLICABLE_DOCUMENT_REVIEW", "owner": null, "command": null, "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."}
 
 **Chủ nhiệm chuẩn bị công cụ:**
 
@@ -385,11 +385,11 @@ docs/checkpoints/C00-05.md
 
 **Lệnh thực có — chỉ kiểm hồ sơ:**
 
-python tasks/validate_tasks.py (documentation consistency only; never product evidence)
+python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.
 
 **Kiểm chứng tương lai — CHƯA CHẠY:**
 
-{"state": "GATED_NOT_RUN", "owner": null, "command": null, "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."}
+{"state": "NOT_APPLICABLE_DOCUMENT_REVIEW", "owner": null, "command": null, "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."}
 
 **Chủ nhiệm chuẩn bị công cụ:**
 

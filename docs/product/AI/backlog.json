@@ -152,7 +152,7 @@
         "Đối chiếu toàn bộ sourceIDs/mode rows với SRS và xác nhận phần hoãn.",
         "Ghi user decision hoặc blocker cho mỗi mâu thuẫn; không tự dùng default."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/product/AI/DECISIONS.md",
         "docs/product/AI/requirements.json"
@@ -181,13 +181,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready.",
-        "cases": "Review SRS/registry/RTM và validate_dossier.py."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "B00-01",
@@ -241,7 +241,8 @@
         "command": null,
         "gate": "Bootstrap entry requires only separately approved fixture scope, tooling/license discovery and no unresolved infrastructure choice. It does not require a pre-existing successful runner. Completion requires creating and executing the bounded positive/negative runner in this whitelist."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "bootstrap"
     },
     {
       "id": "B00-02",
@@ -255,19 +256,20 @@
         "harness": "agy",
         "model": "gemini-3.8-flash"
       },
-      "output": "Bộ chạy kiểm tra và dữ liệu giả tối thiểu cho desktop-body; phiên bản/giấy phép và lệnh có bằng chứng",
+      "output": "Unity fixture bootstrap cô lập và lệnh batch có timeout; không phụ thuộc project renderer sản phẩm",
       "source_ids": [],
       "requirement_refs": [],
       "acceptance": [
-        "Record exact executable/version, license and bounded build/test invocation for desktop-body; run one passing fixture and one deliberately failing fixture, retain exit codes and explain unsupported environment.",
-        "Document fixture rights, no personal data, explicit cleanup/stop plan, actual/proposed file map and recovery checkpoint; obtain scoped approval before creating product infrastructure."
+        "Project Unity fixture tối thiểu nằm đúng whitelist năm file; editor/package ghim phiên bản có license evidence, scene giả không quyền input/capture/network; không đọc hoặc yêu cầu project P02-01 để tạo fixture.",
+        "Batch dương chạy đúng scene/build fixture, trả 0; nhánh âm cố ý sai trả khác 0; supervisor dừng sau tối đa 120 giây mỗi lượt. Báo cáo giữ exact executable/arguments/log/version/cleanup và NOT RUN cho đến khi có phép thử thực; không coi đọc file là test."
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
         "docs/experiments/bootstrap-desktop-body.md",
-        "tests/bootstrap/desktop-body/Bootstrap.Tests.csproj",
-        "tests/bootstrap/desktop-body/BootstrapTests.cs",
-        "tools/verify/desktop-body.ps1"
+        "tests/bootstrap/desktop-body/UnityFixture/ProjectSettings/ProjectVersion.txt",
+        "tests/bootstrap/desktop-body/UnityFixture/Packages/manifest.json",
+        "tests/bootstrap/desktop-body/UnityFixture/Assets/Editor/BootstrapBuild.cs",
+        "tests/bootstrap/desktop-body/UnityFixture/Assets/Bootstrap.unity"
       ],
       "actual_allowed_files": [],
       "open_decisions": [],
@@ -279,10 +281,10 @@
         "docs/product/AI/DECISIONS.md"
       ],
       "steps": [
-        "Khảo sát công cụ thực có cho desktop-body: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.",
-        "Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/desktop-body.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.",
-        "Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.",
-        "Chạy powershell -NoProfile -File tools/verify/desktop-body.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-desktop-body.md; chỉ sau đó mở gate cho task phụ thuộc."
+        "Khảo sát Unity Editor thực có và nguồn chính thức/giấy phép cho Windows batch build; đề xuất phiên bản trong báo cáo. Chỉ sau cho phép thử riêng mới tạo project fixture cô lập, không dùng project sản phẩm P02-01.",
+        "Tạo đúng năm đường dẫn whitelist: báo cáo; ProjectVersion.txt ghim editor; manifest.json chỉ package tối thiểu có quyền dùng; scene Bootstrap.unity chỉ primitive giả; BootstrapBuild.cs là editor-only entry cho phép thử. Không avatar/input/capture/network hay nội dung cá nhân. Library/Temp/log/build output là working material tự sinh, không authored file whitelist và không commit.",
+        "Đề xuất entry BootstrapBuild.Verify và nhánh deliberately-failing trong editor script sau khi đối chiếu API của phiên bản đã ghim. Entry dương kiểm scene fixture/build smoke thật, âm trả exit code khác 0 có chủ đích; log/outputs vào TEMP. Không cần project hay bằng chứng P02-01 để bootstrap chạy.",
+        "Ghi executable Unity thực, dùng mẫu batch -batchmode -nographics -quit -projectPath tests/bootstrap/desktop-body/UnityFixture -executeMethod BootstrapBuild.Verify -logFile <TEMP>. Dùng supervisor tiến trình với WaitForExit(120000), kill tiến trình thử nếu timeout; timeout là lỗi. Chạy nhánh dương/âm và lưu lệnh exact, code, log, editor/package version và cleanup. Chưa chạy trong phiên tài liệu; chỉ sau bằng chứng này P02-01 mới có runner để Ready."
       ],
       "acceptance_ids": [
         "AT-B00-02-01",
@@ -293,9 +295,11 @@
         "state": "GATED_NOT_RUN",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap entry requires only separately approved fixture scope, tooling/license discovery and no unresolved infrastructure choice. It does not require a pre-existing successful runner. Completion requires creating and executing the bounded positive/negative runner in this whitelist."
+        "command_template": "<verified Unity Editor executable> -batchmode -nographics -quit -projectPath tests/bootstrap/desktop-body/UnityFixture -executeMethod BootstrapBuild.Verify -logFile <TEMP log>; supervisor WaitForExit(120000), timeout -> terminate owned probe and fail",
+        "gate": "Bootstrap entry requires separately approved fixture scope and editor/license discovery; it does not require a pre-existing successful runner or the P02-01 product project. This task owns all five fixture paths. Completion requires real bounded positive/negative batch evidence before dependent executable tasks become Ready."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "bootstrap"
     },
     {
       "id": "B00-03",
@@ -349,7 +353,8 @@
         "command": null,
         "gate": "Bootstrap entry requires only separately approved fixture scope, tooling/license discovery and no unresolved infrastructure choice. It does not require a pre-existing successful runner. Completion requires creating and executing the bounded positive/negative runner in this whitelist."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "bootstrap"
     },
     {
       "id": "B00-04",
@@ -403,7 +408,8 @@
         "command": null,
         "gate": "Bootstrap entry requires only separately approved fixture scope, tooling/license discovery and no unresolved infrastructure choice. It does not require a pre-existing successful runner. Completion requires creating and executing the bounded positive/negative runner in this whitelist."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "bootstrap"
     },
     {
       "id": "B00-05",
@@ -457,7 +463,8 @@
         "command": null,
         "gate": "Bootstrap entry requires only separately approved fixture scope, tooling/license discovery and no unresolved infrastructure choice. It does not require a pre-existing successful runner. Completion requires creating and executing the bounded positive/negative runner in this whitelist."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "bootstrap"
     },
     {
       "id": "B00-06",
@@ -511,7 +518,8 @@
         "command": null,
         "gate": "Bootstrap entry requires only separately approved fixture scope, tooling/license discovery and no unresolved infrastructure choice. It does not require a pre-existing successful runner. Completion requires creating and executing the bounded positive/negative runner in this whitelist."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "bootstrap"
     },
     {
       "id": "B00-07",
@@ -565,7 +573,8 @@
         "command": null,
         "gate": "Bootstrap entry requires only separately approved fixture scope, tooling/license discovery and no unresolved infrastructure choice. It does not require a pre-existing successful runner. Completion requires creating and executing the bounded positive/negative runner in this whitelist."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "bootstrap"
     },
     {
       "id": "R00-02",
@@ -589,7 +598,7 @@
         "Phân loại câu hỏi còn mở của D-02 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-02.md"
       ],
@@ -613,12 +622,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-02",
@@ -643,7 +653,7 @@
         "Rà đề cương D-02: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-02-resolution.md"
       ],
@@ -667,13 +677,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "R00-03",
@@ -694,7 +705,7 @@
         "Phân loại câu hỏi còn mở của D-03 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-03.md"
       ],
@@ -718,12 +729,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-03",
@@ -745,7 +757,7 @@
         "Rà đề cương D-03: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-03-resolution.md"
       ],
@@ -769,13 +781,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P00-02",
@@ -803,7 +816,7 @@
         "DTO/error/generation ownership rõ; không vòng dependency hoặc transport tự chốt.",
         "AT-SP09 — D-02: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở. Kiểm case cho phép, từ chối và gián đoạn ở đầu ra của task này; ghi expected/actual hoặc NOT RUN, không tự đóng human gate."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "contracts/README.md",
         "docs/product/AI/INTERFACES.md"
@@ -835,15 +848,15 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready.",
-        "cases": "Review INTERFACES/ARCHITECTURE và negative message examples."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "implementation_requirements": [
         "SP09"
-      ]
+      ],
+      "task_kind": "document_review"
     },
     {
       "id": "R00-04",
@@ -864,7 +877,7 @@
         "Phân loại câu hỏi còn mở của D-04 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-04.md"
       ],
@@ -888,12 +901,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-04",
@@ -915,7 +929,7 @@
         "Rà đề cương D-04: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-04-resolution.md"
       ],
@@ -939,13 +953,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": true,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P00-03",
@@ -967,7 +982,7 @@
         "Phân biệt target user đã chốt với ngưỡng còn phải đo.",
         "Mỗi gate có phép đo/command thực tế khi triển khai, không coverage/perf giả."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "CONSTRAINTS.md",
         "docs/product/AI/QA.md"
@@ -998,13 +1013,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready.",
-        "cases": "Rà CONSTRAINTS và positive/negative control kế hoạch."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "R00-13",
@@ -1025,7 +1040,7 @@
         "Phân loại câu hỏi còn mở của D-13 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-13.md"
       ],
@@ -1049,12 +1064,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-13",
@@ -1076,7 +1092,7 @@
         "Rà đề cương D-13: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-13-resolution.md"
       ],
@@ -1100,13 +1116,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": true,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P00-04",
@@ -1132,7 +1149,7 @@
         "Ghi source/terms/redistribution của Unity/plugin/model/art/runtime.",
         "Tên NYUA và signing/distribution còn mở được ghi riêng, khoản phí phải hỏi."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/licenses/INVENTORY.md",
         "docs/product/AI/DECISIONS.md"
@@ -1162,15 +1179,15 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready.",
-        "cases": "Đối chiếu primary terms và lưu evidence/version."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "implementation_requirements": [
         "SP06"
-      ]
+      ],
+      "task_kind": "document_review"
     },
     {
       "id": "P01-01",
@@ -1233,7 +1250,8 @@
         "status": "NOT_OBTAINED",
         "evidence": null,
         "condition": "Actual user response on the exact reviewed artifact/revision is mandatory; automated or AI review cannot satisfy this gate."
-      }
+      },
+      "task_kind": "executable_work"
     },
     {
       "id": "R00-01",
@@ -1254,7 +1272,7 @@
         "Phân loại câu hỏi còn mở của D-01 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-01.md"
       ],
@@ -1278,12 +1296,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-01",
@@ -1305,7 +1324,7 @@
         "Rà đề cương D-01: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-01-resolution.md"
       ],
@@ -1329,13 +1348,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P02-01",
@@ -1395,7 +1415,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready.",
         "cases": "Unity editor/build smoke và inventory dependency."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "P02-02",
@@ -1454,7 +1475,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready.",
         "cases": "E-INT native runtime trên Windows với fixtureapp."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "P02-03",
@@ -1513,7 +1535,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready.",
         "cases": "IT-05 với mixedDPI/negativecoords/testrects."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "P02-04",
@@ -1573,7 +1596,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready.",
         "cases": "IT-04 contract/abuse tests, peercompatibility."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "R00-10",
@@ -1597,7 +1621,7 @@
         "Phân loại câu hỏi còn mở của D-10 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-10.md"
       ],
@@ -1621,12 +1645,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-10",
@@ -1651,7 +1676,7 @@
         "Rà đề cương D-10: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-10-resolution.md"
       ],
@@ -1675,13 +1700,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P02-05",
@@ -1749,7 +1775,8 @@
       },
       "implementation_requirements": [
         "SP09"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P03-01",
@@ -1814,7 +1841,8 @@
       },
       "implementation_requirements": [
         "AI01"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P03-02",
@@ -1880,7 +1908,8 @@
       },
       "implementation_requirements": [
         "AI03"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P03-03",
@@ -1946,7 +1975,8 @@
       },
       "implementation_requirements": [
         "XP02"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P03-04",
@@ -2018,7 +2048,8 @@
         "MC01",
         "MC02",
         "MC04"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P10-01",
@@ -2081,7 +2112,8 @@
       },
       "implementation_requirements": [
         "QD01"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "R00-15",
@@ -2102,7 +2134,7 @@
         "Phân loại câu hỏi còn mở của D-15 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-15.md"
       ],
@@ -2126,12 +2158,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-15",
@@ -2153,7 +2186,7 @@
         "Rà đề cương D-15: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-15-resolution.md"
       ],
@@ -2177,13 +2210,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "R00-16",
@@ -2207,7 +2241,7 @@
         "Phân loại câu hỏi còn mở của D-16 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-16.md"
       ],
@@ -2231,12 +2265,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-16",
@@ -2261,7 +2296,7 @@
         "Rà đề cương D-16: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-16-resolution.md"
       ],
@@ -2285,13 +2320,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P10-02",
@@ -2364,7 +2400,8 @@
       "implementation_requirements": [
         "QD04",
         "QD06"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P10-03",
@@ -2436,7 +2473,8 @@
         "SH01",
         "QD05",
         "QD15"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P10-04",
@@ -2501,7 +2539,8 @@
       },
       "implementation_requirements": [
         "QD08"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "R00-07",
@@ -2522,7 +2561,7 @@
         "Phân loại câu hỏi còn mở của D-07 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-07.md"
       ],
@@ -2546,12 +2585,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-07",
@@ -2573,7 +2613,7 @@
         "Rà đề cương D-07: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-07-resolution.md"
       ],
@@ -2597,13 +2637,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "R00-08",
@@ -2624,7 +2665,7 @@
         "Phân loại câu hỏi còn mở của D-08 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-08.md"
       ],
@@ -2648,12 +2689,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-08",
@@ -2675,7 +2717,7 @@
         "Rà đề cương D-08: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-08-resolution.md"
       ],
@@ -2699,13 +2741,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": true,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P50-01",
@@ -2775,7 +2818,8 @@
       },
       "implementation_requirements": [
         "CD01"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "R00-18",
@@ -2798,7 +2842,7 @@
         "Phân loại câu hỏi còn mở của D-18 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-18.md"
       ],
@@ -2822,12 +2866,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-18",
@@ -2851,7 +2896,7 @@
         "Rà đề cương D-18: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-18-resolution.md"
       ],
@@ -2875,13 +2920,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P10-05",
@@ -2951,7 +2997,8 @@
       },
       "implementation_requirements": [
         "AI02"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P10-06",
@@ -3025,7 +3072,8 @@
         "QD12",
         "QD13",
         "QD14"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "R00-05",
@@ -3049,7 +3097,7 @@
         "Phân loại câu hỏi còn mở của D-05 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-05.md"
       ],
@@ -3073,12 +3121,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-05",
@@ -3103,7 +3152,7 @@
         "Rà đề cương D-05: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-05-resolution.md"
       ],
@@ -3127,13 +3176,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": true,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "R00-11",
@@ -3156,7 +3206,7 @@
         "Phân loại câu hỏi còn mở của D-11 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-11.md"
       ],
@@ -3180,12 +3230,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-11",
@@ -3209,7 +3260,7 @@
         "Rà đề cương D-11: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-11-resolution.md"
       ],
@@ -3233,13 +3284,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P10-07",
@@ -3321,7 +3373,8 @@
         "DK03",
         "DK04",
         "XP08"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "R00-14",
@@ -3346,7 +3399,7 @@
         "Phân loại câu hỏi còn mở của D-14 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-14.md"
       ],
@@ -3370,12 +3423,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-14",
@@ -3401,7 +3455,7 @@
         "Rà đề cương D-14: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-14-resolution.md"
       ],
@@ -3425,13 +3479,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": true,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P20-01",
@@ -3514,7 +3569,8 @@
         "status": "NOT_OBTAINED",
         "evidence": null,
         "condition": "Actual user response on the exact reviewed artifact/revision is mandatory; automated or AI review cannot satisfy this gate."
-      }
+      },
+      "task_kind": "executable_work"
     },
     {
       "id": "P20-02",
@@ -3586,7 +3642,8 @@
         "NV05",
         "NV07",
         "QD10"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "R00-12",
@@ -3610,7 +3667,7 @@
         "Phân loại câu hỏi còn mở của D-12 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-12.md"
       ],
@@ -3634,12 +3691,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-12",
@@ -3664,7 +3722,7 @@
         "Rà đề cương D-12: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-12-resolution.md"
       ],
@@ -3688,13 +3746,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P30-01",
@@ -3774,7 +3833,8 @@
         "SH02",
         "SH03",
         "QD04"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P30-02",
@@ -3851,7 +3911,8 @@
         "SH06",
         "XP03",
         "XP10"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P20-03",
@@ -3924,7 +3985,8 @@
         "NV09",
         "NV11",
         "SH05"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P20-04",
@@ -4000,7 +4062,8 @@
         "SH07",
         "SH08",
         "XP09"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P20-05",
@@ -4065,7 +4128,8 @@
       },
       "implementation_requirements": [
         "NV08"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P30-04",
@@ -4140,7 +4204,8 @@
         "QD11",
         "KN01",
         "KN02"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P30-03",
@@ -4223,7 +4288,8 @@
         "QH05",
         "QH06",
         "QH07"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P30-05",
@@ -4298,7 +4364,8 @@
         "XP12",
         "XP13",
         "XP14"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P30-06",
@@ -4370,7 +4437,8 @@
         "SP07",
         "MC03",
         "QH02"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P40-01",
@@ -4438,7 +4506,8 @@
       "implementation_requirements": [
         "SP04",
         "NV06"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P40-02",
@@ -4503,7 +4572,8 @@
       "implementation_requirements": [
         "QD02",
         "XP16"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "R00-17",
@@ -4527,7 +4597,7 @@
         "Phân loại câu hỏi còn mở của D-17 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-17.md"
       ],
@@ -4551,12 +4621,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-17",
@@ -4581,7 +4652,7 @@
         "Rà đề cương D-17: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-17-resolution.md"
       ],
@@ -4605,13 +4676,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P40-03",
@@ -4688,7 +4760,8 @@
         "BH02",
         "BH11",
         "BH12"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P40-04",
@@ -4766,7 +4839,8 @@
         "BH03",
         "BH04",
         "BH05"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P40-05",
@@ -4862,7 +4936,8 @@
         "BH09",
         "BH10",
         "CD01"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P40-06",
@@ -4934,7 +5009,8 @@
       "implementation_requirements": [
         "XP01",
         "XP04"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "R00-06",
@@ -4957,7 +5033,7 @@
         "Phân loại câu hỏi còn mở của D-06 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-06.md"
       ],
@@ -4981,12 +5057,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-06",
@@ -5010,7 +5087,7 @@
         "Rà đề cương D-06: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-06-resolution.md"
       ],
@@ -5034,13 +5111,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P40-07",
@@ -5133,7 +5211,8 @@
         "XP07",
         "XP08",
         "AI01"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P50-02",
@@ -5208,7 +5287,8 @@
         "HS01",
         "HS02",
         "HS03"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "R00-09",
@@ -5231,7 +5311,7 @@
         "Phân loại câu hỏi còn mở của D-09 trong DECISIONS: bằng chứng hiện có, điều đã chốt, lựa chọn kỹ thuật và điều cần hỏi người dùng; không yêu cầu kết quả của phép thử chưa được chạy.",
         "Đề cương ghi fixture, quan sát mong đợi, điều kiện dừng, bootstrap owner và task sẽ tạo bằng chứng; không chốt API/model/threshold hoặc chi phí khi thiếu bằng chứng."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/experiments/D-09.md"
       ],
@@ -5255,12 +5335,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "A00-09",
@@ -5284,7 +5365,7 @@
         "Rà đề cương D-09: đủ đầu vào giả, task tạo bằng chứng, giới hạn quyền, timeout/cleanup, whitelist dự kiến và rủi ro; không yêu cầu bằng chứng do task bị chặn bởi gate này tạo ra.",
         "Không duyệt lại câu trả lời đã chốt. Nếu đề cương đổi trải nghiệm/chi phí/quyền thì ghi câu hỏi và chờ người dùng; nếu chỉ kiểm chứng kỹ thuật thì reviewer ghi phạm vi thử, không tự cấp quyền production. Kết quả còn phải nghiệm thu sau phép thử."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/decisions/D-09-resolution.md"
       ],
@@ -5308,13 +5389,14 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "requires_human": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "P50-03",
@@ -5387,7 +5469,8 @@
       "implementation_requirements": [
         "SL01",
         "SL02"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P50-04",
@@ -5449,7 +5532,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready.",
         "cases": "IT-15 maliciousarchive/partialwrite/collision cases."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "P50-05",
@@ -5511,7 +5595,8 @@
       },
       "implementation_requirements": [
         "BH13"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P50-06",
@@ -5583,7 +5668,8 @@
       "implementation_requirements": [
         "SP03",
         "CD01"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P50-07",
@@ -5651,7 +5737,8 @@
       },
       "implementation_requirements": [
         "CD02"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P50-08",
@@ -5717,7 +5804,8 @@
       },
       "implementation_requirements": [
         "CD03"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P60-01",
@@ -5785,7 +5873,8 @@
       },
       "implementation_requirements": [
         "SP02"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P60-02",
@@ -5877,7 +5966,8 @@
         "MODE07",
         "MODE08",
         "MODE09"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P60-03",
@@ -5942,7 +6032,8 @@
       },
       "implementation_requirements": [
         "SP05"
-      ]
+      ],
+      "task_kind": "executable_work"
     },
     {
       "id": "P60-04",
@@ -6012,7 +6103,8 @@
         "status": "NOT_OBTAINED",
         "evidence": null,
         "condition": "Actual user response on the exact reviewed artifact/revision is mandatory; automated or AI review cannot satisfy this gate."
-      }
+      },
+      "task_kind": "executable_work"
     },
     {
       "id": "P60-05",
@@ -6076,7 +6168,8 @@
         "status": "NOT_OBTAINED",
         "evidence": null,
         "condition": "Actual user response on the exact reviewed artifact/revision is mandatory; automated or AI review cannot satisfy this gate."
-      }
+      },
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-001",
@@ -6130,7 +6223,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-002",
@@ -6184,7 +6278,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-003",
@@ -6238,7 +6333,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-004",
@@ -6292,7 +6388,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-005",
@@ -6346,7 +6443,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-006",
@@ -6400,7 +6498,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-007",
@@ -6454,7 +6553,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-008",
@@ -6508,7 +6608,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-009",
@@ -6564,7 +6665,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-010",
@@ -6618,7 +6720,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-011",
@@ -6672,7 +6775,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-012",
@@ -6726,7 +6830,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-013",
@@ -6780,7 +6885,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-014",
@@ -6834,7 +6940,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-015",
@@ -6888,7 +6995,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-016",
@@ -6942,7 +7050,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-017",
@@ -6996,7 +7105,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-018",
@@ -7050,7 +7160,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-019",
@@ -7104,7 +7215,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-020",
@@ -7158,7 +7270,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-021",
@@ -7212,7 +7325,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-022",
@@ -7266,7 +7380,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-023",
@@ -7320,7 +7435,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-024",
@@ -7374,7 +7490,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-025",
@@ -7429,7 +7546,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-026",
@@ -7483,7 +7601,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-027",
@@ -7537,7 +7656,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-028",
@@ -7591,7 +7711,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-029",
@@ -7645,7 +7766,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-030",
@@ -7699,7 +7821,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-031",
@@ -7753,7 +7876,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-032",
@@ -7807,7 +7931,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-033",
@@ -7861,7 +7986,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-034",
@@ -7915,7 +8041,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-035",
@@ -7969,7 +8096,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-036",
@@ -8024,7 +8152,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-037",
@@ -8078,7 +8207,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-038",
@@ -8132,7 +8262,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-039",
@@ -8156,7 +8287,7 @@
         "Scope kiểm tra không có direct file/folder reader bản đầu; không tạo task parser như chức năng đã duyệt.",
         "Enumerate every independently observable clause in the exact requirement, including forbidden behavior and lifecycle interruption. Assign case IDs, expected results, actual result or NOT RUN and evidence path; zero omitted clauses; unresolved expectations block acceptance."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/acceptance/QD07.md"
       ],
@@ -8178,15 +8309,16 @@
         "AT-V00-039-01",
         "AT-V00-039-02"
       ],
-      "bootstrap_owner": "B00-04",
+      "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
-        "owner": "B00-04",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
+        "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
       "deferred": true,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "V00-040",
@@ -8240,7 +8372,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-041",
@@ -8294,7 +8427,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-042",
@@ -8348,7 +8482,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-043",
@@ -8402,7 +8537,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-044",
@@ -8456,7 +8592,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-045",
@@ -8510,7 +8647,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-046",
@@ -8564,7 +8702,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-047",
@@ -8618,7 +8757,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-048",
@@ -8672,7 +8812,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-049",
@@ -8726,7 +8867,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-050",
@@ -8780,7 +8922,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-051",
@@ -8834,7 +8977,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-052",
@@ -8888,7 +9032,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-053",
@@ -8943,7 +9088,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-054",
@@ -8997,7 +9143,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-055",
@@ -9051,7 +9198,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-056",
@@ -9105,7 +9253,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-057",
@@ -9161,7 +9310,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-058",
@@ -9215,7 +9365,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-059",
@@ -9269,7 +9420,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-060",
@@ -9323,7 +9475,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-061",
@@ -9377,7 +9530,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-062",
@@ -9431,7 +9585,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-063",
@@ -9485,7 +9640,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-064",
@@ -9539,7 +9695,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-065",
@@ -9593,7 +9750,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-066",
@@ -9647,7 +9805,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-067",
@@ -9701,7 +9860,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-068",
@@ -9755,7 +9915,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-069",
@@ -9809,7 +9970,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-070",
@@ -9863,7 +10025,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-071",
@@ -9917,7 +10080,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-072",
@@ -9971,7 +10135,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-073",
@@ -10025,7 +10190,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-074",
@@ -10079,7 +10245,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-075",
@@ -10133,7 +10300,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-076",
@@ -10187,7 +10355,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-077",
@@ -10241,7 +10410,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-078",
@@ -10295,7 +10465,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-079",
@@ -10349,7 +10520,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-080",
@@ -10404,7 +10576,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-081",
@@ -10459,7 +10632,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-082",
@@ -10513,7 +10687,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-083",
@@ -10567,7 +10742,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-084",
@@ -10621,7 +10797,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-085",
@@ -10675,7 +10852,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-086",
@@ -10729,7 +10907,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-087",
@@ -10783,7 +10962,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-088",
@@ -10837,7 +11017,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-089",
@@ -10891,7 +11072,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-090",
@@ -10945,7 +11127,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-091",
@@ -10999,7 +11182,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-092",
@@ -11053,7 +11237,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-093",
@@ -11107,7 +11292,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-094",
@@ -11161,7 +11347,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-095",
@@ -11215,7 +11402,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-096",
@@ -11269,7 +11457,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-097",
@@ -11323,7 +11512,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-098",
@@ -11379,7 +11569,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-099",
@@ -11433,7 +11624,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-100",
@@ -11487,7 +11679,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-101",
@@ -11541,7 +11734,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-102",
@@ -11595,7 +11789,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-103",
@@ -11649,7 +11844,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-104",
@@ -11703,7 +11899,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-105",
@@ -11757,7 +11954,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-106",
@@ -11811,7 +12009,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-107",
@@ -11865,7 +12064,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-108",
@@ -11919,7 +12119,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "V00-109",
@@ -11973,7 +12174,8 @@
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
       },
       "deferred": false,
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "N00-01",
@@ -12027,7 +12229,8 @@
       "nfr_refs": [
         "NFR-01"
       ],
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "N00-02",
@@ -12081,7 +12284,8 @@
       "nfr_refs": [
         "NFR-02"
       ],
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "N00-03",
@@ -12135,7 +12339,8 @@
       "nfr_refs": [
         "NFR-03"
       ],
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "N00-04",
@@ -12189,7 +12394,8 @@
       "nfr_refs": [
         "NFR-04"
       ],
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "N00-05",
@@ -12243,7 +12449,8 @@
       "nfr_refs": [
         "NFR-05"
       ],
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "N00-06",
@@ -12297,7 +12504,8 @@
       "nfr_refs": [
         "NFR-06"
       ],
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "N00-07",
@@ -12351,7 +12559,8 @@
       "nfr_refs": [
         "NFR-07"
       ],
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "N00-08",
@@ -12405,7 +12614,8 @@
       "nfr_refs": [
         "NFR-08"
       ],
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "N00-09",
@@ -12459,7 +12669,8 @@
       "nfr_refs": [
         "NFR-09"
       ],
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "N00-10",
@@ -12513,7 +12724,8 @@
       "nfr_refs": [
         "NFR-10"
       ],
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "executable_work"
     },
     {
       "id": "C00-01",
@@ -12538,7 +12750,7 @@
         "Every listed predecessor has actual accepted evidence at its recorded revision; missing, failed or NOT RUN evidence blocks this checkpoint.",
         "Record exact local revision, unresolved limitations and required user acceptance separately; this checkpoint grants no publishing or production authorization."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/checkpoints/C00-01.md"
       ],
@@ -12562,12 +12774,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "C00-02",
@@ -12591,7 +12804,7 @@
         "Every listed predecessor has actual accepted evidence at its recorded revision; missing, failed or NOT RUN evidence blocks this checkpoint.",
         "Record exact local revision, unresolved limitations and required user acceptance separately; this checkpoint grants no publishing or production authorization."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/checkpoints/C00-02.md"
       ],
@@ -12615,12 +12828,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "C00-03",
@@ -12642,7 +12856,7 @@
         "Every listed predecessor has actual accepted evidence at its recorded revision; missing, failed or NOT RUN evidence blocks this checkpoint.",
         "Record exact local revision, unresolved limitations and required user acceptance separately; this checkpoint grants no publishing or production authorization."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/checkpoints/C00-03.md"
       ],
@@ -12666,12 +12880,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "C00-04",
@@ -12811,7 +13026,7 @@
         "Every listed predecessor has actual accepted evidence at its recorded revision; missing, failed or NOT RUN evidence blocks this checkpoint.",
         "Record exact local revision, unresolved limitations and required user acceptance separately; this checkpoint grants no publishing or production authorization."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/checkpoints/C00-04.md"
       ],
@@ -12835,12 +13050,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     },
     {
       "id": "C00-05",
@@ -12867,7 +13083,7 @@
         "Every listed predecessor has actual accepted evidence at its recorded revision; missing, failed or NOT RUN evidence blocks this checkpoint.",
         "Record exact local revision, unresolved limitations and required user acceptance separately; this checkpoint grants no publishing or production authorization."
       ],
-      "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
+      "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
       "proposed_files": [
         "docs/checkpoints/C00-05.md"
       ],
@@ -12891,12 +13107,13 @@
       ],
       "bootstrap_owner": null,
       "future_verification": {
-        "state": "GATED_NOT_RUN",
+        "state": "NOT_APPLICABLE_DOCUMENT_REVIEW",
         "owner": null,
         "command": null,
-        "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready."
+        "gate": "Document/research/proposal/checkpoint review has no executable bootstrap prerequisite. Entry requires available source docs, explicit documentation scope and predecessor documents. Use existing dossier/task validators for consistency; runtime evidence, if needed for checkpoint completion, belongs to listed producer dependencies, never an entry prerequisite for proposing a probe."
       },
-      "implementation_requirements": []
+      "implementation_requirements": [],
+      "task_kind": "document_review"
     }
   ]
 }

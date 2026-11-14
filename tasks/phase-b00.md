@@ -116,7 +116,7 @@ docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md
 
 **Đầu ra:**
 
-Bộ chạy kiểm tra và dữ liệu giả tối thiểu cho desktop-body; phiên bản/giấy phép và lệnh có bằng chứng
+Unity fixture bootstrap cô lập và lệnh batch có timeout; không phụ thuộc project renderer sản phẩm
 
 **Phụ thuộc:**
 
@@ -128,19 +128,19 @@ None; all below are proposed.
 
 **Whitelist đề xuất — chưa cho phép sửa sản phẩm:**
 
-docs/experiments/bootstrap-desktop-body.md; tests/bootstrap/desktop-body/Bootstrap.Tests.csproj; tests/bootstrap/desktop-body/BootstrapTests.cs; tools/verify/desktop-body.ps1
+docs/experiments/bootstrap-desktop-body.md; tests/bootstrap/desktop-body/UnityFixture/ProjectSettings/ProjectVersion.txt; tests/bootstrap/desktop-body/UnityFixture/Packages/manifest.json; tests/bootstrap/desktop-body/UnityFixture/Assets/Editor/BootstrapBuild.cs; tests/bootstrap/desktop-body/UnityFixture/Assets/Bootstrap.unity
 
 **Các bước cụ thể:**
 
-1. Khảo sát công cụ thực có cho desktop-body: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.
-2. Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/desktop-body.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.
-3. Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.
-4. Chạy powershell -NoProfile -File tools/verify/desktop-body.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-desktop-body.md; chỉ sau đó mở gate cho task phụ thuộc.
+1. Khảo sát Unity Editor thực có và nguồn chính thức/giấy phép cho Windows batch build; đề xuất phiên bản trong báo cáo. Chỉ sau cho phép thử riêng mới tạo project fixture cô lập, không dùng project sản phẩm P02-01.
+2. Tạo đúng năm đường dẫn whitelist: báo cáo; ProjectVersion.txt ghim editor; manifest.json chỉ package tối thiểu có quyền dùng; scene Bootstrap.unity chỉ primitive giả; BootstrapBuild.cs là editor-only entry cho phép thử. Không avatar/input/capture/network hay nội dung cá nhân. Library/Temp/log/build output là working material tự sinh, không authored file whitelist và không commit.
+3. Đề xuất entry BootstrapBuild.Verify và nhánh deliberately-failing trong editor script sau khi đối chiếu API của phiên bản đã ghim. Entry dương kiểm scene fixture/build smoke thật, âm trả exit code khác 0 có chủ đích; log/outputs vào TEMP. Không cần project hay bằng chứng P02-01 để bootstrap chạy.
+4. Ghi executable Unity thực, dùng mẫu batch -batchmode -nographics -quit -projectPath tests/bootstrap/desktop-body/UnityFixture -executeMethod BootstrapBuild.Verify -logFile <TEMP>. Dùng supervisor tiến trình với WaitForExit(120000), kill tiến trình thử nếu timeout; timeout là lỗi. Chạy nhánh dương/âm và lưu lệnh exact, code, log, editor/package version và cleanup. Chưa chạy trong phiên tài liệu; chỉ sau bằng chứng này P02-01 mới có runner để Ready.
 
 **Tiêu chí nghiệm thu:**
 
-- [ ] AT-B00-02-01: Record exact executable/version, license and bounded build/test invocation for desktop-body; run one passing fixture and one deliberately failing fixture, retain exit codes and explain unsupported environment.
-- [ ] AT-B00-02-02: Document fixture rights, no personal data, explicit cleanup/stop plan, actual/proposed file map and recovery checkpoint; obtain scoped approval before creating product infrastructure.
+- [ ] AT-B00-02-01: Project Unity fixture tối thiểu nằm đúng whitelist năm file; editor/package ghim phiên bản có license evidence, scene giả không quyền input/capture/network; không đọc hoặc yêu cầu project P02-01 để tạo fixture.
+- [ ] AT-B00-02-02: Batch dương chạy đúng scene/build fixture, trả 0; nhánh âm cố ý sai trả khác 0; supervisor dừng sau tối đa 120 giây mỗi lượt. Báo cáo giữ exact executable/arguments/log/version/cleanup và NOT RUN cho đến khi có phép thử thực; không coi đọc file là test.
 
 **Lệnh thực có — chỉ kiểm hồ sơ:**
 
@@ -148,7 +148,7 @@ python tasks/validate_tasks.py (documentation consistency only; never product ev
 
 **Kiểm chứng tương lai — CHƯA CHẠY:**
 
-{"state": "GATED_NOT_RUN", "owner": null, "command": null, "gate": "Bootstrap entry requires only separately approved fixture scope, tooling/license discovery and no unresolved infrastructure choice. It does not require a pre-existing successful runner. Completion requires creating and executing the bounded positive/negative runner in this whitelist."}
+{"state": "GATED_NOT_RUN", "owner": null, "command": null, "command_template": "<verified Unity Editor executable> -batchmode -nographics -quit -projectPath tests/bootstrap/desktop-body/UnityFixture -executeMethod BootstrapBuild.Verify -logFile <TEMP log>; supervisor WaitForExit(120000), timeout -> terminate owned probe and fail", "gate": "Bootstrap entry requires separately approved fixture scope and editor/license discovery; it does not require a pre-existing successful runner or the P02-01 product project. This task owns all five fixture paths. Completion requires real bounded positive/negative batch evidence before dependent executable tasks become Ready."}
 
 **Chủ nhiệm chuẩn bị công cụ:**
 
