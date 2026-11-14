@@ -209,3 +209,13 @@ Người dùng điền mô tả app hoặc kể ý tưởng bằng lời. AI là
 - Mô tả luôn nhìn thấy trước khi tick, gắn aria-describedby vào checkbox; tìm kiếm bao gồm mô tả, JSON xuất kèm explanation, schemaVersion 4.
 - Giữ nguyên ID và khóa lưu v2 nên không chủ động xóa lựa chọn đã lưu của người dùng.
 - Node kiểm tra cú pháp, đủ 132 mô tả đúng ID, liên kết mô tả trợ năng và tích hợp xuất JSON thành công; chưa kiểm chứng hiển thị trong trình duyệt.
+
+
+## E02a guided user acceptance — historical blocker locating binary
+
+User reports no E02a window/executable and requests locating existing build only, no rebuild/product changes/publishing. Accessible C: filename search found no PolicyLab EXE/DLL; documentation ZIP has no binaries. No PolicyLab.App process found. User-feedback record: tasks/E02a-USER-ACCEPTANCE.md. All UI/acceptance checks remain untested/open; do not mark any checkbox passed. Await existing binary/backup location from user; do not build without later explicit authorization.
+
+
+## Demo E02a trên máy hiện tại
+
+Explicit user authorized rebuilding E02a demo locally after confirming old binary was on another machine. Existing source unchanged, isolated SDK10.0.404, tests53/53 and UI RunAll35/35. Artifact E02a-demo.zip, report docs/E02a-CURRENT-MACHINE-RESULTS.md. No full-product/Unity/AI or publishing; resize/full keyboard/human acceptance remain open.
