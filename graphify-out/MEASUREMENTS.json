@@ -5,20 +5,20 @@
     "utf8_bytes": 937865
   },
   "baseline_file_sha256": {
-    "CONSTRAINTS.md": "f1a166baa499bf62c00c663c3eb3b203585f4dd5c712874ec40ecb9036ea3b8b",
-    "docs/YEU_CAU_HIEN_HANH.md": "d815df8161b5aa452842fb389b1ac5a5f9221043772c712de6b0375656f29a5f",
-    "docs/product/AI/DECISIONS.md": "fb41c04a1b500ee53c5146c928f3fbe693d1500be92451db59d69cf9f21a573c",
-    "docs/product/AI/SRS.md": "56095c59c2cddc5ccc217a06773026e0e412388ba5a7249ef47a2361bd4b1f96",
-    "docs/product/AI/backlog.json": "7527782b3a9cbda1da981bf2bdc771cb8c00e79b258eb3883206c881a7c6639b",
-    "docs/product/AI/modules/README.md": "740ff966cd6dbb66d161b775086dfcbbdcb55d40753da3b70754a5c28902003f",
-    "docs/product/AI/modules/companion.md": "80ed37003dad37985a0c3f06c9c556484a654624acc69a21a1b7b8b0c2b4a2cd",
-    "docs/product/AI/modules/desktop-body.md": "e64b81b39125af9250e132dd4feca57bb1799fa2c0db148b49a4e469a31232e6",
-    "docs/product/AI/modules/distribution.md": "5131d06e14d6b812873e818511b4e47291492c6c6fd3ffdeec2c785ad057b098",
-    "docs/product/AI/modules/life-state.md": "bab4bc8ca73d4b91b6359226c0d9dec55cfd0a1bae3be674d4c5d9956db6e82d",
-    "docs/product/AI/modules/perception.md": "2e301dda788866c498a04cc313f0b59a0dab52d96b35c3c0460a39d67e0994bc",
-    "docs/product/AI/modules/policy.md": "ef046ac8a2e9517ed63804a39c34fc7b282680d7752214f90fbc25694a0b094b",
-    "docs/product/AI/modules/task-execution.md": "580bb907a06f8f9dd54defd34936651b900758936c811ca443e6bb75cd10280e",
-    "docs/product/AI/requirements.json": "50973a119bfef042aedd951b76010b2e445ebc9fbb4e1e131ee6d797c43ab7dd"
+    "CONSTRAINTS.md": "dc438569686b9a26ff0ee03654b3ac562c8abbd55e857f7ee93f94a349d08ac0",
+    "docs/YEU_CAU_HIEN_HANH.md": "304fd35e358a4949a821f38a77c80ae06c668f51e7de6fa3e9a882deb6bf4a6c",
+    "docs/product/AI/DECISIONS.md": "34f03f0920ccc9fba640007aa92400040f2848efe9f9843b493d1364075824da",
+    "docs/product/AI/SRS.md": "51b37b4d7445beb9d3f51d479b2041b1e528bec4d4ac71a0204027e57e2214ce",
+    "docs/product/AI/backlog.json": "992327b41ee2ce13bf4f7d2270918b7362487c983e508b566032383b2d52e662",
+    "docs/product/AI/modules/README.md": "8b7edbb765d348e5d843147aecb36226f6b9b52d68037e0f2d7904f0c46721e7",
+    "docs/product/AI/modules/companion.md": "b65113b2307cb8a7502f2b916dd6161c3f275a02b5df9991a37e920ebf4db8fa",
+    "docs/product/AI/modules/desktop-body.md": "8140744b4d419ed2d17981e4049c3d2df6d32a08b75540efb08f5a82971f6cec",
+    "docs/product/AI/modules/distribution.md": "82677793d22f809975cd1281dfc60ab4965db55250d56a5939fa835329f8e4d2",
+    "docs/product/AI/modules/life-state.md": "911e15e5cb102d1195befd4e68ba797a7c245f3635b9590cf6e3fc2e43f9961f",
+    "docs/product/AI/modules/perception.md": "13fc91aeffb7ae5958b09fb9bdffd5259b3668f13f4d4c30bba3c3f3c02e2595",
+    "docs/product/AI/modules/policy.md": "00105cb28e88d529203725cc9816523d414a2ca51a7f3f0511de9bf49f3b716a",
+    "docs/product/AI/modules/task-execution.md": "7efb6dd39e621634a03b795ca5823810de16cb5aa6173c79f0c7c5c28e08e38c",
+    "docs/product/AI/requirements.json": "56eb8f3d622a0c5669234a19525beee23512cf91285280ede4972352193b349b"
   },
   "baseline_files": [
     "docs/YEU_CAU_HIEN_HANH.md",
@@ -37,16 +37,17 @@
     "docs/product/AI/modules/task-execution.md"
   ],
   "graphify_version": "0.9.97",
-  "map_fingerprint": "29aed46446448f8c560855399c402d4b810035124c49091d2d5502564a7dcad0",
+  "hash_policy": "utf8-text-bom-removed-universal-newlines-lf-v1",
+  "map_fingerprint": "93ee90a9f7e67e6156c6b5ef8452ac1c9951560814b628c475428bd40ebe87d0",
   "method": "Exact Unicode characters and UTF-8 bytes of decoded prompt input (UTF-8 BOM removed, newlines normalized to LF); not raw on-disk file byte totals. chars/4 ceiling is heuristic, not model tokenizer or billing.",
-  "pack_algorithm_sha256": "d9beb3e93295a1838ebec807e399cc4f2220262b96fea7838fa286bd95cfed6d",
+  "pack_algorithm_sha256": "b24dfa080b8b0c736b97cd0d0345e118d22d155dd78543fb29679b6922e755fe",
   "pack_sha256": {
-    "P01-01": "194a240682288f4d222226797dc08c48b57bdd808ade3412c571c6aa16249b87",
-    "P10-03": "977e6d82666664cd56a3f3cabbb67614cdb00a93bfb53e918fbef051cd93022a",
-    "P40-05": "3a9d730340174d56d0ce34bf3c0a4efbcc130edcfad6e80f7e7bf08020941aa4"
+    "P01-01": "6550a8064e9dfb3869e63ff4d1cf4525e36ae3501b58cffba59f8e91924f703d",
+    "P10-03": "dc2827efa67d6e0e9dc303b8e756c409d8b39f94a04c03f9cea0a23fde204a1c",
+    "P40-05": "2b3bf6bb0a145fda04b187729e55b13f27d3a692ab0a78ac21e6ea3beaa676aa"
   },
-  "schema_version": 1,
-  "source_fingerprint": "e8919779b36487a465999bb76dac0e3c5159fd82f3817ba74cc4094c7d902716",
+  "schema_version": 2,
+  "source_fingerprint": "41f528880fb9cd586e53f9218eaacea7c02ff0814d592c3d14cf05577951008d",
   "tasks": {
     "P01-01": {
       "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 2969,

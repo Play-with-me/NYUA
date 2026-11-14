@@ -18,7 +18,8 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'graphify-out'
 AI = 'docs/product/AI/'
-SCHEMA = 1
+SCHEMA = 2
+HASH_POLICY = 'utf8-text-bom-removed-universal-newlines-lf-v1'
 VERSION = '0.9.97'
 OFFICIAL_SHA256 = {
     'extract.py': '355f470579b44c0442ef38101e52bf2f075fdff4c6cfee8b1ef27d3508974fa5',
@@ -58,7 +59,10 @@ def encode(value):
 
 
 def sha(path):
-    return hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
+    # All freshness inputs/outputs are UTF-8 source or JSON/Markdown text.
+    # Match Git LF blobs and CRLF working copies without ignoring real content edits.
+    # Upstream distribution/binary checks below deliberately still hash raw bytes.
+    return hashlib.sha256(read(path).encode('utf-8')).hexdigest()
 
 
 def write(path, value):
@@ -130,14 +134,14 @@ def verify_metrics(manifest, metrics=None, certificate=None):
     measurement_digest = sha('graphify-out/MEASUREMENTS.json') if metrics is None else fingerprint(metrics)
     metrics = metrics if metrics is not None else load('graphify-out/MEASUREMENTS.json')
     certificate = certificate if certificate is not None else load('graphify-out/measurements-manifest.json')
-    expected = {'schema_version': SCHEMA, 'graphify_version': VERSION,
+    expected = {'schema_version': SCHEMA, 'hash_policy': HASH_POLICY, 'graphify_version': VERSION,
                 'source_fingerprint': fingerprint(manifest['sources']),
                 'map_fingerprint': fingerprint(manifest['outputs']),
                 'measurement_sha256': measurement_digest}
     if certificate != expected:
         raise InvalidContext('STALE_MEASUREMENTS: source/map revision or measurement integrity changed; run build/measure')
     if any(metrics.get(k) != expected[k] for k in
-           ['schema_version','graphify_version','source_fingerprint','map_fingerprint']):
+           ['schema_version','hash_policy','graphify_version','source_fingerprint','map_fingerprint']):
         raise InvalidContext('STALE_MEASUREMENTS: snapshot revision fields differ')
     for p, digest in metrics['baseline_file_sha256'].items():
         if p not in manifest['sources'] or sha(p) != digest:
@@ -148,7 +152,7 @@ def verify_metrics(manifest, metrics=None, certificate=None):
 
 def fresh(manifest=None, verify_measurements=True):
     m = manifest if manifest is not None else load('graphify-out/manifest.json')
-    if m.get('schema_version') != SCHEMA or set(m['sources']) != set(inputs()):
+    if m.get('schema_version') != SCHEMA or m.get('hash_policy') != HASH_POLICY or set(m['sources']) != set(inputs()):
         raise InvalidContext('STALE: schema or input inventory changed; run build')
     bad = [p for p, digest in m['sources'].items() if not (ROOT / p).is_file() or sha(p) != digest]
     for p, digest in m.get('outputs', {}).items():
@@ -271,6 +275,7 @@ Read this file first; never load full graph.json into the prompt.
 - Registry/proposed relations live separately in registry-index.json, never labelled AST EXTRACTED.
 - Existing lab source is a reference only; proposed production file paths remain unimplemented.
 - Freshness: every query verifies source inventory/SHA256/schema/output hashes; stale -> error, rebuild.
+  Schema2 hashes UTF-8 text after BOM removal and LF normalization, portable across Git LF/CRLF checkouts.
 
 ## Small-first workflow
 
@@ -289,7 +294,7 @@ See docs/context/README.md for provenance, baseline and limits. No external LLM/
 '''
     write('graphify-out/GRAPH_REPORT.md', report)
     import graphify.extract
-    manifest = {'schema_version': SCHEMA, 'graphify_version': VERSION,
+    manifest = {'schema_version': SCHEMA, 'hash_policy': HASH_POLICY, 'graphify_version': VERSION,
                 'adapter': 'graphify.extract.extract explicit paths/root, parallel=False, TEMP cache',
                 'official_repository': 'https://github.com/Graphify-Labs/graphify/tree/v0.9.97',
                 'official_verified_file_hashes': OFFICIAL_SHA256,
@@ -372,7 +377,7 @@ def measure(emit=True):
     def counts(s):
         return {'unicode_characters':len(s),'utf8_bytes':len(s.encode('utf-8')),
                 'token_estimate_ceil_chars_div4_NOT_TOKENIZER':math.ceil(len(s)/4)}
-    result = {'schema_version':SCHEMA,'graphify_version':VERSION,
+    result = {'schema_version':SCHEMA,'hash_policy':HASH_POLICY,'graphify_version':VERSION,
               'source_fingerprint':fingerprint(manifest['sources']),
               'map_fingerprint':fingerprint(manifest['outputs']),
               'pack_algorithm_sha256':sha('docs/context/context_nav.py'),
@@ -383,7 +388,7 @@ def measure(emit=True):
               'pack_sha256':{tid:hashlib.sha256(pack(tid,check=False).encode('utf-8')).hexdigest()
                              for tid in ['P01-01','P10-03','P40-05']}}
     write('graphify-out/MEASUREMENTS.json',encode(result))
-    certificate={'schema_version':SCHEMA,'graphify_version':VERSION,
+    certificate={'schema_version':SCHEMA,'hash_policy':HASH_POLICY,'graphify_version':VERSION,
                  'source_fingerprint':fingerprint(manifest['sources']),
                  'map_fingerprint':fingerprint(manifest['outputs']),
                  'measurement_sha256':fingerprint(result)}

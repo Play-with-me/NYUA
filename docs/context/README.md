@@ -38,7 +38,7 @@ Các lệnh dùng `python` trong hướng dẫn giả định interpreter có gr
 ## Hai nguồn quan hệ riêng
 
 `graphify-out/graph.json` chứa raw nodes/edges do Graphify tạo, giữ source_file/source_location,
-confidence EXTRACTED/INFERRED và origin. Wrapper schema_version1 của NYUA được ghi rõ, không giả
+confidence EXTRACTED/INFERRED và origin. Wrapper schema_version2 của NYUA được ghi rõ, không giả
 schema/communities/report của pipeline upstream. Không chạy Leiden, không tuyên bố God Nodes.
 
 `registry-index.json` là chỉ mục phụ sinh từ canonical backlog/requirements, với nhãn
@@ -53,7 +53,7 @@ Canonical219 task/109 requirement/7 module không sửa ý nghĩa bởi integrat
   Quá budget: exit2 OVERFLOW, không in hoặc viết pack một phần, kể cả caller chọn budget nhỏ.
 - Neighborhood tùy chọn chỉ1 hop, tối đa12 cạnh; số cạnh tùy chọn bị bỏ có ghi rõ. Không dùng giới hạn này
   để bỏ ràng buộc an toàn. Pack không đưa toàn đồ thị vào prompt.
-- Mỗi lookup kiểm inventory nguồn, hash byte SHA256, schema và hash các output cốt lõi.
+- Mỗi lookup kiểm inventory nguồn, SHA256 văn bản UTF-8 chuẩn hóa BOM/LF, schema và hash các output cốt lõi.
   Đổi nguồn/thêm file/xóa file/sửa map => STALE, phải build lại. Graph là cache, source thắng.
 - `build` có thể tái tạo graph/report/index/manifest; `test` kiểm219 pack, module coverage,
   giữ acceptance/deps/decision/constraints, unknown-ID/stale-source/budget-overflow controls.
@@ -90,7 +90,21 @@ Các liên kết cần checkout được liệt kê trong REPOSITORY-ONLY-LINKS.
 
 Manifest nguồn bao gồm mọi file baseline, kể cả SRS. MEASUREMENTS.json chứa SHA256 từng baseline,
 source fingerprint, map fingerprint, schema/version, hash thuật toán và hash ba pack. measurements-manifest.json
-kiểm hash byte nguyên file measurement và gắn nguồn/map revision; không tự hash hoặc vòng phụ thuộc.
+kiểm SHA256 văn bản measurement theo cùng chính sách BOM/LF và gắn nguồn/map revision; không tự hash hoặc vòng phụ thuộc.
 `build` tái tạo source/map manifest rồi tự đo lại; `measure` chỉ chạy khi source/map còn đúng, có thể sửa
 snapshot measurement hỏng mà không thay source/map manifest. `check` kiểm cả measurement integrity/revision.
 Sửa SRS hoặc nội dung measurement phải bị từ chối; controls kiểm trong memory/bản TEMP, không đổi input thật.
+
+
+## Portable checkout fingerprints — schema2
+
+Freshness dùng chính sách có phiên bản `utf8-text-bom-removed-universal-newlines-lf-v1` cho mọi nguồn/output
+văn bản UTF-8 được theo dõi: bỏ duy nhất BOM đầu file, chuẩn hóa CRLF/CR thành LF, không trim khoảng trắng,
+không parse rồi bỏ field hoặc bỏ nội dung. LF Git blob và CRLF checkout cùng nội dung phải cùng hash;
+sửa nội dung hoặc thêm khoảng trắng vẫn STALE. Measurement certificate dùng cùng chính sách và version.
+Hash byte upstream Graphify distribution/extractor và checksum ZIP/binary giữ nguyên raw bytes, không chuẩn hóa.
+Số byte measurement là input text đã chuẩn hóa LF như đã ghi, không đổi định nghĩa số đo để né lỗi.
+Schema1 cache phải build lại; schema không được nhận ngầm. Regression kiểm git archive LF và bản sao CRLF,
+đồng thời thay đổi source/measurement thật trong bản tạm vẫn phải bị từ chối.
+
+Kiểm checkout thực từ commit: Python312 `docs/context/check_checkout.py HEAD`. Script chỉ giải nén git archive vào TEMP, kiểm LF/CRLF và sửa/restored source trong bản TEMP; không đổi working tree hoặc chạy mã sản phẩm.

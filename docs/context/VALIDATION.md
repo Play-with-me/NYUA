@@ -1,5 +1,7 @@
 # Kết quả tích hợp Graphify cục bộ
 
+Các số graph dưới đây ghi snapshot tích hợp ban đầu schema1; snapshot schema2 hiện hành lấy từ graphify-out/GRAPH_REPORT.md và MEASUREMENTS.json sau fix checkout portability.
+
 Ngày 2026-11-14; chỉ tài liệu/công cụ. Không chạy test ứng dụng hay thao tác UI trong đợt này.
 Source ứng dụng, canonical backlog/requirements và tasks/todo.md không đổi.
 
@@ -45,6 +47,11 @@ Không cài thêm tool mới; tái tạo cần Python có graphifyy0.9.97 đúng
 standalone freshness phải từ chối khi thiếu nguồn, không dùng snapshot như authority. Không push/cập nhật PR.
 
 
-## Rà độc lập
+## Rà độc lập giai đoạn tích hợp
 
 nyua-5: PASS trong phạm vi tài liệu/measurement/freshness, không còn blocker của finding SRS/measurement. Reviewer kiểm hash/luồng kiểm qua đọc mã, không chạy script repository hoặc test sản phẩm. Owner chạy các controls/reproducibility ghi trên. Đây không phải user acceptance hoặc product/publishing approval.
+
+
+## Fix được yêu cầu khi rà toàn PR
+
+Review PR head e295051 phát hiện raw CRLF/LF hash không portable. Schema2 công khai canonical UTF8 BOM/LF policy, giữ whitespace/content significance và raw upstream/binary/ZIP checks. Regression docs/context/check_checkout.py kiểm git archive mới, bản CRLF, query và3 edit controls (SRS,C#source,measurement); phải chạy sau commit để tránh lấy working tree làm bằng chứng checkout. Review delta cần xác nhận đúng head mới trước merge.
