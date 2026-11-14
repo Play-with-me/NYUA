@@ -5,6 +5,55 @@ flowchart TD
   P00_03["P00-03: Chốt tiêu chuẩn chất lượng sau đo"]
   P00_04["P00-04: Lập danh mục giấy phép và chi phí"]
  end
+ subgraph B00["B00"]
+  B00_01["B00-01: Bootstrap verified tooling and fixtures: companion"]
+  B00_02["B00-02: Bootstrap verified tooling and fixtures: desktop-body"]
+  B00_03["B00-03: Bootstrap verified tooling and fixtures: perception"]
+  B00_04["B00-04: Bootstrap verified tooling and fixtures: policy"]
+  B00_05["B00-05: Bootstrap verified tooling and fixtures: life-state"]
+  B00_06["B00-06: Bootstrap verified tooling and fixtures: task-execution"]
+  B00_07["B00-07: Bootstrap verified tooling and fixtures: distribution"]
+ end
+ subgraph R00["R00"]
+  R00_02["R00-02: Resolve residual evidence: D-02"]
+  R00_03["R00-03: Resolve residual evidence: D-03"]
+  R00_04["R00-04: Resolve residual evidence: D-04"]
+  R00_13["R00-13: Resolve residual evidence: D-13"]
+  R00_01["R00-01: Resolve residual evidence: D-01"]
+  R00_10["R00-10: Resolve residual evidence: D-10"]
+  R00_15["R00-15: Resolve residual evidence: D-15"]
+  R00_16["R00-16: Resolve residual evidence: D-16"]
+  R00_07["R00-07: Resolve residual evidence: D-07"]
+  R00_08["R00-08: Resolve residual evidence: D-08"]
+  R00_18["R00-18: Resolve residual evidence: D-18"]
+  R00_05["R00-05: Resolve residual evidence: D-05"]
+  R00_11["R00-11: Resolve residual evidence: D-11"]
+  R00_14["R00-14: Resolve residual evidence: D-14"]
+  R00_12["R00-12: Resolve residual evidence: D-12"]
+  R00_17["R00-17: Resolve residual evidence: D-17"]
+  R00_06["R00-06: Resolve residual evidence: D-06"]
+  R00_09["R00-09: Resolve residual evidence: D-09"]
+ end
+ subgraph A00["A00"]
+  A00_02["A00-02: Rà đề cương và phạm vi phép thử D-02"]
+  A00_03["A00-03: Rà đề cương và phạm vi phép thử D-03"]
+  A00_04["A00-04: Rà đề cương và phạm vi phép thử D-04"]
+  A00_13["A00-13: Rà đề cương và phạm vi phép thử D-13"]
+  A00_01["A00-01: Rà đề cương và phạm vi phép thử D-01"]
+  A00_10["A00-10: Rà đề cương và phạm vi phép thử D-10"]
+  A00_15["A00-15: Rà đề cương và phạm vi phép thử D-15"]
+  A00_16["A00-16: Rà đề cương và phạm vi phép thử D-16"]
+  A00_07["A00-07: Rà đề cương và phạm vi phép thử D-07"]
+  A00_08["A00-08: Rà đề cương và phạm vi phép thử D-08"]
+  A00_18["A00-18: Rà đề cương và phạm vi phép thử D-18"]
+  A00_05["A00-05: Rà đề cương và phạm vi phép thử D-05"]
+  A00_11["A00-11: Rà đề cương và phạm vi phép thử D-11"]
+  A00_14["A00-14: Rà đề cương và phạm vi phép thử D-14"]
+  A00_12["A00-12: Rà đề cương và phạm vi phép thử D-12"]
+  A00_17["A00-17: Rà đề cương và phạm vi phép thử D-17"]
+  A00_06["A00-06: Rà đề cương và phạm vi phép thử D-06"]
+  A00_09["A00-09: Rà đề cương và phạm vi phép thử D-09"]
+ end
  subgraph P01["P01"]
   P01_01["P01-01: Khép kiểm tra UI còn mở của E02a"]
  end
@@ -30,6 +79,16 @@ flowchart TD
   P10_06["P10-06: Bridge trình duyệt và ngoại lệ khung video"]
   P10_07["P10-07: Input arbitration và các nút dừng"]
  end
+ subgraph P50["P50"]
+  P50_01["P50-01: Chốt storage và transaction/persistence"]
+  P50_02["P50-02: Profile import/switch/reset semantics"]
+  P50_03["P50-03: Manualexport password/recovery format"]
+  P50_04["P50-04: Validate/import archive thành hồ sơ riêng"]
+  P50_05["P50-05: Local actionhistory và expiry30days"]
+  P50_06["P50-06: Bộ cài và startup opt-in"]
+  P50_07["P50-07: Own update check/download/install confirmation"]
+  P50_08["P50-08: Uninstall giữ/xóa và manualexport reminder"]
+ end
  subgraph P20["P20"]
   P20_01["P20-01: Duyệt model sheet nhân vật gốc"]
   P20_02["P20-02: Di chuyển và bề mặt cửa sổ"]
@@ -40,8 +99,8 @@ flowchart TD
  subgraph P30["P30"]
   P30_01["P30-01: Needs/sleep/rest và elapsed reconciliation"]
   P30_02["P30-02: Lựa chọn hoạt động, mood và attention limits"]
-  P30_03["P30-03: Quan hệ sâu, neglect và làm lành"]
   P30_04["P30-04: Memory provenance, pin/fade/edit/delete"]
+  P30_03["P30-03: Quan hệ sâu, neglect và làm lành"]
   P30_05["P30-05: Học gu từ user media evidence"]
   P30_06["P30-06: Mode preservation, personality và romance opt-in"]
  end
@@ -54,16 +113,6 @@ flowchart TD
   P40_06["P40-06: Xem cùng và phản ứng cảm xúc"]
   P40_07["P40-07: Tự tìm/mở nội dung trong quyền"]
  end
- subgraph P50["P50"]
-  P50_01["P50-01: Chốt storage và transaction/persistence"]
-  P50_02["P50-02: Profile import/switch/reset semantics"]
-  P50_03["P50-03: Manualexport password/recovery format"]
-  P50_04["P50-04: Validate/import archive thành hồ sơ riêng"]
-  P50_05["P50-05: Local actionhistory và expiry30days"]
-  P50_06["P50-06: Bộ cài và startup opt-in"]
-  P50_07["P50-07: Own update check/download/install confirmation"]
-  P50_08["P50-08: Uninstall giữ/xóa và manualexport reminder"]
- end
  subgraph P60["P60"]
   P60_01["P60-01: Lát tích hợp đầu: hiện→đọc an toàn→phản ứng→dừng"]
   P60_02["P60-02: Hồi quy hai mức và toàn bộ nghiệp vụ"]
@@ -71,106 +120,777 @@ flowchart TD
   P60_04["P60-04: Rà độc lập, thương hiệu và release gate"]
   P60_05["P60-05: Chuẩn bị công bố và hỗ trợ có kiểm soát"]
  end
+ subgraph V00["V00"]
+  V00_001["V00-001: Clause acceptance: SP01"]
+  V00_002["V00-002: Clause acceptance: SP02"]
+  V00_003["V00-003: Clause acceptance: SP03"]
+  V00_004["V00-004: Clause acceptance: SP04"]
+  V00_005["V00-005: Clause acceptance: SP05"]
+  V00_006["V00-006: Clause acceptance: SP06"]
+  V00_007["V00-007: Clause acceptance: SP07"]
+  V00_008["V00-008: Clause acceptance: SP08"]
+  V00_009["V00-009: Clause acceptance: SP09"]
+  V00_010["V00-010: Clause acceptance: NV01"]
+  V00_011["V00-011: Clause acceptance: NV02"]
+  V00_012["V00-012: Clause acceptance: NV03"]
+  V00_013["V00-013: Clause acceptance: NV04"]
+  V00_014["V00-014: Clause acceptance: NV05"]
+  V00_015["V00-015: Clause acceptance: NV06"]
+  V00_016["V00-016: Clause acceptance: NV07"]
+  V00_017["V00-017: Clause acceptance: NV08"]
+  V00_018["V00-018: Clause acceptance: NV09"]
+  V00_019["V00-019: Clause acceptance: NV10"]
+  V00_020["V00-020: Clause acceptance: NV11"]
+  V00_021["V00-021: Clause acceptance: MC01"]
+  V00_022["V00-022: Clause acceptance: MC02"]
+  V00_023["V00-023: Clause acceptance: MC03"]
+  V00_024["V00-024: Clause acceptance: MC04"]
+  V00_025["V00-025: Clause acceptance: SH01"]
+  V00_026["V00-026: Clause acceptance: SH02"]
+  V00_027["V00-027: Clause acceptance: SH03"]
+  V00_028["V00-028: Clause acceptance: SH04"]
+  V00_029["V00-029: Clause acceptance: SH05"]
+  V00_030["V00-030: Clause acceptance: SH06"]
+  V00_031["V00-031: Clause acceptance: SH07"]
+  V00_032["V00-032: Clause acceptance: SH08"]
+  V00_033["V00-033: Clause acceptance: QD01"]
+  V00_034["V00-034: Clause acceptance: QD02"]
+  V00_035["V00-035: Clause acceptance: QD03"]
+  V00_036["V00-036: Clause acceptance: QD04"]
+  V00_037["V00-037: Clause acceptance: QD05"]
+  V00_038["V00-038: Clause acceptance: QD06"]
+  V00_039["V00-039: Clause acceptance: QD07"]
+  V00_040["V00-040: Clause acceptance: QD08"]
+  V00_041["V00-041: Clause acceptance: QD09"]
+  V00_042["V00-042: Clause acceptance: QD10"]
+  V00_043["V00-043: Clause acceptance: QD11"]
+  V00_044["V00-044: Clause acceptance: QD12"]
+  V00_045["V00-045: Clause acceptance: QD13"]
+  V00_046["V00-046: Clause acceptance: QD14"]
+  V00_047["V00-047: Clause acceptance: QD15"]
+  V00_048["V00-048: Clause acceptance: DK01"]
+  V00_049["V00-049: Clause acceptance: DK02"]
+  V00_050["V00-050: Clause acceptance: DK03"]
+  V00_051["V00-051: Clause acceptance: DK04"]
+  V00_052["V00-052: Clause acceptance: BH01"]
+  V00_053["V00-053: Clause acceptance: BH02"]
+  V00_054["V00-054: Clause acceptance: BH03"]
+  V00_055["V00-055: Clause acceptance: BH04"]
+  V00_056["V00-056: Clause acceptance: BH05"]
+  V00_057["V00-057: Clause acceptance: BH06"]
+  V00_058["V00-058: Clause acceptance: BH07"]
+  V00_059["V00-059: Clause acceptance: BH08"]
+  V00_060["V00-060: Clause acceptance: BH09"]
+  V00_061["V00-061: Clause acceptance: BH10"]
+  V00_062["V00-062: Clause acceptance: BH11"]
+  V00_063["V00-063: Clause acceptance: BH12"]
+  V00_064["V00-064: Clause acceptance: BH13"]
+  V00_065["V00-065: Clause acceptance: XP01"]
+  V00_066["V00-066: Clause acceptance: XP02"]
+  V00_067["V00-067: Clause acceptance: XP03"]
+  V00_068["V00-068: Clause acceptance: XP10"]
+  V00_069["V00-069: Clause acceptance: XP11"]
+  V00_070["V00-070: Clause acceptance: XP12"]
+  V00_071["V00-071: Clause acceptance: XP13"]
+  V00_072["V00-072: Clause acceptance: XP14"]
+  V00_073["V00-073: Clause acceptance: XP15"]
+  V00_074["V00-074: Clause acceptance: XP16"]
+  V00_075["V00-075: Clause acceptance: XP09"]
+  V00_076["V00-076: Clause acceptance: XP04"]
+  V00_077["V00-077: Clause acceptance: XP05"]
+  V00_078["V00-078: Clause acceptance: XP06"]
+  V00_079["V00-079: Clause acceptance: XP07"]
+  V00_080["V00-080: Clause acceptance: XP08"]
+  V00_081["V00-081: Clause acceptance: AI01"]
+  V00_082["V00-082: Clause acceptance: AI02"]
+  V00_083["V00-083: Clause acceptance: AI03"]
+  V00_084["V00-084: Clause acceptance: KN01"]
+  V00_085["V00-085: Clause acceptance: KN02"]
+  V00_086["V00-086: Clause acceptance: QH01"]
+  V00_087["V00-087: Clause acceptance: QH02"]
+  V00_088["V00-088: Clause acceptance: QH03"]
+  V00_089["V00-089: Clause acceptance: QH04"]
+  V00_090["V00-090: Clause acceptance: QH05"]
+  V00_091["V00-091: Clause acceptance: QH06"]
+  V00_092["V00-092: Clause acceptance: QH07"]
+  V00_093["V00-093: Clause acceptance: HS01"]
+  V00_094["V00-094: Clause acceptance: HS02"]
+  V00_095["V00-095: Clause acceptance: HS03"]
+  V00_096["V00-096: Clause acceptance: SL01"]
+  V00_097["V00-097: Clause acceptance: SL02"]
+  V00_098["V00-098: Clause acceptance: CD01"]
+  V00_099["V00-099: Clause acceptance: CD02"]
+  V00_100["V00-100: Clause acceptance: CD03"]
+  V00_101["V00-101: Clause acceptance: MODE01"]
+  V00_102["V00-102: Clause acceptance: MODE02"]
+  V00_103["V00-103: Clause acceptance: MODE03"]
+  V00_104["V00-104: Clause acceptance: MODE04"]
+  V00_105["V00-105: Clause acceptance: MODE05"]
+  V00_106["V00-106: Clause acceptance: MODE06"]
+  V00_107["V00-107: Clause acceptance: MODE07"]
+  V00_108["V00-108: Clause acceptance: MODE08"]
+  V00_109["V00-109: Clause acceptance: MODE09"]
+ end
+ subgraph N00["N00"]
+  N00_01["N00-01: Authorization at use time, no forbidden data to consumers"]
+  N00_02["N00-02: Reaction latency measured end-to-end under actual combined load"]
+  N00_03["N00-03: Stability with both modes and daily-use mix"]
+  N00_04["N00-04: Core/local content offline after packages installed"]
+  N00_05["N00-05: Durable local state and authenticated export/import"]
+  N00_06["N00-06: Clear accessible UI and retained input priority"]
+  N00_07["N00-07: Maintainable module boundaries and reproducible builds"]
+  N00_08["N00-08: Trustworthy installs/updates and explicit costs"]
+  N00_09["N00-09: Minimal local diagnostic data"]
+  N00_10["N00-10: Correct coordinates and visuals across chosen monitors/DPI"]
+ end
+ subgraph C00["C00"]
+  C00_01["C00-01: Baseline checkpoint"]
+  C00_02["C00-02: Probes checkpoint"]
+  C00_03["C00-03: Integrated slice checkpoint"]
+  C00_04["C00-04: Full acceptance checkpoint"]
+  C00_05["C00-05: Release review checkpoint"]
+ end
+ P00_01 --> B00_01
+ P00_01 --> B00_02
+ P00_01 --> B00_03
+ P00_01 --> B00_04
+ P00_01 --> B00_05
+ P00_01 --> B00_06
+ P00_01 --> B00_07
+ P00_01 --> R00_02
+ R00_02 --> A00_02
+ P00_01 --> R00_03
+ R00_03 --> A00_03
  P00_01 --> P00_02
+ A00_02 --> P00_02
+ A00_03 --> P00_02
+ P00_01 --> R00_04
+ R00_04 --> A00_04
  P00_01 --> P00_03
+ A00_04 --> P00_03
+ P00_01 --> R00_13
+ R00_13 --> A00_13
  P00_01 --> P00_04
+ A00_13 --> P00_04
  P00_01 --> P01_01
+ B00_04 --> P01_01
+ P00_01 --> R00_01
+ R00_01 --> A00_01
  P00_02 --> P02_01
  P00_04 --> P02_01
+ B00_02 --> P02_01
+ A00_01 --> P02_01
  P02_01 --> P02_02
+ B00_02 --> P02_02
+ A00_01 --> P02_02
  P02_02 --> P02_03
+ B00_02 --> P02_03
+ A00_01 --> P02_03
  P02_01 --> P02_04
  P00_02 --> P02_04
+ B00_01 --> P02_04
+ A00_03 --> P02_04
+ P00_01 --> R00_10
+ R00_10 --> A00_10
  P02_04 --> P02_05
  P02_03 --> P02_05
+ B00_01 --> P02_05
+ A00_02 --> P02_05
+ A00_10 --> P02_05
  P00_04 --> P03_01
+ B00_03 --> P03_01
+ A00_04 --> P03_01
  P03_01 --> P03_02
  P01_01 --> P03_02
+ B00_03 --> P03_02
+ A00_04 --> P03_02
  P03_02 --> P03_03
  P02_04 --> P03_03
+ B00_03 --> P03_03
+ A00_04 --> P03_03
  P03_03 --> P03_04
  P00_03 --> P03_04
+ B00_01 --> P03_04
+ A00_04 --> P03_04
  P00_02 --> P10_01
  P01_01 --> P10_01
+ B00_04 --> P10_01
+ P00_01 --> R00_15
+ R00_15 --> A00_15
+ P00_01 --> R00_16
+ R00_16 --> A00_16
  P10_01 --> P10_02
  P02_03 --> P10_02
+ B00_03 --> P10_02
+ A00_15 --> P10_02
+ A00_16 --> P10_02
  P10_02 --> P10_03
+ B00_04 --> P10_03
+ A00_15 --> P10_03
  P10_03 --> P10_04
+ B00_03 --> P10_04
+ A00_15 --> P10_04
+ P00_01 --> R00_07
+ R00_07 --> A00_07
+ P00_01 --> R00_08
+ R00_08 --> A00_08
+ P00_02 --> P50_01
+ P00_04 --> P50_01
+ B00_07 --> P50_01
+ A00_07 --> P50_01
+ A00_08 --> P50_01
+ A00_10 --> P50_01
+ P00_01 --> R00_18
+ R00_18 --> A00_18
  P10_03 --> P10_05
  P50_01 --> P10_05
+ B00_04 --> P10_05
+ A00_07 --> P10_05
+ A00_18 --> P10_05
  P10_03 --> P10_06
  P00_04 --> P10_06
+ B00_03 --> P10_06
+ A00_03 --> P10_06
+ A00_15 --> P10_06
+ P00_01 --> R00_05
+ R00_05 --> A00_05
+ P00_01 --> R00_11
+ R00_11 --> A00_11
  P10_01 --> P10_07
  P02_05 --> P10_07
+ B00_04 --> P10_07
+ A00_05 --> P10_07
+ A00_11 --> P10_07
+ P00_01 --> R00_14
+ R00_14 --> A00_14
  P00_04 --> P20_01
+ B00_02 --> P20_01
+ A00_14 --> P20_01
  P20_01 --> P20_02
  P02_03 --> P20_02
  P02_05 --> P20_02
- P20_02 --> P20_03
- P30_02 --> P20_03
- P20_02 --> P20_04
- P30_01 --> P20_04
- P20_02 --> P20_05
- P02_02 --> P20_05
+ B00_02 --> P20_02
+ A00_01 --> P20_02
+ P00_01 --> R00_12
+ R00_12 --> A00_12
  P00_02 --> P30_01
  P50_01 --> P30_01
+ B00_05 --> P30_01
+ A00_05 --> P30_01
+ A00_12 --> P30_01
  P30_01 --> P30_02
- P30_02 --> P30_03
- P30_04 --> P30_03
+ B00_05 --> P30_02
+ A00_05 --> P30_02
+ P20_02 --> P20_03
+ P30_02 --> P20_03
+ B00_02 --> P20_03
+ A00_05 --> P20_03
+ P20_02 --> P20_04
+ P30_01 --> P20_04
+ B00_02 --> P20_04
+ A00_14 --> P20_04
+ P20_02 --> P20_05
+ P02_02 --> P20_05
+ B00_02 --> P20_05
+ A00_01 --> P20_05
  P50_01 --> P30_04
  P10_01 --> P30_04
+ B00_05 --> P30_04
+ A00_08 --> P30_04
+ P30_02 --> P30_03
+ P30_04 --> P30_03
+ B00_05 --> P30_03
+ A00_05 --> P30_03
  P30_04 --> P30_05
  P10_02 --> P30_05
+ B00_05 --> P30_05
+ A00_16 --> P30_05
  P30_03 --> P30_06
  P03_04 --> P30_06
+ B00_05 --> P30_06
+ A00_05 --> P30_06
  P02_04 --> P40_01
  P50_01 --> P40_01
+ B00_01 --> P40_01
+ A00_14 --> P40_01
  P40_01 --> P40_02
  P10_01 --> P40_02
+ B00_01 --> P40_02
+ P00_01 --> R00_17
+ R00_17 --> A00_17
  P10_03 --> P40_03
  P40_01 --> P40_03
  P50_01 --> P40_03
+ B00_06 --> P40_03
+ A00_17 --> P40_03
  P40_03 --> P40_04
  P10_07 --> P40_04
  P20_02 --> P40_04
+ B00_06 --> P40_04
+ A00_03 --> P40_04
+ A00_05 --> P40_04
  P40_04 --> P40_05
  P30_03 --> P40_05
+ B00_06 --> P40_05
+ A00_02 --> P40_05
+ A00_10 --> P40_05
+ A00_17 --> P40_05
  P03_03 --> P40_06
  P10_03 --> P40_06
  P30_02 --> P40_06
  P20_04 --> P40_06
+ B00_01 --> P40_06
+ A00_04 --> P40_06
+ A00_12 --> P40_06
+ P00_01 --> R00_06
+ R00_06 --> A00_06
  P40_05 --> P40_07
  P40_06 --> P40_07
  P10_06 --> P40_07
- P00_02 --> P50_01
- P00_04 --> P50_01
+ B00_06 --> P40_07
+ A00_06 --> P40_07
+ A00_11 --> P40_07
+ A00_16 --> P40_07
  P50_01 --> P50_02
  P10_01 --> P50_02
+ B00_07 --> P50_02
+ A00_10 --> P50_02
+ P00_01 --> R00_09
+ R00_09 --> A00_09
  P50_01 --> P50_03
  P00_04 --> P50_03
+ B00_07 --> P50_03
+ A00_07 --> P50_03
+ A00_09 --> P50_03
  P50_03 --> P50_04
  P50_02 --> P50_04
+ B00_07 --> P50_04
+ A00_07 --> P50_04
+ A00_09 --> P50_04
  P50_01 --> P50_05
+ B00_07 --> P50_05
  P00_04 --> P50_06
  P40_01 --> P50_06
  P20_05 --> P50_06
+ B00_07 --> P50_06
+ A00_13 --> P50_06
  P50_06 --> P50_07
  P50_04 --> P50_07
+ B00_07 --> P50_07
+ A00_10 --> P50_07
+ A00_13 --> P50_07
  P50_06 --> P50_08
  P50_03 --> P50_08
+ B00_07 --> P50_08
+ A00_13 --> P50_08
  P40_01 --> P60_01
  P20_02 --> P60_01
  P30_02 --> P60_01
  P10_03 --> P60_01
+ B00_01 --> P60_01
+ A00_01 --> P60_01
+ A00_15 --> P60_01
  P60_01 --> P60_02
  P30_06 --> P60_02
  P40_07 --> P60_02
  P50_04 --> P60_02
  P50_05 --> P60_02
+ B00_01 --> P60_02
+ A00_04 --> P60_02
  P60_02 --> P60_03
  P03_04 --> P60_03
+ B00_01 --> P60_03
+ A00_04 --> P60_03
  P60_03 --> P60_04
  P50_07 --> P60_04
  P50_08 --> P60_04
  P00_04 --> P60_04
+ B00_07 --> P60_04
+ A00_13 --> P60_04
+ P03_01 --> P60_04
+ C00_04 --> P60_04
  P60_04 --> P60_05
+ B00_07 --> P60_05
+ A00_13 --> P60_05
+ P30_02 --> V00_001
+ B00_01 --> V00_001
+ P60_01 --> V00_002
+ B00_01 --> V00_002
+ P50_06 --> V00_003
+ B00_01 --> V00_003
+ P40_01 --> V00_004
+ B00_01 --> V00_004
+ P60_03 --> V00_005
+ B00_01 --> V00_005
+ P00_04 --> V00_006
+ B00_01 --> V00_006
+ P30_06 --> V00_007
+ B00_01 --> V00_007
+ P30_02 --> V00_008
+ B00_01 --> V00_008
+ P00_02 --> V00_009
+ B00_01 --> V00_009
+ P02_05 --> V00_009
+ P40_05 --> V00_009
+ P20_01 --> V00_010
+ B00_02 --> V00_010
+ P20_01 --> V00_011
+ B00_02 --> V00_011
+ P20_01 --> V00_012
+ B00_02 --> V00_012
+ P20_01 --> V00_013
+ B00_02 --> V00_013
+ P20_02 --> V00_014
+ B00_02 --> V00_014
+ P40_01 --> V00_015
+ B00_02 --> V00_015
+ P20_02 --> V00_016
+ B00_02 --> V00_016
+ P20_05 --> V00_017
+ B00_02 --> V00_017
+ P20_03 --> V00_018
+ B00_02 --> V00_018
+ P40_04 --> V00_019
+ B00_02 --> V00_019
+ P20_03 --> V00_020
+ B00_02 --> V00_020
+ P03_04 --> V00_021
+ B00_01 --> V00_021
+ P03_04 --> V00_022
+ B00_01 --> V00_022
+ P30_06 --> V00_023
+ B00_01 --> V00_023
+ P03_04 --> V00_024
+ B00_01 --> V00_024
+ P30_01 --> V00_025
+ B00_05 --> V00_025
+ P10_03 --> V00_025
+ P30_01 --> V00_026
+ B00_05 --> V00_026
+ P30_01 --> V00_027
+ B00_05 --> V00_027
+ P20_04 --> V00_028
+ B00_05 --> V00_028
+ P20_03 --> V00_029
+ B00_05 --> V00_029
+ P30_02 --> V00_030
+ B00_05 --> V00_030
+ P20_04 --> V00_031
+ B00_05 --> V00_031
+ P20_04 --> V00_032
+ B00_05 --> V00_032
+ P10_01 --> V00_033
+ B00_04 --> V00_033
+ P40_02 --> V00_034
+ B00_04 --> V00_034
+ P50_02 --> V00_035
+ B00_04 --> V00_035
+ P10_02 --> V00_036
+ B00_04 --> V00_036
+ P30_01 --> V00_036
+ P10_03 --> V00_037
+ B00_04 --> V00_037
+ P10_02 --> V00_038
+ B00_04 --> V00_038
+ P00_01 --> V00_039
+ B00_04 --> V00_039
+ P10_04 --> V00_040
+ B00_04 --> V00_040
+ P30_04 --> V00_041
+ B00_04 --> V00_041
+ P20_02 --> V00_042
+ B00_04 --> V00_042
+ P30_04 --> V00_043
+ B00_04 --> V00_043
+ P10_06 --> V00_044
+ B00_04 --> V00_044
+ P10_06 --> V00_045
+ B00_04 --> V00_045
+ P10_06 --> V00_046
+ B00_04 --> V00_046
+ P10_03 --> V00_047
+ B00_04 --> V00_047
+ P10_07 --> V00_048
+ B00_04 --> V00_048
+ P10_07 --> V00_049
+ B00_04 --> V00_049
+ P10_07 --> V00_050
+ B00_04 --> V00_050
+ P10_07 --> V00_051
+ B00_04 --> V00_051
+ P40_03 --> V00_052
+ B00_06 --> V00_052
+ P40_03 --> V00_053
+ B00_06 --> V00_053
+ P40_05 --> V00_053
+ P40_04 --> V00_054
+ B00_06 --> V00_054
+ P40_04 --> V00_055
+ B00_06 --> V00_055
+ P40_04 --> V00_056
+ B00_06 --> V00_056
+ P40_05 --> V00_057
+ B00_06 --> V00_057
+ P02_05 --> V00_057
+ P40_03 --> V00_057
+ P40_05 --> V00_058
+ B00_06 --> V00_058
+ P40_05 --> V00_059
+ B00_06 --> V00_059
+ P40_05 --> V00_060
+ B00_06 --> V00_060
+ P40_05 --> V00_061
+ B00_06 --> V00_061
+ P40_03 --> V00_062
+ B00_06 --> V00_062
+ P40_03 --> V00_063
+ B00_06 --> V00_063
+ P50_05 --> V00_064
+ B00_06 --> V00_064
+ P40_06 --> V00_065
+ B00_01 --> V00_065
+ P03_03 --> V00_066
+ B00_01 --> V00_066
+ P30_02 --> V00_067
+ B00_01 --> V00_067
+ P30_02 --> V00_068
+ B00_01 --> V00_068
+ P30_05 --> V00_069
+ B00_01 --> V00_069
+ P30_05 --> V00_070
+ B00_01 --> V00_070
+ P30_05 --> V00_071
+ B00_01 --> V00_071
+ P30_05 --> V00_072
+ B00_01 --> V00_072
+ P40_07 --> V00_073
+ B00_01 --> V00_073
+ P40_02 --> V00_074
+ B00_01 --> V00_074
+ P20_04 --> V00_075
+ B00_01 --> V00_075
+ P40_06 --> V00_076
+ B00_01 --> V00_076
+ P40_07 --> V00_077
+ B00_01 --> V00_077
+ P40_07 --> V00_078
+ B00_01 --> V00_078
+ P40_07 --> V00_079
+ B00_01 --> V00_079
+ P10_07 --> V00_080
+ B00_01 --> V00_080
+ P40_07 --> V00_080
+ P03_01 --> V00_081
+ B00_03 --> V00_081
+ P40_07 --> V00_081
+ P10_05 --> V00_082
+ B00_03 --> V00_082
+ P03_02 --> V00_083
+ B00_03 --> V00_083
+ P30_04 --> V00_084
+ B00_05 --> V00_084
+ P30_04 --> V00_085
+ B00_05 --> V00_085
+ P30_03 --> V00_086
+ B00_05 --> V00_086
+ P30_06 --> V00_087
+ B00_05 --> V00_087
+ P30_03 --> V00_088
+ B00_05 --> V00_088
+ P30_03 --> V00_089
+ B00_05 --> V00_089
+ P30_03 --> V00_090
+ B00_05 --> V00_090
+ P30_03 --> V00_091
+ B00_05 --> V00_091
+ P30_03 --> V00_092
+ B00_05 --> V00_092
+ P50_02 --> V00_093
+ B00_07 --> V00_093
+ P50_02 --> V00_094
+ B00_07 --> V00_094
+ P50_02 --> V00_095
+ B00_07 --> V00_095
+ P50_03 --> V00_096
+ B00_07 --> V00_096
+ P50_03 --> V00_097
+ B00_07 --> V00_097
+ P50_06 --> V00_098
+ B00_07 --> V00_098
+ P40_05 --> V00_098
+ P50_01 --> V00_098
+ P50_07 --> V00_099
+ B00_07 --> V00_099
+ P50_08 --> V00_100
+ B00_07 --> V00_100
+ P60_02 --> V00_101
+ B00_01 --> V00_101
+ P60_02 --> V00_102
+ B00_01 --> V00_102
+ P60_02 --> V00_103
+ B00_01 --> V00_103
+ P60_02 --> V00_104
+ B00_01 --> V00_104
+ P60_02 --> V00_105
+ B00_01 --> V00_105
+ P60_02 --> V00_106
+ B00_01 --> V00_106
+ P60_02 --> V00_107
+ B00_01 --> V00_107
+ P60_02 --> V00_108
+ B00_01 --> V00_108
+ P60_02 --> V00_109
+ B00_01 --> V00_109
+ P10_03 --> N00_01
+ B00_01 --> N00_01
+ P03_03 --> N00_02
+ B00_01 --> N00_02
+ P60_03 --> N00_03
+ B00_01 --> N00_03
+ P60_03 --> N00_04
+ B00_01 --> N00_04
+ P50_04 --> N00_05
+ B00_01 --> N00_05
+ P40_01 --> N00_06
+ B00_01 --> N00_06
+ P00_02 --> N00_07
+ B00_01 --> N00_07
+ P50_07 --> N00_08
+ B00_01 --> N00_08
+ P50_05 --> N00_09
+ B00_01 --> N00_09
+ P20_05 --> N00_10
+ B00_01 --> N00_10
+ P00_01 --> C00_01
+ P00_02 --> C00_01
+ P00_03 --> C00_01
+ P00_04 --> C00_01
+ P01_01 --> C00_02
+ P02_05 --> C00_02
+ P03_03 --> C00_02
+ P60_01 --> C00_03
+ V00_001 --> C00_04
+ V00_002 --> C00_04
+ V00_003 --> C00_04
+ V00_004 --> C00_04
+ V00_005 --> C00_04
+ V00_006 --> C00_04
+ V00_007 --> C00_04
+ V00_008 --> C00_04
+ V00_009 --> C00_04
+ V00_010 --> C00_04
+ V00_011 --> C00_04
+ V00_012 --> C00_04
+ V00_013 --> C00_04
+ V00_014 --> C00_04
+ V00_015 --> C00_04
+ V00_016 --> C00_04
+ V00_017 --> C00_04
+ V00_018 --> C00_04
+ V00_019 --> C00_04
+ V00_020 --> C00_04
+ V00_021 --> C00_04
+ V00_022 --> C00_04
+ V00_023 --> C00_04
+ V00_024 --> C00_04
+ V00_025 --> C00_04
+ V00_026 --> C00_04
+ V00_027 --> C00_04
+ V00_028 --> C00_04
+ V00_029 --> C00_04
+ V00_030 --> C00_04
+ V00_031 --> C00_04
+ V00_032 --> C00_04
+ V00_033 --> C00_04
+ V00_034 --> C00_04
+ V00_035 --> C00_04
+ V00_036 --> C00_04
+ V00_037 --> C00_04
+ V00_038 --> C00_04
+ V00_039 --> C00_04
+ V00_040 --> C00_04
+ V00_041 --> C00_04
+ V00_042 --> C00_04
+ V00_043 --> C00_04
+ V00_044 --> C00_04
+ V00_045 --> C00_04
+ V00_046 --> C00_04
+ V00_047 --> C00_04
+ V00_048 --> C00_04
+ V00_049 --> C00_04
+ V00_050 --> C00_04
+ V00_051 --> C00_04
+ V00_052 --> C00_04
+ V00_053 --> C00_04
+ V00_054 --> C00_04
+ V00_055 --> C00_04
+ V00_056 --> C00_04
+ V00_057 --> C00_04
+ V00_058 --> C00_04
+ V00_059 --> C00_04
+ V00_060 --> C00_04
+ V00_061 --> C00_04
+ V00_062 --> C00_04
+ V00_063 --> C00_04
+ V00_064 --> C00_04
+ V00_065 --> C00_04
+ V00_066 --> C00_04
+ V00_067 --> C00_04
+ V00_068 --> C00_04
+ V00_069 --> C00_04
+ V00_070 --> C00_04
+ V00_071 --> C00_04
+ V00_072 --> C00_04
+ V00_073 --> C00_04
+ V00_074 --> C00_04
+ V00_075 --> C00_04
+ V00_076 --> C00_04
+ V00_077 --> C00_04
+ V00_078 --> C00_04
+ V00_079 --> C00_04
+ V00_080 --> C00_04
+ V00_081 --> C00_04
+ V00_082 --> C00_04
+ V00_083 --> C00_04
+ V00_084 --> C00_04
+ V00_085 --> C00_04
+ V00_086 --> C00_04
+ V00_087 --> C00_04
+ V00_088 --> C00_04
+ V00_089 --> C00_04
+ V00_090 --> C00_04
+ V00_091 --> C00_04
+ V00_092 --> C00_04
+ V00_093 --> C00_04
+ V00_094 --> C00_04
+ V00_095 --> C00_04
+ V00_096 --> C00_04
+ V00_097 --> C00_04
+ V00_098 --> C00_04
+ V00_099 --> C00_04
+ V00_100 --> C00_04
+ V00_101 --> C00_04
+ V00_102 --> C00_04
+ V00_103 --> C00_04
+ V00_104 --> C00_04
+ V00_105 --> C00_04
+ V00_106 --> C00_04
+ V00_107 --> C00_04
+ V00_108 --> C00_04
+ V00_109 --> C00_04
+ N00_01 --> C00_04
+ N00_02 --> C00_04
+ N00_03 --> C00_04
+ N00_04 --> C00_04
+ N00_05 --> C00_04
+ N00_06 --> C00_04
+ N00_07 --> C00_04
+ N00_08 --> C00_04
+ N00_09 --> C00_04
+ N00_10 --> C00_04
+ C00_04 --> C00_05
+ P60_04 --> C00_05
+ P60_05 --> C00_05
+ C00_01 --> C00_05
+ C00_02 --> C00_05
+ C00_03 --> C00_05

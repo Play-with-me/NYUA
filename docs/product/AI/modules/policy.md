@@ -23,3 +23,13 @@ Malformed identity/unknown target/private region → deny. Changed source/grant/
 AT-QD*, AT-DK*, IT-01/02/03/06. Phải test trên đường dữ liệu thật trước nói production đạt. E02a hiện chứng minh fixture filtering/revision/retry ở một owner thread, chưa chứng minh OS capture/IPC.
 
 Ready blockers: D-02/03 (IPC identity/order), D-01 (overlay/input), K02/K03/K04 real adapters. Không cần chờ model để test quyền trên sentinel sources; phải có quyền/fixtures hợp pháp và kế hoạch không dùng dữ liệu cá nhân.
+
+<!-- CONFIRMED-2026-11-14 -->
+## Quyết định hiện hành 2026-11-14 — ưu tiên hơn wording nháp cũ
+
+Sinh từ registry; chỉ phần sau nhãn quyết định là bổ sung đã xác nhận. Chưa triển khai/chưa nghiệm thu; chi tiết kỹ thuật còn mở trong DECISIONS.
+
+- **SH01:** D-12: Khi nhân vật ngủ dừng quan sát; thức dậy chỉ tiếp tục trong quyền hiện hành, không vượt SafetyHold/Thử đọc lại.
+- **QD04:** D-12: Nhân vật ngủ dừng quan sát; thức dậy không tự cấp quyền hoặc bỏ qua SafetyHold/Thử đọc lại.
+- **XP05:** D-16: Được kiểm trạng thái đang phát/không phát ở nền tối thiểu để tránh mở chồng; không đọc tên/nội dung hoặc suy gu. Lỗi/không xác định không coi là không phát; API/độ tin cậy cần kiểm chứng.
+- **AI02:** D-18: Gửi chữ lỗi/chưa rõ thành công thì báo lỗi và chờ bấm thử lại; xem/duyệt chữ trước mỗi lần gửi mới kể cả chữ không đổi. Không tự gửi lại, không coi timeout là chưa nhận, không mở rộng loại dữ liệu/quyền.

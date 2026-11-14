@@ -1,6 +1,6 @@
 # Software Requirements Specification — toàn sản phẩm
 
-Version0.1 — 2026-11-13. Baseline để rà, không chứng nhận tiêu chuẩn và không tự phê duyệt implementation.
+Version0.1 — reconciled 2026-11-14. Baseline để rà, không chứng nhận tiêu chuẩn và không tự phê duyệt implementation.
 
 ## 1. Purpose, scope, environment
 
@@ -22,7 +22,7 @@ Source text below is preserved. Compound source rules remain grouped for provena
 
 - Source: SP01 (explicit_id); scope: release1.
 - Requirement: Tạo cảm giác một người bạn có cá tính sống trên máy: hoạt bát, tò mò, tinh nghịch, tự chọn hoạt động theo nhu cầu, tâm trạng, sở thích và ký ức; có thể đổi ý có lý do. Không phải cam kết có ý thức thật.
-- Owner: `companion`; use case: UC-01; task proposal: P60-01.
+- Owner: `companion`; use case: UC-01; task proposal: P30-02.
 - AT-SP01: Qua kịch bản chăm sóc, nghỉ và thay đổi chú ý, quyết định hoạt động có nguyên nhân từ trạng thái; không chỉ lặp một playlist hoạt ảnh.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
@@ -38,7 +38,7 @@ Source text below is preserved. Compound source rules remain grouped for provena
 
 - Source: SP03 (explicit_id); scope: release1.
 - Requirement: Phát hành công khai cho nhiều người trên Windows 11, giao diện tiếng Việt và thị trường Việt Nam trước; quốc tế để sau. Miễn phí bản đầu; chỉ phát hành ứng dụng, chưa công khai mã nguồn.
-- Owner: `companion`; use case: UC-18; task proposal: P60-04.
+- Owner: `companion`; use case: UC-18; task proposal: P50-06.
 - AT-SP03: Cài/chạy bản tiếng Việt trên Windows11; checklist phát hành ghi miễn phí bản đầu và không công khai source; chưa suy ra hỗ trợ OS khác.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
@@ -46,7 +46,7 @@ Source text below is preserved. Compound source rules remain grouped for provena
 
 - Source: SP04 (explicit_id); scope: release1.
 - Requirement: Không tài khoản riêng của ứng dụng; dữ liệu trên máy. Người dùng tự kết nối và trả chi phí AI ngoài nếu dùng.
-- Owner: `companion`; use case: UC-01; task proposal: P60-01.
+- Owner: `companion`; use case: UC-01; task proposal: P40-01.
 - AT-SP04: Cài mới dùng được không đăng ký; kiểm data local và dịch vụ AI ngoài chỉ dùng thông tin kết nối người dùng cung cấp.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
@@ -85,25 +85,25 @@ Source text below is preserved. Compound source rules remain grouped for provena
 ### SRS-SP09
 
 - Source: SP09 (explicit_id); scope: release1.
-- Requirement: Hướng đã thống nhất để tiếp tục: Unity phụ trách hiển thị/hoạt ảnh nhân vật; C# + WPF phụ trách phần ứng dụng, điều phối và quản lý; AI local phân tích ngữ cảnh/cảm xúc. Phiên bản, cách kết nối, topology tiến trình, hiệu năng và độ tin cậy còn cần thiết kế/kiểm chứng. Không xây giao diện sản phẩm bằng web theo đề xuất cũ.
+- Requirement: Hướng đã thống nhất để tiếp tục: Unity phụ trách hiển thị/hoạt ảnh nhân vật; C# + WPF phụ trách phần ứng dụng, điều phối và quản lý; AI local phân tích ngữ cảnh/cảm xúc. Phiên bản, cách kết nối, topology tiến trình, hiệu năng và độ tin cậy còn cần thiết kế/kiểm chứng. Không xây giao diện sản phẩm bằng web theo đề xuất cũ. Quyết định 2026-11-14 D-02: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.
 - Owner: `companion`; use case: UC-01; task proposal: P00-02.
-- AT-SP09: Rà phân công Unity/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ.
+- AT-SP09: Rà phân công Unity/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-NV01
 
 - Source: NV01 (explicit_id); scope: release1.
-- Requirement: Nữ trưởng thành kiểu chibi, đầu lớn người nhỏ, phong cách anime đời thường. Một mẫu ngoại hình trong bản đầu cho mọi người dùng.
+- Requirement: Nữ trưởng thành kiểu chibi, đầu lớn người nhỏ, phong cách anime đời thường. Một mẫu ngoại hình trong bản đầu cho mọi người dùng. Quyết định 2026-11-14 D-14: Nhân vật chính chủ yếu hình người về mặt/dáng/đi đứng, không mõm cáo/bàn chân động vật. Chỉ đôi tai cáo trên đầu, không tai người; tai trắng bạc lòng hồng nhạt; một đuôi cáo trắng bạc. Giữ nữ trưởng thành chibi anime pixel 128x128, tóc trắng bạc ngang eo/mái thưa, mắt đỏ hồng, da sáng ấm, áo len rộng cổ tròn hồng nhạt, váy xếp ly xám đậm trên gối, chân trần, kẹp tim đỏ rượu bên phải nhân vật.
 - Owner: `desktop-body`; use case: UC-03; task proposal: P20-01.
-- AT-NV01: Duyệt mẫu nữ trưởng thành chibi đầu lớn người nhỏ; cài mới các user có cùng ngoại hình đã duyệt.
+- AT-NV01: Duyệt mẫu nữ trưởng thành chibi đầu lớn người nhỏ; cài mới các user có cùng ngoại hình đã duyệt. Kiểm cả nhánh cho phép và từ chối: Nhân vật chính chủ yếu hình người về mặt/dáng/đi đứng, không mõm cáo/bàn chân động vật. Chỉ đôi tai cáo trên đầu, không tai người; tai trắng bạc lòng hồng nhạt; một đuôi cáo trắng bạc. Giữ nữ trưởng thành chibi anime pixel 128x128, tóc trắng bạc ngang eo/mái thưa, mắt đỏ hồng, da sáng ấm, áo len rộng cổ tròn hồng nhạt, váy xếp ly xám đậm trên gối, chân trần, kẹp tim đỏ rượu bên phải nhân vật.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-NV02
 
 - Source: NV02 (explicit_id); scope: release1.
-- Requirement: Tóc trắng bạc buông ngang eo, mái thưa ngang trán; mắt đỏ hồng; da sáng tông ấm.
+- Requirement: Tóc trắng bạc buông ngang eo, mái thưa ngang trán; mắt đỏ hồng; da sáng tông ấm. Quyết định 2026-11-14 D-14: Giữ tóc/mắt/da đã chốt; tai trắng bạc lòng hồng nhạt và một đuôi trắng bạc đồng bộ tóc. Chỉ tai cáo, không tai người; không thay ngoại hình đã duyệt.
 - Owner: `desktop-body`; use case: UC-03; task proposal: P20-01.
-- AT-NV02: So mẫu front/side với tóc bạc ngang eo, mái thưa, mắt đỏ hồng và da sáng ấm; ghi sửa nếu lệch.
+- AT-NV02: So mẫu front/side với tóc bạc ngang eo, mái thưa, mắt đỏ hồng và da sáng ấm; ghi sửa nếu lệch. Kiểm cả nhánh cho phép và từ chối: Giữ tóc/mắt/da đã chốt; tai trắng bạc lòng hồng nhạt và một đuôi trắng bạc đồng bộ tóc. Chỉ tai cáo, không tai người; không thay ngoại hình đã duyệt.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-NV03
@@ -173,9 +173,9 @@ Source text below is preserved. Compound source rules remain grouped for provena
 ### SRS-NV11
 
 - Source: NV11 (explicit_id); scope: release1.
-- Requirement: Giữ một phím rồi kéo là chế độ chuyển vị trí, dùng được cả khi cô ấy đang từ chối cho nhấc; không tính chơi/quăng hoặc làm xấu quan hệ. Phím cụ thể chưa chọn.
+- Requirement: Giữ một phím rồi kéo là chế độ chuyển vị trí, dùng được cả khi cô ấy đang từ chối cho nhấc; không tính chơi/quăng hoặc làm xấu quan hệ. Phím đã chốt là Shift. Quyết định 2026-11-14 D-05: Giữ Shift rồi kéo chuyển vị trí kể cả khi từ chối nhấc; không chơi/quăng hay ảnh hưởng quan hệ, không thêm tùy chọn phím; ngưỡng cử chỉ còn phải đo.
 - Owner: `desktop-body`; use case: UC-03; task proposal: P20-03.
-- AT-NV11: Modifier-drag di chuyển ngay cả refusal-lift, không quăng và không giảm relation; phím còn mở không tự chọn.
+- AT-NV11: Modifier-drag di chuyển ngay cả refusal-lift, không quăng và không giảm relation; phím Shift đã chốt, không thêm tùy chọn phím. Kiểm cả nhánh cho phép và từ chối: Giữ Shift rồi kéo chuyển vị trí kể cả khi từ chối nhấc; không chơi/quăng hay ảnh hưởng quan hệ, không thêm tùy chọn phím; ngưỡng cử chỉ còn phải đo.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-MC01
@@ -213,9 +213,9 @@ Source text below is preserved. Compound source rules remain grouped for provena
 ### SRS-SH01
 
 - Source: SH01 (explicit_id); scope: release1.
-- Requirement: ngủ theo giờ trong ngày và mức mệt, có ngủ trưa. Mở máy có thể ngái ngủ, chào rồi ngủ tiếp hoặc thức. Bấm lúc ngủ có thể hé mắt, trở mình hoặc thức tùy mệt.
+- Requirement: ngủ theo giờ trong ngày và mức mệt, có ngủ trưa. Mở máy có thể ngái ngủ, chào rồi ngủ tiếp hoặc thức. Bấm lúc ngủ có thể hé mắt, trở mình hoặc thức tùy mệt. Quyết định 2026-11-14 D-12: Khi nhân vật ngủ dừng quan sát; thức dậy chỉ tiếp tục trong quyền hiện hành, không vượt SafetyHold/Thử đọc lại.
 - Owner: `life-state`; use case: UC-05; task proposal: P30-01.
-- AT-SH01: Test logical clock/click khi ngủ: phản ứng tùy fatigue, nhịp có naps; chưa tự đặt sleep schedule cố định.
+- AT-SH01: Test logical clock/click khi ngủ: phản ứng tùy fatigue, nhịp có naps; chưa tự đặt sleep schedule cố định. Kiểm cả nhánh cho phép và từ chối: Khi nhân vật ngủ dừng quan sát; thức dậy chỉ tiếp tục trong quyền hiện hành, không vượt SafetyHold/Thử đọc lại.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-SH02
@@ -230,16 +230,16 @@ Source text below is preserved. Compound source rules remain grouped for provena
 
 - Source: SH03 (explicit_id); scope: release1.
 - Requirement: đóng app/tắt máy không mô phỏng sự kiện, không tự kể đã làm gì. Mở lại tính thời gian đã qua để cập nhật trạng thái; nguôi giận có tính thời gian app đóng, không tạo tương tác giả.
-- Owner: `life-state`; use case: UC-05; task proposal: P50-01.
+- Owner: `life-state`; use case: UC-05; task proposal: P30-01.
 - AT-SH03: Reopen cập nhật elapsed state nhưng không thêm fake memories/events; inactive profile dùng freeze khác appclose.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-SH04
 
 - Source: SH04 (explicit_id); scope: release1.
-- Requirement: 6 món miễn phí không giới hạn: cơm nắm, mì; trái cây, bắp ngô; sữa, nước trái cây. Chọn riêng để ghép bữa; kéo từng món hoặc cả khay. Có món thích/không thích, đôi khi từ chối, người dùng khám phá qua phản ứng.
+- Requirement: 6 món miễn phí không giới hạn: cơm nắm, mì; trái cây, bắp ngô; sữa, nước trái cây. Chọn riêng để ghép bữa; kéo từng món hoặc cả khay. Có món thích/không thích, đôi khi từ chối, người dùng khám phá qua phản ứng. Quyết định 2026-11-14 D-14/H08: Trong sáu món đã chốt, trái cây là táo, nước trái cây là nước cam; không thêm món thứ bảy. Thú bông thỏ là đồ vật/quà riêng, không nhân vật chính. Màu/chi tiết thú bông, dụng cụ/hình mẫu còn chờ duyệt.
 - Owner: `life-state`; use case: UC-04; task proposal: P20-04.
-- AT-SH04: Đủ6 món miễn phí, chọn ghép bữa, kéo lẻ/cả khay; preference/refusal có trạng thái và không bán bằng tiền.
+- AT-SH04: Đủ6 món miễn phí, chọn ghép bữa, kéo lẻ/cả khay; preference/refusal có trạng thái và không bán bằng tiền. Kiểm cả nhánh cho phép và từ chối: Trong sáu món đã chốt, trái cây là táo, nước trái cây là nước cam; không thêm món thứ bảy. Thú bông thỏ là đồ vật/quà riêng, không nhân vật chính. Màu/chi tiết thú bông, dụng cụ/hình mẫu còn chờ duyệt.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-SH05
@@ -301,9 +301,9 @@ Source text below is preserved. Compound source rules remain grouped for provena
 ### SRS-QD04
 
 - Source: QD04 (explicit_id); scope: release1.
-- Requirement: Đọc nội dung các cửa sổ cùng đang nhìn thấy nếu đều được phép; không đọc cửa sổ/tab bị che hoặc thu nhỏ. Đọc toàn bộ không còn được hiểu là đọc nền mọi nơi.
+- Requirement: Đọc nội dung các cửa sổ cùng đang nhìn thấy nếu đều được phép; không đọc cửa sổ/tab bị che hoặc thu nhỏ. Đọc toàn bộ không còn được hiểu là đọc nền mọi nơi. Quyết định 2026-11-14 D-12: Nhân vật ngủ dừng quan sát; thức dậy không tự cấp quyền hoặc bỏ qua SafetyHold/Thử đọc lại.
 - Owner: `policy`; use case: UC-07; task proposal: P10-02.
-- AT-QD04: Split-screen chỉ vùng visible+allowed; tab nền/minimized/occluded không cấp nội dung vào consumer.
+- AT-QD04: Split-screen chỉ vùng visible+allowed; tab nền/minimized/occluded không cấp nội dung vào consumer. Kiểm cả nhánh cho phép và từ chối: Nhân vật ngủ dừng quan sát; thức dậy không tự cấp quyền hoặc bỏ qua SafetyHold/Thử đọc lại.
 - Acceptance interpretation: DRAFT; production evidence: E02a_fake_partial.
 
 ### SRS-QD05
@@ -437,9 +437,9 @@ Source text below is preserved. Compound source rules remain grouped for provena
 ### SRS-BH02
 
 - Source: BH02 (explicit_id); scope: release1.
-- Requirement: cài đặt xem bước, đổi tên, bật/tắt, xóa, dạy lại; chọn bài và bấm Thực hiện. Không tự gọi bài học ở cả hai mức; tự khám phá là cơ chế khác.
+- Requirement: cài đặt xem bước, đổi tên, bật/tắt, xóa, dạy lại; chọn bài và bấm Thực hiện. Không tự gọi bài học ở cả hai mức; tự khám phá là cơ chế khác. Quyết định 2026-11-14 D-17: Sửa/xóa bài học dừng việc đang dùng và hủy lượt chờ dùng bài học đó; người dùng giao lại, không chuyển lượt cũ sang phiên bản mới, không hủy việc không liên quan hoặc hoàn tác thao tác đã xong.
 - Owner: `task-execution`; use case: UC-08; task proposal: P40-03.
-- AT-BH02: Manage steps/name/enabled/delete/reteach; execution chỉ explicit request ở cả2mode, không auto invoke.
+- AT-BH02: Manage steps/name/enabled/delete/reteach; execution chỉ explicit request ở cả2mode, không auto invoke. Kiểm cả nhánh cho phép và từ chối: Sửa/xóa bài học dừng việc đang dùng và hủy lượt chờ dùng bài học đó; người dùng giao lại, không chuyển lượt cũ sang phiên bản mới, không hủy việc không liên quan hoặc hoàn tác thao tác đã xong.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-BH03
@@ -469,9 +469,9 @@ Source text below is preserved. Compound source rules remain grouped for provena
 ### SRS-BH06
 
 - Source: BH06 (explicit_id); scope: release1.
-- Requirement: có hàng đợi nhiều yêu cầu; người dùng xem thứ tự và hủy từng việc riêng. Khi một việc lỗi thì dừng việc đó, không tự chạy lại hoặc coi đã xong; tiếp tục các việc sau nếu từng việc đủ quyền/điều kiện.
+- Requirement: có hàng đợi nhiều yêu cầu; người dùng xem thứ tự và hủy từng việc riêng. Khi một việc lỗi thì dừng việc đó, không tự chạy lại hoặc coi đã xong; tiếp tục các việc sau nếu từng việc đủ quyền/điều kiện. Quyết định 2026-11-14 D-02/D-10/D-17: Renderer lỗi thì tạm dừng thao tác app khác; hình ảnh phục hồi hoặc mở lại app giữ việc tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới, không phát lại mù quáng. Sửa/xóa bài học dừng việc đang dùng và hủy lượt chờ dùng bài học đó, phải giao lại; không hủy việc không liên quan hoặc hoàn tác việc đã xong.
 - Owner: `task-execution`; use case: UC-09; task proposal: P40-05.
-- AT-BH06: Queue nhiều việc có order/cancel; failed job stop riêng; later job chỉ chạy khi đủ prerequisites độc lập.
+- AT-BH06: Queue nhiều việc có order/cancel; failed job stop riêng; later job chỉ chạy khi đủ prerequisites độc lập. Kiểm cả nhánh cho phép và từ chối: Renderer lỗi thì tạm dừng thao tác app khác; hình ảnh phục hồi hoặc mở lại app giữ việc tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới, không phát lại mù quáng. Sửa/xóa bài học dừng việc đang dùng và hủy lượt chờ dùng bài học đó, phải giao lại; không hủy việc không liên quan hoặc hoàn tác việc đã xong.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-BH07
@@ -629,9 +629,9 @@ Source text below is preserved. Compound source rules remain grouped for provena
 ### SRS-XP05
 
 - Source: XP05 (explicit_id); scope: release1.
-- Requirement: tự mở phim/nhạc chỉ nâng cao, sau mặc định 5 phút không thao tác (chỉnh được); không khi nhạc/video đang phát. Toàn màn hình không tự là dấu hiệu đang bận. Người dùng quay lại chỉ nhường điều khiển, giữ nội dung phát.
+- Requirement: tự mở phim/nhạc chỉ nâng cao, sau mặc định 5 phút không thao tác (chỉnh được); không khi nhạc/video đang phát. Toàn màn hình không tự là dấu hiệu đang bận. Người dùng quay lại chỉ nhường điều khiển, giữ nội dung phát. Quyết định 2026-11-14 D-16: Được kiểm trạng thái đang phát/không phát ở nền tối thiểu để tránh mở chồng; không đọc tên/nội dung hoặc suy gu. Lỗi/không xác định không coi là không phát; API/độ tin cậy cần kiểm chứng.
 - Owner: `companion`; use case: UC-11; task proposal: P40-07.
-- AT-XP05: Advanced idledefault5m+nomedia mới autoopen; userreturn giữ playback/yield control, fullscreen không active evidence.
+- AT-XP05: Advanced idledefault5m+nomedia mới autoopen; userreturn giữ playback/yield control, fullscreen không active evidence. Kiểm cả nhánh cho phép và từ chối: Được kiểm trạng thái đang phát/không phát ở nền tối thiểu để tránh mở chồng; không đọc tên/nội dung hoặc suy gu. Lỗi/không xác định không coi là không phát; API/độ tin cậy cần kiểm chứng.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-XP06
@@ -645,33 +645,33 @@ Source text below is preserved. Compound source rules remain grouped for provena
 ### SRS-XP07
 
 - Source: XP07 (explicit_id); scope: release1.
-- Requirement: được đóng quảng cáo; tab mới không chắc quảng cáo thì để nguyên và quay lại tab phim. Không coi tải/cài/cấp quyền/trả tiền là đóng quảng cáo. Đòi đăng nhập/trả tiền/xác minh thì bỏ, tối đa 3 nội dung mỗi lần tìm rồi về sinh hoạt nếu vẫn không được.
+- Requirement: được đóng quảng cáo; tab mới không chắc quảng cáo thì để nguyên và quay lại tab phim. Không coi tải/cài/cấp quyền/trả tiền là đóng quảng cáo. Đòi đăng nhập/trả tiền/xác minh thì bỏ, tối đa 3 nội dung mỗi lần tìm rồi về sinh hoạt nếu vẫn không được. Quyết định 2026-11-14 D-06: Sau 3 nội dung không mở được về sinh hoạt; chờ người dùng thao tác trở lại rồi chỉ tìm trong đợt vắng mặt tiếp theo. Không tìm lặp cùng đợt hoặc chỉ dùng bộ đếm để mở lại tìm kiếm; quyền/chờ/không gián đoạn vẫn áp dụng.
 - Owner: `companion`; use case: UC-11; task proposal: P40-07.
-- AT-XP07: Ambiguous adtab giữ/quay về phim; login/pay/verify skip; max3 candidates per session, không click download/install/notify.
+- AT-XP07: Ambiguous adtab giữ/quay về phim; login/pay/verify skip; max3 candidates per session, không click download/install/notify. Kiểm cả nhánh cho phép và từ chối: Sau 3 nội dung không mở được về sinh hoạt; chờ người dùng thao tác trở lại rồi chỉ tìm trong đợt vắng mặt tiếp theo. Không tìm lặp cùng đợt hoặc chỉ dùng bộ đếm để mở lại tìm kiếm; quyền/chờ/không gián đoạn vẫn áp dụng.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-XP08
 
 - Source: XP08 (explicit_id); scope: release1.
-- Requirement: máy khóa không tự mở nội dung mới; mở khóa được tiếp tục nếu trước đó đủ chờ. Riêng thao tác mở khóa không đặt lại mốc 60 giây/5 phút; thao tác chuột/phím tiếp theo trong desktop mới đặt lại, người dùng vẫn ưu tiên.
+- Requirement: máy khóa không tự mở nội dung mới; mở khóa được tiếp tục nếu trước đó đủ chờ. Riêng thao tác mở khóa không đặt lại mốc 60 giây/5 phút; thao tác chuột/phím tiếp theo trong desktop mới đặt lại, người dùng vẫn ưu tiên. Quyết định 2026-11-14 D-11: Máy ngủ không cộng thời gian chờ mở phim/nhạc; máy thức tiếp tục phần còn lại, không reset chỉ vì thức. Giữ quyền/khóa/input/phát đã chốt, máy ngủ khác nhân vật ngủ.
 - Owner: `companion`; use case: UC-11; task proposal: P10-07.
-- AT-XP08: Locked noopen; unlocked có thể tiếp nếu chờ đã đủ; unlock event riêng không reset, desktopinput kế reset.
+- AT-XP08: Locked noopen; unlocked có thể tiếp nếu chờ đã đủ; unlock event riêng không reset, desktopinput kế reset. Kiểm cả nhánh cho phép và từ chối: Máy ngủ không cộng thời gian chờ mở phim/nhạc; máy thức tiếp tục phần còn lại, không reset chỉ vì thức. Giữ quyền/khóa/input/phát đã chốt, máy ngủ khác nhân vật ngủ.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-AI01
 
 - Source: AI01 (explicit_id); scope: release1.
-- Requirement: nghe/phân tích âm thanh, micro/camera và nhảy theo nhịp để sau. Chỉ mở/phát nhạc và dùng trạng thái phát cần thiết; chưa có thu âm thanh cho nhân vật trong phạm vi hiện tại.
+- Requirement: nghe/phân tích âm thanh, micro/camera và nhảy theo nhịp để sau. Chỉ mở/phát nhạc và dùng trạng thái phát cần thiết; chưa có thu âm thanh cho nhân vật trong phạm vi hiện tại. Quyết định 2026-11-14 D-16: Chỉ kiểm tra trạng thái đang phát/không phát ở nền để tránh mở chồng; không tên bài/phim/hình/âm thanh/lịch sử hoặc suy gu; lỗi/không rõ không coi là không phát. Cách lấy/độ tin cậy cần kiểm chứng.
 - Owner: `perception`; use case: UC-10; task proposal: P03-01.
-- AT-AI01: Không mic/camera/audio-analysis/dancebeat; playback bình thường không bị gọi là cô ấy nghe hiểu.
+- AT-AI01: Không mic/camera/audio-analysis/dancebeat; playback bình thường không bị gọi là cô ấy nghe hiểu. Kiểm cả nhánh cho phép và từ chối: Chỉ kiểm tra trạng thái đang phát/không phát ở nền để tránh mở chồng; không tên bài/phim/hình/âm thanh/lịch sử hoặc suy gu; lỗi/không rõ không coi là không phát. Cách lấy/độ tin cậy cần kiểm chứng.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-AI02
 
 - Source: AI02 (explicit_id); scope: release1.
-- Requirement: AI bên ngoài chỉ khi người dùng chủ động yêu cầu; xem và duyệt chữ gửi mỗi lần, từ chối thì vẫn dùng khả năng cục bộ. Chưa cho gửi ảnh/âm thanh/tập tin/ký ức hoặc tự gửi báo cáo. Nhà cung cấp chưa chọn.
+- Requirement: AI bên ngoài chỉ khi người dùng chủ động yêu cầu; xem và duyệt chữ gửi mỗi lần, từ chối thì vẫn dùng khả năng cục bộ. Chưa cho gửi ảnh/âm thanh/tập tin/ký ức hoặc tự gửi báo cáo. Nhà cung cấp chưa chọn. Quyết định 2026-11-14 D-18: Gửi chữ lỗi/chưa rõ thành công thì báo lỗi và chờ bấm thử lại; xem/duyệt chữ trước mỗi lần gửi mới kể cả chữ không đổi. Không tự gửi lại, không coi timeout là chưa nhận, không mở rộng loại dữ liệu/quyền.
 - Owner: `perception`; use case: UC-13; task proposal: P10-05.
-- AT-AI02: Explicit request→preview sanitized text→confirm mỗi send; deny vẫn local; không image/audio/file/memory upload.
+- AT-AI02: Explicit request→preview sanitized text→confirm mỗi send; deny vẫn local; không image/audio/file/memory upload. Kiểm cả nhánh cho phép và từ chối: Gửi chữ lỗi/chưa rõ thành công thì báo lỗi và chờ bấm thử lại; xem/duyệt chữ trước mỗi lần gửi mới kể cả chữ không đổi. Không tự gửi lại, không coi timeout là chưa nhận, không mở rộng loại dữ liệu/quyền.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-AI03
@@ -733,9 +733,9 @@ Source text below is preserved. Compound source rules remain grouped for provena
 ### SRS-QH05
 
 - Source: QH05 (explicit_id); scope: release1.
-- Requirement: vượt ngưỡng thì buồn/ít chủ động trước, tiếp diễn lâu hơn mới tự ẩn. Làm lành mọi mức được, nặng qua vài buổi, cần thời gian/đối xử tốt; không phải một thao tác hoặc nhiều quà lập tức hết buồn. Nguôi giận tính cả app đóng nhưng vẫn cần tương tác thật.
+- Requirement: vượt ngưỡng thì buồn/ít chủ động trước, tiếp diễn lâu hơn mới tự ẩn. Làm lành mọi mức được, nặng qua vài buổi, cần thời gian/đối xử tốt; không phải một thao tác hoặc nhiều quà lập tức hết buồn. Nguôi giận tính cả app đóng nhưng vẫn cần tương tác thật. Quyết định 2026-11-14 D-05/H03: Buổi làm lành có thể cùng ngày nếu có khoảng nghỉ và tương tác thật; đóng/mở app hoặc quà liên tục không là buổi mới. Không tự đặt số phút/số buổi hoặc quà lập tức xóa tổn thương.
 - Owner: `life-state`; use case: UC-15; task proposal: P30-03.
-- AT-QH05: Sad→withdraw progression; severerepair qua nhiềusessions+care, offlinecooling allowed; gifts không instantfix.
+- AT-QH05: Sad→withdraw progression; severerepair qua nhiềusessions+care, offlinecooling allowed; gifts không instantfix. Kiểm cả nhánh cho phép và từ chối: Buổi làm lành có thể cùng ngày nếu có khoảng nghỉ và tương tác thật; đóng/mở app hoặc quà liên tục không là buổi mới. Không tự đặt số phút/số buổi hoặc quà lập tức xóa tổn thương.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-QH06
@@ -781,9 +781,9 @@ Source text below is preserved. Compound source rules remain grouped for provena
 ### SRS-SL01
 
 - Source: SL01 (explicit_id); scope: release1.
-- Requirement: chỉ sao lưu khi bấm xuất, không bản phục hồi tự động. Xuất nhân vật/ký ức/thiết lập; không khóa truy cập AI, máy mới kết nối AI lại.
+- Requirement: chỉ sao lưu khi bấm xuất, không bản phục hồi tự động. Xuất nhân vật/ký ức/thiết lập; không khóa truy cập AI, máy mới kết nối AI lại. Quyết định 2026-11-14 D-09: Sao lưu không kèm gói AI nâng cao; máy mới tải lại khi cần, không thêm tùy chọn kèm gói mỗi lần xuất. Giữ dữ liệu nhân vật/ký ức/thiết lập thuộc phạm vi; quyền máy/khóa AI ngoài không mang sang. Whitelist/tài nguyên khác/tương thích còn phải đặc tả.
 - Owner: `distribution`; use case: UC-17; task proposal: P50-03.
-- AT-SL01: Export only useraction; no autoarchive/recoverybackup; keys excluded; reconnect AI onnewmachine.
+- AT-SL01: Export only useraction; no autoarchive/recoverybackup; keys excluded; reconnect AI onnewmachine. Kiểm cả nhánh cho phép và từ chối: Sao lưu không kèm gói AI nâng cao; máy mới tải lại khi cần, không thêm tùy chọn kèm gói mỗi lần xuất. Giữ dữ liệu nhân vật/ký ức/thiết lập thuộc phạm vi; quyền máy/khóa AI ngoài không mang sang. Whitelist/tài nguyên khác/tương thích còn phải đặc tả.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-SL02
@@ -797,9 +797,9 @@ Source text below is preserved. Compound source rules remain grouped for provena
 ### SRS-CD01
 
 - Source: CD01 (explicit_id); scope: release1.
-- Requirement: hỏi bật/tắt khởi động cùng Windows trong thiết lập đầu; không tự bật ngầm. Dữ liệu được lưu qua lần đóng/mở app, không phải bản sao lưu tự động.
+- Requirement: hỏi bật/tắt khởi động cùng Windows trong thiết lập đầu; không tự bật ngầm. Dữ liệu được lưu qua lần đóng/mở app, không phải bản sao lưu tự động. Quyết định 2026-11-14 D-10: Mở lại app giữ việc đang dở tạm dừng, hỏi trước tiếp tục; không tự chạy lại, vẫn kiểm quyền/an toàn hiện hành. Crash ghi dữ liệu/cập nhật còn cần khảo sát.
 - Owner: `distribution`; use case: UC-18; task proposal: P50-06.
-- AT-CD01: Firstsetup hỏi startup choice; normalstate persistence works and distinctfrombackup.
+- AT-CD01: Firstsetup hỏi startup choice; normalstate persistence works and distinctfrombackup. Kiểm cả nhánh cho phép và từ chối: Mở lại app giữ việc đang dở tạm dừng, hỏi trước tiếp tục; không tự chạy lại, vẫn kiểm quyền/an toàn hiện hành. Crash ghi dữ liệu/cập nhật còn cần khảo sát.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-CD02

@@ -1,6 +1,6 @@
 # Hồ sơ sản phẩm — nhân vật đồng hành desktop
 
-Phiên bản tài liệu: 0.1, ngày 2026-11-13. **Bản tổng hợp để rà trước xây toàn sản phẩm**, không phải toàn bộ đã được duyệt hoặc mọi rủi ro đã được giải quyết. Tên NYUA vẫn là ứng viên, chưa hoàn tất tra nhãn hiệu.
+Phiên bản tài liệu: 0.1, ngày 2026-11-14. **Bản tổng hợp để rà trước xây toàn sản phẩm**, không phải toàn bộ đã được duyệt hoặc mọi rủi ro đã được giải quyết. Tên NYUA vẫn là ứng viên, chưa hoàn tất tra nhãn hiệu.
 
 ## Bắt đầu ở đâu?
 
@@ -33,3 +33,6 @@ Phiên bản tài liệu: 0.1, ngày 2026-11-13. **Bản tổng hợp để rà 
 Không tuyên bố hồ sơ được chứng nhận theo một tiêu chuẩn ISO/IEEE nào. SRS dùng cấu trúc yêu cầu, ràng buộc, giao diện, nghiệm thu và truy vết phù hợp dự án này.
 
 Xem [báo cáo kiểm tra hồ sơ](QUALITY_REPORT.md) để biết đã kiểm được gì và giới hạn còn lại. Hồ sơ không thay quyết định phê duyệt của người dùng hoặc bằng chứng chạy thật.
+
+
+[Task cards và trình tự giao việc](../../tasks/README.md) · [Audit phục hồi](RECOVERY_AUDIT.md).

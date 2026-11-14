@@ -43,6 +43,7 @@ def validate():
         check(r['module'] in MODULES,f'Unknown module: {key}')
         check(r['use_case'] in ucs,f'Unknown use case: {key}')
         check(r['task'] in taskids or (r['scope']=='deferred' and r['task']=='DEFERRED'),f'Unknown task: {key}')
+        check(len(r['acceptance'].strip())>=40 and len(r['human_acceptance'].strip())>=40,f'Invalid acceptance length: {key}')
         check(r['acceptance_status']=='draft_for_review',f'Acceptance falsely approved: {key}')
     with (HERE/'TRACEABILITY.csv').open(encoding='utf-8-sig',newline='') as f:rtm=list(csv.DictReader(f))
     check(len(rtm)==len(requirements),'RTM count differs')
@@ -53,7 +54,7 @@ def validate():
         check(t['module'] in MODULES,f'Unknown task module: {t["id"]}')
         check(t['status']=='DRAFT_NOT_AUTHORIZED',f'Task falsely started/authorized: {t["id"]}')
         check(0<len(t['proposed_files'])<=5,f'File scope invalid: {t["id"]}')
-        check(bool(t['acceptance']) and bool(t['verification']),f'Missing criteria: {t["id"]}')
+        check(bool(t['acceptance']) and all(len(a.strip())>=40 for a in t['acceptance']) and bool(t['verification']),f'Missing criteria: {t["id"]}')
         check(set(t['dependencies'])<=taskids,f'Missing dependency: {t["id"]}')
         check(set(t['source_ids'])<=ids,f'Unknown source on task: {t["id"]}')
         check(set(t['open_decisions'])<=decisions,f'Unknown decision: {t["id"]}')
@@ -83,6 +84,10 @@ def validate():
     for name in ['architecture','delivery','permissions','data']:
         with Image.open(DOSSIER/f'diagrams/{name}.png') as im:check(im.width>=1400 and im.height>=1000,f'Image size: {name}')
         ET.parse(DOSSIER/f'diagrams/{name}.svg')
+    import importlib.util
+    spec=importlib.util.spec_from_file_location('taskchecks',ROOT/'tasks/validate_tasks.py')
+    checks=importlib.util.module_from_spec(spec);spec.loader.exec_module(checks)
+    errors.extend(checks.errors(json.loads((HERE/'backlog.json').read_text(encoding='utf-8')),requirements,True))
     print(f'Requirements={len(requirements)}; task proposals={len(tasks)}; module specs=7; use cases={len(ucs)}; Mermaid={len(mmd)}; PNG/SVG=4 pairs')
     if errors:
         print('\n'.join(errors));return 1

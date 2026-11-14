@@ -26,3 +26,14 @@ AI_LOCAL.md defines model candidate validation, confidence/uncertain and benchma
 ## Acceptance
 
 Real source sentinel capture path including logs/worker/network, private status, occlusion and mid-capture switch; model no prohibited sentinel. AT-QD04–15, AT-AI*, AT-XP01–03/10, IT-01/02/09/10. Report falsepositive blocks as usability limitation, not silently disable filtering.
+
+<!-- CONFIRMED-2026-11-14 -->
+## Quyết định hiện hành 2026-11-14 — ưu tiên hơn wording nháp cũ
+
+Sinh từ registry; chỉ phần sau nhãn quyết định là bổ sung đã xác nhận. Chưa triển khai/chưa nghiệm thu; chi tiết kỹ thuật còn mở trong DECISIONS.
+
+- **SH01:** D-12: Khi nhân vật ngủ dừng quan sát; thức dậy chỉ tiếp tục trong quyền hiện hành, không vượt SafetyHold/Thử đọc lại.
+- **QD04:** D-12: Nhân vật ngủ dừng quan sát; thức dậy không tự cấp quyền hoặc bỏ qua SafetyHold/Thử đọc lại.
+- **XP05:** D-16: Được kiểm trạng thái đang phát/không phát ở nền tối thiểu để tránh mở chồng; không đọc tên/nội dung hoặc suy gu. Lỗi/không xác định không coi là không phát; API/độ tin cậy cần kiểm chứng.
+- **AI01:** D-16: Chỉ kiểm tra trạng thái đang phát/không phát ở nền để tránh mở chồng; không tên bài/phim/hình/âm thanh/lịch sử hoặc suy gu; lỗi/không rõ không coi là không phát. Cách lấy/độ tin cậy cần kiểm chứng.
+- **AI02:** D-18: Gửi chữ lỗi/chưa rõ thành công thì báo lỗi và chờ bấm thử lại; xem/duyệt chữ trước mỗi lần gửi mới kể cả chữ không đổi. Không tự gửi lại, không coi timeout là chưa nhận, không mở rộng loại dữ liệu/quyền.

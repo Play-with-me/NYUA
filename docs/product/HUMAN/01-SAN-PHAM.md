@@ -33,7 +33,7 @@ Khi hạ mức, dữ liệu nâng cao được giữ, tạm không biểu hiện
 ## 4. Phần cốt lõi của trải nghiệm
 
 - Cô ấy đi trên cạnh cửa sổ, dùng thang/dụng cụ ảo để đến nút thật. Chuyển động có ý nghĩa với thao tác, không bấm từ xa rồi mới giả vờ đi tới.
-- Bạn bấm để tương tác, rê đầu để vuốt, giữ kéo để nhấc; thả nhanh có đà quăng. Có cách giữ phím để chuyển vị trí an toàn ngay cả khi cô ấy không muốn chơi; phím chưa chọn.
+- Bạn bấm để tương tác, rê đầu để vuốt, giữ kéo để nhấc; thả nhanh có đà quăng. Có cách giữ phím để chuyển vị trí an toàn ngay cả khi cô ấy không muốn chơi; giữ Shift rồi kéo, không tính chơi/quăng hay ảnh hưởng quan hệ.
 - Cô ấy có thể rủ và nghịch bằng hình ảnh; hai lần không đáp thì chơi riêng, ít nhất 30 phút mới chủ động lại. Không kéo chuột thật hoặc chuyển cửa sổ để nghịch.
 - Bạn cho ăn bằng từng món hoặc cả khay. Đồ ăn miễn phí: cơm nắm, mì, trái cây, bắp ngô, sữa, nước trái cây. Cô ấy tự nghỉ và có đồ dự phòng khi bạn bận.
 - Không có bảng điểm đói, mệt hay tình cảm. Thể hiện qua nét mặt, cử chỉ và biểu tượng nhỏ; cài đặt và thông báo chức năng vẫn dùng chữ.

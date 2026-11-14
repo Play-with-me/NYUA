@@ -1,3 +1,25 @@
+# Hiện tại — Graphify / AI đọc ngắn
+
+Bắt đầu `graphify-out/GRAPH_REPORT.md` → Python312 `docs/context/context_nav.py check` → `module <key>` hoặc `task <ID> --out <TEMP-file>` → đọc pack và source anchors. Không nạp toàn graph.json/SRS/backlog trước mỗi task. STALE/OVERFLOW phải dừng, không cắt safety/acceptance. Hướng dẫn: docs/context/README.md.
+
+Phạm vi tích hợp hiện tại: chỉ local docs/tooling, không product changes/runtime tests/push/PR update. Điều này áp dụng cho đợt Graphify, KHÔNG phủ nhận demo E02a đã được người dùng cho build trước đó:53/53 tests và35/35 UI cases trên máy này; bản demo đã bàn giao. E02a human acceptance/resize/full keyboard còn mở. PR1 đã tạo theo lệnh người dùng trước đợt Graphify; thay đổi Graphify mới chưa được push.
+
+Graphify final targeted independent docs/measurement audit nyua-5 PASS: SRS/baseline hashes, raw measurement certificate, source/map fingerprint, algorithm revision and scoped entry workflow verified; no remaining material blocker. Owner controls covered219packs,5 context rejection controls plus real SRS/measurement edits in isolated TEMP. No new work pushed.
+
+Mốc dưới đây là lịch sử phục hồi tài liệu và các đợt trước, không thay trạng thái hiện tại ở đầu file.
+
+---
+
+# Documentation recovery — 2026-11-14 (current)
+
+Local-only nyua-4: source drafts from nyua-2 and nyua-3 preserved at originals; exact orchestrator appended decisions saved in docs/product/AI/DECISION_SOURCE_2026-11-14.md and reconciled into canonical requirements, generated registry/HUMAN/SRS, module/UX/ART/DECISIONS. Task source now AI/backlog.json; 219 proposed tasks, 109 source requirements, 10 NFRs, 7 modules. tasks/README.md has prompts/dispatch, TASK_TRACEABILITY.csv links owners/AT/verification/final gates. All tasks DRAFT_NOT_AUTHORIZED and blocked on scope/evidence, not production approval.
+
+Exact role mapping research/memory/QA agy gemini-3.8-flash; UI/features agy gemini-4-hydrogen-low; core/bug/finalreview codex gpt-6.1-sol effort low. Shift reposition, same-day genuine reconciliation sessions, sleep stops observation, explicit resume on restart/renderer recovery, lesson-edit dependent cancellation, next-absence retry after 3 failures, sleep-excluding wait, per-send AI consent, minimal playback metadata, AI-pack excluded from export, fox main avatar silver ears/pink inside/no human ears/one silver tail/all older appearance preserved, bunny plush/apple/orange juice synchronized with restrictions.
+
+Documentation validation and negative controls actually run; no product tests, runtime, human acceptance, SDK/models or publish. E02a todo/plan unchanged and acceptance open. Python312 with Pillow needed for image checks; default MSYS Python lacks Pillow, jsonschema unavailable. See docs/product/QUALITY_REPORT.md for real evidence/limits. Four initial independent review findings repaired. Follow-up corrected document-only runtime-gate deadlock and Unity fixture ownership: document_review has no executable entry prerequisite; B00-02 owns five explicit isolated Unity fixture paths, independent of P02-01. Nine task negative controls and four dossier controls now required; final internal document re-review PASS by nyua-5 (2026-11-14 18:54:30 Asia/Saigon), with no remaining blocker from six findings; not product/user/publishing approval. Final artifact/commit details in session handoff, not a deployment-ready claim.
+
+---
+
 # Bộ nhớ dự án
 
 ## Trạng thái ưu tiên — sau yêu cầu “Proceed” ngày 2026-11-13
@@ -199,3 +221,23 @@ Người dùng điền mô tả app hoặc kể ý tưởng bằng lời. AI là
 - Mô tả luôn nhìn thấy trước khi tick, gắn aria-describedby vào checkbox; tìm kiếm bao gồm mô tả, JSON xuất kèm explanation, schemaVersion 4.
 - Giữ nguyên ID và khóa lưu v2 nên không chủ động xóa lựa chọn đã lưu của người dùng.
 - Node kiểm tra cú pháp, đủ 132 mô tả đúng ID, liên kết mô tả trợ năng và tích hợp xuất JSON thành công; chưa kiểm chứng hiển thị trong trình duyệt.
+
+
+## E02a guided user acceptance — historical blocker locating binary
+
+User reports no E02a window/executable and requests locating existing build only, no rebuild/product changes/publishing. Accessible C: filename search found no PolicyLab EXE/DLL; documentation ZIP has no binaries. No PolicyLab.App process found. User-feedback record: tasks/E02a-USER-ACCEPTANCE.md. All UI/acceptance checks remain untested/open; do not mark any checkbox passed. Await existing binary/backup location from user; do not build without later explicit authorization.
+
+
+## Demo E02a trên máy hiện tại
+
+Explicit user authorized rebuilding E02a demo locally after confirming old binary was on another machine. Existing source unchanged, isolated SDK10.0.404, tests53/53 and UI RunAll35/35. Artifact E02a-demo.zip, report docs/E02a-CURRENT-MACHINE-RESULTS.md. No full-product/Unity/AI or publishing; resize/full keyboard/human acceptance remain open.
+
+
+## Graphify local navigation — current integration
+
+Explicit new task authorizes only local docs/tooling, no product changes/runtime tests/push/PR update. Installed graphifyy0.9.97 verified against official tag; extract.py/cli.py SHA match. docs/context/context_nav.py uses real deterministic extract API with explicit C#/Python allowlist, socket/subprocess deny guard and120s build supervisor. No semantic/API/upload or global skill/hook installation. graphify-out/GRAPH_REPORT.md is short entry; graph.json raw AST/resolver tags preserved, registry-index separate REGISTRY_DECLARED_NOT_CODE. Manual module→lab reference is NOT production implementation. XAML/runtime not scanned/proven. Task context pack retains complete task/requirements/acceptance/relevant confirmed+residual decisions/full CONSTRAINTS/prereqs/whitelist/anchors; max160000UTF8bytes, fail on overflow without partial safety data. Optional code neighbors1hop/12edges with omitted count. All219tasks/7modules checked, stale/unknown/overflow negative controls. Freshness hashes source inventory/schema/output; change -> rebuild, never trust stale map. AI workflow summary -> check -> task pack -> exact anchors; never load full graph.json into prompt. Measurements exact bytes/chars, token estimate chars/4 only. E02a human acceptance C3 remains open. Documentation ZIP updated in place; source code not bundled, checkout required for freshness/rebuild. No new Graphify work pushed.
+
+
+## PR1 merge review — portable hash fix
+
+Full exact-head review found schema1 raw source/output fingerprints tied to Windows CRLF and stale after Git LF checkout. Schema2 now explicitly normalizes UTF8 text BOM/newlines only for source/map/measurement freshness; whitespace/content edits remain significant, upstream package/binary/ZIP checks remain raw. Clean git archive LF + CRLF roundtrip and edited-source controls required before merge; no product functionality or acceptance change. Authenticated GitHub access works; native SCM review cannot attach, independent fallback exact-head review required. No deployment.

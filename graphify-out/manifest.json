@@ -1,0 +1,73 @@
+{
+  "adapter": "graphify.extract.extract explicit paths/root, parallel=False, TEMP cache",
+  "extraction_evidence": {
+    "failed_sources": [],
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "skipped_sources": []
+  },
+  "graphify_version": "0.9.97",
+  "hash_policy": "utf8-text-bom-removed-universal-newlines-lf-v1",
+  "installed_extractor_sha256": "355f470579b44c0442ef38101e52bf2f075fdff4c6cfee8b1ef27d3508974fa5",
+  "official_repository": "https://github.com/Graphify-Labs/graphify/tree/v0.9.97",
+  "official_verified_file_hashes": {
+    "cli.py": "a870f535868bc57927f4501c0edcac72194186e82033e2f0a74e25321eecb492",
+    "extract.py": "355f470579b44c0442ef38101e52bf2f075fdff4c6cfee8b1ef27d3508974fa5"
+  },
+  "outputs": {
+    "graphify-out/GRAPH_REPORT.md": "448b5acf9b5289e417e4f02001553d7119c3fae39d488f59283d9ce570ef5cfc",
+    "graphify-out/graph.json": "3f851a2d03c7701f0fa0c265bdae4643ea87b30f850266eeb1d398b639976fa3",
+    "graphify-out/registry-index.json": "f7173f3153828fd9c9651f72a1312d1d24ac86248089e08c35e93745973c1cac"
+  },
+  "parser_versions": {
+    "tree-sitter": "0.25.2",
+    "tree-sitter-c-sharp": "0.23.5",
+    "tree-sitter-python": "0.25.0"
+  },
+  "schema_version": 2,
+  "sources": {
+    ".agents/PROJECT_MEMORY.md": "7d6c058935c28f9070b18dcde7358b64648ebcc0f8de6f7643ca7d9da704bf0b",
+    "CAPABILITY_MAP.md": "76b8d1b940224d12c168fa77076ea63f782cd472ac529bbb1ac461bdc7aa9cbb",
+    "CONSTRAINTS.md": "dc438569686b9a26ff0ee03654b3ac562c8abbd55e857f7ee93f94a349d08ac0",
+    "DESIGN.md": "da7437bc839923c96b0f2f2408a148bfee6f4b65ee953fc4a60c871033565bfe",
+    "docs/YEU_CAU_HIEN_HANH.md": "304fd35e358a4949a821f38a77c80ae06c668f51e7de6fa3e9a882deb6bf4a6c",
+    "docs/context/README.md": "1bac001a19955cc87306cd3e66efa4f6daf80cdce6dda4267c68d4a685d13edf",
+    "docs/context/check_checkout.py": "9e2d7b82fd1162916868d96719f5630b517240fb6474670d357e658fb2bf8d19",
+    "docs/context/context_nav.py": "b24dfa080b8b0c736b97cd0d0345e118d22d155dd78543fb29679b6922e755fe",
+    "docs/product/AI/DECISIONS.md": "34f03f0920ccc9fba640007aa92400040f2848efe9f9843b493d1364075824da",
+    "docs/product/AI/DECISION_SOURCE_2026-11-14.md": "22011130000e96363c3e8157ce9c3fea45dfe5bf77a764bafb2a4cd10fde5438",
+    "docs/product/AI/README.md": "59b909a9c3e200dffc6430bf4de929c1aa9f3bca681e7f9f8cdeef6a58c6ab9c",
+    "docs/product/AI/SRS.md": "51b37b4d7445beb9d3f51d479b2041b1e528bec4d4ac71a0204027e57e2214ce",
+    "docs/product/AI/backlog.json": "992327b41ee2ce13bf4f7d2270918b7362487c983e508b566032383b2d52e662",
+    "docs/product/AI/check_dossier_controls.py": "9326767cac93f30eec6e3f5dfa1036d229ae9e41d90dd54c855600c48d20ed2d",
+    "docs/product/AI/modules/README.md": "8b7edbb765d348e5d843147aecb36226f6b9b52d68037e0f2d7904f0c46721e7",
+    "docs/product/AI/modules/companion.md": "b65113b2307cb8a7502f2b916dd6161c3f275a02b5df9991a37e920ebf4db8fa",
+    "docs/product/AI/modules/desktop-body.md": "8140744b4d419ed2d17981e4049c3d2df6d32a08b75540efb08f5a82971f6cec",
+    "docs/product/AI/modules/distribution.md": "82677793d22f809975cd1281dfc60ab4965db55250d56a5939fa835329f8e4d2",
+    "docs/product/AI/modules/life-state.md": "911e15e5cb102d1195befd4e68ba797a7c245f3635b9590cf6e3fc2e43f9961f",
+    "docs/product/AI/modules/perception.md": "13fc91aeffb7ae5958b09fb9bdffd5259b3668f13f4d4c30bba3c3f3c02e2595",
+    "docs/product/AI/modules/policy.md": "00105cb28e88d529203725cc9816523d414a2ca51a7f3f0511de9bf49f3b716a",
+    "docs/product/AI/modules/task-execution.md": "7efb6dd39e621634a03b795ca5823810de16cb5aa6173c79f0c7c5c28e08e38c",
+    "docs/product/AI/requirements.json": "56eb8f3d622a0c5669234a19525beee23512cf91285280ede4972352193b349b",
+    "docs/product/AI/sync_backlog.py": "0fbbf2e284e5ad3962a1f59719ed74f61b73e56a5479e982463fedb6c34c3aa1",
+    "docs/product/AI/sync_decisions.py": "5010aac9ebae7ed93eebcb12a8047003ad9f1343baf9c5088552505900845e2b",
+    "docs/product/AI/sync_requirements.py": "2ceed0e8e080103077b630f931eb15d128b6db1ff06a86a93cb58a34d594e923",
+    "docs/product/AI/validate_dossier.py": "558cbb9e24f13a7198d11a093774047e11dab388f5b1239354e464cdd50a2e2a",
+    "docs/product/diagrams/build_diagrams.py": "539b1effe9e574122ef80b9dbf3857238d404b2c98ad172d350df92f75d0ac56",
+    "labs/policy-native/PolicyLab.App/App.xaml.cs": "561e95240b4d311ffc97ea46edda2239e1a0c3f65d96d7bd321327889f8ea630",
+    "labs/policy-native/PolicyLab.App/LabViewModel.cs": "3e8380aca77b294594d9b149505ecec4ee039e33c22ff6d74d0a39768cdf5327",
+    "labs/policy-native/PolicyLab.App/MainWindow.xaml.cs": "2cc445e6f9c706c6973d8be0644a4e1e1107f46fbf671e6a55b2b89b5a1f6f99",
+    "labs/policy-native/PolicyLab.Core/Contracts.cs": "508110933bfd699d5db4b57cd3cfe0b51213f1e7c1101bf9b8a25fdd092d1bba",
+    "labs/policy-native/PolicyLab.Core/PolicyEvaluator.cs": "b95af2e10b6ffca106981b33978a5726fb1fb55ff815db457ef765d730881941",
+    "labs/policy-native/PolicyLab.Core/ReadCoordinator.cs": "56f2217fc28d346ab531ecbfda0776ed745cbbbed3b0cbf0fc65bd472724295e",
+    "labs/policy-native/PolicyLab.Scenarios/ScenarioCatalog.cs": "45828c3fecbae46aee3a8e4b67f290f2812fc8c39c3cc4c9e17117806a658cc6",
+    "labs/policy-native/PolicyLab.Scenarios/ScenarioRunner.cs": "43f29c29e8d674be62e6429b2327e71205c75fb57e33f0363574c6634c1f4bca",
+    "labs/policy-native/PolicyLab.Tests/PolicyEvaluatorTests.cs": "a63ed5184c279ec1f26dbcd48d7a1a88af564418d40c20e4a4657da977023ac6",
+    "labs/policy-native/PolicyLab.Tests/ReadCoordinatorTests.cs": "b6d1f2ebc35a046133a311ca188832c40b0199d606272f66e4574b07b6129419",
+    "labs/policy-native/PolicyLab.Tests/ScenarioTests.cs": "231016cb898fc8a21a31a235175df46ba6327a0d515780e4ea3d0617bea0ed8d",
+    "tasks/README.md": "21112ec91da057343274954c9138335908fdc70cecf7622f1ec9d3887f049b5d",
+    "tasks/dispatch.py": "63a0832a2b9924b3f1f281cd81e6d86bbc5cb85982bccac7b3aa1624179d6504",
+    "tasks/todo.md": "f63cc07081d89e6dd7f250ca12a3e3107ff64c9f2c4c8f9aad6ecdd8ca17408e",
+    "tasks/validate_tasks.py": "8c668ab8a5a2d5228b923d5dbfd6063b95ede9bcda9ce8b1e72c6ad1157689c4"
+  }
+}

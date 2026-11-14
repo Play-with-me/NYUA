@@ -30,7 +30,7 @@ AC = {
 'NV08':'Chỉ xuất hiện trên monitor cho phép; fullscreen ở mép; ghi rõ trường hợp exclusive không hỗ trợ sau thử, không tự hứa mọi game.',
 'NV09':'Phân biệt click/pet/hold-drag/slow-release/fast-release; quăng có đà và rơi/đứng dậy; ngưỡng đo trước chốt.',
 'NV10':'Input thật chỉ xảy ra sau body approach và revalidate; có dụng cụ ảo khi thiếu bề mặt và bàn phím ảo lúc gõ.',
-'NV11':'Modifier-drag di chuyển ngay cả refusal-lift, không quăng và không giảm relation; phím còn mở không tự chọn.',
+'NV11':'Modifier-drag di chuyển ngay cả refusal-lift, không quăng và không giảm relation; phím Shift đã chốt, không thêm tùy chọn phím.',
 'MC01':'Cài mới không tải gói nâng cao ngầm; user chọn mới tải, lỗi tải không báo gói đã sẵn sàng.',
 'MC02':'Máy yếu vẫn có lựa chọn thử sau cảnh báo; simulated overload hỏi giảm/tiếp tục và không đổi mode tự động.',
 'MC03':'Nâng cao→cơ bản→nâng cao bảo toàn memory/relation/personality; cơ bản không tích lũy neglect sâu.',
@@ -113,15 +113,34 @@ AC = {
 'CD03':'Uninstall choosekeep/delete và reminder export; không hunt/delete unrelated exported archives.'
 }
 
+# Confirmed user decisions, scoped to the matching source ID.
+AC['SH01'] += ' Kiểm cả nhánh cho phép và từ chối: Khi nhân vật ngủ dừng quan sát; thức dậy chỉ tiếp tục trong quyền hiện hành, không vượt SafetyHold/Thử đọc lại.'
+AC['QD04'] += ' Kiểm cả nhánh cho phép và từ chối: Nhân vật ngủ dừng quan sát; thức dậy không tự cấp quyền hoặc bỏ qua SafetyHold/Thử đọc lại.'
+AC['CD01'] += ' Kiểm cả nhánh cho phép và từ chối: Mở lại app giữ việc đang dở tạm dừng, hỏi trước tiếp tục; không tự chạy lại, vẫn kiểm quyền/an toàn hiện hành. Crash ghi dữ liệu/cập nhật còn cần khảo sát.'
+AC['BH06'] += ' Kiểm cả nhánh cho phép và từ chối: Renderer lỗi thì tạm dừng thao tác app khác; hình ảnh phục hồi hoặc mở lại app giữ việc tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới, không phát lại mù quáng. Sửa/xóa bài học dừng việc đang dùng và hủy lượt chờ dùng bài học đó, phải giao lại; không hủy việc không liên quan hoặc hoàn tác việc đã xong.'
+AC['BH02'] += ' Kiểm cả nhánh cho phép và từ chối: Sửa/xóa bài học dừng việc đang dùng và hủy lượt chờ dùng bài học đó; người dùng giao lại, không chuyển lượt cũ sang phiên bản mới, không hủy việc không liên quan hoặc hoàn tác thao tác đã xong.'
+AC['XP07'] += ' Kiểm cả nhánh cho phép và từ chối: Sau 3 nội dung không mở được về sinh hoạt; chờ người dùng thao tác trở lại rồi chỉ tìm trong đợt vắng mặt tiếp theo. Không tìm lặp cùng đợt hoặc chỉ dùng bộ đếm để mở lại tìm kiếm; quyền/chờ/không gián đoạn vẫn áp dụng.'
+AC['XP08'] += ' Kiểm cả nhánh cho phép và từ chối: Máy ngủ không cộng thời gian chờ mở phim/nhạc; máy thức tiếp tục phần còn lại, không reset chỉ vì thức. Giữ quyền/khóa/input/phát đã chốt, máy ngủ khác nhân vật ngủ.'
+AC['AI02'] += ' Kiểm cả nhánh cho phép và từ chối: Gửi chữ lỗi/chưa rõ thành công thì báo lỗi và chờ bấm thử lại; xem/duyệt chữ trước mỗi lần gửi mới kể cả chữ không đổi. Không tự gửi lại, không coi timeout là chưa nhận, không mở rộng loại dữ liệu/quyền.'
+AC['AI01'] += ' Kiểm cả nhánh cho phép và từ chối: Chỉ kiểm tra trạng thái đang phát/không phát ở nền để tránh mở chồng; không tên bài/phim/hình/âm thanh/lịch sử hoặc suy gu; lỗi/không rõ không coi là không phát. Cách lấy/độ tin cậy cần kiểm chứng.'
+AC['XP05'] += ' Kiểm cả nhánh cho phép và từ chối: Được kiểm trạng thái đang phát/không phát ở nền tối thiểu để tránh mở chồng; không đọc tên/nội dung hoặc suy gu. Lỗi/không xác định không coi là không phát; API/độ tin cậy cần kiểm chứng.'
+AC['NV11'] += ' Kiểm cả nhánh cho phép và từ chối: Giữ Shift rồi kéo chuyển vị trí kể cả khi từ chối nhấc; không chơi/quăng hay ảnh hưởng quan hệ, không thêm tùy chọn phím; ngưỡng cử chỉ còn phải đo.'
+AC['QH05'] += ' Kiểm cả nhánh cho phép và từ chối: Buổi làm lành có thể cùng ngày nếu có khoảng nghỉ và tương tác thật; đóng/mở app hoặc quà liên tục không là buổi mới. Không tự đặt số phút/số buổi hoặc quà lập tức xóa tổn thương.'
+AC['SP09'] += ' Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.'
+AC['SL01'] += ' Kiểm cả nhánh cho phép và từ chối: Sao lưu không kèm gói AI nâng cao; máy mới tải lại khi cần, không thêm tùy chọn kèm gói mỗi lần xuất. Giữ dữ liệu nhân vật/ký ức/thiết lập thuộc phạm vi; quyền máy/khóa AI ngoài không mang sang. Whitelist/tài nguyên khác/tương thích còn phải đặc tả.'
+AC['NV01'] += ' Kiểm cả nhánh cho phép và từ chối: Nhân vật chính chủ yếu hình người về mặt/dáng/đi đứng, không mõm cáo/bàn chân động vật. Chỉ đôi tai cáo trên đầu, không tai người; tai trắng bạc lòng hồng nhạt; một đuôi cáo trắng bạc. Giữ nữ trưởng thành chibi anime pixel 128x128, tóc trắng bạc ngang eo/mái thưa, mắt đỏ hồng, da sáng ấm, áo len rộng cổ tròn hồng nhạt, váy xếp ly xám đậm trên gối, chân trần, kẹp tim đỏ rượu bên phải nhân vật.'
+AC['NV02'] += ' Kiểm cả nhánh cho phép và từ chối: Giữ tóc/mắt/da đã chốt; tai trắng bạc lòng hồng nhạt và một đuôi trắng bạc đồng bộ tóc. Chỉ tai cáo, không tai người; không thay ngoại hình đã duyệt.'
+AC['SH04'] += ' Kiểm cả nhánh cho phép và từ chối: Trong sáu món đã chốt, trái cây là táo, nước trái cây là nước cam; không thêm món thứ bảy. Thú bông thỏ là đồ vật/quà riêng, không nhân vật chính. Màu/chi tiết thú bông, dụng cụ/hình mẫu còn chờ duyệt.'
+
 MODULE = {'SP':'companion','NV':'desktop-body','MC':'companion','SH':'life-state',
           'QD':'policy','DK':'policy','BH':'task-execution','XP':'companion','AI':'perception',
           'KN':'life-state','QH':'life-state','HS':'distribution','SL':'distribution','CD':'distribution'}
 TASK = {'SP':'P60-01','NV':'P20-01','MC':'P03-04','SH':'P30-01','QD':'P10-01','DK':'P10-07',
         'BH':'P40-04','XP':'P40-06','AI':'P03-02','KN':'P30-04','QH':'P30-03','HS':'P50-02','SL':'P50-03','CD':'P50-06'}
 OVERRIDES = {
-'SP03':'P60-04','SP05':'P60-03','SP06':'P00-04','SP07':'P30-06','SP08':'P30-02','SP09':'P00-02',
+'SP01':'P30-02','SP02':'P60-01','SP04':'P40-01','SP03':'P50-06','SP05':'P60-03','SP06':'P00-04','SP07':'P30-06','SP08':'P30-02','SP09':'P00-02',
 'NV05':'P20-02','NV06':'P40-01','NV07':'P20-02','NV08':'P20-05','NV09':'P20-03','NV10':'P40-04','NV11':'P20-03',
-'MC01':'P03-04','MC02':'P03-04','MC03':'P30-06','SH02':'P30-01','SH03':'P50-01','SH04':'P20-04',
+'MC01':'P03-04','MC02':'P03-04','MC03':'P30-06','SH02':'P30-01','SH03':'P30-01','SH04':'P20-04',
 'SH05':'P20-03','SH06':'P30-02','SH07':'P20-04','SH08':'P20-04','QD02':'P40-02','QD03':'P50-02',
 'QD04':'P10-02','QD05':'P10-03','QD06':'P10-02','QD07':'DEFERRED','QD08':'P10-04','QD09':'P30-04',
 'QD10':'P20-02','QD11':'P30-04','QD12':'P10-06','QD13':'P10-06','QD14':'P10-06','QD15':'P10-03',
@@ -167,14 +186,14 @@ def sync():
           'acceptance':f'Chạy cùng kịch bản {name.lower()} ở hai mức; chỉ biểu hiện khả năng được cho phép ở mức đó; downgrade/upgrade giữ dữ liệu theo MC03.',
           'human_acceptance':f'Thử {name.lower()} ở cơ bản và nâng cao; so đúng bảng khả năng, đổi mức không làm mất dữ liệu đã chọn giữ.',
           'acceptance_status':'draft_for_review','task':'P60-02','use_case':'UC-02','evidence':'not_verified_production'})
-    data={'document_version':'0.1','date':'2026-11-13','source_sha256':hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
+    data={'document_version':'0.1','date':'2026-11-14','source_sha256':hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
           'status':'full_product_review_draft','records':records}
     (HERE/'requirements.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     with (HERE/'TRACEABILITY.csv').open('w',encoding='utf-8-sig',newline='') as f:
         fields=['id','source_id','module','scope','use_case','task','acceptance_id','acceptance_status','evidence']
         w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows({k:r[k] for k in fields} for r in records)
     human=['# Toàn bộ yêu cầu và cách kiểm tra\n\nSinh từ cùng registry với SRS; tiêu chí là diễn giải để rà, không phải test đã đạt. QD07 đã hoãn. Các hàng MODE ghi tách bảng hai mức để không bỏ sót.\n']
-    srs=['# Software Requirements Specification — toàn sản phẩm\n\nVersion0.1 — 2026-11-13. Baseline để rà, không chứng nhận tiêu chuẩn và không tự phê duyệt implementation.\n',
+    srs=['# Software Requirements Specification — toàn sản phẩm\n\nVersion0.1 — reconciled 2026-11-14. Baseline để rà, không chứng nhận tiêu chuẩn và không tự phê duyệt implementation.\n',
       '## 1. Purpose, scope, environment\n\nWindows11, Vietnamese first, free initial public release, local data/no account. Companion combines life, perception and embodied interaction. Unity renderer + C#/WPF host + local AI is directional choice; physical architecture/model pending proof. Non-goals and mode matrix are source requirements, not optional defaults.\n',
       '## 2. Definitions and precedence\n\nSource IDs retain original meaning; SRS- prefix gives dossier key; AT- is acceptance proposal. Source user decisions win over technical draft. Modules mapped in CAPABILITY_MAP. Content-read, geometry-read, control, memory and external-send are distinct authorities. See BUSINESS_RULES and DECISIONS before resolving conflicts.\n',
       '## 3. Interfaces and constraints\n\nUser interfaces in UX.md; provider contracts INTERFACES.md; data DATA.md; privacy SECURITY.md; timing/quality AI_LOCAL.md and QA.md. Unsupported or uncertain sources must fail closed; no raw-content fallback to cloud.\n',
