@@ -2,11 +2,11 @@
 
 **Chỉ tài liệu, không cho phép xây sản phẩm hoặc công bố.** Mẫu E02a còn nghiệm thu người dùng/resize/keyboard trong [todo.md](todo.md); bản này không đánh dấu hoàn thành thay người dùng.
 
-Đọc [yêu cầu hiện hành](../docs/YEU_CAU_HIEN_HANH.md), [bản người đọc](../docs/product/HUMAN/README.md), [SRS](../docs/product/AI/SRS.md), [quyết định](../docs/product/AI/DECISIONS.md), rồi [backlog](../docs/product/AI/BACKLOG.md). Registry duy nhất cho task: `docs/product/AI/backlog.json`; không sửa thẻ sinh tự động. Có 219 task dự kiến: 52 lát đầu ra gốc, 7 bootstrap, 18 đề cương nghiên cứu, 18 rà đề cương, 109 bảng nghiệm thu theo mã nguồn (QD07 hoãn), 10 kiểm phi chức năng, 5 checkpoint. Các bảng V00 bổ sung bằng chứng cho owner triển khai, không thay việc triển khai.
+AI bắt đầu bằng [GRAPH_REPORT](../graphify-out/GRAPH_REPORT.md) → kiểm freshness → tra module/task ID → đọc context pack → mở đúng source anchors khi cần. Không đọc toàn bộ SRS/registry/backlog trước mỗi task. Rà sâu toàn hồ sơ là lựa chọn riêng: [yêu cầu hiện hành](../docs/YEU_CAU_HIEN_HANH.md), [bản người đọc](../docs/product/HUMAN/README.md), [SRS](../docs/product/AI/SRS.md), [quyết định](../docs/product/AI/DECISIONS.md), [backlog](../docs/product/AI/BACKLOG.md). Registry duy nhất cho task: `docs/product/AI/backlog.json`; không sửa thẻ sinh tự động. Có 219 task dự kiến: 52 lát đầu ra gốc, 7 bootstrap, 18 đề cương nghiên cứu, 18 rà đề cương, 109 bảng nghiệm thu theo mã nguồn (QD07 hoãn), 10 kiểm phi chức năng, 5 checkpoint. Các bảng V00 bổ sung bằng chứng cho owner triển khai, không thay việc triển khai.
 
 ## Trình tự giao việc
 
-1. Rà P00-01 và nguồn quyết định; yêu cầu hiện hành thắng chi tiết nháp. Chỉ giao phạm vi tài liệu đã cho phép.
+1. Bắt đầu bằng summary/freshness/task pack như trên; khi rà baseline mới mở P00-01 và nguồn quyết định; yêu cầu hiện hành thắng chi tiết nháp. Chỉ giao phạm vi tài liệu đã cho phép.
 2. Với lát được chọn, đọc dependencies trong registry; chạy `python tasks/dispatch.py` để xem thứ tự topo. Thứ tự nhóm/pha không tạo dependency.
 3. R00 lập đề cương cho phần kỹ thuật chưa biết; A00 rà đề cương trước phép thử. Đây không phải chốt kết quả chưa đo và không hỏi lại quyết định đã xác nhận.
 4. B00 tạo fixture/runner trong whitelist đề xuất sau khi có phép riêng. B00 không cần runner đã chạy để bắt đầu; B00-02 tự sở hữu fixture Unity riêng với năm đường dẫn tường minh, không đợi project P02-01; hoàn thành cần fixture dương chạy đạt và fixture âm trả lỗi, timeout/cleanup hữu hạn. Chỉ khi đó mới ghi lệnh thực vào task con; không task con nào Ready trước bootstrap.
@@ -45,3 +45,12 @@ $py = 'C:/Users/phamp/AppData/Local/Programs/Python/Python312/python.exe'
 Task document_review (P00/R00/A00/checkpoint) không có prerequisite runner thực thi; chỉ cần nguồn và kiểm hồ sơ thực có. Checkpoint completion vẫn đòi bằng chứng các producer dependencies.
 
 Dossier controls có thể chạy lại an toàn bằng Python312 docs/product/AI/check_dossier_controls.py; script chỉ sửa bản sao TEMP rồi tự dọn.
+
+
+## AI đọc ngắn theo task — Graphify cục bộ
+
+Đọc [GRAPH_REPORT](../graphify-out/GRAPH_REPORT.md) trước. Chạy `python docs/context/context_nav.py check`, rồi `task <ID> --out <TEMP-file>` bằng Python312 có graphifyy0.9.97. Đọc pack thay vì toàn registry/SRS/phase cards; mở source anchors khi cần sâu hơn. Không đọc toàn graph.json vào prompt.
+
+Bổ sung vào mẫu prompt: “Trước khi làm, kiểm freshness rồi lấy pack cho đúng ID. Giữ nguyên scope/constraints/acceptance/decisions; pack là cache không thắng nguồn. STALE/UNKNOWN/OVERFLOW thì dừng và báo, không tự rút gọn tiêu chí. AST EXTRACTED/INFERRED giữ provenance gốc; mapping lab reference không chứng minh production tồn tại. Scope tích hợp Graphify chỉ local docs/tooling, không push/cập nhật PR hoặc thực thi sản phẩm. E02a C3 vẫn mở.”
+
+Xem [hướng dẫn context](../docs/context/README.md) cho limits/budget và cách tái tạo. Đây không thay đổi ý nghĩa219 task.

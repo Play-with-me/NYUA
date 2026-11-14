@@ -2,6 +2,10 @@
 
 Snapshot tài liệu 0.1 — 2026-11-14. **Không bắt đầu production implementation chỉ vì bộ hồ sơ này tồn tại.** Người dùng yêu cầu cả đặc tả/task trong cùng đợt: chúng được chuẩn bị đầy đủ để rà, chưa đồng nghĩa từng thiết kế đã được chấp nhận.
 
+## Bắt đầu ngắn theo task
+
+Đọc [GRAPH_REPORT](../../../graphify-out/GRAPH_REPORT.md), kiểm freshness, rồi lấy context pack theo ID bằng [context_nav](../../context/README.md). Không đọc toàn graph.json/registry/phase cards vào prompt. Pack giữ exact criteria/constraints/decisions; source anchors để đọc thêm khi cần. Toàn bộ Graphify integration mới chỉ local docs/tooling, không cấp quyền cập nhật PR hoặc sản phẩm. Lộ trình đọc đầy đủ dưới đây dùng khi cần rà toàn hồ sơ.
+
 ## Đọc theo thứ tự
 
 1. ../../.. /.agents/PROJECT_MEMORY.md tại workspace (đường dẫn thật: [PROJECT_MEMORY](../../../.agents/PROJECT_MEMORY.md)); [CONSTRAINTS](../../../CONSTRAINTS.md); [CAPABILITY_MAP](../../../CAPABILITY_MAP.md).
