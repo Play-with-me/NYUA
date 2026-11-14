@@ -1,6 +1,6 @@
 # Entry point cho AI/kỹ thuật
 
-Snapshot tài liệu 0.1 — 2026-11-13. **Không bắt đầu production implementation chỉ vì bộ hồ sơ này tồn tại.** Người dùng yêu cầu cả đặc tả/task trong cùng đợt: chúng được chuẩn bị đầy đủ để rà, chưa đồng nghĩa từng thiết kế đã được chấp nhận.
+Snapshot tài liệu 0.1 — 2026-11-14. **Không bắt đầu production implementation chỉ vì bộ hồ sơ này tồn tại.** Người dùng yêu cầu cả đặc tả/task trong cùng đợt: chúng được chuẩn bị đầy đủ để rà, chưa đồng nghĩa từng thiết kế đã được chấp nhận.
 
 ## Đọc theo thứ tự
 
@@ -25,3 +25,6 @@ Snapshot tài liệu 0.1 — 2026-11-13. **Không bắt đầu production implem
 Tìm task → đọc requirement/spec/AT/dependency → xác nhận Ready và file scope → nêu thay đổi/cách kiểm → thực hiện nhỏ → kiểm thử/rà/runtime → cập nhật trạng thái/bằng chứng. Tác vụ chưa Ready thì giải quyết đúng blocker, không mở rộng tùy ý.
 
 Không có lệnh build app production. Lệnh đã tồn tại chỉ cho [mẫu native](../../../labs/policy-native/README.md). Lệnh tương lai phải được ghi sau khi project/tool có thật.
+
+
+Recovery entry: [tasks / dispatch](../../../tasks/README.md).

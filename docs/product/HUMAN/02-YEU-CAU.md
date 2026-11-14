@@ -52,21 +52,21 @@ Học cách hành xử qua tương tác và trải nghiệm, không thêm nút �
 
 ## SP09
 
-Hướng đã thống nhất để tiếp tục: Unity phụ trách hiển thị/hoạt ảnh nhân vật; C# + WPF phụ trách phần ứng dụng, điều phối và quản lý; AI local phân tích ngữ cảnh/cảm xúc. Phiên bản, cách kết nối, topology tiến trình, hiệu năng và độ tin cậy còn cần thiết kế/kiểm chứng. Không xây giao diện sản phẩm bằng web theo đề xuất cũ.
+Hướng đã thống nhất để tiếp tục: Unity phụ trách hiển thị/hoạt ảnh nhân vật; C# + WPF phụ trách phần ứng dụng, điều phối và quản lý; AI local phân tích ngữ cảnh/cảm xúc. Phiên bản, cách kết nối, topology tiến trình, hiệu năng và độ tin cậy còn cần thiết kế/kiểm chứng. Không xây giao diện sản phẩm bằng web theo đề xuất cũ. Quyết định 2026-11-14 D-02: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.
 
-**Cách kiểm tra (AT-SP09):** Team giữ đúng Unity cho nhân vật, C#/WPF cho ứng dụng và AI trên máy; các phần kết nối vẫn phải thử.
+**Cách kiểm tra (AT-SP09):** Team giữ đúng Unity cho nhân vật, C#/WPF cho ứng dụng và AI trên máy; các phần kết nối vẫn phải thử. Kiểm quyết định D-02: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.
 
 ## NV01
 
-Nữ trưởng thành kiểu chibi, đầu lớn người nhỏ, phong cách anime đời thường. Một mẫu ngoại hình trong bản đầu cho mọi người dùng.
+Nữ trưởng thành kiểu chibi, đầu lớn người nhỏ, phong cách anime đời thường. Một mẫu ngoại hình trong bản đầu cho mọi người dùng. Quyết định 2026-11-14 D-14: Nhân vật chính chủ yếu hình người về mặt/dáng/đi đứng, không mõm cáo/bàn chân động vật. Chỉ đôi tai cáo trên đầu, không tai người; tai trắng bạc lòng hồng nhạt; một đuôi cáo trắng bạc. Giữ nữ trưởng thành chibi anime pixel 128x128, tóc trắng bạc ngang eo/mái thưa, mắt đỏ hồng, da sáng ấm, áo len rộng cổ tròn hồng nhạt, váy xếp ly xám đậm trên gối, chân trần, kẹp tim đỏ rượu bên phải nhân vật.
 
-**Cách kiểm tra (AT-NV01):** Bạn duyệt cô gái trưởng thành chibi đúng phong cách; mọi người dùng bản đầu có cùng mẫu ngoại hình.
+**Cách kiểm tra (AT-NV01):** Bạn duyệt cô gái trưởng thành chibi đúng phong cách; mọi người dùng bản đầu có cùng mẫu ngoại hình. Kiểm quyết định D-14: Nhân vật chính chủ yếu hình người về mặt/dáng/đi đứng, không mõm cáo/bàn chân động vật. Chỉ đôi tai cáo trên đầu, không tai người; tai trắng bạc lòng hồng nhạt; một đuôi cáo trắng bạc. Giữ nữ trưởng thành chibi anime pixel 128x128, tóc trắng bạc ngang eo/mái thưa, mắt đỏ hồng, da sáng ấm, áo len rộng cổ tròn hồng nhạt, váy xếp ly xám đậm trên gối, chân trần, kẹp tim đỏ rượu bên phải nhân vật.
 
 ## NV02
 
-Tóc trắng bạc buông ngang eo, mái thưa ngang trán; mắt đỏ hồng; da sáng tông ấm.
+Tóc trắng bạc buông ngang eo, mái thưa ngang trán; mắt đỏ hồng; da sáng tông ấm. Quyết định 2026-11-14 D-14: Giữ tóc/mắt/da đã chốt; tai trắng bạc lòng hồng nhạt và một đuôi trắng bạc đồng bộ tóc. Chỉ tai cáo, không tai người; không thay ngoại hình đã duyệt.
 
-**Cách kiểm tra (AT-NV02):** So mẫu với tóc bạc ngang eo, mái thưa, mắt đỏ hồng và da sáng ấm đã chọn.
+**Cách kiểm tra (AT-NV02):** So mẫu với tóc bạc ngang eo, mái thưa, mắt đỏ hồng và da sáng ấm đã chọn. Kiểm quyết định D-14: Giữ tóc/mắt/da đã chốt; tai trắng bạc lòng hồng nhạt và một đuôi trắng bạc đồng bộ tóc. Chỉ tai cáo, không tai người; không thay ngoại hình đã duyệt.
 
 ## NV03
 
@@ -118,9 +118,9 @@ Bấm trái nhận biểu cảm/cử chỉ; rê qua đầu nhiều lần để v
 
 ## NV11
 
-Giữ một phím rồi kéo là chế độ chuyển vị trí, dùng được cả khi cô ấy đang từ chối cho nhấc; không tính chơi/quăng hoặc làm xấu quan hệ. Phím cụ thể chưa chọn.
+Giữ một phím rồi kéo là chế độ chuyển vị trí, dùng được cả khi cô ấy đang từ chối cho nhấc; không tính chơi/quăng hoặc làm xấu quan hệ. Phím đã chốt là Shift. Quyết định 2026-11-14 D-05: Giữ Shift rồi kéo chuyển vị trí kể cả khi từ chối nhấc; không chơi/quăng hay ảnh hưởng quan hệ, không thêm tùy chọn phím; ngưỡng cử chỉ còn phải đo.
 
-**Cách kiểm tra (AT-NV11):** Giữ phím chuyển vị trí rồi kéo vẫn dùng được khi cô ấy không muốn được nhấc; không bị tính là quăng.
+**Cách kiểm tra (AT-NV11):** Giữ phím chuyển vị trí rồi kéo vẫn dùng được khi cô ấy không muốn được nhấc; không bị tính là quăng. Kiểm quyết định D-05: Giữ Shift rồi kéo chuyển vị trí kể cả khi từ chối nhấc; không chơi/quăng hay ảnh hưởng quan hệ, không thêm tùy chọn phím; ngưỡng cử chỉ còn phải đo.
 
 ## MC01
 
@@ -148,9 +148,9 @@ kiểm tra cấu hình máy người dùng để đề xuất mức cơ bản/n�
 
 ## SH01
 
-ngủ theo giờ trong ngày và mức mệt, có ngủ trưa. Mở máy có thể ngái ngủ, chào rồi ngủ tiếp hoặc thức. Bấm lúc ngủ có thể hé mắt, trở mình hoặc thức tùy mệt.
+ngủ theo giờ trong ngày và mức mệt, có ngủ trưa. Mở máy có thể ngái ngủ, chào rồi ngủ tiếp hoặc thức. Bấm lúc ngủ có thể hé mắt, trở mình hoặc thức tùy mệt. Quyết định 2026-11-14 D-12: Khi nhân vật ngủ dừng quan sát; thức dậy chỉ tiếp tục trong quyền hiện hành, không vượt SafetyHold/Thử đọc lại.
 
-**Cách kiểm tra (AT-SH01):** Thử lúc mệt, giờ nghỉ và đang ngủ: cô ấy có thể trở mình, hé mắt hoặc thức theo trạng thái.
+**Cách kiểm tra (AT-SH01):** Thử lúc mệt, giờ nghỉ và đang ngủ: cô ấy có thể trở mình, hé mắt hoặc thức theo trạng thái. Kiểm quyết định D-12: Khi nhân vật ngủ dừng quan sát; thức dậy chỉ tiếp tục trong quyền hiện hành, không vượt SafetyHold/Thử đọc lại.
 
 ## SH02
 
@@ -166,9 +166,9 @@ người dùng cho ăn/vuốt, cô ấy tự nghỉ. Khi vắng mặt hoặc app
 
 ## SH04
 
-6 món miễn phí không giới hạn: cơm nắm, mì; trái cây, bắp ngô; sữa, nước trái cây. Chọn riêng để ghép bữa; kéo từng món hoặc cả khay. Có món thích/không thích, đôi khi từ chối, người dùng khám phá qua phản ứng.
+6 món miễn phí không giới hạn: cơm nắm, mì; trái cây, bắp ngô; sữa, nước trái cây. Chọn riêng để ghép bữa; kéo từng món hoặc cả khay. Có món thích/không thích, đôi khi từ chối, người dùng khám phá qua phản ứng. Quyết định 2026-11-14 D-14/H08: Trong sáu món đã chốt, trái cây là táo, nước trái cây là nước cam; không thêm món thứ bảy. Thú bông thỏ là đồ vật/quà riêng, không nhân vật chính. Màu/chi tiết thú bông, dụng cụ/hình mẫu còn chờ duyệt.
 
-**Cách kiểm tra (AT-SH04):** Có đủ sáu món miễn phí, chọn ghép bữa, kéo lẻ/cả khay và có phản ứng thích hoặc từ chối.
+**Cách kiểm tra (AT-SH04):** Có đủ sáu món miễn phí, chọn ghép bữa, kéo lẻ/cả khay và có phản ứng thích hoặc từ chối. Kiểm quyết định D-14/H08: Trong sáu món đã chốt, trái cây là táo, nước trái cây là nước cam; không thêm món thứ bảy. Thú bông thỏ là đồ vật/quà riêng, không nhân vật chính. Màu/chi tiết thú bông, dụng cụ/hình mẫu còn chờ duyệt.
 
 ## SH05
 
@@ -214,9 +214,9 @@ App/website mới không tự kế thừa. Quyền chung cho ứng dụng, dùng
 
 ## QD04
 
-Đọc nội dung các cửa sổ cùng đang nhìn thấy nếu đều được phép; không đọc cửa sổ/tab bị che hoặc thu nhỏ. Đọc toàn bộ không còn được hiểu là đọc nền mọi nơi.
+Đọc nội dung các cửa sổ cùng đang nhìn thấy nếu đều được phép; không đọc cửa sổ/tab bị che hoặc thu nhỏ. Đọc toàn bộ không còn được hiểu là đọc nền mọi nơi. Quyết định 2026-11-14 D-12: Nhân vật ngủ dừng quan sát; thức dậy không tự cấp quyền hoặc bỏ qua SafetyHold/Thử đọc lại.
 
-**Cách kiểm tra (AT-QD04):** Mở hai cửa sổ cạnh nhau, che hoặc thu nhỏ một cửa: chỉ nội dung nhìn thấy và có quyền được dùng.
+**Cách kiểm tra (AT-QD04):** Mở hai cửa sổ cạnh nhau, che hoặc thu nhỏ một cửa: chỉ nội dung nhìn thấy và có quyền được dùng. Kiểm quyết định D-12: Nhân vật ngủ dừng quan sát; thức dậy không tự cấp quyền hoặc bỏ qua SafetyHold/Thử đọc lại.
 
 ## QD05
 
@@ -316,9 +316,9 @@ chủ động bật hướng dẫn rồi làm mẫu chuỗi trong cùng app/webs
 
 ## BH02
 
-cài đặt xem bước, đổi tên, bật/tắt, xóa, dạy lại; chọn bài và bấm Thực hiện. Không tự gọi bài học ở cả hai mức; tự khám phá là cơ chế khác.
+cài đặt xem bước, đổi tên, bật/tắt, xóa, dạy lại; chọn bài và bấm Thực hiện. Không tự gọi bài học ở cả hai mức; tự khám phá là cơ chế khác. Quyết định 2026-11-14 D-17: Sửa/xóa bài học dừng việc đang dùng và hủy lượt chờ dùng bài học đó; người dùng giao lại, không chuyển lượt cũ sang phiên bản mới, không hủy việc không liên quan hoặc hoàn tác thao tác đã xong.
 
-**Cách kiểm tra (AT-BH02):** Xem, đổi tên, bật/tắt, xóa và dạy lại bài; cô ấy chỉ chạy bài khi bạn gọi.
+**Cách kiểm tra (AT-BH02):** Xem, đổi tên, bật/tắt, xóa và dạy lại bài; cô ấy chỉ chạy bài khi bạn gọi. Kiểm quyết định D-17: Sửa/xóa bài học dừng việc đang dùng và hủy lượt chờ dùng bài học đó; người dùng giao lại, không chuyển lượt cũ sang phiên bản mới, không hủy việc không liên quan hoặc hoàn tác thao tác đã xong.
 
 ## BH03
 
@@ -340,9 +340,9 @@ sai giao diện/không tìm mục tiêu thì dừng tại bước lỗi, nhờ c
 
 ## BH06
 
-có hàng đợi nhiều yêu cầu; người dùng xem thứ tự và hủy từng việc riêng. Khi một việc lỗi thì dừng việc đó, không tự chạy lại hoặc coi đã xong; tiếp tục các việc sau nếu từng việc đủ quyền/điều kiện.
+có hàng đợi nhiều yêu cầu; người dùng xem thứ tự và hủy từng việc riêng. Khi một việc lỗi thì dừng việc đó, không tự chạy lại hoặc coi đã xong; tiếp tục các việc sau nếu từng việc đủ quyền/điều kiện. Quyết định 2026-11-14 D-02/D-10/D-17: Renderer lỗi thì tạm dừng thao tác app khác; hình ảnh phục hồi hoặc mở lại app giữ việc tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới, không phát lại mù quáng. Sửa/xóa bài học dừng việc đang dùng và hủy lượt chờ dùng bài học đó, phải giao lại; không hủy việc không liên quan hoặc hoàn tác việc đã xong.
 
-**Cách kiểm tra (AT-BH06):** Bạn thấy hàng đợi và hủy từng việc; một việc lỗi không tự biến thành thành công để chạy việc sau.
+**Cách kiểm tra (AT-BH06):** Bạn thấy hàng đợi và hủy từng việc; một việc lỗi không tự biến thành thành công để chạy việc sau. Kiểm quyết định D-02/D-10/D-17: Renderer lỗi thì tạm dừng thao tác app khác; hình ảnh phục hồi hoặc mở lại app giữ việc tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới, không phát lại mù quáng. Sửa/xóa bài học dừng việc đang dùng và hủy lượt chờ dùng bài học đó, phải giao lại; không hủy việc không liên quan hoặc hoàn tác việc đã xong.
 
 ## BH07
 
@@ -460,9 +460,9 @@ phim đang phát không tự ngắt/cuộn/chuyển cửa sổ gây gián đoạ
 
 ## XP05
 
-tự mở phim/nhạc chỉ nâng cao, sau mặc định 5 phút không thao tác (chỉnh được); không khi nhạc/video đang phát. Toàn màn hình không tự là dấu hiệu đang bận. Người dùng quay lại chỉ nhường điều khiển, giữ nội dung phát.
+tự mở phim/nhạc chỉ nâng cao, sau mặc định 5 phút không thao tác (chỉnh được); không khi nhạc/video đang phát. Toàn màn hình không tự là dấu hiệu đang bận. Người dùng quay lại chỉ nhường điều khiển, giữ nội dung phát. Quyết định 2026-11-14 D-16: Được kiểm trạng thái đang phát/không phát ở nền tối thiểu để tránh mở chồng; không đọc tên/nội dung hoặc suy gu. Lỗi/không xác định không coi là không phát; API/độ tin cậy cần kiểm chứng.
 
-**Cách kiểm tra (AT-XP05):** Chỉ nâng cao tự mở sau mặc định năm phút, không khi đang có nhạc/phim; bạn quay lại vẫn phát.
+**Cách kiểm tra (AT-XP05):** Chỉ nâng cao tự mở sau mặc định năm phút, không khi đang có nhạc/phim; bạn quay lại vẫn phát. Kiểm quyết định D-16: Được kiểm trạng thái đang phát/không phát ở nền tối thiểu để tránh mở chồng; không đọc tên/nội dung hoặc suy gu. Lỗi/không xác định không coi là không phát; API/độ tin cậy cần kiểm chứng.
 
 ## XP06
 
@@ -472,27 +472,27 @@ YouTube được tìm nội dung miễn phí trong quyền cấp. Website khác 
 
 ## XP07
 
-được đóng quảng cáo; tab mới không chắc quảng cáo thì để nguyên và quay lại tab phim. Không coi tải/cài/cấp quyền/trả tiền là đóng quảng cáo. Đòi đăng nhập/trả tiền/xác minh thì bỏ, tối đa 3 nội dung mỗi lần tìm rồi về sinh hoạt nếu vẫn không được.
+được đóng quảng cáo; tab mới không chắc quảng cáo thì để nguyên và quay lại tab phim. Không coi tải/cài/cấp quyền/trả tiền là đóng quảng cáo. Đòi đăng nhập/trả tiền/xác minh thì bỏ, tối đa 3 nội dung mỗi lần tìm rồi về sinh hoạt nếu vẫn không được. Quyết định 2026-11-14 D-06: Sau 3 nội dung không mở được về sinh hoạt; chờ người dùng thao tác trở lại rồi chỉ tìm trong đợt vắng mặt tiếp theo. Không tìm lặp cùng đợt hoặc chỉ dùng bộ đếm để mở lại tìm kiếm; quyền/chờ/không gián đoạn vẫn áp dụng.
 
-**Cách kiểm tra (AT-XP07):** Gặp đòi đăng nhập/trả tiền thì đổi nội dung tối đa ba lần; tab quảng cáo chưa chắc thì không đóng.
+**Cách kiểm tra (AT-XP07):** Gặp đòi đăng nhập/trả tiền thì đổi nội dung tối đa ba lần; tab quảng cáo chưa chắc thì không đóng. Kiểm quyết định D-06: Sau 3 nội dung không mở được về sinh hoạt; chờ người dùng thao tác trở lại rồi chỉ tìm trong đợt vắng mặt tiếp theo. Không tìm lặp cùng đợt hoặc chỉ dùng bộ đếm để mở lại tìm kiếm; quyền/chờ/không gián đoạn vẫn áp dụng.
 
 ## XP08
 
-máy khóa không tự mở nội dung mới; mở khóa được tiếp tục nếu trước đó đủ chờ. Riêng thao tác mở khóa không đặt lại mốc 60 giây/5 phút; thao tác chuột/phím tiếp theo trong desktop mới đặt lại, người dùng vẫn ưu tiên.
+máy khóa không tự mở nội dung mới; mở khóa được tiếp tục nếu trước đó đủ chờ. Riêng thao tác mở khóa không đặt lại mốc 60 giây/5 phút; thao tác chuột/phím tiếp theo trong desktop mới đặt lại, người dùng vẫn ưu tiên. Quyết định 2026-11-14 D-11: Máy ngủ không cộng thời gian chờ mở phim/nhạc; máy thức tiếp tục phần còn lại, không reset chỉ vì thức. Giữ quyền/khóa/input/phát đã chốt, máy ngủ khác nhân vật ngủ.
 
-**Cách kiểm tra (AT-XP08):** Máy khóa không mở nội dung mới; riêng thao tác mở khóa không đặt lại thời gian chờ.
+**Cách kiểm tra (AT-XP08):** Máy khóa không mở nội dung mới; riêng thao tác mở khóa không đặt lại thời gian chờ. Kiểm quyết định D-11: Máy ngủ không cộng thời gian chờ mở phim/nhạc; máy thức tiếp tục phần còn lại, không reset chỉ vì thức. Giữ quyền/khóa/input/phát đã chốt, máy ngủ khác nhân vật ngủ.
 
 ## AI01
 
-nghe/phân tích âm thanh, micro/camera và nhảy theo nhịp để sau. Chỉ mở/phát nhạc và dùng trạng thái phát cần thiết; chưa có thu âm thanh cho nhân vật trong phạm vi hiện tại.
+nghe/phân tích âm thanh, micro/camera và nhảy theo nhịp để sau. Chỉ mở/phát nhạc và dùng trạng thái phát cần thiết; chưa có thu âm thanh cho nhân vật trong phạm vi hiện tại. Quyết định 2026-11-14 D-16: Chỉ kiểm tra trạng thái đang phát/không phát ở nền để tránh mở chồng; không tên bài/phim/hình/âm thanh/lịch sử hoặc suy gu; lỗi/không rõ không coi là không phát. Cách lấy/độ tin cậy cần kiểm chứng.
 
-**Cách kiểm tra (AT-AI01):** Không có nghe hiểu âm thanh, micro/camera hoặc nhảy theo nhịp trong bản đầu; nhạc vẫn có thể phát bình thường.
+**Cách kiểm tra (AT-AI01):** Không có nghe hiểu âm thanh, micro/camera hoặc nhảy theo nhịp trong bản đầu; nhạc vẫn có thể phát bình thường. Kiểm quyết định D-16: Chỉ kiểm tra trạng thái đang phát/không phát ở nền để tránh mở chồng; không tên bài/phim/hình/âm thanh/lịch sử hoặc suy gu; lỗi/không rõ không coi là không phát. Cách lấy/độ tin cậy cần kiểm chứng.
 
 ## AI02
 
-AI bên ngoài chỉ khi người dùng chủ động yêu cầu; xem và duyệt chữ gửi mỗi lần, từ chối thì vẫn dùng khả năng cục bộ. Chưa cho gửi ảnh/âm thanh/tập tin/ký ức hoặc tự gửi báo cáo. Nhà cung cấp chưa chọn.
+AI bên ngoài chỉ khi người dùng chủ động yêu cầu; xem và duyệt chữ gửi mỗi lần, từ chối thì vẫn dùng khả năng cục bộ. Chưa cho gửi ảnh/âm thanh/tập tin/ký ức hoặc tự gửi báo cáo. Nhà cung cấp chưa chọn. Quyết định 2026-11-14 D-18: Gửi chữ lỗi/chưa rõ thành công thì báo lỗi và chờ bấm thử lại; xem/duyệt chữ trước mỗi lần gửi mới kể cả chữ không đổi. Không tự gửi lại, không coi timeout là chưa nhận, không mở rộng loại dữ liệu/quyền.
 
-**Cách kiểm tra (AT-AI02):** Chỉ bạn chủ động yêu cầu và duyệt chữ từng lần mới gửi AI ngoài; từ chối vẫn dùng phần trên máy.
+**Cách kiểm tra (AT-AI02):** Chỉ bạn chủ động yêu cầu và duyệt chữ từng lần mới gửi AI ngoài; từ chối vẫn dùng phần trên máy. Kiểm quyết định D-18: Gửi chữ lỗi/chưa rõ thành công thì báo lỗi và chờ bấm thử lại; xem/duyệt chữ trước mỗi lần gửi mới kể cả chữ không đổi. Không tự gửi lại, không coi timeout là chưa nhận, không mở rộng loại dữ liệu/quyền.
 
 ## AI03
 
@@ -538,9 +538,9 @@ người dùng vắng/tắt app không giảm quan hệ hay làm tự ẩn. Mố
 
 ## QH05
 
-vượt ngưỡng thì buồn/ít chủ động trước, tiếp diễn lâu hơn mới tự ẩn. Làm lành mọi mức được, nặng qua vài buổi, cần thời gian/đối xử tốt; không phải một thao tác hoặc nhiều quà lập tức hết buồn. Nguôi giận tính cả app đóng nhưng vẫn cần tương tác thật.
+vượt ngưỡng thì buồn/ít chủ động trước, tiếp diễn lâu hơn mới tự ẩn. Làm lành mọi mức được, nặng qua vài buổi, cần thời gian/đối xử tốt; không phải một thao tác hoặc nhiều quà lập tức hết buồn. Nguôi giận tính cả app đóng nhưng vẫn cần tương tác thật. Quyết định 2026-11-14 D-05/H03: Buổi làm lành có thể cùng ngày nếu có khoảng nghỉ và tương tác thật; đóng/mở app hoặc quà liên tục không là buổi mới. Không tự đặt số phút/số buổi hoặc quà lập tức xóa tổn thương.
 
-**Cách kiểm tra (AT-QH05):** Làm lành được ở mọi mức nhưng nặng cần vài buổi và quan tâm tốt, không spam quà là hết.
+**Cách kiểm tra (AT-QH05):** Làm lành được ở mọi mức nhưng nặng cần vài buổi và quan tâm tốt, không spam quà là hết. Kiểm quyết định D-05/H03: Buổi làm lành có thể cùng ngày nếu có khoảng nghỉ và tương tác thật; đóng/mở app hoặc quà liên tục không là buổi mới. Không tự đặt số phút/số buổi hoặc quà lập tức xóa tổn thương.
 
 ## QH06
 
@@ -574,9 +574,9 @@ quyền của ứng dụng trên máy dùng chung hồ sơ; file nhập không �
 
 ## SL01
 
-chỉ sao lưu khi bấm xuất, không bản phục hồi tự động. Xuất nhân vật/ký ức/thiết lập; không khóa truy cập AI, máy mới kết nối AI lại.
+chỉ sao lưu khi bấm xuất, không bản phục hồi tự động. Xuất nhân vật/ký ức/thiết lập; không khóa truy cập AI, máy mới kết nối AI lại. Quyết định 2026-11-14 D-09: Sao lưu không kèm gói AI nâng cao; máy mới tải lại khi cần, không thêm tùy chọn kèm gói mỗi lần xuất. Giữ dữ liệu nhân vật/ký ức/thiết lập thuộc phạm vi; quyền máy/khóa AI ngoài không mang sang. Whitelist/tài nguyên khác/tương thích còn phải đặc tả.
 
-**Cách kiểm tra (AT-SL01):** Chỉ bấm xuất mới tạo sao lưu, không tự tạo bản phục hồi; khóa AI không theo sang máy khác.
+**Cách kiểm tra (AT-SL01):** Chỉ bấm xuất mới tạo sao lưu, không tự tạo bản phục hồi; khóa AI không theo sang máy khác. Kiểm quyết định D-09: Sao lưu không kèm gói AI nâng cao; máy mới tải lại khi cần, không thêm tùy chọn kèm gói mỗi lần xuất. Giữ dữ liệu nhân vật/ký ức/thiết lập thuộc phạm vi; quyền máy/khóa AI ngoài không mang sang. Whitelist/tài nguyên khác/tương thích còn phải đặc tả.
 
 ## SL02
 
@@ -586,9 +586,9 @@ mỗi bản xuất bắt buộc mật khẩu, thêm mã khôi phục người d�
 
 ## CD01
 
-hỏi bật/tắt khởi động cùng Windows trong thiết lập đầu; không tự bật ngầm. Dữ liệu được lưu qua lần đóng/mở app, không phải bản sao lưu tự động.
+hỏi bật/tắt khởi động cùng Windows trong thiết lập đầu; không tự bật ngầm. Dữ liệu được lưu qua lần đóng/mở app, không phải bản sao lưu tự động. Quyết định 2026-11-14 D-10: Mở lại app giữ việc đang dở tạm dừng, hỏi trước tiếp tục; không tự chạy lại, vẫn kiểm quyền/an toàn hiện hành. Crash ghi dữ liệu/cập nhật còn cần khảo sát.
 
-**Cách kiểm tra (AT-CD01):** Lần đầu bạn tự chọn mở cùng Windows; dữ liệu thường ngày vẫn được lưu qua đóng/mở app.
+**Cách kiểm tra (AT-CD01):** Lần đầu bạn tự chọn mở cùng Windows; dữ liệu thường ngày vẫn được lưu qua đóng/mở app. Kiểm quyết định D-10: Mở lại app giữ việc đang dở tạm dừng, hỏi trước tiếp tục; không tự chạy lại, vẫn kiểm quyền/an toàn hiện hành. Crash ghi dữ liệu/cập nhật còn cần khảo sát.
 
 ## CD02
 

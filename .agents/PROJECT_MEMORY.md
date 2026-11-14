@@ -1,3 +1,13 @@
+# Documentation recovery — 2026-11-14 (current)
+
+Local-only nyua-4: source drafts from nyua-2 and nyua-3 preserved at originals; exact orchestrator appended decisions saved in docs/product/AI/DECISION_SOURCE_2026-11-14.md and reconciled into canonical requirements, generated registry/HUMAN/SRS, module/UX/ART/DECISIONS. Task source now AI/backlog.json; 219 proposed tasks, 109 source requirements, 10 NFRs, 7 modules. tasks/README.md has prompts/dispatch, TASK_TRACEABILITY.csv links owners/AT/verification/final gates. All tasks DRAFT_NOT_AUTHORIZED and blocked on scope/evidence, not production approval.
+
+Exact role mapping research/memory/QA agy gemini-3.8-flash; UI/features agy gemini-4-hydrogen-low; core/bug/finalreview codex gpt-6.1-sol effort low. Shift reposition, same-day genuine reconciliation sessions, sleep stops observation, explicit resume on restart/renderer recovery, lesson-edit dependent cancellation, next-absence retry after 3 failures, sleep-excluding wait, per-send AI consent, minimal playback metadata, AI-pack excluded from export, fox main avatar silver ears/pink inside/no human ears/one silver tail/all older appearance preserved, bunny plush/apple/orange juice synchronized with restrictions.
+
+Documentation validation and negative controls actually run; no product tests, runtime, human acceptance, SDK/models or publish. E02a todo/plan unchanged and acceptance open. Python312 with Pillow needed for image checks; default MSYS Python lacks Pillow, jsonschema unavailable. See docs/product/QUALITY_REPORT.md for real evidence/limits. Four independent review findings repaired; re-review requested. Final artifact/commit details in session handoff, not a deployment-ready claim.
+
+---
+
 # Bộ nhớ dự án
 
 ## Trạng thái ưu tiên — sau yêu cầu “Proceed” ngày 2026-11-13

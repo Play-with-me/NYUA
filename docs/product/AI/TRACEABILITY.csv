@@ -1,8 +1,8 @@
 ﻿id,source_id,module,scope,use_case,task,acceptance_id,acceptance_status,evidence
-SRS-SP01,SP01,companion,release1,UC-01,P60-01,AT-SP01,draft_for_review,not_verified_production
+SRS-SP01,SP01,companion,release1,UC-01,P30-02,AT-SP01,draft_for_review,not_verified_production
 SRS-SP02,SP02,companion,release1,UC-01,P60-01,AT-SP02,draft_for_review,not_verified_production
-SRS-SP03,SP03,companion,release1,UC-18,P60-04,AT-SP03,draft_for_review,not_verified_production
-SRS-SP04,SP04,companion,release1,UC-01,P60-01,AT-SP04,draft_for_review,not_verified_production
+SRS-SP03,SP03,companion,release1,UC-18,P50-06,AT-SP03,draft_for_review,not_verified_production
+SRS-SP04,SP04,companion,release1,UC-01,P40-01,AT-SP04,draft_for_review,not_verified_production
 SRS-SP05,SP05,companion,release1,UC-18,P60-03,AT-SP05,draft_for_review,not_verified_production
 SRS-SP06,SP06,companion,release1,UC-18,P00-04,AT-SP06,draft_for_review,not_verified_production
 SRS-SP07,SP07,companion,release1,UC-05,P30-06,AT-SP07,draft_for_review,not_verified_production
@@ -25,7 +25,7 @@ SRS-MC03,MC03,companion,release1,UC-02,P30-06,AT-MC03,draft_for_review,not_verif
 SRS-MC04,MC04,companion,release1,UC-02,P03-04,AT-MC04,draft_for_review,not_verified_production
 SRS-SH01,SH01,life-state,release1,UC-05,P30-01,AT-SH01,draft_for_review,not_verified_production
 SRS-SH02,SH02,life-state,release1,UC-04,P30-01,AT-SH02,draft_for_review,not_verified_production
-SRS-SH03,SH03,life-state,release1,UC-05,P50-01,AT-SH03,draft_for_review,not_verified_production
+SRS-SH03,SH03,life-state,release1,UC-05,P30-01,AT-SH03,draft_for_review,not_verified_production
 SRS-SH04,SH04,life-state,release1,UC-04,P20-04,AT-SH04,draft_for_review,not_verified_production
 SRS-SH05,SH05,life-state,release1,UC-03,P20-03,AT-SH05,draft_for_review,not_verified_production
 SRS-SH06,SH06,life-state,release1,UC-05,P30-02,AT-SH06,draft_for_review,not_verified_production

@@ -25,3 +25,12 @@ Memory lifecycle theo DATA: pin/fade/edit/delete semantics, topic-only document,
 Deterministic logical clock/seed chosen test harness; seed không ép production luôn lặp giống nhau. Table scenarios firstthrow/repeat/refuse/pet/recover, absence vs neglect, basic downgrade, romanceoffkeep/delete, memorydelete vs naturalfade, multisession repair. AT-SH/KN/QH/SP07/SP08 và IT-07/08/12/13.
 
 Blocked before detailed algorithm by D-05/08/12. Can prepare narrative/state scenarios without choosing fixed minute/day substitutes.
+
+<!-- CONFIRMED-2026-11-14 -->
+## Quyết định hiện hành 2026-11-14 — ưu tiên hơn wording nháp cũ
+
+Sinh từ registry; chỉ phần sau nhãn quyết định là bổ sung đã xác nhận. Chưa triển khai/chưa nghiệm thu; chi tiết kỹ thuật còn mở trong DECISIONS.
+
+- **SH01:** D-12: Khi nhân vật ngủ dừng quan sát; thức dậy chỉ tiếp tục trong quyền hiện hành, không vượt SafetyHold/Thử đọc lại.
+- **SH04:** D-14/H08: Trong sáu món đã chốt, trái cây là táo, nước trái cây là nước cam; không thêm món thứ bảy. Thú bông thỏ là đồ vật/quà riêng, không nhân vật chính. Màu/chi tiết thú bông, dụng cụ/hình mẫu còn chờ duyệt.
+- **QH05:** D-05/H03: Buổi làm lành có thể cùng ngày nếu có khoảng nghỉ và tương tác thật; đóng/mở app hoặc quà liên tục không là buổi mới. Không tự đặt số phút/số buổi hoặc quà lập tức xóa tổn thương.
