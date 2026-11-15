@@ -1,4 +1,4 @@
-# desktop-body — Unity nhân vật và không gian desktop
+# desktop-body — Godot Engine nhân vật và không gian desktop
 
 Status: draft; rendering direction agreed, no engine version/plugin/topology accepted yet. Uses NV*, SH04/07/08 và mode matrix; assets ART.md.
 
@@ -6,7 +6,7 @@ Status: draft; rendering direction agreed, no engine version/plugin/topology acc
 
 Input RenderState, allowed monitors/surfaces, geometry-only windows, ApproachTarget intent, useravatar interactions. Output body interaction events, Arrival/Interrupted/Unreachable report và pose/prop state. Không output OS input trực tiếp, không screenshot desktop để tự suy.
 
-Unity physics world chỉ là representation của host-provided geometry. Needs converter giữa physical pixels/WPF DIPs/Unity units; mỗi target/pose gắn monitor/layout generation. Window closed/minimized removes supporting surface, triggers fall, not teleport to old point. Windows move carries supported body; overlaps/Zorder need tested surface model.
+Godot physics/scene world chỉ là representation của host-provided geometry. Needs converter giữa physical pixels/WPF DIPs/Godot units; mỗi target/pose gắn monitor/layout generation. Window closed/minimized removes supporting surface, triggers fall, not teleport to old point. Windows move carries supported body; overlaps/Zorder need tested surface model (`NOT VERIFIED`).
 
 ## Interaction recognition
 

@@ -30,7 +30,7 @@ Scope authorization and evidence prerequisites remain open.
 
 **Đầu vào:**
 
-docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/unity-windows/SPEC.md; docs/unity-windows/TEST_PLAN.md; docs/unity-windows/SOURCES.md
+docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/godot-windows/SPEC.md; docs/godot-windows/TEST_PLAN.md; docs/godot-windows/SOURCES.md
 
 **Đầu ra:**
 
@@ -112,7 +112,7 @@ D-02, D-03
 
 **Đầu vào:**
 
-docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/unity-windows/SPEC.md; docs/unity-windows/TEST_PLAN.md; docs/unity-windows/SOURCES.md
+docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/godot-windows/SPEC.md; docs/godot-windows/TEST_PLAN.md; docs/godot-windows/SOURCES.md
 
 **Đầu ra:**
 
@@ -277,7 +277,7 @@ D-13
 
 **Đầu vào:**
 
-docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/unity-windows/SPEC.md; docs/unity-windows/TEST_PLAN.md; docs/unity-windows/SOURCES.md
+docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/godot-windows/SPEC.md; docs/godot-windows/TEST_PLAN.md; docs/godot-windows/SOURCES.md
 
 **Đầu ra:**
 
@@ -297,14 +297,14 @@ docs/licenses/INVENTORY.md; docs/product/AI/DECISIONS.md
 
 **Các bước cụ thể:**
 
-1. Đối chiếu SP06 với mục tiêu: Lập danh mục giấy phép và chi phí. Đọc quyết định D-13 và SPEC UW-DOC-2026-11-15-r4 (người dùng đã chốt dự án cá nhân không kinh phí dùng Unity Personal và giai đoạn thử chỉ dùng 100% công cụ miễn phí $0); khóa lại phạm vi đầu ra License/cost bill.
-2. Thực hiện lát có thể nghiệm thu riêng trong docs/licenses/INVENTORY.md; docs/product/AI/DECISIONS.md sau khi được cho phép: Ghi source/terms/redistribution của Unity/plugin/model/art/runtime. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.
+1. Đối chiếu SP06 với mục tiêu: Lập danh mục giấy phép và chi phí. Đọc quyết định D-13 và SPEC GW-DOC-2026-11-15-r1 (người dùng đã chốt dự án cá nhân không kinh phí dùng Godot MIT ($0, không cần tài khoản/seat) và giai đoạn thử chỉ dùng 100% công cụ miễn phí $0); khóa lại phạm vi đầu ra License/cost bill.
+2. Thực hiện lát có thể nghiệm thu riêng trong docs/licenses/INVENTORY.md; docs/product/AI/DECISIONS.md sau khi được cho phép: Ghi source/terms/redistribution của Godot/plugin/model/art/runtime. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.
 3. Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Tên NYUA và signing/distribution còn mở được ghi riêng, khoản phí phải hỏi. Không dùng kết quả mẫu giả thay nguồn thật.
 4. Chuẩn bị và chạy sau bootstrap: Đối chiếu primary terms và lưu evidence/version. Lệnh chính xác do owner đề cương xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy.
 
 **Tiêu chí nghiệm thu:**
 
-- [ ] AT-P00-04-01: Ghi source/terms/redistribution của Unity/plugin/model/art/runtime.
+- [ ] AT-P00-04-01: Ghi source/terms/redistribution của Godot/plugin/model/art/runtime.
 - [ ] AT-P00-04-02: Tên NYUA và signing/distribution còn mở được ghi riêng, khoản phí phải hỏi.
 
 **Lệnh thực có — chỉ kiểm hồ sơ:**

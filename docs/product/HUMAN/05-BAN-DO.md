@@ -6,7 +6,7 @@ Các khối là trách nhiệm. Chúng chưa khẳng định đã tồn tại ti
 
 ## 1. Bốn công cụ, bảy trách nhiệm
 
-Unity làm nhân vật và đồ vật; WPF làm cửa sổ quản lý; C# điều phối trạng thái và tương tác Windows; AI local hiểu nội dung được phép. Các công cụ không thay thế bảy trách nhiệm đã duyệt:
+Godot làm nhân vật và đồ vật; WPF làm cửa sổ quản lý; C# điều phối trạng thái và tương tác Windows; AI local hiểu nội dung được phép. Các công cụ không thay thế bảy trách nhiệm đã duyệt:
 
 | Trách nhiệm | Câu hỏi nó trả lời |
 |---|---|
@@ -18,7 +18,7 @@ Unity làm nhân vật và đồ vật; WPF làm cửa sổ quản lý; C# đi�
 | Điều phối | Kết hợp các phần để có một hành vi nhất quán |
 | Dữ liệu/phát hành | Lưu hồ sơ, xuất/nhập, cài/cập nhật/gỡ thế nào? |
 
-“AI thấy buồn” chỉ là một nhận định. C# còn phải xét cô ấy có chú ý không, cảm xúc đang chuyển thế nào và có quyền với nguồn đó không; Unity thể hiện phản ứng đã chọn.
+“AI thấy buồn” chỉ là một nhận định. C# còn phải xét cô ấy có chú ý không, cảm xúc đang chuyển thế nào và có quyền với nguồn đó không; Godot thể hiện phản ứng đã chọn.
 
 ## 2. Ví dụ bấm tập tiếp theo
 
@@ -29,7 +29,7 @@ Xác định tập đã hết và đúng nút
          ↓
 Kiểm tra bạn không đang dùng chuột/phím
          ↓
-Unity cho cô ấy đi/leo tới nút
+Godot cho cô ấy đi/leo tới nút
          ↓
 C# kiểm tra lại: quyền, cửa sổ, nút có còn đúng?
          ↓
@@ -40,9 +40,9 @@ Nếu bạn di chuyển chuột khi cô ấy đang leo, cô ấy không được
 
 ## 3. Vì sao phải có phần kết nối riêng?
 
-Unity và app quản lý phải thống nhất vị trí, kích thước, hoạt động và trạng thái dừng. Cách nối chúng còn là đề xuất cần thử. Trường hợp renderer mất kết nối mà lệnh click vẫn chạy là rủi ro cần thiết kế chặn; không được coi hình ảnh đang leo là bằng chứng chắc có thể bấm.
+Godot và app quản lý phải thống nhất vị trí, kích thước, hoạt động và trạng thái dừng. Cách nối chúng còn là đề xuất cần thử. Trường hợp renderer mất kết nối mà lệnh click vẫn chạy là rủi ro cần thiết kế chặn; không được coi hình ảnh đang leo là bằng chứng chắc có thể bấm.
 
-Đề xuất kỹ thuật là thử các phần chạy riêng và trao đổi trên máy, tránh nhúng quá sớm. Chưa chốt cách truyền, phiên bản Unity, kiểu đóng gói hay cách vượt nhau của cửa sổ. Cần mẫu đo trước khi chọn cho toàn app.
+Đề xuất kỹ thuật là thử các phần chạy riêng và trao đổi trên máy, tránh nhúng quá sớm. Chưa chốt cách truyền, phiên bản Godot, kiểu đóng gói hay cách vượt nhau của cửa sổ. Cần mẫu đo trước khi chọn cho toàn app.
 
 ## 4. Dữ liệu đi đâu?
 

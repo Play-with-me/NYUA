@@ -30,7 +30,7 @@ Scope authorization and evidence prerequisites remain open.
 
 **Đầu vào:**
 
-docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/unity-windows/SPEC.md; docs/unity-windows/TEST_PLAN.md; docs/unity-windows/SOURCES.md
+docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/godot-windows/SPEC.md; docs/godot-windows/TEST_PLAN.md; docs/godot-windows/SOURCES.md
 
 **Đầu ra:**
 
@@ -51,8 +51,8 @@ docs/experiments/bootstrap-companion.md; tests/bootstrap/companion/Bootstrap.Tes
 **Các bước cụ thể:**
 
 1. Khảo sát công cụ thực có cho companion: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.
-2. Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/companion.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.
-3. Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.
+2. Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/companion.ps1 trong whitelist. Renderer phải chọn phiên bản Godot qua D-01; không mặc định MSTest kiểm được Godot.
+3. Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Godot đã chọn.
 4. Chạy powershell -NoProfile -File tools/verify/companion.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-companion.md; chỉ sau đó mở gate cho task phụ thuộc.
 
 **Tiêu chí nghiệm thu:**
@@ -112,11 +112,11 @@ Scope authorization and evidence prerequisites remain open.
 
 **Đầu vào:**
 
-docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/unity-windows/SPEC.md; docs/unity-windows/TEST_PLAN.md; docs/unity-windows/SOURCES.md
+docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/godot-windows/SPEC.md; docs/godot-windows/TEST_PLAN.md; docs/godot-windows/SOURCES.md
 
 **Đầu ra:**
 
-Unity fixture bootstrap cô lập và lệnh batch có timeout; không phụ thuộc project renderer sản phẩm
+Godot fixture bootstrap cô lập và lệnh batch có timeout; không phụ thuộc project renderer sản phẩm
 
 **Phụ thuộc:**
 
@@ -128,18 +128,18 @@ None; all below are proposed.
 
 **Whitelist đề xuất — chưa cho phép sửa sản phẩm:**
 
-docs/experiments/bootstrap-desktop-body.md; tests/bootstrap/desktop-body/UnityFixture/ProjectSettings/ProjectVersion.txt; tests/bootstrap/desktop-body/UnityFixture/Packages/manifest.json; tests/bootstrap/desktop-body/UnityFixture/Assets/Editor/BootstrapBuild.cs; tests/bootstrap/desktop-body/UnityFixture/Assets/Bootstrap.unity
+docs/experiments/bootstrap-desktop-body.md; tests/bootstrap/desktop-body/GodotFixture/project.godot; tests/bootstrap/desktop-body/GodotFixture/export_presets.cfg; tests/bootstrap/desktop-body/GodotFixture/scripts/BootstrapVerify.gd; tests/bootstrap/desktop-body/GodotFixture/scenes/Bootstrap.tscn
 
 **Các bước cụ thể:**
 
-1. Khảo sát Unity Editor thực có và nguồn chính thức/giấy phép cho Windows batch build; đề xuất phiên bản trong báo cáo. Chỉ sau cho phép thử riêng mới tạo project fixture cô lập, không dùng project sản phẩm P02-01.
-2. Tạo đúng năm đường dẫn whitelist: báo cáo; ProjectVersion.txt ghim editor; manifest.json chỉ package tối thiểu có quyền dùng; scene Bootstrap.unity chỉ primitive giả; BootstrapBuild.cs là editor-only entry cho phép thử. Không avatar/input/capture/network hay nội dung cá nhân. Library/Temp/log/build output là working material tự sinh, không authored file whitelist và không commit.
-3. Đề xuất entry BootstrapBuild.Verify và nhánh deliberately-failing trong editor script sau khi đối chiếu API của phiên bản đã ghim. Entry dương kiểm scene fixture/build smoke thật, âm trả exit code khác 0 có chủ đích; log/outputs vào TEMP. Không cần project hay bằng chứng P02-01 để bootstrap chạy.
-4. Ghi executable Unity thực, dùng mẫu batch -batchmode -nographics -quit -projectPath tests/bootstrap/desktop-body/UnityFixture -executeMethod BootstrapBuild.Verify -logFile <TEMP>. Dùng supervisor tiến trình với WaitForExit(120000), kill tiến trình thử nếu timeout; timeout là lỗi. Chạy nhánh dương/âm và lưu lệnh exact, code, log, editor/package version và cleanup. Chưa chạy trong phiên tài liệu; chỉ sau bằng chứng này P02-01 mới có runner để Ready.
+1. Khảo sát Godot Editor (.NET) thực có và nguồn chính thức/giấy phép (MIT, $0) cho Windows headless CLI; đề xuất phiên bản trong báo cáo. Chỉ sau cho phép thử riêng mới tạo project fixture cô lập, không dùng project sản phẩm P02-01.
+2. Tạo đúng năm đường dẫn whitelist: báo cáo; project.godot ghim cấu hình tối giản; export_presets.cfg; scene scenes/Bootstrap.tscn chỉ primitive giả; scripts/BootstrapVerify.gd là script kiểm thử tối giản cho phép thử. Không avatar/input/capture/network hay nội dung cá nhân. Thư mục .godot/ và log/build output tự sinh là working material, không thuộc whitelist và không commit.
+3. Đề xuất entry scripts/BootstrapVerify.gd và nhánh deliberately-failing (-- --probe-neg) sau khi đối chiếu CLI của phiên bản Godot đã ghim. Entry dương kiểm scene fixture smoke thật, âm trả exit code khác 0 có chủ đích; log/outputs vào TEMP. Không cần project hay bằng chứng P02-01 để bootstrap chạy.
+4. Ghi executable Godot (.NET) thực, dùng mẫu CLI --headless --path tests/bootstrap/desktop-body/GodotFixture --script scripts/BootstrapVerify.gd --quit --log-file <TEMP> (và thêm -- --probe-neg cho nhánh âm). Dùng supervisor tiến trình với WaitForExit(120000), kill tiến trình thử nếu timeout; timeout là lỗi. Chạy nhánh dương/âm và lưu lệnh exact, code, log, editor/template version và cleanup. Chưa chạy trong phiên tài liệu; chỉ sau bằng chứng này P02-01 mới có runner để Ready.
 
 **Tiêu chí nghiệm thu:**
 
-- [ ] AT-B00-02-01: Project Unity fixture tối thiểu nằm đúng whitelist năm file; editor/package ghim phiên bản có license evidence, scene giả không quyền input/capture/network; không đọc hoặc yêu cầu project P02-01 để tạo fixture.
+- [ ] AT-B00-02-01: Project Godot fixture tối thiểu nằm đúng whitelist năm file; editor/package ghim phiên bản có license evidence, scene giả không quyền input/capture/network; không đọc hoặc yêu cầu project P02-01 để tạo fixture.
 - [ ] AT-B00-02-02: Batch dương chạy đúng scene/build fixture, trả 0; nhánh âm cố ý sai trả khác 0; supervisor dừng sau tối đa 120 giây mỗi lượt. Báo cáo giữ exact executable/arguments/log/version/cleanup và NOT RUN cho đến khi có phép thử thực; không coi đọc file là test.
 
 **Lệnh thực có — chỉ kiểm hồ sơ:**
@@ -148,7 +148,7 @@ python tasks/validate_tasks.py (documentation consistency only; never product ev
 
 **Kiểm chứng tương lai — CHƯA CHẠY:**
 
-{"state": "GATED_NOT_RUN", "owner": null, "command": null, "command_template": "<verified Unity Editor executable> -batchmode -nographics -quit -projectPath tests/bootstrap/desktop-body/UnityFixture -executeMethod BootstrapBuild.Verify -logFile <TEMP log>; supervisor WaitForExit(120000), timeout -> terminate owned probe and fail", "gate": "Bootstrap entry requires separately approved fixture scope and editor/license discovery; it does not require a pre-existing successful runner or the P02-01 product project. This task owns all five fixture paths. Completion requires real bounded positive/negative batch evidence before dependent executable tasks become Ready."}
+{"state": "GATED_NOT_RUN", "owner": null, "command": null, "command_template": "<verified Godot Editor (.NET) executable> --headless --path tests/bootstrap/desktop-body/GodotFixture --script scripts/BootstrapVerify.gd --quit --log-file <TEMP log>; supervisor WaitForExit(120000), timeout -> terminate owned probe and fail", "gate": "Bootstrap entry requires separately approved fixture scope and editor/license discovery; it does not require a pre-existing successful runner or the P02-01 product project. This task owns all five fixture paths. Completion requires real bounded positive/negative batch evidence before dependent executable tasks become Ready."}
 
 **Chủ nhiệm chuẩn bị công cụ:**
 
@@ -215,8 +215,8 @@ docs/experiments/bootstrap-perception.md; tests/bootstrap/perception/Bootstrap.T
 **Các bước cụ thể:**
 
 1. Khảo sát công cụ thực có cho perception: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.
-2. Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/perception.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.
-3. Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.
+2. Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/perception.ps1 trong whitelist. Renderer phải chọn phiên bản Godot qua D-01; không mặc định MSTest kiểm được Godot.
+3. Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Godot đã chọn.
 4. Chạy powershell -NoProfile -File tools/verify/perception.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-perception.md; chỉ sau đó mở gate cho task phụ thuộc.
 
 **Tiêu chí nghiệm thu:**
@@ -297,8 +297,8 @@ docs/experiments/bootstrap-policy.md; tests/bootstrap/policy/Bootstrap.Tests.csp
 **Các bước cụ thể:**
 
 1. Khảo sát công cụ thực có cho policy: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.
-2. Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/policy.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.
-3. Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.
+2. Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/policy.ps1 trong whitelist. Renderer phải chọn phiên bản Godot qua D-01; không mặc định MSTest kiểm được Godot.
+3. Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Godot đã chọn.
 4. Chạy powershell -NoProfile -File tools/verify/policy.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-policy.md; chỉ sau đó mở gate cho task phụ thuộc.
 
 **Tiêu chí nghiệm thu:**
@@ -379,8 +379,8 @@ docs/experiments/bootstrap-life-state.md; tests/bootstrap/life-state/Bootstrap.T
 **Các bước cụ thể:**
 
 1. Khảo sát công cụ thực có cho life-state: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.
-2. Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/life-state.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.
-3. Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.
+2. Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/life-state.ps1 trong whitelist. Renderer phải chọn phiên bản Godot qua D-01; không mặc định MSTest kiểm được Godot.
+3. Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Godot đã chọn.
 4. Chạy powershell -NoProfile -File tools/verify/life-state.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-life-state.md; chỉ sau đó mở gate cho task phụ thuộc.
 
 **Tiêu chí nghiệm thu:**
@@ -461,8 +461,8 @@ docs/experiments/bootstrap-task-execution.md; tests/bootstrap/task-execution/Boo
 **Các bước cụ thể:**
 
 1. Khảo sát công cụ thực có cho task-execution: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.
-2. Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/task-execution.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.
-3. Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.
+2. Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/task-execution.ps1 trong whitelist. Renderer phải chọn phiên bản Godot qua D-01; không mặc định MSTest kiểm được Godot.
+3. Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Godot đã chọn.
 4. Chạy powershell -NoProfile -File tools/verify/task-execution.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-task-execution.md; chỉ sau đó mở gate cho task phụ thuộc.
 
 **Tiêu chí nghiệm thu:**
@@ -543,8 +543,8 @@ docs/experiments/bootstrap-distribution.md; tests/bootstrap/distribution/Bootstr
 **Các bước cụ thể:**
 
 1. Khảo sát công cụ thực có cho distribution: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.
-2. Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/distribution.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.
-3. Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.
+2. Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/distribution.ps1 trong whitelist. Renderer phải chọn phiên bản Godot qua D-01; không mặc định MSTest kiểm được Godot.
+3. Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Godot đã chọn.
 4. Chạy powershell -NoProfile -File tools/verify/distribution.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-distribution.md; chỉ sau đó mở gate cho task phụ thuộc.
 
 **Tiêu chí nghiệm thu:**

@@ -8,7 +8,7 @@
 |---|---|---|---|
 | Rà hồ sơ | SRS, nghiệp vụ, UX, rủi ro, truy vết | Có đúng hình dung và không mất yêu cầu? | Còn mâu thuẫn ảnh hưởng chặng kế |
 | Khép mẫu quyền | Mẫu E02a và các kiểm tra UI còn mở | Bật/tắt/thử lại có dễ hiểu? | Còn lỗi quyền hoặc chưa đủ bằng chứng bắt buộc |
-| Thử Unity + Windows | Nhân vật đại diện trong suốt, đúng vùng chuột, mất kết nối được xử lý | Đúng cảm giác sống trên desktop? | Chưa chứng minh được hiển thị/nhường chuột/độ ổn định |
+| Thử Godot + Windows | Nhân vật đại diện trong suốt, đúng vùng chuột, mất kết nối được xử lý | Đúng cảm giác sống trên desktop? | Chưa chứng minh được hiển thị/nhường chuột/độ ổn định |
 | Thử hiểu cảnh local | Bộ cảnh tiếng Việt, độ đúng, độ trễ, tài nguyên, giấy phép | Phản ứng có hợp và đủ nhanh? | Chưa đo hoặc chất lượng không đạt mức chấp nhận |
 | Xây một luồng kết hợp | Mở app → hiện cô ấy → cấp quyền một nguồn → phản ứng → dừng | Dùng được xuyên suốt? | Chỉ các phần riêng lẻ chạy được |
 | Mở rộng sinh hoạt/quan hệ | Chăm sóc, đồ vật, ký ức, hai mức | Cá tính có nguyên nhân, không quá phiền? | Sai bộ đếm, mất ký ức, trạng thái không nhất quán |

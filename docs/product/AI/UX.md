@@ -1,6 +1,6 @@
 # UX specification — native app và nhân vật
 
-Draft screen design. Nghiệp vụ lấy SRS/BUSINESS_RULES, không thêm chat/score/focusmode. [Human wireframes](../HUMAN/03-TRAI-NGHIEM.md) là phần giải thích. DESIGN.md vẫn là token source: #f5f6f8/#202b38/#155e52, systemfont16, spacing4/8; áp sang XAML/Unity UI phù hợp.
+Draft screen design. Nghiệp vụ lấy SRS/BUSINESS_RULES, không thêm chat/score/focusmode. [Human wireframes](../HUMAN/03-TRAI-NGHIEM.md) là phần giải thích. DESIGN.md vẫn là token source: #f5f6f8/#202b38/#155e52, systemfont16, spacing4/8; áp sang XAML/Godot UI phù hợp.
 
 ## 1. Information architecture
 

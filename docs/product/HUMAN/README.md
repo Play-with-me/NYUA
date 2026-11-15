@@ -8,7 +8,7 @@ Bạn không cần biết lập trình để đọc bộ này. Mục tiêu là g
 | 2 | [Toàn bộ yêu cầu](02-YEU-CAU.md) | Từng mã yêu cầu đã nói, tiêu chí kiểm tra dễ đọc |
 | 3 | [Một ngày sử dụng và các màn hình](03-TRAI-NGHIEM.md) | Cách mở, cấp quyền, chăm sóc, dạy, dừng và quản lý dữ liệu |
 | 4 | [Quy tắc và các tình huống](04-NGHIEP-VU.md) | Quyền nào thắng, các bộ đếm, lỗi và trường hợp đặc biệt |
-| 5 | [Bản đồ hệ thống](05-BAN-DO.md) | Unity/C#/WPF/AI phối hợp thế nào và vì sao cần tách |
+| 5 | [Bản đồ hệ thống](05-BAN-DO.md) | Godot/C#/WPF/AI phối hợp thế nào và vì sao cần tách |
 | 6 | [Lộ trình và nghiệm thu](06-LO-TRINH.md) | Team cần làm, đưa bằng chứng gì và bạn duyệt gì |
 | 7 | [Công việc giải thích dễ hiểu](07-CONG-VIEC.md) | Từng việc sẽ đem lại gì và bạn nhận biết kết quả ra sao |
 

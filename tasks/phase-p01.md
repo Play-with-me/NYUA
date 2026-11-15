@@ -30,7 +30,7 @@ Scope authorization and evidence prerequisites remain open.
 
 **Đầu vào:**
 
-docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/unity-windows/SPEC.md; docs/unity-windows/TEST_PLAN.md; docs/unity-windows/SOURCES.md
+docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/godot-windows/SPEC.md; docs/godot-windows/TEST_PLAN.md; docs/godot-windows/SOURCES.md
 
 **Đầu ra:**
 
@@ -53,7 +53,7 @@ labs/policy-native/RESULTS.md; tasks/todo.md
 1. Đọc tasks/E02a-USER-ACCEPTANCE.md và quyết định chấp nhận trải nghiệm ngày2026-11-15; giữ quote/ngày/scope và không hỏi lại nghiệm thu đã được user cho đóng.
 2. Đối chiếu tasks/todo.md T04/T05 và docs/E02a-CURRENT-MACHINE-RESULTS.md; tách resize/focus user-confirmed khỏi số đo minimum size,full activation/screenreader và disabled/error coverage chưa kiểm.
 3. Sau scope thực thi riêng và B00-04 cần thiết, thu bằng chứng thật cho từng mục kỹ thuật còn mở; đợt chuẩn bị tài liệu hiện tại không chạy lại product test hoặc UI, không sửa labs.
-4. Ghi expected/actual/NOT RUN và giới hạn cho technical-closure checklist; task vẫn DRAFT_NOT_AUTHORIZED,không lấy human gate obtained để gọi P01 Done hoặc gateUnity/production đã đạt.
+4. Ghi expected/actual/NOT RUN và giới hạn cho technical-closure checklist; task vẫn DRAFT_NOT_AUTHORIZED,không lấy human gate obtained để gọi P01 Done hoặc gateGodot/production đã đạt.
 
 **Tiêu chí nghiệm thu:**
 

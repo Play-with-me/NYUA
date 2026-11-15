@@ -4,7 +4,7 @@ Date:2026-11-13. **PROPOSED**, không phải acceptedproductionarchitecture.
 
 ## Context/decision proposal
 
-Page/model/renderer có thể đưa ý định cũ hoặc sai; một click nhầm có thể ảnh hưởng dữ liệu. Đề xuất host C# sở hữu quyền, generations và OSinput adapter. Unity chỉ report movement; AI chỉ report semantic observation; host kiểm lại quyền/target/userinput trước action.
+Page/model/renderer có thể đưa ý định cũ hoặc sai; một click nhầm có thể ảnh hưởng dữ liệu. Đề xuất host C# sở hữu quyền, generations và OSinput adapter. Godot chỉ report movement; AI chỉ report semantic observation; host kiểm lại quyền/target/userinput trước action.
 
 ## Alternatives/tradeoffs
 

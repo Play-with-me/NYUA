@@ -4,7 +4,7 @@ Không tạo pipeline/remote/installer trong đợt hồ sơ. Desktoplocalapp kh
 
 ## 1. Build/reproducibility
 
-Pin .NET SDK, Unityeditor/renderpipeline/plugins, modelweights/runtime và testtools sau technicalselection; record OS/architecture, filehash, licenses and notices. Build host/renderer/optionalworker/extension separately, package manifests tie compatible versions. No secrets in repo/buildlogs. Actual commands only after productionprojects exist; existing labcommands at [native README](../../../labs/policy-native/README.md).
+Pin .NET SDK, Godot editor/export templates/plugins, modelweights/runtime và testtools sau technicalselection; record OS/architecture, filehash, licenses and notices. Build host/renderer/optionalworker/extension separately, package manifests tie compatible versions. No secrets in repo/buildlogs. Actual commands only after productionprojects exist; existing labcommands at [native README](../../../labs/policy-native/README.md).
 
 ## 2. Proposed CI gates
 
@@ -12,7 +12,7 @@ Pin .NET SDK, Unityeditor/renderpipeline/plugins, modelweights/runtime và testt
 |---|---|---|
 | Fast change | Compile/types/style, relatedunit, nosecret/suppression review | Real runner/command + knownbad and clean controls |
 | Integration | Policy/IPC/state/source adapter with fake fixtures | Deterministic results, no privatecontent, negativecases |
-| NativeUI | WPF flows + Unityoverlay/hitzone on supportedWindowsrunner | Actualdesktop session; not headlesspass substituted |
+| NativeUI | WPF flows + Godot overlay/hitzone on supportedWindowsrunner | Actualdesktop session; not headlesspass substituted |
 | Performance | Definedbenchdataset + load + signedhardwarematrix | Recordedbaseline and approved budgets |
 | Security/licensing | Native packageaudit, asset/modelinventory, archive/updateabuse | Currentadvisorysources and reviewer findings |
 | Package | Reproducibleversion, integrity/signature, install/update/uninstallsmoke | Testedartifact equals reviewedbuild |

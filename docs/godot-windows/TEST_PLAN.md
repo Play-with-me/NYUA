@@ -1,0 +1,68 @@
+# Kế hoạch kiểm thử Godot Engine – Windows — chưa thực thi
+
+Revision **GW-DOC-2026-11-15-r1**; companion của [SPEC](SPEC.md) và [SOURCES](SOURCES.md).  
+**Tất cả 30 ca dưới đây (`UW01–UW30`) đều ở trạng thái `NOT RUN`**; phần giao diện WPF Host (`UW07` phần hộp thoại Host, `UW21-UI`/`UW22-UI`, `UW28`) giữ **`BLOCKED / DEFERRED`** tới khi có task sở hữu `src/Desktop.Wpf/`, và `UW11`/`UW12` phụ thuộc phần cứng 2-monitor.  
+Không cài đặt Godot/SDK, không tạo fixture và không chạy các lệnh ở đây trong phạm vi tài liệu hiện tại.
+
+## 1. Cổng, trách nhiệm và chống deadlock
+
+- Thứ tự direct dependencies, `bootstrap_owner` và `proposed_files` khớp nguyên văn với `docs/product/AI/backlog.json`.
+- `R00-*`/`A00-*`, `P00-02`, `P00-04` là `document_review` — không đòi runner hay bằng chứng của `P02-*` để rà đề cương.
+- `B00-02` sở hữu độc lập 5 file fixture Godot tại `tests/bootstrap/desktop-body/GodotFixture/`, **không** phụ thuộc `P02-01`.
+- `B00-01` sở hữu harness `.NET` tại `tests/bootstrap/companion/` và `tools/verify/companion.ps1`; là `bootstrap_owner` cho `P02-03`, `P02-04`, `P02-05` và direct dependency của `P02-02`.
+- `P01-01` human gate `OBTAINED` chỉ cho trải nghiệm `E02a`; `T05` kỹ thuật còn mở.
+
+## 2. Điều kiện chạy tương lai, dữ liệu và phạm vi thiếu phần cứng
+
+Chỉ sau khi có **ủy quyền riêng** cho tạo/chạy fixture và đóng các gate `A00-*`, `P00-02`, `P00-04`, `B00-01`, `B00-02`:
+- Ghi rõ phiên bản thực tế trên máy đối chiếu với ứng viên **Godot `4.7.2 – .NET`**, renderer backend (Compatibility OpenGL vs Vulkan/D3D12), Host **`.NET 10 LTS` (`net10.0-windows`)**, mã hóa hash binary export và package lock.
+- **Dữ liệu thử bắt buộc:** chỉ dùng hình khối/nhãn giả, tọa độ/ID/session tổng hợp, fake grant/sink/queue, và cửa sổ nền tự sở hữu `tests/Fixtures/WindowSurface.csproj`. Số lần gọi adapter thật phải bằng `0`.
+- **Không** hạ chuẩn `NV08`: các ca nhiều màn hình (`UW11`, `UW12`) và exclusive fullscreen đánh dấu **`NOT RUN` — chờ thiết bị thật** nếu thiếu phần cứng.
+
+## 3. Ma trận 30 ca kiểm — objective pass/fail đề xuất (toàn bộ NOT RUN)
+
+| Case / owner task | Requirement/decision | Thao tác tương lai | Expected / kiểm dương-âm khách quan | Actual |
+|---|---|---|---|---|
+| `UW01` / `B00-02` | SP09, D-01 | Chạy `Godot --headless --path tests/bootstrap/desktop-body/GodotFixture --script scripts/BootstrapVerify.gd --quit` (dương và `--probe-neg` âm) | Dương exit `0`; âm cố ý sai exit `!= 0`. Âm trả `0` => `FAIL` runner | **NOT RUN** |
+| `UW02` / `B00-02`, `B00-01` | NFR-07 | Cố tình làm treo probe/runner giả vượt quá 120s | Supervisor kết thúc owned process tree `<= 120s`, đánh `FAIL` timeout | **NOT RUN** |
+| `UW03` / `P02-01` | SP09, D-01, D-13 | Export `godot/CompanionRenderer` qua `--headless --path godot/CompanionRenderer --export-release "Windows Desktop"` + nhánh âm | Dương exit `0`, sinh `CompanionRenderer.exe`; nhánh âm exit `!= 0`; real adapters `0` | **NOT RUN** |
+| `UW04` / `P02-02` | NV08, D-01 | Chạy `CompanionRenderer.exe` (không `--headless`) + `OverlayProbe.cs` trên nền checkerboard `WindowSurface.exe` | Log ghi `[NYUA-PROBE] OverlayProbe initialized`; vùng ngoài hình lộ nền thật, không nền đen/lỗi DWM | **NOT RUN** |
+| `UW05` / `P02-02` | NV09, D-01 | Click 20 điểm bên trong hit polygon của `OverlayProbe` | `OverlayProbe` nhận đủ 20 event, `WindowSurface` counter `= 0` | **NOT RUN** |
+| `UW06` / `P02-02` | D-01, NFR-10 | Click 20 điểm ngoài hit polygon (`window_set_mouse_passthrough`) xuống `WindowSurface.exe` | `WindowSurface` nhận đủ 20 event, `OverlayProbe` counter `= 0`, `SendInput = 0` | **NOT RUN** |
+| `UW07` / `P02-02` *(WPF dialog deferred)* | D-01, DK01 | Thao tác trên `WindowSurface.exe` khi overlay idle/reconnect 30s | Overlay không giật foreground của `WindowSurface.exe` trong 30s; WPF dialog `BLOCKED` | **NOT RUN (WPF Host dialog: BLOCKED)** |
+| `UW08` / `P02-02` | NV11, D-05 | Giữ Shift + drag trên `OverlayProbe` khi fake refusal-lift bật | Đổi vị trí giả; `throw=0, play=0, hurt=0`; refusal giữ nguyên; không global hook | **NOT RUN** |
+| `UW09` / `P02-02` | NV09, NV11, D-05 | Thả Shift hoặc làm mất focus/capture giữa lúc drag trong `OverlayProbe` | Hủy drag trung tính; không biến thành throw hoặc click xuống `WindowSurface` | **NOT RUN** |
+| `UW10` / `P02-03` | NV08, NFR-10 | Chạy `CoordinateMapTests` và đo grid anchor ở 100/125/150/200% DPI | `dotnet test` dương exit `0`; sai số anchor `<= 1 physical px`, đúng `layoutGeneration` | **NOT RUN** |
+| `UW11` / `P02-03` | NV08, D-01 | Drag/tính tọa độ qua 2 monitor mixed DPI với monitor trái origin âm | Không clamp tọa độ âm về `0`; đổi monitor tăng `layoutGeneration` (thiếu 2 monitor => `NOT RUN`) | **NOT RUN** |
+| `UW12` / `P02-03` | NV08, D-01 | Detach monitor hoặc đổi scale khi intent đang pending | Invalidate target cũ; không tự nhảy sang monitor chưa được phép | **NOT RUN** |
+| `UW13` / `P02-02`, `P02-03` | NV08, D-01 | Chạy `WindowSurface` ở borderless fullscreen + thử nút Stop; ghi nhận exclusive fullscreen | Borderless đặt hình đúng mép; exclusive thiếu phần cứng giữ `NOT RUN` | **NOT RUN** |
+| `UW14` / `P02-04` | SP09, D-03 | Chạy `RendererChannelTests` với handshake hợp lệ và sai version/role/nonce | Log có marker `HostChannel`; handshake sai bị đóng pipe, `fake_sink_count = 0` | **NOT RUN** |
+| `UW15` / `P02-04` | D-03, NFR-01 | Kết nối bằng client sai user/elevation và client giả mạo handshake cùng user | `CurrentUserOnly` từ chối sai user/elevation; sai nonce bị reject | **NOT RUN** |
+| `UW16` / `P02-04` | D-03 | Bơm frame `length=0`, `>64KiB`, cắt cụt >2s, invalid UTF-8, JSON depth `>16`, lone surrogate, overflow | Cả Host và Godot `HostChannel.cs` reject an toàn trước dispatch; log không lộ nonce/payload | **NOT RUN** |
+| `UW17` / `P02-04` | D-03 | Phân mảnh frame hợp lệ + kiểm roundtrip Host↔Godot vs unknown field, duplicate keys, `NaN`/`Infinity`, trailing tokens | Frame hợp lệ parse giống hệt hai chiều; mọi vector sai bị reject đóng kênh | **NOT RUN** |
+| `UW18` / `P02-04` | D-03 | Gửi trùng `messageId`, đảo thứ tự, flood `>32` pending queue | Deduplicate chặn tác động lần 2; queue vượt 32 báo overload/dừng kênh | **NOT RUN** |
+| `UW19` / `P02-04`, `P02-05` | D-02, D-03, NFR-01 | Đổi `permissionGeneration`/`layoutGeneration`/`connectionEpoch` trước callback trễ | Callback/ACK mang generation cũ bị loại bỏ hoàn toàn; `fake_sink_count = 0` | **NOT RUN** |
+| `UW20` / `P02-05` | SP09, D-02 | Kill `CompanionRenderer.exe` (hoặc cắt pipe) khi fake job đang pending | Host còn sống, phát hiện mất peer `<= 3s`, chuyển `PausedAfterFault`, `fake_sink_count = 0` | **NOT RUN** |
+| `UW21` / `P02-05` *(WPF UI deferred)* | SP09, D-02 | Headless reconnect (`connectionEpoch` mới) với `KeepPaused` | Trạng thái chuyển `Paused/Ask`, giữ `Paused`, `fake_sink_count = 0` | **NOT RUN (WPF modal UI: BLOCKED)** |
+| `UW22` / `P02-05` *(WPF UI deferred)* | SP09, D-02 | Headless `ConfirmResumeAfterFault` khi quyền/safety/layout mới hợp lệ | Revalidate `permissionGeneration`/`SafetyHold`/`layoutGeneration`; không replay bước cũ | **NOT RUN (WPF modal UI: BLOCKED)** |
+| `UW23` / `P02-05` | D-02, D-10 | Thu hồi quyền / bật `SafetyHold` / đổi layout trước khi bấm `[Cho tiếp tục sau lỗi]` | Resume bị chặn rõ với lý do, giữ `Paused` | **NOT RUN** |
+| `UW24` / `P02-05` | CD01, D-10 | Mô phỏng crash Host và mở lại với synthetic saved state fixture | Việc đang dở mở lại ở `Paused/Ask`, không auto-run | **NOT RUN** |
+| `UW25` / `P02-05` | BH07, HS01 | Thoát Host có kiểm soát / đổi hồ sơ giả khi có việc pending | Hủy (`Cancelled`) việc chưa xong, không hồi sinh khi mở lại | **NOT RUN** |
+| `UW26` / `P02-05` | DK03, DK04, BH08 | Bấm Dừng / Tắt quan sát / Ẩn rồi bật lại và chờ 60s | Việc đang chạy `Cancelled`, việc chờ `Paused`, không tự chạy sau 60s | **NOT RUN** |
+| `UW27` / `P02-04`, `P02-05` | QD10, NFR-01 | Bơm sentinel tiêu đề/nội dung giả hoặc yêu cầu `SendInput`/capture thật qua pipe | Bị reject ở schema/policy boundary; `real_input_capture_count = 0` | **NOT RUN** |
+| `UW28` / DEFERRED (`src/Desktop.Wpf/`) | NFR-06, D-02 | Điều hướng `Tab` / `Shift+Tab` / `Space` / `Enter` tới nút Dừng / Kết nối lại / Tiếp tục | Giữ **`NOT RUN — BLOCKED`** trong `P02` | **NOT RUN — BLOCKED** |
+| `UW29` / `P02-01..05` | NFR-03, NFR-07 | Lặp 3 vòng start/stop trong bound 120s/lượt rồi kiểm tra cleanup | Không còn process/pipe/owned window sót lại | **NOT RUN** |
+| `UW30` / review | SP09, D-01/D-02/D-03 | Rà toàn bộ evidence manifest và các ca thiếu phần cứng | Không ca `NOT RUN` bị ghi `PASS` | **NOT RUN** |
+
+## 4. Lệnh chạy tương lai (dương + âm), timeout 120s
+
+**Chưa được phép chạy ở lượt tài liệu này.**
+
+| Task | Lệnh dương & âm tương lai (sau khi được cấp phép tạo file) | Bound & tiêu chí đạt/hỏng |
+|---|---|---|
+| `B00-02` | **Dương:** `& "<verified Godot .NET exe>" --headless --path "tests/bootstrap/desktop-body/GodotFixture" --script "scripts/BootstrapVerify.gd" --quit --log-file "<TEMP>/UW01-pos.log"`<br>**Âm:** `& "<verified Godot .NET exe>" --headless --path "tests/bootstrap/desktop-body/GodotFixture" --script "scripts/BootstrapVerify.gd" --quit --log-file "<TEMP>/UW01-neg.log" -- --probe-neg` | `120s` hard timeout (`WaitForExit(120000)`). Dương exit `0`; âm exit `!= 0`. `--headless` chỉ dùng cho bootstrap smoke; `.godot/` là working material (không commit, cần `.gitignore`). |
+| `B00-01` | **Restore:** `& "<verified dotnet.exe>" restore "tests/bootstrap/companion/Bootstrap.Tests.csproj" --artifacts-path "<TEMP>/b00-01/dotnet-artifacts"`<br>**Dương:** `& "<verified dotnet.exe>" test "tests/bootstrap/companion/Bootstrap.Tests.csproj" --configuration Release --no-restore --artifacts-path "<TEMP>/b00-01/dotnet-artifacts" --filter "TestCategory!=NegativeControl" --logger "trx;LogFileName=b00-01-pos.trx" --results-directory "<TEMP>/b00-01/results"`<br>**Âm:** `& "<verified dotnet.exe>" test "tests/bootstrap/companion/Bootstrap.Tests.csproj" --configuration Release --no-restore --artifacts-path "<TEMP>/b00-01/dotnet-artifacts" --filter "TestCategory=NegativeControl" --logger "trx;LogFileName=b00-01-neg.trx" --results-directory "<TEMP>/b00-01/results"`<br>**Supervisor:** `powershell -NoProfile -File "tools/verify/companion.ps1" -RunDir "<TEMP>/b00-01"` | `120s` timeout. Cấm props `obj`/`bin` trong `.csproj`; truyền `--artifacts-path` đồng nhất. Dương exit `0`, âm exit `!= 0` (lưu `$LASTEXITCODE` ngay sau mỗi lệnh); `companion.ps1` kiểm kill-tree (`UW02`). |
+| `P02-01` | **Dương:** `& "<verified Godot .NET exe>" --headless --path "godot/CompanionRenderer" --export-release "Windows Desktop" "<TEMP>/p02-01-player/CompanionRenderer.exe" --log-file "<TEMP>/UW03-build.log"`<br>**Âm:** `& "<verified Godot .NET exe>" --headless --path "godot/CompanionRenderer" --script "scripts/ProbeBuild.gd" --quit --log-file "<TEMP>/UW03-neg.log" -- --probe-neg` | `120s` mỗi lượt. Export ra `CompanionRenderer.exe` (dương `0`, âm `!= 0`). `Godot.NET.Sdk` từ `GodotSharp/Tools/nupkgs` (hoặc NuGet ghim ở `P00-04`); `.godot/`, `.godot/mono/` và `CompanionRenderer.sln` tự sinh là working material (không commit). |
+| `P02-02` | **Restore/Build/TargetPath:** `& "<verified dotnet.exe>" restore "tests/Fixtures/WindowSurface.csproj" --artifacts-path "<TEMP>/p02-02/dotnet-artifacts"`; `build ... --configuration Release --no-restore --artifacts-path "<TEMP>/p02-02/dotnet-artifacts"`; `$ws = & "<verified dotnet.exe>" msbuild "tests/Fixtures/WindowSurface.csproj" -getProperty:TargetPath -p:Configuration=Release -p:ArtifactsPath="<TEMP>/p02-02/dotnet-artifacts"` (kiểm `Test-Path $ws` trước launch)<br>**GUI Dương/Âm:** chạy `$ws` và `CompanionRenderer.exe` (không `--headless`) | `120s` mỗi invocation. Dương exit `0`, âm `--probe-invalid-config` exit `!= 0`; log có marker `[NYUA-PROBE] OverlayProbe initialized`; kiểm chứng rủi ro `SetWindowRgn` clipping ở `UW04–UW06`. |
+| `P02-03` | **Restore closure:** `& "<verified dotnet.exe>" restore "tests/Integration/CoordinateMap.Tests.csproj" --artifacts-path "<TEMP>/p02-03/dotnet-artifacts"`<br>**Dương / Âm:** `dotnet test ... --configuration Release --no-restore --artifacts-path "<TEMP>/p02-03/dotnet-artifacts" --filter "FullyQualifiedName~CoordinateMapTests&TestCategory!=NegativeControl"` (và `TestCategory=NegativeControl`) kèm `--logger "trx;LogFileName=p02-03-{pos,neg}.trx" --results-directory "<TEMP>/p02-03/results"` | `120s` mỗi invocation; lưu `$LASTEXITCODE` ngay sau mỗi lệnh (`0` dương, `!= 0` âm với TRX test count `> 0`). Thiếu hardware `UW11`/`UW12` giữ `NOT RUN`. |
+| `P02-04`, `P02-05` | **Restore closure:** `dotnet restore ... --artifacts-path "<TEMP>/p02-0x/dotnet-artifacts"`<br>**Dương & Âm (cùng bọc `try/finally`):** `$prev = $env:NYUA_PROBE_PLAYER; try { $env:NYUA_PROBE_PLAYER = "<TEMP>/p02-04-player/CompanionRenderer.exe"; & "<verified dotnet.exe>" test "<exact.Tests.csproj>" --configuration Release --no-restore --artifacts-path "<TEMP>/p02-0x/dotnet-artifacts" --filter "...&TestCategory!=NegativeControl" --logger "trx;LogFileName=p02-0x-pos.trx" --results-directory "<TEMP>/p02-0x/results"; $posExit = $LASTEXITCODE; & "<verified dotnet.exe>" test "<exact.Tests.csproj>" --configuration Release --no-restore --artifacts-path "<TEMP>/p02-0x/dotnet-artifacts" --filter "...&TestCategory=NegativeControl" --logger "trx;LogFileName=p02-0x-neg.trx" --results-directory "<TEMP>/p02-0x/results"; $negExit = $LASTEXITCODE } finally { $env:NYUA_PROBE_PLAYER = $prev }` | `120s` mỗi invocation; cấm props `obj`/`bin` trong `.csproj`; bắt buộc bọc `try/finally` cho **cả nhánh dương và `NegativeControl`**, lưu `$LASTEXITCODE` (`0` dương, `!= 0` âm) và TRX `test count > 0`. `UW28`/WPF dialog giữ `NOT RUN — BLOCKED`. |

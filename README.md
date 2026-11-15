@@ -16,7 +16,7 @@ Baseline tài liệu 0.1 để rà: 109 mục yêu cầu và 52 task dự kiến
 3. [Đề cương kiểm chứng](docs/KE_HOACH_KIEM_CHUNG.md): sáu phép thử nhỏ trước khi xây toàn bộ; chưa chạy.
 4. [Phép thử đầu tiên](docs/PHEP_THU_DAU_TIEN.md): ranh giới quan sát trên dữ liệu giả, 16 tình huống và tiêu chí đánh giá; mới chuẩn bị, chưa chạy.
 
-Đã có mẫu kiểm tra quyền native C# + WPF với dữ liệu giả. Chưa có ứng dụng nhân vật đầy đủ, Unity hoặc AI local được tích hợp. Mục tiêu sản phẩm: Windows 11, tiếng Việt, hai mức cơ bản/nâng cao; công khai miễn phí bản đầu, chưa công khai mã nguồn.
+Đã có mẫu kiểm tra quyền native C# + WPF với dữ liệu giả. Chưa có ứng dụng nhân vật đầy đủ, Godot hoặc AI local được tích hợp. Mục tiêu sản phẩm: Windows 11, tiếng Việt, hai mức cơ bản/nâng cao; công khai miễn phí bản đầu, chưa công khai mã nguồn.
 
 ## Mẫu đang dùng thử
 

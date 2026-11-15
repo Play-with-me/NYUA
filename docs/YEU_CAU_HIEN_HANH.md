@@ -24,7 +24,7 @@ Cập nhật: 2026-11-14. Trạng thái: **hợp nhất kết quả phỏng vấ
 | SP06 | Ưu tiên công cụ/dịch vụ miễn phí; mọi khoản chi phát triển phải hỏi trước. Chưa có ngân sách số cụ thể hoặc quyền tự chi. |
 | SP07 | Ở nâng cao, tính cách phát triển qua trải nghiệm/cách đối xử: từ làm trước nghĩ sau dần biết cân nhắc. Luôn giữ tò mò, tinh nghịch và ý muốn riêng; thay đổi cách thể hiện, không xóa các nét cốt lõi này. Cơ bản giữ tính cách ban đầu, vẫn đổi tâm trạng. Không phải quyền tự sửa code. |
 | SP08 | Học cách hành xử qua tương tác và trải nghiệm, không thêm nút đánh giá hành vi. Không tự đánh đồng người dùng bận/không đáp lời rủ với phê bình; chế độ làm mẫu thao tác ứng dụng vẫn là chức năng riêng. |
-| SP09 | Hướng đã thống nhất để tiếp tục: Unity phụ trách hiển thị/hoạt ảnh nhân vật; C# + WPF phụ trách phần ứng dụng, điều phối và quản lý; AI local phân tích ngữ cảnh/cảm xúc. Phiên bản, cách kết nối, topology tiến trình, hiệu năng và độ tin cậy còn cần thiết kế/kiểm chứng. Không xây giao diện sản phẩm bằng web theo đề xuất cũ. Quyết định 2026-11-14 D-02: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở. |
+| SP09 | Hướng đã thống nhất để tiếp tục (cập nhật chuyển từ Unity sang **Godot Engine** theo quyết định người dùng 2026-11-15): **Godot Engine** phụ trách hiển thị/hoạt ảnh nhân vật; C# + WPF phụ trách phần ứng dụng, điều phối và quản lý; AI local phân tích ngữ cảnh/cảm xúc. Phiên bản, cách kết nối, topology tiến trình, hiệu năng và độ tin cậy còn cần thiết kế/kiểm chứng. Không xây giao diện sản phẩm bằng web theo đề xuất cũ. Quyết định 2026-11-14 D-02: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở. |
 
 ## 3. Ngoại hình và chuyển động
 
@@ -177,7 +177,7 @@ Không mặc định cấp tài khoản, vượt màn hình bảo vệ hoặc h�
 
 ## 12. Những gì chưa làm hoặc không thuộc bản đầu
 
-- Chưa có code nhân vật hoặc ảnh mẫu được duyệt. Đã có mẫu E02a native với 53 kiểm thử đạt và 35 tình huống giả; còn kiểm tra UI/nghiệm thu. Chưa đo hiệu năng AI/Unity hoặc thử nguồn màn hình thật.
+- Chưa có code nhân vật hoặc ảnh mẫu được duyệt. Đã có mẫu E02a native với 53 kiểm thử đạt và 35 tình huống giả; còn kiểm tra UI/nghiệm thu. Chưa đo hiệu năng AI/Godot hoặc thử nguồn màn hình thật.
 - Không đưa vào bản đầu: đọc tập tin/thư mục chọn riêng, hệ điều hành khác, ngôn ngữ khác, nhiều ngoại hình, tạo thêm hồ sơ bằng nút mới, tài khoản/đồng bộ cloud, trò chuyện, phân tích âm thanh/micro/camera/nhảy nhịp, nội dung sách/tranh/game thật, giao dịch thật, công khai mã nguồn.
 - Hướng công cụ theo SP09, mẫu E02a dùng .NET10/WPF/MSTest. Chưa chốt stack/API/types/định dạng dữ liệu production hoặc mô hình AI và các giới hạn chưa hỏi. Lệnh có thật của mẫu không được ghi thành lệnh toàn sản phẩm.
 - Phiên ổn định 8 giờ là yêu cầu kiểm chứng, chưa phải bằng chứng đã đạt; cấu hình, độ chính xác, tỷ lệ lỗi và chi phí cần khảo sát theo [đề cương kiểm chứng](KE_HOACH_KIEM_CHUNG.md).

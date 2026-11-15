@@ -10,7 +10,7 @@ User muốn xử lý cảm xúc nhanh, offline với nội dung local, hai mức
 
 Cloud-first có thể tận dụng model khác nhưng thêm networklatency/cost/privacy và không khớp offline/consent. Rule-only cho mọi nội dung có latencythấp nhưng chưa đủ hiểu cảnhphim usermuốn. Localmodel mỗi gesture tránh rules nhưng thêm delay không cần thiết; đề xuất split gestures/state deterministic và contextualinference cần rà.
 
-Local không tự nghĩa nhẹ/nhanh/chínhxác. Unity và model có thể tranhGPU/VRAM; cần đo combinedload, coldstart và sustainedtime. Basic/advanced khác cả featuregates, không chỉ paramsize.
+Local không tự nghĩa nhẹ/nhanh/chínhxác. Godot và model có thể tranhGPU/VRAM; cần đo combinedload, coldstart và sustainedtime. Basic/advanced khác cả featuregates, không chỉ paramsize.
 
 ## Acceptance/revisit
 

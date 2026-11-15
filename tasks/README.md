@@ -9,7 +9,7 @@ AI bắt đầu bằng [GRAPH_REPORT](../graphify-out/GRAPH_REPORT.md) → kiể
 1. Bắt đầu bằng summary/freshness/task pack như trên; khi rà baseline mới mở P00-01 và nguồn quyết định; yêu cầu hiện hành thắng chi tiết nháp. Chỉ giao phạm vi tài liệu đã cho phép.
 2. Với lát được chọn, đọc dependencies trong registry; chạy `python tasks/dispatch.py` để xem thứ tự topo. Thứ tự nhóm/pha không tạo dependency.
 3. R00 lập đề cương cho phần kỹ thuật chưa biết; A00 rà đề cương trước phép thử. Đây không phải chốt kết quả chưa đo và không hỏi lại quyết định đã xác nhận.
-4. B00 tạo fixture/runner trong whitelist đề xuất sau khi có phép riêng. B00 không cần runner đã chạy để bắt đầu; B00-02 tự sở hữu fixture Unity riêng với năm đường dẫn tường minh, không đợi project P02-01; hoàn thành cần fixture dương chạy đạt và fixture âm trả lỗi, timeout/cleanup hữu hạn. Chỉ khi đó mới ghi lệnh thực vào task con; không task con nào Ready trước bootstrap.
+4. B00 tạo fixture/runner trong whitelist đề xuất sau khi có phép riêng. B00 không cần runner đã chạy để bắt đầu; B00-02 tự sở hữu fixture Godot riêng với năm đường dẫn tường minh, không đợi project P02-01; hoàn thành cần fixture dương chạy đạt và fixture âm trả lỗi, timeout/cleanup hữu hạn. Chỉ khi đó mới ghi lệnh thực vào task con; không task con nào Ready trước bootstrap.
 5. Khi có phép thực thi riêng, giao từng P-task theo dependencies và file boundary; các V-task kiểm từng điều khoản sau owner triển khai. N-task kiểm ngưỡng thực; số chưa chốt giữ Blocked. Dùng bản nháp/NOT RUN khi chưa có kết quả.
 6. C00-04 gom mọi V/N; P60-04 và P60-05 nằm sau gate này. Nghiệm thu E02a, mẫu hình/hoạt ảnh và nghiệm thu toàn sản phẩm cần phản hồi người dùng thật. Checkpoint không cấp quyền triển khai/công bố.
 
@@ -58,6 +58,6 @@ Xem [hướng dẫn context](../docs/context/README.md) cho limits/budget và c�
 Cập nhật2026-11-15: human gate P01-01 ghi OBTAINED cho trải nghiệm demo theo phản hồi nguyên văn; task P01-01 vẫn chưa được coi hoàn tất mọi tiêu chí kỹ thuật. Các gate artwork/release vẫn NOT_OBTAINED.
 
 
-## Chuẩn bị Unity–Windows — chỉ tài liệu
+## Chuẩn bị Godot–Windows — chỉ tài liệu
 
-Đọc SPEC/TEST_PLAN/SOURCES ở docs/unity-windows qua scoped pack của task liên quan. P01 human experience gate obtained không làm Done phần technical. Các gate R/A01/02/03/10/13, P00-02/P00-04 và bootstrap/P02 giữ nguyên dependencies canonical; tương lai build/fixture/install/run authorization NOT_OBTAINED. Chưa tự dispatch task sản phẩm từ tài liệu này.
+Đọc SPEC/TEST_PLAN/SOURCES ở docs/godot-windows qua scoped pack của task liên quan. P01 human experience gate obtained không làm Done phần technical. Các gate R/A01/02/03/10/13, P00-02/P00-04 và bootstrap/P02 giữ nguyên dependencies canonical; tương lai build/fixture/install/run authorization NOT_OBTAINED. Chưa tự dispatch task sản phẩm từ tài liệu này.

@@ -216,13 +216,13 @@ tools/bench/CombinedBench.cs; contracts/SceneTiming.cs; docs/experiments/local-a
 **Các bước cụ thể:**
 
 1. Đối chiếu XP02 với mục tiêu: Đo phản ứng toàn luồng dưới tải kết hợp. Đọc quyết định D-04; khóa lại phạm vi đầu ra Latency/quality report.
-2. Thực hiện lát có thể nghiệm thu riêng trong tools/bench/CombinedBench.cs; contracts/SceneTiming.cs; docs/experiments/local-ai.md sau khi được cho phép: Đo scenevisible→filter/OCR/infer/decision→renderstart với Unity đang chạy. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.
+2. Thực hiện lát có thể nghiệm thu riêng trong tools/bench/CombinedBench.cs; contracts/SceneTiming.cs; docs/experiments/local-ai.md sau khi được cho phép: Đo scenevisible→filter/OCR/infer/decision→renderstart với Godot đang chạy. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.
 3. Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Báo mọi mẫu sai/uncertain/unobserved, không đổi ngưỡng hoặc chọn lại clip. Không dùng kết quả mẫu giả thay nguồn thật.
 4. Chuẩn bị và chạy sau bootstrap: IT-10 timing + RAM/VRAM/CPU/GPU observations. Lệnh chính xác do B00-03 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy.
 
 **Tiêu chí nghiệm thu:**
 
-- [ ] AT-P03-03-01: Đo scenevisible→filter/OCR/infer/decision→renderstart với Unity đang chạy.
+- [ ] AT-P03-03-01: Đo scenevisible→filter/OCR/infer/decision→renderstart với Godot đang chạy.
 - [ ] AT-P03-03-02: Báo mọi mẫu sai/uncertain/unobserved, không đổi ngưỡng hoặc chọn lại clip.
 
 **Lệnh thực có — chỉ kiểm hồ sơ:**

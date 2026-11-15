@@ -1,6 +1,6 @@
 # policy — quyền và ranh giới tác động
 
-Status: production draft. Inputs authoritative: user grants/mode commands, source identity evidence, human input events. Screen text, model output, Unity callback và imported archive không được tạo grants.
+Status: production draft. Inputs authoritative: user grants/mode commands, source identity evidence, human input events. Screen text, model output, Godot callback và imported archive không được tạo grants.
 
 ## Scope và contracts
 

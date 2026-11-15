@@ -19,7 +19,7 @@ AC = {
 'SP06':'Danh mục công cụ ghi chi phí/giấy phép; khoản phí không được mua hoặc kích hoạt khi chưa có quyết định người dùng.',
 'SP07':'Cùng trải nghiệm qua thời gian tạo cách biểu hiện cân nhắc hơn ở nâng cao; vẫn có tò mò/tinh nghịch/ý muốn riêng, cơ bản không tiến hóa tính cách.',
 'SP08':'Không có nút đánh giá hành vi; bỏ qua lời rủ không thành lời phê bình; learning-demo chỉ ghi khi user bật.',
-'SP09':'Rà phân công Unity/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ.',
+'SP09':'Rà phân công Godot/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ.',
 'NV01':'Duyệt mẫu nữ trưởng thành chibi đầu lớn người nhỏ; cài mới các user có cùng ngoại hình đã duyệt.',
 'NV02':'So mẫu front/side với tóc bạc ngang eo, mái thưa, mắt đỏ hồng và da sáng ấm; ghi sửa nếu lệch.',
 'NV03':'Kiểm áo len rộng cổ tròn hồng nhạt, váy xếp ly xám đậm trên gối, không tất/giày ở mọi hướng.',
@@ -194,7 +194,7 @@ def sync():
         w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows({k:r[k] for k in fields} for r in records)
     human=['# Toàn bộ yêu cầu và cách kiểm tra\n\nSinh từ cùng registry với SRS; tiêu chí là diễn giải để rà, không phải test đã đạt. QD07 đã hoãn. Các hàng MODE ghi tách bảng hai mức để không bỏ sót.\n']
     srs=['# Software Requirements Specification — toàn sản phẩm\n\nVersion0.1 — reconciled 2026-11-14. Baseline để rà, không chứng nhận tiêu chuẩn và không tự phê duyệt implementation.\n',
-      '## 1. Purpose, scope, environment\n\nWindows11, Vietnamese first, free initial public release, local data/no account. Companion combines life, perception and embodied interaction. Unity renderer + C#/WPF host + local AI is directional choice; physical architecture/model pending proof. Non-goals and mode matrix are source requirements, not optional defaults.\n',
+      '## 1. Purpose, scope, environment\n\nWindows11, Vietnamese first, free initial public release, local data/no account. Companion combines life, perception and embodied interaction. Godot renderer + C#/WPF host + local AI is directional choice; physical architecture/model pending proof. Non-goals and mode matrix are source requirements, not optional defaults.\n',
       '## 2. Definitions and precedence\n\nSource IDs retain original meaning; SRS- prefix gives dossier key; AT- is acceptance proposal. Source user decisions win over technical draft. Modules mapped in CAPABILITY_MAP. Content-read, geometry-read, control, memory and external-send are distinct authorities. See BUSINESS_RULES and DECISIONS before resolving conflicts.\n',
       '## 3. Interfaces and constraints\n\nUser interfaces in UX.md; provider contracts INTERFACES.md; data DATA.md; privacy SECURITY.md; timing/quality AI_LOCAL.md and QA.md. Unsupported or uncertain sources must fail closed; no raw-content fallback to cloud.\n',
       '## 4. Functional and scope requirements\n\nSource text below is preserved. Compound source rules remain grouped for provenance; acceptance tests must split all independently testable clauses before implementation. No clause may be dropped because its source shares an ID.\n']

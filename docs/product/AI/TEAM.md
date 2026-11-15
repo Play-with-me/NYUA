@@ -4,7 +4,7 @@ Nguồn quy trình đầy đủ: [QUY_TRINH_TEAM_SAN_PHAM](../../QUY_TRINH_TEAM_
 
 ## Roles/accountability
 
-Productowner=user owns scope/experience/cost/releaseapproval. BA/UX/Windows/Unity/AI/QA/security/release là các trách nhiệm, AI có thể đảm nhận nối tiếp. Không coi đổi vai hoặc đọc lại code là independentreview. Không tự gửi message/email cho tester/team khi chưa có lệnh.
+Productowner=user owns scope/experience/cost/releaseapproval. BA/UX/Windows/Godot/AI/QA/security/release là các trách nhiệm, AI có thể đảm nhận nối tiếp. Không coi đổi vai hoặc đọc lại code là independentreview. Không tự gửi message/email cho tester/team khi chưa có lệnh.
 
 ## Definition of Ready
 

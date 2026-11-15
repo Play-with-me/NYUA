@@ -1,3 +1,14 @@
+# Chuyển hướng Engine sang Godot Engine — 2026-11-15 (`nyua-11`, docs-only)
+
+- **Quyết định mới nhất:** Sau khi PR #2 merge vào `main` (`b24268cefd2587bcada966a490b6f8cd8b944f65`), người dùng chỉ đạo **chuyển engine từ Unity sang Godot Engine**.
+- **Ứng viên kỹ thuật & Giấy phép (`GW-DOC-2026-11-15-r1`, `NOT VERIFIED`):**
+  - **Engine:** **Godot `4.7.2 – .NET`** (Windows x64), giấy phép **MIT (`$0`)** — không cần tài khoản Unity, không trần `$200.000 USD` của Unity Personal; khi phân phối binary export dùng official export templates cần kèm thông báo bản quyền MIT + third-party notices (`P00-04`).
+  - **Runtime & Ngôn ngữ:** `B00-02` dùng `tests/bootstrap/desktop-body/GodotFixture/{project.godot,export_presets.cfg,scenes/Bootstrap.tscn,scripts/BootstrapVerify.gd}`; `P02-01..05` dùng `godot/CompanionRenderer/` (`CompanionRenderer.csproj`, `OverlayProbe.cs`, `HostChannel.cs`) kết nối Named Pipe `PipeOptions.CurrentUserOnly` với Host `.NET 10 LTS`.
+  - **Điểm `NOT VERIFIED`:** Windows 11 DWM `per_pixel_transparency`, `window_set_mouse_passthrough`, `Shift+drag`, multi-monitor/mixed DPI, và fault recovery (`UW01–UW30` đều **`NOT RUN`**, thực thi **`NOT_AUTHORIZED`**).
+- **Tài liệu đã chuyển hướng:** `docs/godot-windows/{SPEC,TEST_PLAN,SOURCES}.md` là nguồn hiện hành; `docs/unity-windows/*` chuyển thành trang chuyển hướng `SUPERSEDED`. Giữ nguyên: E02a `C3` experience accepted vs `T05` open, `$0` tooling, `NV08` đầy đủ (thiếu phần cứng `UW11`/`UW12`/exclusive fullscreen giữ `NOT RUN`), lịch sử PR #1/#2 và ngoại hình/hành vi/quà tặng đã chốt. Không cài đặt, không tải SDK, không tạo code/fixture, không commit/push/PR.
+
+---
+
 # PR2 review fixes — 2026-11-15
 
 P1/P2 hướng dẫn đã sửa trong commit205969b: artifacts root theo task/closure, PowerShell env cho cả dương/âm, TRX/exit rõ; 24 đoạn lệnh đã parse AST PowerShell, không thực thi. Sửa validator riêng dùng policy version chung producer/consumer, từ chối policy lạ; kiểm isolated LF/CRLF/BOM và semantic/whitespace tamper, không đổi raw binary/upstream hash. Các kiểm chứng này chỉ là tooling tài liệu, không runtime Unity/.NET. Xin re-review exact pushed head mới, không tự coi internal PASS là GitHub approval.

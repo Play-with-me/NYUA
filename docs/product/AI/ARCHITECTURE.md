@@ -1,13 +1,13 @@
 # Kiến trúc tổng thể — đề xuất để kiểm chứng
 
-Hướng Unity + C#/WPF + AI local đã thống nhất. Phân chia bảy module đã duyệt; topology và các kỹ thuật dưới đây là **PROPOSED**, chưa production ADR accepted. Không suy ra E02a làm được IPC/capture thật.
+Hướng **Godot Engine** + C#/WPF + AI local đã thống nhất *(chuyển từ Unity 2026-11-15)*. Phân chia bảy module đã duyệt; topology và các kỹ thuật dưới đây là **PROPOSED / NOT VERIFIED**, chưa production ADR accepted. Không suy ra E02a làm được IPC/capture thật.
 
 ## 1. System context và container
 
 ```mermaid
 flowchart LR
  U[Người dùng Windows 11] --> W[WPF: cài đặt và lệnh]
- U --> R[Unity: nhân vật và đồ vật]
+ U --> R[Godot: nhân vật và đồ vật]
  W --> H[C# Host: điều phối và quyền]
  R -->|Ý định và trạng thái hoạt ảnh| H
  H -->|Lệnh hiển thị đã kiểm| R
@@ -21,7 +21,7 @@ flowchart LR
 ```
 
 - Host là nơi sở hữu policy, lifecycle, input arbitration, queue và persistence. UI/renderer không sở hữu quyền thực thi.
-- Unity là renderer/animation/interaction surface; không đọc màn hình hoặc phát input thật trực tiếp. Va chạm đồ vật/di chuyển trên cửa sổ dùng dữ liệu hình học tối thiểu từ host.
+- Godot Engine là renderer/animation/interaction surface; không đọc màn hình hoặc phát input thật trực tiếp. Va chạm đồ vật/di chuyển trên cửa sổ dùng dữ liệu hình học tối thiểu từ host.
 - Worker AI có thể tách tiến trình để quản lý tải/lỗi; đây là đề xuất, chưa chốt model/backend/transport. Không cấp worker quyền tự capture hoặc network.
 - Extension chỉ thêm khi bật web; không bắt để sinh hoạt. Browser-native messaging cần host registration được cài theo luồng rõ ràng, không lấy quyền website rộng mặc định.
 - DB logical đề xuất ở DATA; chưa chốt SQLite hoặc storage engine. Dữ liệu application tách dữ liệu người dùng ở các app khác.
@@ -54,7 +54,7 @@ Host crash: input không được tiếp tục từ bên khác; pending queue kh
 
 ## 4. OS integration constraints
 
-Phải tách tọa độ màn hình vật lý, WPF logical unit, Unity viewport và target rectangle. Transform có monitorId/DPI/layout generation; không dùng một hệ số phóng cho mọi màn hình. Chuyển monitor/DPI vô hiệu điểm click pending.
+Phải tách tọa độ màn hình vật lý, WPF logical unit, Godot viewport và target rectangle. Transform có monitorId/DPI/layout generation; không dùng một hệ số phóng cho mọi màn hình. Chuyển monitor/DPI vô hiệu điểm click pending.
 
 Chế độ windowed/borderless/exclusive fullscreen và protected desktop khác nhau. Không hứa overlay trên mọi game. Không tự chạy admin để giải quyết hạn chế. SendInput bị ràng buộc integrity/UIPI; nếu target không hỗ trợ thì chặn/báo, không bypass.
 
@@ -62,7 +62,7 @@ Input arbitration theo dấu input do app sở hữu và input thật; không lo
 
 ## 5. Version/tool decisions
 
-Host .NET10/WPF có mẫu đã chạy; production SDK có thể giữ cùng nhánh nhưng cần pin tại thời điểm tạo project. Unity version/render pipeline/plugins, AI runtime và extension manifest versions phải chọn sau E-INT/E04, không ghi con số suy đoán.
+Host .NET10/WPF có mẫu đã chạy; production SDK có thể giữ cùng nhánh nhưng cần pin tại thời điểm tạo project. Godot Engine version (`4.7.2 – .NET` đề xuất)/render backend, AI runtime và extension manifest versions phải chọn/kiểm chứng sau `B00-02`/E-INT/E04, không ghi con số suy đoán.
 
 Production source tree **đề xuất**, không phải folder đã có:
 
@@ -71,7 +71,7 @@ src/Host/{Policy,LifeState,Perception,Tasks,Companion,Storage}/
 src/Desktop.Wpf/
 src/BrowserBridge/
 src/LocalAI.Worker/
-unity/CompanionRenderer/
+godot/CompanionRenderer/
 contracts/
 tests/{Unit,Integration,NativeUI,Fixtures}/
 ```
@@ -80,4 +80,4 @@ Trước mỗi task chốt file whitelist cụ thể, tránh “sửa cả src�
 
 ## 6. Sources và bằng chứng
 
-[WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/), [Unity native plugins](https://docs.unity.com/en-us/engine/6000.0/manual/programming-environment/plug-ins/for-desktop), [SendInput restrictions](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendinput), [Edge native messaging](https://learn.microsoft.com/en-us/microsoft-edge/extensions/developer-guide/native-messaging). Các nguồn xác nhận khả năng API/framework; không xác nhận kiến trúc này đã chạy. Chưa chọn plugin bên thứ ba.
+[WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/), [Godot 4 DisplayServer](https://docs.godotengine.org/en/stable/classes/class_displayserver.html), [SendInput restrictions](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser/nf-winuser-sendinput), [Edge native messaging](https://learn.microsoft.com/en-us/microsoft-edge/extensions/developer-guide/native-messaging). Các nguồn xác nhận khả năng API/framework; không xác nhận kiến trúc này đã chạy. Chưa chọn plugin bên thứ ba.

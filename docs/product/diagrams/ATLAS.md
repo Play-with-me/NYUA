@@ -18,7 +18,7 @@ flowchart LR
 ```mermaid
 flowchart TB
  WPF["WPF settings / tray"] --> Host["C# host: policy, life, tasks, storage"]
- Unity["Unity renderer"] <-->|"Typed local messages: đề xuất"| Host
+ Godot["Godot renderer"] <-->|"Typed local messages: đề xuất"| Host
  Browser["Chrome / Edge bridge tùy chọn"] -->|"Evidence nguồn"| Host
  Windows["Windows adapter"] --> Host
  Host -->|"Safe snapshot"| AI["Local AI worker: đề xuất"]
@@ -66,7 +66,7 @@ flowchart TD
 sequenceDiagram
  participant User as Người dùng
  participant Host as Host và policy
- participant Body as Unity
+ participant Body as Godot
  participant OS as Windows adapter
  User->>Host: Yêu cầu hoặc intent hợp lệ
  Host->>Host: Kiểm quyền, nguồn, input gate
@@ -174,7 +174,7 @@ sequenceDiagram
 ```mermaid
 flowchart TD
  Interview["User requirements"] --> Baseline["Two-edition dossier review"]
- Baseline --> Probes["E02a / Unity E-INT / local AI probes"]
+ Baseline --> Probes["E02a / Godot E-INT / local AI probes"]
  Probes --> Decision{"Evidence enough?"}
  Decision -->|"No"| Review["Report limits and user tradeoff"]
  Review --> Baseline
@@ -533,9 +533,11 @@ flowchart TD
  B00_02 --> P02_01
  A00_01 --> P02_01
  P02_01 --> P02_02
+ B00_01 --> P02_02
  B00_02 --> P02_02
  A00_01 --> P02_02
  P02_02 --> P02_03
+ B00_01 --> P02_03
  B00_02 --> P02_03
  A00_01 --> P02_03
  P02_01 --> P02_04

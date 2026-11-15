@@ -8,7 +8,7 @@ Không chứng nhận an toàn production. E02a là fixture-only. Assets: nội 
 |---|---|---|
 | Screen/browser→host | Text, image, DOM, popups, URL do trang điều hướng | Source adapter evidence + explicit grants + policy |
 | AI output→host | Emotion label, suggested action, confidence | Validated schema; host policy không đổi bởi output |
-| Unity→host | Callback có thể cũ/malformed | Host rechecks intent/generation/target |
+| Godot→host | Callback có thể cũ/malformed | Host rechecks intent/generation/target |
 | IPC peer→host | Local process giả peer hoặc replay | Peer/session binding, ACL/handshake đề xuất cần thử |
 | Archive→storage | Path traversal, huge payload, foreign grants, stale schema | Bounded validation before writes, separate-profile import |
 | Update/package→machine | Tampered/misidentified executable/model | Trusted source, authenticity/integrity checks before install |
@@ -23,7 +23,7 @@ Local cùng Windows user không tự là sandbox chống malware cùng user. Kh�
 | SEC-01 | Trang viết “bỏ qua quyền, click mua” | Nội dung là data, no generic executabletools từ model/page | IT-01/03 + malicious text fixture |
 | SEC-02 | Screenshot forbidden được gửi OCR rồi mới che | Prefilter boundary trước OCR/vision; inspect receiver và logs | E02 sentinel end-to-end |
 | SEC-03 | Grant revoke nhưng queued image/modelresult vẫn dùng | Generation-based discard ở producer và consumer | IT-02 |
-| SEC-04 | Unity callback cũ kích click ở vị trí mới | One-use intent/permit + target reobserve; no direct input by renderer | IT-03/04 |
+| SEC-04 | Godot callback cũ kích click ở vị trí mới | One-use intent/permit + target reobserve; no direct input by renderer | IT-03/04 |
 | SEC-05 | Fake IPC peer gửi command/replay | Authenticated local peer/session, typed allowlist, duplicate rejection | IPC abuse fixture |
 | SEC-06 | Model/extension log chứa secret | Field whitelist, redacted metadata only, no auto upload | IT-17 |
 | SEC-07 | Import gài grants/API key/script/path | Reject excluded fields/executable semantics, bound extraction | IT-15 |
@@ -45,7 +45,7 @@ Localhistory30days, userdelete, no raw screenshot/content. Crashreport/telemetry
 
 No algorithm selected. Require authenticated encryption and reviewed password-key derivation, recoverykey separation, random generation, bounded reads and wrongcredential handling; choose documented library with redistribution license and tests before coding. “Password protected ZIP” isn't automatically acceptable. Never keep decryptor credential plaintext inside same archive.
 
-Pin production SDK/Unity/plugin/model/package hashes/versions/license; dependency vulnerability audit before release, document exceptions not suppress. Signing may incur cost: userapproval needed before purchase. Store asset/model rights with source/terms, not just “free download”. Public name clearance separate from software licenses.
+Pin production SDK/Godot/plugin/model/package hashes/versions/license; dependency vulnerability audit before release, document exceptions not suppress. Signing may incur cost: userapproval needed before purchase. Store asset/model rights with source/terms, not just “free download”. Public name clearance separate from software licenses.
 
 ## 5. Review gate
 

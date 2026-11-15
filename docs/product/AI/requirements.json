@@ -1,7 +1,8 @@
 {
   "document_version": "0.1",
   "date": "2026-11-14",
-  "source_sha256": "304fd35e358a4949a821f38a77c80ae06c668f51e7de6fa3e9a882deb6bf4a6c",
+  "source_hash_policy": "utf8-text-bom-removed-universal-newlines-lf-v1",
+  "source_sha256": "a53bfbaafcefe6dee316876d65aba87d1be38b0dafb4cddbaaf539f886e6482f",
   "status": "full_product_review_draft",
   "records": [
     {
@@ -143,15 +144,15 @@
     {
       "id": "SRS-SP09",
       "source_id": "SP09",
-      "source_text": "Hướng đã thống nhất để tiếp tục: Unity phụ trách hiển thị/hoạt ảnh nhân vật; C# + WPF phụ trách phần ứng dụng, điều phối và quản lý; AI local phân tích ngữ cảnh/cảm xúc. Phiên bản, cách kết nối, topology tiến trình, hiệu năng và độ tin cậy còn cần thiết kế/kiểm chứng. Không xây giao diện sản phẩm bằng web theo đề xuất cũ. Quyết định 2026-11-14 D-02: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.",
+      "source_text": "Hướng đã thống nhất để tiếp tục (cập nhật chuyển từ Unity sang **Godot Engine** theo quyết định người dùng 2026-11-15): **Godot Engine** phụ trách hiển thị/hoạt ảnh nhân vật; C# + WPF phụ trách phần ứng dụng, điều phối và quản lý; AI local phân tích ngữ cảnh/cảm xúc. Phiên bản, cách kết nối, topology tiến trình, hiệu năng và độ tin cậy còn cần thiết kế/kiểm chứng. Không xây giao diện sản phẩm bằng web theo đề xuất cũ. Quyết định 2026-11-14 D-02: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.",
       "source_path": "docs/YEU_CAU_HIEN_HANH.md",
       "source_kind": "explicit_id",
       "scope": "release1",
       "requirement_status": "user_decided",
       "module": "companion",
       "acceptance_id": "AT-SP09",
-      "acceptance": "Rà phân công Unity/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.",
-      "human_acceptance": "Team giữ đúng Unity cho nhân vật, C#/WPF cho ứng dụng và AI trên máy; các phần kết nối vẫn phải thử. Kiểm quyết định D-02: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.",
+      "acceptance": "Rà phân công Godot/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.",
+      "human_acceptance": "Team giữ đúng Godot Engine cho nhân vật, C#/WPF cho ứng dụng và AI trên máy; các phần kết nối vẫn phải thử. Kiểm quyết định D-02: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.",
       "acceptance_status": "draft_for_review",
       "task": "P00-02",
       "use_case": "UC-01",
@@ -1857,6 +1858,5 @@
       "use_case": "UC-02",
       "evidence": "not_verified_production"
     }
-  ],
-  "source_hash_policy": "utf8-text-bom-removed-universal-newlines-lf-v1"
+  ]
 }
