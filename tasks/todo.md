@@ -1,6 +1,6 @@
 # Việc thực hiện E02a native
 
-Ngày: 2026-11-13. **Kế hoạch đã được người dùng duyệt và mẫu đã triển khai; còn kiểm tra UI và nghiệm thu người dùng.** Chủ trách nhiệm kỹ thuật: AI; người dùng quyết định thay đổi phạm vi và nghiệm thu trải nghiệm. [Kế hoạch](plan.md), [đặc tả đã duyệt](../SPEC-policy.md).
+Ngày: 2026-11-13. **Kế hoạch đã được người dùng duyệt và mẫu đã triển khai; người dùng đã chấp nhận trải nghiệm demo ngày2026-11-15; các kiểm tra mở rộng thiếu bằng chứng vẫn ghi riêng.** Chủ trách nhiệm kỹ thuật: AI; người dùng quyết định thay đổi phạm vi và nghiệm thu trải nghiệm. [Kế hoạch](plan.md), [đặc tả đã duyệt](../SPEC-policy.md).
 
 ## T00 — Chuẩn bị công cụ và mốc phiên bản
 
@@ -43,7 +43,7 @@ Phụ thuộc: T02. File: Scenarios/PolicyLab.Scenarios.csproj, ScenarioCatalog.
 
 - [x] Có cửa sổ native, nhãn dữ liệu giả, bố cục theo DESIGN.md và các vùng kết quả; không WebView/browser/server.
 - [x] Core/Scenarios được tham chiếu đúng, app build/chạy không đọc máy hoặc gọi mạng.
-- [ ] Cửa sổ mở/đóng và resize được, nội dung dài cuộn/xuống dòng; không dùng screenshot như bằng chứng nghiệp vụ đã đạt.
+- [x] Cửa sổ mở/đóng và resize được, nội dung dài cuộn/xuống dòng; người dùng báo bước thu nhỏ ổn ngày2026-11-15, không dùng screenshot thay bằng chứng nghiệp vụ. Không có số đo kích thước tối thiểu độc lập.
 
 Phụ thuộc: T03. File: App/PolicyLab.App.csproj, App.xaml, App.xaml.cs, MainWindow.xaml, MainWindow.xaml.cs. Kiểm chứng: dotnet build App, mở app native và quan sát runtime. Phạm vi: vừa, 5 file.
 
@@ -71,8 +71,8 @@ Phụ thuộc: T05. File: labs/policy-native/RESULTS.md, README.md, tasks/todo.m
 ### Checkpoint C3 — Nghiệm thu E02a
 
 - [x] A01–A16 với mọi biến thể và B01–B06 đạt, không rò dữ liệu thử bị cấm.
-- [ ] Có bằng chứng runtime/log/đường dữ liệu; phần chưa kiểm chứng được ghi rõ và không đóng phép thử nếu là tiêu chí bắt buộc.
-- [ ] Người dùng đã dùng thử và phản hồi; chỉ sau đó mới ghi nghiệm thu trải nghiệm.
+- [x] Có bằng chứng runtime/log/đường dữ liệu từ kết quả53tests/35UIcases đã chạy; giới hạn chưa kiểm chứng được ghi rõ. Người dùng chấp nhận trải nghiệm demo ngày2026-11-15; không suy ra bằng chứng production.
+- [x] Người dùng đã dùng thử và phản hồi; ngày2026-11-15 xác nhận nhìn rõ focus, không kẹt và cho đóng nghiệm thu trải nghiệm E02a.
 - [x] Không kết luận đã đạt capture thật, tích hợp Unity hoặc AI cục bộ. Bước sau phải quay lại phạm vi/phép thử tương ứng.
 
 ## Việc kế tiếp ngoài đợt này
@@ -82,3 +82,10 @@ Chưa tạo task code cho Unity hoặc AI. Sau rà kế hoạch: đặc tả ph�
 ## Ghi nhận thực thi
 
 T00–T03 và checkpoint C1 đã có bằng chứng. T04 đã build/mở/đóng, còn resize tối thiểu; T05 đã nối và thử các luồng đại diện, còn rà đầy đủ bàn phím/focus. T06 đã có hướng dẫn, báo cáo và bản chạy; C3 chưa đóng. Xem [RESULTS.md](../labs/policy-native/RESULTS.md) cho 53 kiểm thử đạt, 35 trường hợp giả và giới hạn. Không đánh dấu nghiệm thu thay người dùng.
+
+
+## Trạng thái hiện hành — 2026-11-15
+
+C3 nghiệm thu trải nghiệm demo ĐÃ ĐÓNG theo quyết định trực tiếp của người dùng; xem [phản hồi nguyên văn](E02a-USER-ACCEPTANCE.md). Các dòng “chưa đóng/chờ dùng thử” ở nhật ký cũ mô tả lịch sử trước quyết định này.
+
+T05 compound checklist còn mở: mới xác nhận Tab/Shift+Tab nhìn rõ focus, không kẹt; chưa có bằng chứng đầy đủ activation bằng bàn phím, screen reader và mọi disabled/error state. Không gọi các mục này đã PASS. Việc đóng nghiệm thu trải nghiệm không thay kỹ thuật chưa kiểm và không cho triển khai sản phẩm tiếp theo.

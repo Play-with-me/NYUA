@@ -11,3 +11,8 @@ Lệnh đã dùng từ labs/policy-native, dotnet tại C:/Users/phamp/.ao/data/
 - publish ./PolicyLab.App/PolicyLab.App.csproj --configuration Release --runtime win-x64 --self-contained true --artifacts-path TEMP/nyua-e02a-build --output TEMP/nyua-e02a-demo/app
 - list ./PolicyLab.Tests/PolicyLab.Tests.csproj package --vulnerable --include-transitive
 TEMP trong mô tả trên là thư mục tạm của Windows, đã dùng biến môi trường PowerShell khi chạy. TRX nguyên gốc giữ ở TEMP/nyua-e02a-results, không đóng gói metadata máy.
+
+
+## Cập nhật nghiệm thu người dùng — 2026-11-15
+
+Người dùng báo thu nhỏ cửa sổ “Đã ổn rồi”; về bàn phím: “Có nhìn rõ và không có chỗ nào bị kẹt, có thể đóng nghiệm thu E02a rồi”. Đã chấp nhận/đóng nghiệm thu trải nghiệm demo C3. Kết quả kỹ thuật phía trên là lịch sử đã chạy, không chạy lại trong lượt này. Screen reader/full activation/mọi DPI và số đo resize độc lập chưa được kiểm đầy đủ; không đánh dấu PASS thay bằng chứng. Không nghiệm thu hoặc triển khai sản phẩm thật. Chi tiết: tasks/E02a-USER-ACCEPTANCE.md.

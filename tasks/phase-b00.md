@@ -30,7 +30,7 @@ Scope authorization and evidence prerequisites remain open.
 
 **Đầu vào:**
 
-docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md
+docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/unity-windows/SPEC.md; docs/unity-windows/TEST_PLAN.md; docs/unity-windows/SOURCES.md
 
 **Đầu ra:**
 
@@ -112,7 +112,7 @@ Scope authorization and evidence prerequisites remain open.
 
 **Đầu vào:**
 
-docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md
+docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/unity-windows/SPEC.md; docs/unity-windows/TEST_PLAN.md; docs/unity-windows/SOURCES.md
 
 **Đầu ra:**
 

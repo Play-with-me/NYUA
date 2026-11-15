@@ -1,15 +1,15 @@
 {
   "baseline": {
-    "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 214564,
-    "unicode_characters": 858256,
-    "utf8_bytes": 937865
+    "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 216299,
+    "unicode_characters": 865195,
+    "utf8_bytes": 944929
   },
   "baseline_file_sha256": {
     "CONSTRAINTS.md": "dc438569686b9a26ff0ee03654b3ac562c8abbd55e857f7ee93f94a349d08ac0",
     "docs/YEU_CAU_HIEN_HANH.md": "304fd35e358a4949a821f38a77c80ae06c668f51e7de6fa3e9a882deb6bf4a6c",
-    "docs/product/AI/DECISIONS.md": "34f03f0920ccc9fba640007aa92400040f2848efe9f9843b493d1364075824da",
+    "docs/product/AI/DECISIONS.md": "730aab990a138c618808a6790942721f59de9942b9d2eed2a064afdd64185a8d",
     "docs/product/AI/SRS.md": "51b37b4d7445beb9d3f51d479b2041b1e528bec4d4ac71a0204027e57e2214ce",
-    "docs/product/AI/backlog.json": "992327b41ee2ce13bf4f7d2270918b7362487c983e508b566032383b2d52e662",
+    "docs/product/AI/backlog.json": "cb248bb97c0e60633fd934470c384de3acb834f88a9bd331ef1b16609807b2dd",
     "docs/product/AI/modules/README.md": "8b7edbb765d348e5d843147aecb36226f6b9b52d68037e0f2d7904f0c46721e7",
     "docs/product/AI/modules/companion.md": "b65113b2307cb8a7502f2b916dd6161c3f275a02b5df9991a37e920ebf4db8fa",
     "docs/product/AI/modules/desktop-body.md": "8140744b4d419ed2d17981e4049c3d2df6d32a08b75540efb08f5a82971f6cec",
@@ -38,31 +38,31 @@
   ],
   "graphify_version": "0.9.97",
   "hash_policy": "utf8-text-bom-removed-universal-newlines-lf-v1",
-  "map_fingerprint": "93ee90a9f7e67e6156c6b5ef8452ac1c9951560814b628c475428bd40ebe87d0",
+  "map_fingerprint": "0478e1ebb196b182dbec7bb82e6c7378a9a196ced29e81ffd810ac5ab75cc238",
   "method": "Exact Unicode characters and UTF-8 bytes of decoded prompt input (UTF-8 BOM removed, newlines normalized to LF); not raw on-disk file byte totals. chars/4 ceiling is heuristic, not model tokenizer or billing.",
-  "pack_algorithm_sha256": "b24dfa080b8b0c736b97cd0d0345e118d22d155dd78543fb29679b6922e755fe",
+  "pack_algorithm_sha256": "8d25b4c7c0e749996a50892a5024fe3e404586ba5a322a459066b53bbe00e73d",
   "pack_sha256": {
-    "P01-01": "6550a8064e9dfb3869e63ff4d1cf4525e36ae3501b58cffba59f8e91924f703d",
-    "P10-03": "dc2827efa67d6e0e9dc303b8e756c409d8b39f94a04c03f9cea0a23fde204a1c",
-    "P40-05": "2b3bf6bb0a145fda04b187729e55b13f27d3a692ab0a78ac21e6ea3beaa676aa"
+    "P01-01": "6a2ab5fef298d468c948cd362d1d1f72ae17263740d14e3f1947dcebde35c839",
+    "P10-03": "260e2f80ee241ac037653f7ec5b0de31897f15e33e24c85ddea623a4a1aaadc2",
+    "P40-05": "230f4a6de8294b67c5c8cb3b87fbdd582a442b7bcefa826d8842e5025fd5c6cc"
   },
   "schema_version": 2,
-  "source_fingerprint": "41f528880fb9cd586e53f9218eaacea7c02ff0814d592c3d14cf05577951008d",
+  "source_fingerprint": "2a3e96fc50edbc23bdd320ab512312337c9b1cf6f9354670a473d0d7bf197192",
   "tasks": {
     "P01-01": {
-      "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 2969,
-      "unicode_characters": 11875,
-      "utf8_bytes": 13012
+      "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 3146,
+      "unicode_characters": 12583,
+      "utf8_bytes": 13751
     },
     "P10-03": {
-      "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 4163,
-      "unicode_characters": 16651,
-      "utf8_bytes": 18334
+      "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 4187,
+      "unicode_characters": 16745,
+      "utf8_bytes": 18428
     },
     "P40-05": {
-      "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 6347,
-      "unicode_characters": 25385,
-      "utf8_bytes": 28891
+      "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 6398,
+      "unicode_characters": 25591,
+      "utf8_bytes": 29097
     }
   }
 }

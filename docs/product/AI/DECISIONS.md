@@ -6,12 +6,12 @@ Baseline0.1 — reconciled 2026-11-14. **Định hướng đã đồng ý không
 
 | Record | Nội dung | Status / evidence |
 |---|---|---|
-| [ADR-001](adr/001-hybrid.md) | Unity rendering + C#/WPF host + localAI | Accepted direction theo cuộc trò chuyện/SP09; version/topology/transport chưa chọn |
+| [ADR-001](adr/001-hybrid.md) | Unity rendering + C#/WPF host + localAI | Proposed direction theo `SP09` và [SPEC Unity–Windows r4](../../unity-windows/SPEC.md) (`Unity 6.3 LTS 6000.3.28f1` + Unity Personal `$0`, `D3D11` + `URP 2D/Core`, `.NET 10 LTS` Host vs `.NET Standard 2.1` Unity); runtime version/pipeline verification pending `D-01`/`B00-02` |
 | [ADR-002](adr/002-host-authority.md) | Host giữ authority, renderer/AI không phát input trực tiếp | Proposed architecture; phù hợp ranh giới quyền, cần review/integrationproof |
-| ADR-003 | Thử separateprocess/IPC trước embedding Unity | Proposed; không cài plug-in hoặc chốt namedpipe chỉ từ gợi ý |
+| ADR-003 | Separate process / IPC trước embedding Unity | Proposed (`UW-DOC-2026-11-15-r4`): tách process + `NamedPipeServerStream` (`PipeOptions.CurrentUserOnly`, 32-bit LE prefix + UTF-8 JSON <=64KiB, `depth<=16`, `queue<=32`, `handshake<=10s`, `heartbeat 1s/3-miss`); chưa cài plug-in hoặc runtime-verified |
 | ADR-004 | State normalpersistence khác manualbackup; không autobackup | Userdecided; storageengine/journal/migration plan proposed |
 | [ADR-005](adr/005-local-ai.md) | AI local phân tích; host quyết mood/action, Unity render | Direction agreed; detailed models/algorithms pendingbenchmark |
-| ADR-006 | Model/SDK/plugin/asset phải có nguồn/giấy phép | Required process; actual inventory production pending |
+| ADR-006 | Model/SDK/plugin/asset phải có nguồn/giấy phép | Required process; user đã chốt dự án cá nhân không kinh phí dùng **Unity Personal** & giai đoạn thử **100% công cụ miễn phí (`$0`)**; ứng viên `6000.3.28f1` (`CVE-2025-59489` + Oct 2026 `CVE-2026-111497`/`CVE-2026-111943` `6000.3.27f2` kèm OS trust update) + URP/D3D11 nguồn đã ghi tại [SOURCES](../../unity-windows/SOURCES.md); kiểm kê `P00-04` & kiểm tra điều kiện Personal/license thực tế trước cài đặt còn `NOT_OBTAINED` |
 | ADR-007 | SRS và task toàn sản phẩm cùng được chuẩn bị theo yêu cầu user | Documentation scope authorized; chưa autoapprovespec/implementation |
 
 Alternatives cho ADR-001: WPF-only giảm engineintegration nhưng tự làm animationtools; Unity-only thuận character pipeline nhưng vẫn cần Windowsauthority/settings; webproposal đã không được userchọn. Tradeoff hybrid: thêm IPC/packaging/sharedresources; kiểm chứng trước mở rộng.
@@ -20,9 +20,9 @@ Alternatives cho ADR-001: WPF-only giảm engineintegration nhưng tự làm ani
 
 | ID | Điều cần giải quyết | Ai quyết định / evidence | Chặn khi nào |
 |---|---|---|---|
-| D-01 | Unity version/license, overlay/hit regions/focus/fullscreen/DPI support proof. | Open research/design; no default approved | Before dependent task Ready |
-| D-02 | Connection fault contract, ordering, bounded queues and reconnect protocol; recovery UX confirmed. | Confirmed behavior + residual probe; exact evidence below | Before dependent task Ready |
-| D-03 | Transport, framing, message limits, peer/session authentication and abuse tests. | Open research/design; no default approved | Before dependent task Ready |
+| D-01 | Unity version/license, overlay/hit regions/focus/fullscreen/DPI support proof. | User policy finalized (`r4`): dự án cá nhân không kinh phí dùng **Unity Personal** (`$0`) + giữ nguyên yêu cầu **`NV08`** và đánh dấu kiểm chứng **nhiều màn hình (`UW11`/`UW12`) & toàn màn hình độc quyền** là **`NOT RUN` / chờ thiết bị thật** cho bản thử đầu. Technical candidate: Unity `6.3 LTS` (`6000.3.28f1`), `D3D11` + `URP 2D/Core`, `.NET 10` Host / `.NET Standard 2.1` Unity in [SPEC r4](../../unity-windows/SPEC.md); runtime verification & `P00-04` eligibility check pending (`Open research/design; no technical pass assumed`) | Before dependent task Ready |
+| D-02 | Connection fault contract, ordering, bounded queues and reconnect protocol; recovery UX confirmed. | Confirmed behavior + residual probe (`UW-DOC-2026-11-15-r4`: monotonic `epoch`, `messageId` dedup, `queue<=32`, `PausedAfterFault` explicit resume); exact evidence below | Before dependent task Ready |
+| D-03 | Transport, framing, message limits, peer/session authentication and abuse tests. | Proposed in [SPEC r4](../../unity-windows/SPEC.md) & [INTERFACES](INTERFACES.md): Named Pipe `PipeOptions.CurrentUserOnly`, 32-bit LE length-prefix JSON `<=64KiB`, `depth<=16`, `handshake<=10s`, `incomplete read<=2s`; runtime abuse probes `NOT RUN` (`Open research/design; no default approved`) | Before dependent task Ready |
 | D-04 | Measured models/runtime, package size, accuracy/resource/pass-rate budgets and supported hardware. | Open research/design; no default approved | Before dependent task Ready |
 | D-05 | Gesture thresholds, mood/neglect/self-hide mapping and reconciliation spacing measured options; Shift and same-day sessions confirmed. | Confirmed behavior + residual probe; exact evidence below | Before dependent task Ready |
 | D-06 | Probe event classification for return and next absence; no new product retry choice required. | Confirmed behavior + residual probe; exact evidence below | Before dependent task Ready |
@@ -32,7 +32,7 @@ Alternatives cho ADR-001: WPF-only giảm engineintegration nhưng tự làm ani
 | D-10 | Crash/write atomicity and update interruption handling; paused explicit resume confirmed. | Confirmed behavior + residual probe; exact evidence below | Before dependent task Ready |
 | D-11 | Probe suspend/resume/lock/input ordering; wait excludes sleep and preserves remainder. | Confirmed behavior + residual probe; exact evidence below | Before dependent task Ready |
 | D-12 | Probe sleep/wake observation invalidation and SafetyHold; behavior confirmed, no product question. | Confirmed behavior + residual probe; exact evidence below | Before dependent task Ready |
-| D-13 | Signing/update/distribution/name and license evidence; costs/public release need explicit user approval. | Open research/design; no default approved | Before dependent task Ready |
+| D-13 | Signing/update/distribution/name and license evidence; costs/public release need explicit user approval. | User policy finalized (`r4`): dự án cá nhân không kinh phí dùng **Unity Personal** và giai đoạn thử chỉ dùng **100% công cụ miễn phí (`$0`)** (không chi phí bản quyền/signing cho bản thử đầu); `P00-04` primary-terms/eligibility verification (`docs/licenses/INVENTORY.md`), brand/signing & public release beyond probe remain `NOT_OBTAINED`, see [SPEC r4](../../unity-windows/SPEC.md) | Before dependent task Ready |
 | D-14 | Visual samples/palette/prop detail/tool design and partial meal refusal; fox/bunny/apple/orange confirmed. | Confirmed behavior + residual probe; exact evidence below | Before dependent task Ready |
 | D-15 | Pre-OCR/model privacy boundary feasibility and fail-closed fixtures. | Open research/design; no default approved | Before dependent task Ready |
 | D-16 | Minimal playback status API and unknown handling proof; metadata scope confirmed. | Confirmed behavior + residual probe; exact evidence below | Before dependent task Ready |

@@ -499,6 +499,13 @@
       "provenance": "docs/product/AI/backlog.json",
       "relation": "depends_on",
       "source": "P02-02",
+      "target": "B00-01"
+    },
+    {
+      "confidence": "REGISTRY_DECLARED_NOT_CODE",
+      "provenance": "docs/product/AI/backlog.json",
+      "relation": "depends_on",
+      "source": "P02-02",
       "target": "B00-02"
     },
     {
@@ -514,6 +521,13 @@
       "relation": "depends_on",
       "source": "P02-03",
       "target": "P02-02"
+    },
+    {
+      "confidence": "REGISTRY_DECLARED_NOT_CODE",
+      "provenance": "docs/product/AI/backlog.json",
+      "relation": "depends_on",
+      "source": "P02-03",
+      "target": "B00-01"
     },
     {
       "confidence": "REGISTRY_DECLARED_NOT_CODE",

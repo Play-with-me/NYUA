@@ -30,11 +30,11 @@ Scope authorization and evidence prerequisites remain open.
 
 **Đầu vào:**
 
-docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md
+docs/YEU_CAU_HIEN_HANH.md; docs/product/AI/SRS.md; docs/product/AI/DECISIONS.md; docs/unity-windows/SPEC.md; docs/unity-windows/TEST_PLAN.md; docs/unity-windows/SOURCES.md
 
 **Đầu ra:**
 
-Lab acceptance evidence
+E02a technical-closure checklist/evidence, separated from user-obtained demo experience acceptance
 
 **Phụ thuộc:**
 
@@ -50,15 +50,15 @@ labs/policy-native/RESULTS.md; tasks/todo.md
 
 **Các bước cụ thể:**
 
-1. Đối chiếu SP09 và phạm vi enabler với mục tiêu: Khép kiểm tra UI còn mở của E02a. Đọc quyết định liên quan trong DECISIONS; khóa lại phạm vi đầu ra Lab acceptance evidence.
-2. Thực hiện lát có thể nghiệm thu riêng trong labs/policy-native/RESULTS.md; tasks/todo.md sau khi được cho phép: Kiểm minimumresize/keyboard/focus trên mẫu hiện có bằng bằng chứng thật. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.
-3. Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Người dùng dùng thử; C3 chỉ đóng khi các tiêu chí bắt buộc đạt. Không dùng kết quả mẫu giả thay nguồn thật.
-4. Chuẩn bị và chạy sau bootstrap: Theo tasks/todo.md và lab RESULTS; không rerun test không đổi chỉ để yên tâm. Lệnh chính xác do B00-04 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy.
+1. Đọc tasks/E02a-USER-ACCEPTANCE.md và quyết định chấp nhận trải nghiệm ngày2026-11-15; giữ quote/ngày/scope và không hỏi lại nghiệm thu đã được user cho đóng.
+2. Đối chiếu tasks/todo.md T04/T05 và docs/E02a-CURRENT-MACHINE-RESULTS.md; tách resize/focus user-confirmed khỏi số đo minimum size,full activation/screenreader và disabled/error coverage chưa kiểm.
+3. Sau scope thực thi riêng và B00-04 cần thiết, thu bằng chứng thật cho từng mục kỹ thuật còn mở; đợt chuẩn bị tài liệu hiện tại không chạy lại product test hoặc UI, không sửa labs.
+4. Ghi expected/actual/NOT RUN và giới hạn cho technical-closure checklist; task vẫn DRAFT_NOT_AUTHORIZED,không lấy human gate obtained để gọi P01 Done hoặc gateUnity/production đã đạt.
 
 **Tiêu chí nghiệm thu:**
 
-- [ ] AT-P01-01-01: Kiểm minimumresize/keyboard/focus trên mẫu hiện có bằng bằng chứng thật.
-- [ ] AT-P01-01-02: Người dùng dùng thử; C3 chỉ đóng khi các tiêu chí bắt buộc đạt.
+- [ ] AT-P01-01-01: Kiểm minimumresize có số đo, keyboard activation/focus và phần T05 còn mở trên mẫu hiện có bằng bằng chứng thật; mục chưa kiểm vẫn NOT RUN, không dùng quote trải nghiệm để tự đánh dấu kỹ thuật đạt.
+- [ ] AT-P01-01-02: Human experience gate E02a đã OBTAINED ngày2026-11-15 theo phản hồi nguyên văn; C3 experience đóng theo người dùng. Hoàn tất kỹ thuật của P01-01 vẫn chờ mọi tiêu chí bắt buộc có evidence; T05 extended checks chưa đủ không được tự đóng.
 
 **Lệnh thực có — chỉ kiểm hồ sơ:**
 
@@ -74,7 +74,7 @@ B00-04
 
 **Gate nghiệm thu người dùng:**
 
-{"required": true, "status": "NOT_OBTAINED", "evidence": null, "condition": "Actual user response on the exact reviewed artifact/revision is mandatory; automated or AI review cannot satisfy this gate."}
+{"required": true, "status": "OBTAINED", "evidence": "tasks/E02a-USER-ACCEPTANCE.md", "date": "2026-11-15", "scope": "E02a fake-demo experience only; remaining technical checklist not automatically passed", "user_statement": "Có nhìn rõ và không có chỗ nào bị kẹt, có thể đóng nghiệm thu E02a rồi", "condition": "Explicit user accepted resize/focus experience. Does not complete remaining technical checks or authorize production."}
 
 **Owner triển khai cho yêu cầu:**
 

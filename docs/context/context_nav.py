@@ -28,7 +28,7 @@ OFFICIAL_SHA256 = {
 MAX_PACK = 160_000
 SCOPE = ('LOCAL-ONLY DOCS/TOOLING. No product implementation, runtime test, external AI/API, '
          'repository upload, push or PR update authorized by this integration. E02a user acceptance '
-         'C3 remains OPEN. A proposed path is not an existing implementation or permission to write it. '
+         'C3 experience acceptance was closed explicitly by user on 2026-11-15; unverified technical checks remain open. A proposed path is not an existing implementation or permission to write it. '
          'Source requirements/decisions win over this navigation cache; NOT RUN is never PASS. '
          'Do not read graph.json wholesale into the model. No hidden safety/acceptance truncation.')
 REFERENCE = {
@@ -84,9 +84,10 @@ def source_paths():
 
 def inputs():
     core = ['CONSTRAINTS.md', 'DESIGN.md', 'CAPABILITY_MAP.md', '.agents/PROJECT_MEMORY.md',
-            'docs/YEU_CAU_HIEN_HANH.md', 'tasks/todo.md', 'tasks/README.md',
+            'docs/YEU_CAU_HIEN_HANH.md', 'tasks/todo.md', 'tasks/README.md', 'tasks/E02a-USER-ACCEPTANCE.md',
             'docs/context/README.md', AI + 'backlog.json', AI + 'requirements.json',
-            AI + 'README.md', AI + 'SRS.md', AI + 'DECISIONS.md', AI + 'DECISION_SOURCE_2026-11-14.md']
+            AI + 'README.md', AI + 'SRS.md', AI + 'DECISIONS.md', AI + 'DECISION_SOURCE_2026-11-14.md',
+            'docs/unity-windows/SPEC.md', 'docs/unity-windows/TEST_PLAN.md', 'docs/unity-windows/SOURCES.md']
     core += [p.relative_to(ROOT).as_posix() for p in (ROOT / (AI + 'modules')).glob('*.md')]
     return sorted(set(core + source_paths()))
 
@@ -286,7 +287,7 @@ Read this file first; never load full graph.json into the prompt.
 
 Default/max pack budget {MAX_PACK} UTF-8 bytes; overflow emits no partial pack. Task, exact requirements,
 acceptance, full CONSTRAINTS and relevant decisions are never truncated. Code neighborhood is optional,
-one hop/max12 edges, with omitted count. Unknown task fails. E02a human acceptance C3 stays OPEN.
+one hop/max12 edges, with omitted count. Unknown task fails. E02a experience acceptance was closed by the user on2026-11-15; technical limits stay explicit.
 
 Regenerate: `python docs/context/context_nav.py build` (Graphify pinned {VERSION}, 120-second supervisor).
 Verify: `python docs/context/context_nav.py test`; measure: `python docs/context/context_nav.py measure`.

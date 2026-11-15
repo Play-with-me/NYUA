@@ -20,7 +20,7 @@ Read this file first; never load full graph.json into the prompt.
 
 Default/max pack budget 160000 UTF-8 bytes; overflow emits no partial pack. Task, exact requirements,
 acceptance, full CONSTRAINTS and relevant decisions are never truncated. Code neighborhood is optional,
-one hop/max12 edges, with omitted count. Unknown task fails. E02a human acceptance C3 stays OPEN.
+one hop/max12 edges, with omitted count. Unknown task fails. E02a experience acceptance was closed by the user on2026-11-15; technical limits stay explicit.
 
 Regenerate: `python docs/context/context_nav.py build` (Graphify pinned 0.9.97, 120-second supervisor).
 Verify: `python docs/context/context_nav.py test`; measure: `python docs/context/context_nav.py measure`.

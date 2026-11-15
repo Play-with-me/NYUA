@@ -130,12 +130,12 @@ None; all below are proposed.
 
 **Whitelist đề xuất — chưa cho phép sửa sản phẩm:**
 
-unity/CompanionRenderer/Runtime/SurfaceWorld.cs; unity/CompanionRenderer/Runtime/BodyMotion.cs; tests/Integration/SurfaceWorldTests.cs
+unity/CompanionRenderer/Assets/Runtime/SurfaceWorld.cs; unity/CompanionRenderer/Assets/Runtime/BodyMotion.cs; tests/Integration/SurfaceWorldTests.cs
 
 **Các bước cụ thể:**
 
 1. Đối chiếu NV05, NV07, QD10 với mục tiêu: Di chuyển và bề mặt cửa sổ. Đọc quyết định D-01; khóa lại phạm vi đầu ra Locomotion/surface model.
-2. Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Runtime/SurfaceWorld.cs; unity/CompanionRenderer/Runtime/BodyMotion.cs; tests/Integration/SurfaceWorldTests.cs sau khi được cho phép: Followmovingwindow; closesupport→fall→land/stand đúng. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.
+2. Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Assets/Runtime/SurfaceWorld.cs; unity/CompanionRenderer/Assets/Runtime/BodyMotion.cs; tests/Integration/SurfaceWorldTests.cs sau khi được cho phép: Followmovingwindow; closesupport→fall→land/stand đúng. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.
 3. Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Geometryonly inputs và forbiddenwindowtitles không lọt renderer. Không dùng kết quả mẫu giả thay nguồn thật.
 4. Chuẩn bị và chạy sau bootstrap: AT-NV05/07/QD10 + fixture window lifecycle. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy.
 
@@ -212,12 +212,12 @@ None; all below are proposed.
 
 **Whitelist đề xuất — chưa cho phép sửa sản phẩm:**
 
-unity/CompanionRenderer/Runtime/Gestures.cs; contracts/AvatarInteraction.cs; tests/Integration/GestureTests.cs
+unity/CompanionRenderer/Assets/Runtime/Gestures.cs; contracts/AvatarInteraction.cs; tests/Integration/GestureTests.cs
 
 **Các bước cụ thể:**
 
 1. Đối chiếu NV09, NV11, SH05 với mục tiêu: Pet/lift/throw và chuyển vị trí an toàn. Đọc quyết định D-05; khóa lại phạm vi đầu ra Gesture recognizer.
-2. Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Runtime/Gestures.cs; contracts/AvatarInteraction.cs; tests/Integration/GestureTests.cs sau khi được cho phép: Phân biệt các gestures bằng ngưỡng đã đo/chốt, no accidentalthrow từ slowmove. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.
+2. Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Assets/Runtime/Gestures.cs; contracts/AvatarInteraction.cs; tests/Integration/GestureTests.cs sau khi được cho phép: Phân biệt các gestures bằng ngưỡng đã đo/chốt, no accidentalthrow từ slowmove. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.
 3. Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Refusallift giữ; modifierreposition neutral, readinessgesture có. Không dùng kết quả mẫu giả thay nguồn thật.
 4. Chuẩn bị và chạy sau bootstrap: AT-NV09/11/SH05/QH06 + UX gestureplaytest. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy.
 
@@ -295,12 +295,12 @@ None; all below are proposed.
 
 **Whitelist đề xuất — chưa cho phép sửa sản phẩm:**
 
-unity/CompanionRenderer/Runtime/PropWorld.cs; src/Host/LifeState/FoodInteraction.cs; tests/Integration/PropWorldTests.cs
+unity/CompanionRenderer/Assets/Runtime/PropWorld.cs; src/Host/LifeState/FoodInteraction.cs; tests/Integration/PropWorldTests.cs
 
 **Các bước cụ thể:**
 
 1. Đối chiếu SH04, SH07, SH08, XP09 với mục tiêu: Foodtray, đồ vật và animatedcleanup. Đọc quyết định D-14; khóa lại phạm vi đầu ra Food/prop interaction.
-2. Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Runtime/PropWorld.cs; src/Host/LifeState/FoodInteraction.cs; tests/Integration/PropWorldTests.cs sau khi được cho phép: Đủ6foods; tray/lẻ/refusal behavior; max5left with inuse exemption. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.
+2. Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Assets/Runtime/PropWorld.cs; src/Host/LifeState/FoodInteraction.cs; tests/Integration/PropWorldTests.cs sau khi được cho phép: Đủ6foods; tray/lẻ/refusal behavior; max5left with inuse exemption. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.
 3. Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Sixthleft waits animatedputaway; usermove/hide always available. Không dùng kết quả mẫu giả thay nguồn thật.
 4. Chuẩn bị và chạy sau bootstrap: AT-SH04/07/08/XP09 + interactionstate fixtures. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy.
 
@@ -378,12 +378,12 @@ None; all below are proposed.
 
 **Whitelist đề xuất — chưa cho phép sửa sản phẩm:**
 
-src/Host/Geometry/MonitorSelection.cs; unity/CompanionRenderer/Runtime/Placement.cs; tests/Integration/PlacementTests.cs
+src/Host/Geometry/MonitorSelection.cs; unity/CompanionRenderer/Assets/Runtime/Placement.cs; tests/Integration/PlacementTests.cs
 
 **Các bước cụ thể:**
 
 1. Đối chiếu NV08 với mục tiêu: Placement nhiều màn hình và fullscreen. Đọc quyết định D-01; khóa lại phạm vi đầu ra Placement/support matrix.
-2. Thực hiện lát có thể nghiệm thu riêng trong src/Host/Geometry/MonitorSelection.cs; unity/CompanionRenderer/Runtime/Placement.cs; tests/Integration/PlacementTests.cs sau khi được cho phép: Onlychosenmonitors, fullscreenedge withoutmidcenter obstruction. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.
+2. Thực hiện lát có thể nghiệm thu riêng trong src/Host/Geometry/MonitorSelection.cs; unity/CompanionRenderer/Assets/Runtime/Placement.cs; tests/Integration/PlacementTests.cs sau khi được cho phép: Onlychosenmonitors, fullscreenedge withoutmidcenter obstruction. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.
 3. Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: MixedDPI and unsupportedexclusive modes documented; not universalgame promise. Không dùng kết quả mẫu giả thay nguồn thật.
 4. Chuẩn bị và chạy sau bootstrap: IT-05 native hardware matrix. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy.
 

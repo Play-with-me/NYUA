@@ -32,3 +32,8 @@ Không có lệnh build app production. Lệnh đã tồn tại chỉ cho [mẫu
 
 
 Recovery entry: [tasks / dispatch](../../../tasks/README.md).
+
+
+## Unity–Windows: đề cương tài liệu hiện hành
+
+[Đặc tả](../../unity-windows/SPEC.md), [kế hoạch kiểm](../../unity-windows/TEST_PLAN.md), [nguồn](../../unity-windows/SOURCES.md). Chỉ đề xuất để rà; chưa install/fixture/runtime hoặc build authorization. E02a human experience C3 accepted ngày2026-11-15, P01 technical completion/T05 extended checks còn mở.

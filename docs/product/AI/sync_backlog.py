@@ -14,7 +14,7 @@ def outputs(data):
     out={}
     for group,ts in groups.items():out[TASKDIR/f'phase-{group.lower()}.md']=f'# {group} task cards\n\nGenerated from docs/product/AI/backlog.json. Grouping is navigation only; dependencies below determine dispatch. No phase-level edges. All future work requires separate authorization.\n\n'+'\n'.join(card(t) for t in ts)
     out[HERE/'BACKLOG.md']='# Canonical backlog navigation\n\nEditable source: [backlog.json](backlog.json). Run `python docs/product/AI/sync_backlog.py` to regenerate all task cards. No task is authorized by this dossier. Active E02a tracker is unchanged.\n\n'+f"Tasks: {len(tasks)}; nonfunctional contracts: {len(data['nonfunctional_requirements'])}.\n\n"+'\n'.join(f"- [{g}: {len(ts)} tasks](../../../tasks/phase-{g.lower()}.md)" for g,ts in groups.items())+'\n'
-    human=['# Công việc và điều kiện bắt đầu\n\nDanh sách dự kiến; chưa được phép xây sản phẩm. Không thay nghiệm thu E02a còn mở. Thứ tự thực hiện theo phụ thuộc từng việc, không theo thứ tự nhóm.\n']
+    human=['# Công việc và điều kiện bắt đầu\n\nDanh sách dự kiến; chưa được phép xây sản phẩm. Không thay tracker và bằng chứng nghiệm thu E02a. Thứ tự thực hiện theo phụ thuộc từng việc, không theo thứ tự nhóm.\n']
     for t in tasks: human.append(f"## {t['id']} — {t['title']}\n\nKết quả cần có: {t['output']}.\n\nLàm sau: {', '.join(t['dependencies']) or 'Không việc trước; vẫn cần duyệt phạm vi.'}.\n\nKiểm tra: "+' '.join(t['acceptance'])+f"\n\n[Thẻ đầy đủ](../../../tasks/phase-{t['id'].split('-')[0].lower()}.md). Chưa chạy/chưa nghiệm thu.\n")
     out[HERE.parent/'HUMAN/07-CONG-VIEC.md']='\n'.join(human)
     return out

@@ -167,7 +167,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Rà baseline và giải quyết mâu thuẫn phạm vi. Đọc quyết định liên quan trong DECISIONS; khóa lại phạm vi đầu ra Baseline/review log.",
@@ -222,7 +225,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Khảo sát công cụ thực có cho companion: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.",
@@ -278,7 +284,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Khảo sát Unity Editor thực có và nguồn chính thức/giấy phép cho Windows batch build; đề xuất phiên bản trong báo cáo. Chỉ sau cho phép thử riêng mới tạo project fixture cô lập, không dùng project sản phẩm P02-01.",
@@ -609,7 +618,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đúng phần D-02 trong DECISIONS và nguồn append nguyên văn; trích riêng hành vi đã chốt, không hỏi lại.",
@@ -664,7 +676,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đề cương R00-02 và DECISIONS D-02; ghi rõ đây là rà trước phép thử, không nghiệm thu kết quả.",
@@ -716,7 +731,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đúng phần D-03 trong DECISIONS và nguồn append nguyên văn; trích riêng hành vi đã chốt, không hỏi lại.",
@@ -768,7 +786,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đề cương R00-03 và DECISIONS D-03; ghi rõ đây là rà trước phép thử, không nghiệm thu kết quả.",
@@ -833,7 +854,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Đối chiếu SP09 với mục tiêu: Rà ranh giới và hợp đồng hybrid. Đọc quyết định D-02, D-03; khóa lại phạm vi đầu ra Module/contract baseline.",
@@ -1051,7 +1075,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đúng phần D-13 trong DECISIONS và nguồn append nguyên văn; trích riêng hành vi đã chốt, không hỏi lại.",
@@ -1103,7 +1130,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đề cương R00-13 và DECISIONS D-13; ghi rõ đây là rà trước phép thử, không nghiệm thu kết quả.",
@@ -1165,10 +1195,13 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
-        "Đối chiếu SP06 với mục tiêu: Lập danh mục giấy phép và chi phí. Đọc quyết định D-13; khóa lại phạm vi đầu ra License/cost bill.",
+        "Đối chiếu SP06 với mục tiêu: Lập danh mục giấy phép và chi phí. Đọc quyết định D-13 và SPEC UW-DOC-2026-11-15-r4 (người dùng đã chốt dự án cá nhân không kinh phí dùng Unity Personal và giai đoạn thử chỉ dùng 100% công cụ miễn phí $0); khóa lại phạm vi đầu ra License/cost bill.",
         "Thực hiện lát có thể nghiệm thu riêng trong docs/licenses/INVENTORY.md; docs/product/AI/DECISIONS.md sau khi được cho phép: Ghi source/terms/redistribution của Unity/plugin/model/art/runtime. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Tên NYUA và signing/distribution còn mở được ghi riêng, khoản phí phải hỏi. Không dùng kết quả mẫu giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap: Đối chiếu primary terms và lưu evidence/version. Lệnh chính xác do owner đề cương xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
@@ -1202,12 +1235,12 @@
         "harness": "agy",
         "model": "gemini-3.8-flash"
       },
-      "output": "Lab acceptance evidence",
+      "output": "E02a technical-closure checklist/evidence, separated from user-obtained demo experience acceptance",
       "source_ids": [],
       "requirement_refs": [],
       "acceptance": [
-        "Kiểm minimumresize/keyboard/focus trên mẫu hiện có bằng bằng chứng thật.",
-        "Người dùng dùng thử; C3 chỉ đóng khi các tiêu chí bắt buộc đạt."
+        "Kiểm minimumresize có số đo, keyboard activation/focus và phần T05 còn mở trên mẫu hiện có bằng bằng chứng thật; mục chưa kiểm vẫn NOT RUN, không dùng quote trải nghiệm để tự đánh dấu kỹ thuật đạt.",
+        "Human experience gate E02a đã OBTAINED ngày2026-11-15 theo phản hồi nguyên văn; C3 experience đóng theo người dùng. Hoàn tất kỹ thuật của P01-01 vẫn chờ mọi tiêu chí bắt buộc có evidence; T05 extended checks chưa đủ không được tự đóng."
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
@@ -1224,13 +1257,16 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
-        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Khép kiểm tra UI còn mở của E02a. Đọc quyết định liên quan trong DECISIONS; khóa lại phạm vi đầu ra Lab acceptance evidence.",
-        "Thực hiện lát có thể nghiệm thu riêng trong labs/policy-native/RESULTS.md; tasks/todo.md sau khi được cho phép: Kiểm minimumresize/keyboard/focus trên mẫu hiện có bằng bằng chứng thật. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
-        "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Người dùng dùng thử; C3 chỉ đóng khi các tiêu chí bắt buộc đạt. Không dùng kết quả mẫu giả thay nguồn thật.",
-        "Chuẩn bị và chạy sau bootstrap: Theo tasks/todo.md và lab RESULTS; không rerun test không đổi chỉ để yên tâm. Lệnh chính xác do B00-04 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
+        "Đọc tasks/E02a-USER-ACCEPTANCE.md và quyết định chấp nhận trải nghiệm ngày2026-11-15; giữ quote/ngày/scope và không hỏi lại nghiệm thu đã được user cho đóng.",
+        "Đối chiếu tasks/todo.md T04/T05 và docs/E02a-CURRENT-MACHINE-RESULTS.md; tách resize/focus user-confirmed khỏi số đo minimum size,full activation/screenreader và disabled/error coverage chưa kiểm.",
+        "Sau scope thực thi riêng và B00-04 cần thiết, thu bằng chứng thật cho từng mục kỹ thuật còn mở; đợt chuẩn bị tài liệu hiện tại không chạy lại product test hoặc UI, không sửa labs.",
+        "Ghi expected/actual/NOT RUN và giới hạn cho technical-closure checklist; task vẫn DRAFT_NOT_AUTHORIZED,không lấy human gate obtained để gọi P01 Done hoặc gateUnity/production đã đạt."
       ],
       "acceptance_ids": [
         "AT-P01-01-01",
@@ -1247,9 +1283,12 @@
       "implementation_requirements": [],
       "human_gate": {
         "required": true,
-        "status": "NOT_OBTAINED",
-        "evidence": null,
-        "condition": "Actual user response on the exact reviewed artifact/revision is mandatory; automated or AI review cannot satisfy this gate."
+        "status": "OBTAINED",
+        "evidence": "tasks/E02a-USER-ACCEPTANCE.md",
+        "date": "2026-11-15",
+        "scope": "E02a fake-demo experience only; remaining technical checklist not automatically passed",
+        "user_statement": "Có nhìn rõ và không có chỗ nào bị kẹt, có thể đóng nghiệm thu E02a rồi",
+        "condition": "Explicit user accepted resize/focus experience. Does not complete remaining technical checks or authorize production."
       },
       "task_kind": "executable_work"
     },
@@ -1283,7 +1322,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đúng phần D-01 trong DECISIONS và nguồn append nguyên văn; trích riêng hành vi đã chốt, không hỏi lại.",
@@ -1335,7 +1377,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đề cương R00-01 và DECISIONS D-01; ghi rõ đây là rà trước phép thử, không nghiệm thu kết quả.",
@@ -1384,7 +1429,9 @@
       "proposed_files": [
         "unity/CompanionRenderer/ProjectSettings/ProjectVersion.txt",
         "unity/CompanionRenderer/Packages/manifest.json",
-        "unity/CompanionRenderer/Assets/Probe.unity"
+        "unity/CompanionRenderer/Assets/Probe.unity",
+        "unity/CompanionRenderer/Assets/Runtime/CompanionRenderer.Runtime.asmdef",
+        "unity/CompanionRenderer/Assets/Editor/ProbeBuild.cs"
       ],
       "actual_allowed_files": [],
       "open_decisions": [
@@ -1395,13 +1442,16 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
-        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Chọn và dựng renderer thử tối thiểu. Đọc quyết định D-01; khóa lại phạm vi đầu ra Pinned Unity probe.",
-        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/ProjectSettings/ProjectVersion.txt; unity/CompanionRenderer/Packages/manifest.json; unity/CompanionRenderer/Assets/Probe.unity sau khi được cho phép: Version/platform/renderpipeline và license được ghi; nhân vật chỉ placeholder. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
-        "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Build Windows chạy được, không input/capture/network authority. Không dùng kết quả mẫu giả thay nguồn thật.",
-        "Chuẩn bị và chạy sau bootstrap: Unity editor/build smoke và inventory dependency. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
+        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Chọn và dựng renderer thử tối thiểu. Đọc quyết định D-01 và SPEC UW-DOC-2026-11-15-r4; khóa ứng viên Unity 6.3 LTS (6000.3.28f1) dưới gói Unity Personal ($0 dự án cá nhân), backend D3D11 + URP 2D/Core, và .NET Standard 2.1.",
+        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/ProjectSettings/ProjectVersion.txt; unity/CompanionRenderer/Packages/manifest.json; unity/CompanionRenderer/Assets/Probe.unity; unity/CompanionRenderer/Assets/Runtime/CompanionRenderer.Runtime.asmdef; unity/CompanionRenderer/Assets/Editor/ProbeBuild.cs sau khi được cho phép: ghim version/platform/renderpipeline/license, nhân vật chỉ placeholder, asmdef biên dịch mọi script dưới Assets/Runtime và ProbeBuild là static editor build entry.",
+        "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Build Windows (ProbeBuild.BuildWindowsProbe) thoát 0 và nhánh âm (ProbeBuild.VerifyNegative) thoát khác 0 dưới supervisor 120s; không input/capture/network authority.",
+        "Chuẩn bị và chạy sau bootstrap B00-02: Unity editor/build smoke và inventory dependency (UW03); lưu build log, Player hash, exit code và revision vào TEMP/báo cáo, không đánh dấu nghiệm thu khi chưa chạy."
       ],
       "acceptance_ids": [
         "AT-P02-01-01",
@@ -1423,6 +1473,7 @@
       "title": "Thử transparent overlay và hit regions",
       "dependencies": [
         "P02-01",
+        "B00-01",
         "B00-02",
         "A00-01"
       ],
@@ -1442,7 +1493,8 @@
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
-        "unity/CompanionRenderer/Runtime/OverlayProbe.cs",
+        "unity/CompanionRenderer/Assets/Runtime/OverlayProbe.cs",
+        "tests/Fixtures/WindowSurface.csproj",
         "tests/Fixtures/WindowSurface.cs",
         "docs/experiments/overlay.md"
       ],
@@ -1455,13 +1507,16 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
-        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử transparent overlay và hit regions. Đọc quyết định D-01; khóa lại phạm vi đầu ra Overlay/hit test report.",
-        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Runtime/OverlayProbe.cs; tests/Fixtures/WindowSurface.cs; docs/experiments/overlay.md sau khi được cho phép: Avatar/prop nhận chuột đúng vùng; vùng rỗng không chặn app phía dưới. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
-        "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Focus/topmost/fullscreen modes đo và ghi unsupported, không bypass. Không dùng kết quả mẫu giả thay nguồn thật.",
-        "Chuẩn bị và chạy sau bootstrap: E-INT native runtime trên Windows với fixtureapp. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
+        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử transparent overlay và hit regions. Đọc quyết định D-01; khóa phạm vi đầu ra Overlay/hit test report.",
+        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Assets/Runtime/OverlayProbe.cs; tests/Fixtures/WindowSurface.csproj; tests/Fixtures/WindowSurface.cs; docs/experiments/overlay.md sau khi được cho phép: OverlayProbe biên dịch qua CompanionRenderer.Runtime.asmdef (P02-01) và xuất marker nạp script trong Player log; WindowSurface là fixture .NET 10 độc lập đo hit/click-through.",
+        "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Focus/topmost/fullscreen modes và fake Shift gesture probe (UW08/UW09 trong OverlayProbe, không hoàn tất P20-03) đo và ghi unsupported, không bypass hay dùng kết quả giả thay nguồn thật.",
+        "Chuẩn bị và chạy sau bootstrap B00-02 & B00-01: UW04–UW09 trên Windows với WindowSurface và CompanionRenderer.exe; lưu expected/actual từng case, PID/counters, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
       "acceptance_ids": [
         "AT-P02-02-01",
@@ -1483,6 +1538,7 @@
       "title": "Thử tọa độ qua monitor và DPI",
       "dependencies": [
         "P02-02",
+        "B00-01",
         "B00-02",
         "A00-01"
       ],
@@ -1502,7 +1558,9 @@
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
+        "src/Host/Geometry/Host.Geometry.csproj",
         "src/Host/Geometry/CoordinateMap.cs",
+        "tests/Integration/CoordinateMap.Tests.csproj",
         "tests/Integration/CoordinateMapTests.cs",
         "docs/experiments/coordinates.md"
       ],
@@ -1515,22 +1573,25 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
-        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử tọa độ qua monitor và DPI. Đọc quyết định D-01; khóa lại phạm vi đầu ra Coordinate contract/tests.",
-        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Geometry/CoordinateMap.cs; tests/Integration/CoordinateMapTests.cs; docs/experiments/coordinates.md sau khi được cho phép: Phân biệt physical/DIP/Unity units và bind layoutgeneration. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
-        "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Move/scale/monitorchange làm vô hiệu target cũ. Không dùng kết quả mẫu giả thay nguồn thật.",
-        "Chuẩn bị và chạy sau bootstrap: IT-05 với mixedDPI/negativecoords/testrects. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
+        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử tọa độ qua monitor và DPI. Đọc quyết định D-01; khóa phạm vi đầu ra Coordinate contract/tests.",
+        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Geometry/Host.Geometry.csproj; src/Host/Geometry/CoordinateMap.cs; tests/Integration/CoordinateMap.Tests.csproj; tests/Integration/CoordinateMapTests.cs; docs/experiments/coordinates.md sau khi được cho phép: CoordinateMap.Tests.csproj đặt EnableDefaultCompileItems=false để chỉ biên dịch CoordinateMapTests.cs; phân biệt physical/DIP/Unity units và bind layoutGeneration.",
+        "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Move/scale/monitorchange (kể cả tọa độ âm) làm vô hiệu target cũ; thiếu phần cứng 2-monitor giữ NOT RUN, không dùng kết quả mẫu giả thay nguồn thật.",
+        "Chuẩn bị và chạy sau bootstrap B00-01 & B00-02: dotnet test CoordinateMap.Tests.csproj (--filter IT-05/UW10..UW12) kết hợp đo anchor Player từ P02-02; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
       "acceptance_ids": [
         "AT-P02-03-01",
         "AT-P02-03-02"
       ],
-      "bootstrap_owner": "B00-02",
+      "bootstrap_owner": "B00-01",
       "future_verification": {
         "state": "GATED_NOT_RUN",
-        "owner": "B00-02",
+        "owner": "B00-01",
         "command": null,
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready.",
         "cases": "IT-05 với mixedDPI/negativecoords/testrects."
@@ -1563,8 +1624,10 @@
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
+        "src/Host/Transport/Host.Transport.csproj",
         "src/Host/Transport/RendererChannel.cs",
-        "unity/CompanionRenderer/Runtime/HostChannel.cs",
+        "unity/CompanionRenderer/Assets/Runtime/HostChannel.cs",
+        "tests/Integration/RendererChannel.Tests.csproj",
         "tests/Integration/RendererChannelTests.cs"
       ],
       "actual_allowed_files": [],
@@ -1576,13 +1639,16 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
-        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử kết nối typed host-renderer. Đọc quyết định D-03; khóa lại phạm vi đầu ra IPC probe.",
-        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Transport/RendererChannel.cs; unity/CompanionRenderer/Runtime/HostChannel.cs; tests/Integration/RendererChannelTests.cs sau khi được cho phép: Handshake role/version/session và boundedmessage validate. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
-        "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Duplicate/unknown/reordered messages không phát input hoặc đổi grants. Không dùng kết quả mẫu giả thay nguồn thật.",
-        "Chuẩn bị và chạy sau bootstrap: IT-04 contract/abuse tests, peercompatibility. Lệnh chính xác do B00-01 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
+        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử kết nối typed host-renderer. Đọc quyết định D-03 và SPEC UW-DOC-2026-11-15-r4; khóa phạm vi đầu ra IPC probe (Named Pipe CurrentUserOnly + framing JSON 32-bit length prefix).",
+        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Transport/Host.Transport.csproj; src/Host/Transport/RendererChannel.cs; unity/CompanionRenderer/Assets/Runtime/HostChannel.cs; tests/Integration/RendererChannel.Tests.csproj; tests/Integration/RendererChannelTests.cs sau khi được cho phép: HostChannel biên dịch qua CompanionRenderer.Runtime.asmdef (.NET Standard 2.1), RendererChannel.Tests.csproj đặt EnableDefaultCompileItems=false; handshake role/version/session và bounded message validate.",
+        "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Duplicate/unknown/reordered/oversize/wrong-elevation messages bị từ chối trước dispatch, không phát input fake sink hoặc đổi grants. Không dùng kết quả mẫu giả thay nguồn thật.",
+        "Chuẩn bị và chạy sau bootstrap B00-01: dotnet test RendererChannel.Tests.csproj (UW14–UW19 / IT-04 contract/abuse tests); lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
       "acceptance_ids": [
         "AT-P02-04-01",
@@ -1632,7 +1698,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đúng phần D-10 trong DECISIONS và nguồn append nguyên văn; trích riêng hành vi đã chốt, không hỏi lại.",
@@ -1687,7 +1756,10 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đề cương R00-10 và DECISIONS D-10; ghi rõ đây là rà trước phép thử, không nghiệm thu kết quả.",
@@ -1739,6 +1811,7 @@
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
         "src/Host/Transport/ConnectionLifecycle.cs",
+        "tests/Integration/ConnectionLifecycle.Tests.csproj",
         "tests/Integration/ConnectionLifecycleTests.cs",
         "docs/experiments/disconnect.md"
       ],
@@ -1752,13 +1825,16 @@
       "inputs": [
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
-        "docs/product/AI/DECISIONS.md"
+        "docs/product/AI/DECISIONS.md",
+        "docs/unity-windows/SPEC.md",
+        "docs/unity-windows/TEST_PLAN.md",
+        "docs/unity-windows/SOURCES.md"
       ],
       "steps": [
-        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử mất kết nối và khôi phục an toàn. Đọc quyết định D-02, D-10; khóa lại phạm vi đầu ra Failure state report.",
-        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Transport/ConnectionLifecycle.cs; tests/Integration/ConnectionLifecycleTests.cs; docs/experiments/disconnect.md sau khi được cho phép: Mất renderer/latecallback không cho lệnh click vượt generation. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
-        "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Reconnect queue UX theo quyết định người dùng, không silent replay. Không dùng kết quả mẫu giả thay nguồn thật.",
-        "Chuẩn bị và chạy sau bootstrap: Kill/restart fakepeer, delayedack and reconnect IT-04. Lệnh chính xác do B00-01 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
+        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử mất kết nối và khôi phục an toàn. Đọc quyết định D-02, D-10 và SPEC UW-DOC-2026-11-15-r4; khóa phạm vi đầu ra Failure state report.",
+        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Transport/ConnectionLifecycle.cs; tests/Integration/ConnectionLifecycle.Tests.csproj; tests/Integration/ConnectionLifecycleTests.cs; docs/experiments/disconnect.md sau khi được cho phép: ConnectionLifecycle biên dịch trong Host.Transport.csproj (P02-04); ConnectionLifecycle.Tests.csproj đặt EnableDefaultCompileItems=false; mất renderer/latecallback không cho lệnh click vượt generation.",
+        "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Reconnect queue UX theo quyết định người dùng (paused + hỏi lại, revalidate toàn bộ, không silent replay); thiếu atomicity write của D-10 giữ BLOCKED/hỏi rõ, không giả thành công.",
+        "Chuẩn bị và chạy sau bootstrap B00-01: dotnet test ConnectionLifecycle.Tests.csproj (UW20–UW29 / IT-04 reconnect/kill/stop); lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
       "acceptance_ids": [
         "AT-P02-05-01",
@@ -3605,8 +3681,8 @@
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
-        "unity/CompanionRenderer/Runtime/SurfaceWorld.cs",
-        "unity/CompanionRenderer/Runtime/BodyMotion.cs",
+        "unity/CompanionRenderer/Assets/Runtime/SurfaceWorld.cs",
+        "unity/CompanionRenderer/Assets/Runtime/BodyMotion.cs",
         "tests/Integration/SurfaceWorldTests.cs"
       ],
       "actual_allowed_files": [],
@@ -3622,7 +3698,7 @@
       ],
       "steps": [
         "Đối chiếu NV05, NV07, QD10 với mục tiêu: Di chuyển và bề mặt cửa sổ. Đọc quyết định D-01; khóa lại phạm vi đầu ra Locomotion/surface model.",
-        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Runtime/SurfaceWorld.cs; unity/CompanionRenderer/Runtime/BodyMotion.cs; tests/Integration/SurfaceWorldTests.cs sau khi được cho phép: Followmovingwindow; closesupport→fall→land/stand đúng. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
+        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Assets/Runtime/SurfaceWorld.cs; unity/CompanionRenderer/Assets/Runtime/BodyMotion.cs; tests/Integration/SurfaceWorldTests.cs sau khi được cho phép: Followmovingwindow; closesupport→fall→land/stand đúng. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Geometryonly inputs và forbiddenwindowtitles không lọt renderer. Không dùng kết quả mẫu giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap: AT-NV05/07/QD10 + fixture window lifecycle. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
@@ -3947,7 +4023,7 @@
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
-        "unity/CompanionRenderer/Runtime/Gestures.cs",
+        "unity/CompanionRenderer/Assets/Runtime/Gestures.cs",
         "contracts/AvatarInteraction.cs",
         "tests/Integration/GestureTests.cs"
       ],
@@ -3964,7 +4040,7 @@
       ],
       "steps": [
         "Đối chiếu NV09, NV11, SH05 với mục tiêu: Pet/lift/throw và chuyển vị trí an toàn. Đọc quyết định D-05; khóa lại phạm vi đầu ra Gesture recognizer.",
-        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Runtime/Gestures.cs; contracts/AvatarInteraction.cs; tests/Integration/GestureTests.cs sau khi được cho phép: Phân biệt các gestures bằng ngưỡng đã đo/chốt, no accidentalthrow từ slowmove. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
+        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Assets/Runtime/Gestures.cs; contracts/AvatarInteraction.cs; tests/Integration/GestureTests.cs sau khi được cho phép: Phân biệt các gestures bằng ngưỡng đã đo/chốt, no accidentalthrow từ slowmove. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Refusallift giữ; modifierreposition neutral, readinessgesture có. Không dùng kết quả mẫu giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap: AT-NV09/11/SH05/QH06 + UX gestureplaytest. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
@@ -4023,7 +4099,7 @@
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
-        "unity/CompanionRenderer/Runtime/PropWorld.cs",
+        "unity/CompanionRenderer/Assets/Runtime/PropWorld.cs",
         "src/Host/LifeState/FoodInteraction.cs",
         "tests/Integration/PropWorldTests.cs"
       ],
@@ -4040,7 +4116,7 @@
       ],
       "steps": [
         "Đối chiếu SH04, SH07, SH08, XP09 với mục tiêu: Foodtray, đồ vật và animatedcleanup. Đọc quyết định D-14; khóa lại phạm vi đầu ra Food/prop interaction.",
-        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Runtime/PropWorld.cs; src/Host/LifeState/FoodInteraction.cs; tests/Integration/PropWorldTests.cs sau khi được cho phép: Đủ6foods; tray/lẻ/refusal behavior; max5left with inuse exemption. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
+        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Assets/Runtime/PropWorld.cs; src/Host/LifeState/FoodInteraction.cs; tests/Integration/PropWorldTests.cs sau khi được cho phép: Đủ6foods; tray/lẻ/refusal behavior; max5left with inuse exemption. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Sixthleft waits animatedputaway; usermove/hide always available. Không dùng kết quả mẫu giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap: AT-SH04/07/08/XP09 + interactionstate fixtures. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
@@ -4094,7 +4170,7 @@
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
         "src/Host/Geometry/MonitorSelection.cs",
-        "unity/CompanionRenderer/Runtime/Placement.cs",
+        "unity/CompanionRenderer/Assets/Runtime/Placement.cs",
         "tests/Integration/PlacementTests.cs"
       ],
       "actual_allowed_files": [],
@@ -4110,7 +4186,7 @@
       ],
       "steps": [
         "Đối chiếu NV08 với mục tiêu: Placement nhiều màn hình và fullscreen. Đọc quyết định D-01; khóa lại phạm vi đầu ra Placement/support matrix.",
-        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Geometry/MonitorSelection.cs; unity/CompanionRenderer/Runtime/Placement.cs; tests/Integration/PlacementTests.cs sau khi được cho phép: Onlychosenmonitors, fullscreenedge withoutmidcenter obstruction. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
+        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Geometry/MonitorSelection.cs; unity/CompanionRenderer/Assets/Runtime/Placement.cs; tests/Integration/PlacementTests.cs sau khi được cho phép: Onlychosenmonitors, fullscreenedge withoutmidcenter obstruction. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: MixedDPI and unsupportedexclusive modes documented; not universalgame promise. Không dùng kết quả mẫu giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap: IT-05 native hardware matrix. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],

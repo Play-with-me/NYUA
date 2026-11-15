@@ -60,7 +60,17 @@ def errors(data,req,generated=False):
                 check(any(clause in a for a in owner['acceptance']),'owner missing confirmed acceptance '+r['source_id'])
     for tid in ['P01-01','P20-01','P60-04','P60-05']:
         gate=by[tid].get('human_gate',{})
-        check(gate.get('required') and gate.get('status')=='NOT_OBTAINED' and gate.get('evidence') is None,'false human approval '+tid)
+        if tid=='P01-01':
+            evidence=ROOT/'tasks/E02a-USER-ACCEPTANCE.md'
+            statement='Có nhìn rõ và không có chỗ nào bị kẹt, có thể đóng nghiệm thu E02a rồi'
+            check(gate.get('required') and gate.get('status')=='OBTAINED'
+                  and gate.get('evidence')=='tasks/E02a-USER-ACCEPTANCE.md'
+                  and gate.get('date')=='2026-11-15' and gate.get('user_statement')==statement
+                  and evidence.exists() and statement in evidence.read_text(encoding='utf-8-sig')
+                  and 'remaining technical checklist not automatically passed' in gate.get('scope',''),
+                  'false human approval '+tid)
+        else:
+            check(gate.get('required') and gate.get('status')=='NOT_OBTAINED' and gate.get('evidence') is None,'false human approval '+tid)
     for n in data['nonfunctional_requirements']:
         check(n['task'] in ids and n['id'] in by[n['task']].get('nfr_refs',[]),'missing NFR coverage '+n['id'])
     for checkpoint in data['checkpoints']:
@@ -108,6 +118,7 @@ def main():
         x=copy.deepcopy(data);next(t for t in x['tasks'] if t['id']=='P60-04')['dependencies']=[v for v in next(t for t in x['tasks'] if t['id']=='P60-04')['dependencies'] if v!='C00-04'];cases['release bypass']=x
         x=copy.deepcopy(data);next(t for t in x['tasks'] if t['id']=='P00-01')['future_verification']['state']='GATED_NOT_RUN';cases['document runner deadlock']=x
         x=copy.deepcopy(data);next(t for t in x['tasks'] if t['id']=='B00-02')['proposed_files'].pop();cases['Unity fixture ownership']=x
+        x=copy.deepcopy(data);next(t for t in x['tasks'] if t['id']=='P01-01')['human_gate']['evidence']='missing.md';cases['false human approval']=x
         for name,x in cases.items():
             result=errors(x,req)
             if not any(name in s for s in result):print('NEGATIVE CONTROL FAILED: '+name);return 1
