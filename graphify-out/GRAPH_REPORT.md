@@ -2,8 +2,8 @@
 
 Read this file first; never load full graph.json into the prompt.
 
-- Graphify 0.9.97, local deterministic AST/resolver; 21 C#/Python files,
-  259 nodes, 646 edges: {'EXTRACTED': 603, 'INFERRED': 43}.
+- Graphify 0.9.97, local deterministic AST/resolver; 22 C#/Python files,
+  264 nodes, 660 edges: {'EXTRACTED': 617, 'INFERRED': 43}.
 - Registry: 219 tasks, 109 requirements, 7 modules.
 - No community clustering/Leiden/God-Node claim: raw source extraction only. No semantic/doc LLM pass.
 - Registry/proposed relations live separately in registry-index.json, never labelled AST EXTRACTED.

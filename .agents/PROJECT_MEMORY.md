@@ -1,5 +1,7 @@
 # PR2 review fixes — 2026-11-15
 
+P1/P2 hướng dẫn đã sửa trong commit205969b: artifacts root theo task/closure, PowerShell env cho cả dương/âm, TRX/exit rõ; 24 đoạn lệnh đã parse AST PowerShell, không thực thi. Sửa validator riêng dùng policy version chung producer/consumer, từ chối policy lạ; kiểm isolated LF/CRLF/BOM và semantic/whitespace tamper, không đổi raw binary/upstream hash. Các kiểm chứng này chỉ là tooling tài liệu, không runtime Unity/.NET. Xin re-review exact pushed head mới, không tự coi internal PASS là GitHub approval.
+
 Được phép sửa/commit/push các lỗi review, không merge hoặc chạy sản phẩm. P1: bỏ output props xung đột SDK, dùng artifacts root theo task/dependency closure; P2: PowerShell env/call operator, cả ca âm có Player, exit/TRX. Validator LF/CRLF sẽ được sửa trong commit riêng, không đổi nghĩa yêu cầu. E02a T05 vẫn mở, UW01–30 NOT RUN.
 
 # Bàn giao tài liệu Unity–Windows — 2026-11-15 (r4, nyua-8)

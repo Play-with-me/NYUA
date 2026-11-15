@@ -1,8 +1,8 @@
 {
   "baseline": {
-    "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 216299,
-    "unicode_characters": 865195,
-    "utf8_bytes": 944929
+    "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 216318,
+    "unicode_characters": 865269,
+    "utf8_bytes": 945003
   },
   "baseline_file_sha256": {
     "CONSTRAINTS.md": "dc438569686b9a26ff0ee03654b3ac562c8abbd55e857f7ee93f94a349d08ac0",
@@ -18,7 +18,7 @@
     "docs/product/AI/modules/perception.md": "13fc91aeffb7ae5958b09fb9bdffd5259b3668f13f4d4c30bba3c3f3c02e2595",
     "docs/product/AI/modules/policy.md": "00105cb28e88d529203725cc9816523d414a2ca51a7f3f0511de9bf49f3b716a",
     "docs/product/AI/modules/task-execution.md": "7efb6dd39e621634a03b795ca5823810de16cb5aa6173c79f0c7c5c28e08e38c",
-    "docs/product/AI/requirements.json": "56eb8f3d622a0c5669234a19525beee23512cf91285280ede4972352193b349b"
+    "docs/product/AI/requirements.json": "71a494e7e2e177f3cfc97ab14a62ddc767a05ecd2f83cff1d3e561a015d2ab2f"
   },
   "baseline_files": [
     "docs/YEU_CAU_HIEN_HANH.md",
@@ -38,7 +38,7 @@
   ],
   "graphify_version": "0.9.97",
   "hash_policy": "utf8-text-bom-removed-universal-newlines-lf-v1",
-  "map_fingerprint": "0478e1ebb196b182dbec7bb82e6c7378a9a196ced29e81ffd810ac5ab75cc238",
+  "map_fingerprint": "66c2f7c7c75fa43ff12e1689e957a924f7394f0eb3813c8e1e5e9016fad98b6f",
   "method": "Exact Unicode characters and UTF-8 bytes of decoded prompt input (UTF-8 BOM removed, newlines normalized to LF); not raw on-disk file byte totals. chars/4 ceiling is heuristic, not model tokenizer or billing.",
   "pack_algorithm_sha256": "8d25b4c7c0e749996a50892a5024fe3e404586ba5a322a459066b53bbe00e73d",
   "pack_sha256": {
@@ -47,7 +47,7 @@
     "P40-05": "230f4a6de8294b67c5c8cb3b87fbdd582a442b7bcefa826d8842e5025fd5c6cc"
   },
   "schema_version": 2,
-  "source_fingerprint": "b60c96a69d2a6f1a5bf73e732d2538ac08b5f5437bc24f97d7e6787e036e177f",
+  "source_fingerprint": "c553e14ae12a6a40606f53f2d7a6f9587d7f9f4a526436d0daec26907d34ab93",
   "tasks": {
     "P01-01": {
       "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 3146,

@@ -1,7 +1,7 @@
 {
   "document_version": "0.1",
   "date": "2026-11-14",
-  "source_sha256": "d815df8161b5aa452842fb389b1ac5a5f9221043772c712de6b0375656f29a5f",
+  "source_sha256": "304fd35e358a4949a821f38a77c80ae06c668f51e7de6fa3e9a882deb6bf4a6c",
   "status": "full_product_review_draft",
   "records": [
     {
@@ -1857,5 +1857,6 @@
       "use_case": "UC-02",
       "evidence": "not_verified_production"
     }
-  ]
+  ],
+  "source_hash_policy": "utf8-text-bom-removed-universal-newlines-lf-v1"
 }
