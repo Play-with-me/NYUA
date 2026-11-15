@@ -14,7 +14,7 @@ DIAGRAMS={
  App -.->|"Kiểm tra/tải, hỏi trước cài"| Update["Nguồn cập nhật tin cậy"]'''),
 '02-containers':('Các phần chạy đề xuất', '''flowchart TB
  WPF["WPF settings / tray"] --> Host["C# host: policy, life, tasks, storage"]
- Unity["Unity renderer"] <-->|"Typed local messages: đề xuất"| Host
+ Godot["Godot renderer"] <-->|"Typed local messages: đề xuất"| Host
  Browser["Chrome / Edge bridge tùy chọn"] -->|"Evidence nguồn"| Host
  Windows["Windows adapter"] --> Host
  Host -->|"Safe snapshot"| AI["Local AI worker: đề xuất"]
@@ -47,7 +47,7 @@ DIAGRAMS={
 '05-embodied-action':('Trình tự tới nút rồi bấm', '''sequenceDiagram
  participant User as Người dùng
  participant Host as Host và policy
- participant Body as Unity
+ participant Body as Godot
  participant OS as Windows adapter
  User->>Host: Yêu cầu hoặc intent hợp lệ
  Host->>Host: Kiểm quyền, nguồn, input gate
@@ -130,7 +130,7 @@ DIAGRAMS={
  end'''),
 '10-delivery':('Quy trình theo bằng chứng', '''flowchart TD
  Interview["User requirements"] --> Baseline["Two-edition dossier review"]
- Baseline --> Probes["E02a / Unity E-INT / local AI probes"]
+ Baseline --> Probes["E02a / Godot E-INT / local AI probes"]
  Probes --> Decision{"Evidence enough?"}
  Decision -->|"No"| Review["Report limits and user tradeoff"]
  Review --> Baseline
@@ -263,10 +263,10 @@ def drawing(name,title,subtitle,nodes,edges,size=(1800,1240)):
 
 def main():
     write_mermaid()
-    drawing('architecture','Bản đồ hệ thống: ai làm việc gì?','Hướng đã chọn: Unity + C#/WPF + AI local. Cách kết nối cụ thể vẫn cần phép thử.',{
+    drawing('architecture','Bản đồ hệ thống: ai làm việc gì?','Hướng đã chọn: Godot + C#/WPF + AI local. Cách kết nối cụ thể vẫn cần phép thử.',{
       'user':(60,200,440,150,'Người dùng','Quyết định trải nghiệm, quyền, chi phí và nghiệm thu.'),
       'wpf':(680,200,440,150,'WPF: ứng dụng quản lý','Cài đặt, hồ sơ, bài học, hàng đợi, ký ức, dừng/ẩn.'),
-      'unity':(1300,200,440,180,'Unity: nhân vật','Hoạt ảnh, biểu cảm, di chuyển và đồ vật. Không tự cấp quyền.'),
+      'unity':(1300,200,440,180,'Godot: nhân vật','Hoạt ảnh, biểu cảm, di chuyển và đồ vật. Không tự cấp quyền.'),
       'source':(60,570,440,180,'Windows / Chrome / Edge','Nguồn và hình học được phép. Không mặc định mọi app đều hỗ trợ.'),
       'host':(680,530,440,240,'C# Host: điều phối','Policy kiểm quyền tại lúc dùng.\nĐời sống, ký ức và tác vụ.\nLọc nội dung trước phân tích.'),
       'ai':(1300,570,440,180,'AI local','Hiểu ngữ cảnh an toàn, trả nhận định. Không phát click hoặc mở quyền.'),
@@ -274,7 +274,7 @@ def main():
       'outside':(1300,960,440,150,'AI ngoài: tùy chọn','Chỉ chữ bạn chủ động xem và duyệt cho từng lần gửi.')},
       [('user','wpf',''),('wpf','host','Lệnh người dùng'),('source','host',''),('host','unity','Hoạt ảnh'),('host','ai','Dữ liệu an toàn'),('host','data','Lưu cục bộ'),('host','outside','Duyệt từng lần')])
     delivery={}
-    labels=[('Rà yêu cầu và SRS','Hai bản cùng nguồn; chỗ chưa biết ghi rõ.'),('Thử các rủi ro chính','Quyền nguồn, Unity desktop, AI local.'),('Duyệt lát làm tiếp','Spec + hợp đồng + task + tiêu chí kiểm.'),('Xây và kiểm tra nhỏ','Code, test, rà soát và chạy thật.'),('Người dùng dùng thử','Chưa dùng thử không ghi nghiệm thu.'),('Tích hợp và phát hành','Hai mức, offline, 8 giờ, dữ liệu, giấy phép.')]
+    labels=[('Rà yêu cầu và SRS','Hai bản cùng nguồn; chỗ chưa biết ghi rõ.'),('Thử các rủi ro chính','Quyền nguồn, Godot desktop, AI local.'),('Duyệt lát làm tiếp','Spec + hợp đồng + task + tiêu chí kiểm.'),('Xây và kiểm tra nhỏ','Code, test, rà soát và chạy thật.'),('Người dùng dùng thử','Chưa dùng thử không ghi nghiệm thu.'),('Tích hợp và phát hành','Hai mức, offline, 8 giờ, dữ liệu, giấy phép.')]
     for i,(a,b) in enumerate(labels):delivery[str(i)]=(340,180+i*190,1120,130,a,b)
     drawing('delivery','Quy trình phát triển theo bằng chứng','Không qua bước chỉ vì đã viết tài liệu; không tự hạ yêu cầu để báo đạt.',delivery,[(str(i),str(i+1),'') for i in range(5)],(1800,1450))
     drawing('permissions','Cổng quyền trước khi phân tích','Sơ đồ ý nghĩa; nhận dạng vùng thật chưa được chứng minh bởi mẫu E02a.',{

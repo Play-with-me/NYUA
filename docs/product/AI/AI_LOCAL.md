@@ -4,7 +4,7 @@ AI03/MC04: local nhẹ và nhanh; model/runtime/quantization/hardware threshold 
 
 ## 1. Tách các phản ứng
 
-**Đề xuất:** direct avatar gestures và simple state transitions xử lý bằng C#/life-state, không chờ model mỗi frame. Local AI nhận safe text/image context và trả nhận định. Unity biểu hiện kết quả sau state arbitration. Đây là thiết kế để giảm latency, không sửa yêu cầu mood/relationship.
+**Đề xuất:** direct avatar gestures và simple state transitions xử lý bằng C#/life-state, không chờ model mỗi frame. Local AI nhận safe text/image context và trả nhận định. Godot biểu hiện kết quả sau state arbitration. Đây là thiết kế để giảm latency, không sửa yêu cầu mood/relationship.
 
 Basic: app/text/button/simplecontext; Advanced: deeper visual+Vietnamese subtitle scene affect và hoạt động/quan hệ sâu theo mode table. Basic model(s) hay rule-based phần nào chưa chốt; yêu cầu user localAI không được bị đổi thành “không có AI” mà không rà lại. Hai mức không chỉ khác kích thước model; còn feature gates đã chốt.
 
@@ -15,7 +15,7 @@ Basic: app/text/button/simplecontext; Advanced: deeper visual+Vietnamese subtitl
 | Vietnamese subtitles | OCR/understanding trên phụ đề thật có quyền dùng, các font/outline/contrast khác nhau |
 | Image/scene comprehension | Sad/action/happy/neutral, anime/liveaction, clear vs ambiguous |
 | License | Model weights, tokenizer, runtime, quantized redistribution, closed-source commercial/freeapp use |
-| Memory/timing | Cold/warm load, RAM/VRAM peak, CPU/GPU contention với Unity và video |
+| Memory/timing | Cold/warm load, RAM/VRAM peak, CPU/GPU contention với Godot và video |
 | Offline behavior | Không tự download/callhome sau cài đủ; thiếupackage báo rõ |
 | Safety | Model output schema, uncertain handling, no authority/tools/keys/raw forbidden inputs |
 | Packaging | Downloadsize/unpacksize/diskspace/runtime dependencies, cancel/resume/corruptdownload |

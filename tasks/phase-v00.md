@@ -699,12 +699,12 @@ docs/acceptance/SP09.md
 **Các bước cụ thể:**
 
 1. Tách từng điều độc lập của SP09 từ source_text trong requirements.json vào bảng case cho AT-SP09; giữ giới hạn/ngoại lệ, không thêm hành vi.
-2. Đối chiếu đầu ra task P00-02 với tiêu chí: Rà phân công Unity/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở. Ghi rõ case dương, phủ định, restart/revoke/cancel nếu liên quan.
+2. Đối chiếu đầu ra task P00-02 với tiêu chí: Rà phân công Godot/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở. Ghi rõ case dương, phủ định, restart/revoke/cancel nếu liên quan.
 3. Sau bootstrap B00-01, gắn từng case với lệnh/fixture thực có; lưu vào docs/acceptance/SP09.md với revision, expected, actual hoặc NOT RUN, giới hạn và người duyệt. Không tự xác nhận người dùng đã thử.
 
 **Tiêu chí nghiệm thu:**
 
-- [ ] AT-V00-009-01: Rà phân công Unity/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.
+- [ ] AT-V00-009-01: Rà phân công Godot/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.
 - [ ] AT-V00-009-02: Enumerate every independently observable clause in the exact requirement, including forbidden behavior and lifecycle interruption. Assign case IDs, expected results, actual result or NOT RUN and evidence path; zero omitted clauses; unresolved expectations block acceptance.
 
 **Lệnh thực có — chỉ kiểm hồ sơ:**

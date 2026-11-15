@@ -44,7 +44,7 @@ schema/communities/report của pipeline upstream. Không chạy Leiden, không 
 `registry-index.json` là chỉ mục phụ sinh từ canonical backlog/requirements, với nhãn
 REGISTRY_DECLARED_NOT_CODE. Dependencies/task→requirement là kế hoạch đã khai báo, không cạnh gọi hàm.
 Tham chiếu module→lab do người viết chỉ mục chọn có nhãn MANUAL_REFERENCE_NOT_IMPLEMENTATION:
-ví dụ lab không có module life-state sản phẩm. Đường dẫn src/Unity dự kiến không biến thành file thực.
+ví dụ lab không có module life-state sản phẩm. Đường dẫn godot/CompanionRenderer dự kiến không biến thành file thực.
 Canonical219 task/109 requirement/7 module không sửa ý nghĩa bởi integration này.
 
 ## Giới hạn và độ mới

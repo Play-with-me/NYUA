@@ -24,11 +24,11 @@ Kiểm tra: Record exact executable/version, license and bounded build/test invo
 
 ## B00-02 — Bootstrap verified tooling and fixtures: desktop-body
 
-Kết quả cần có: Unity fixture bootstrap cô lập và lệnh batch có timeout; không phụ thuộc project renderer sản phẩm.
+Kết quả cần có: Godot fixture bootstrap cô lập và lệnh batch có timeout; không phụ thuộc project renderer sản phẩm.
 
 Làm sau: P00-01.
 
-Kiểm tra: Project Unity fixture tối thiểu nằm đúng whitelist năm file; editor/package ghim phiên bản có license evidence, scene giả không quyền input/capture/network; không đọc hoặc yêu cầu project P02-01 để tạo fixture. Batch dương chạy đúng scene/build fixture, trả 0; nhánh âm cố ý sai trả khác 0; supervisor dừng sau tối đa 120 giây mỗi lượt. Báo cáo giữ exact executable/arguments/log/version/cleanup và NOT RUN cho đến khi có phép thử thực; không coi đọc file là test.
+Kiểm tra: Project Godot fixture tối thiểu nằm đúng whitelist năm file; editor/package ghim phiên bản có license evidence, scene giả không quyền input/capture/network; không đọc hoặc yêu cầu project P02-01 để tạo fixture. Batch dương chạy đúng scene/build fixture, trả 0; nhánh âm cố ý sai trả khác 0; supervisor dừng sau tối đa 120 giây mỗi lượt. Báo cáo giữ exact executable/arguments/log/version/cleanup và NOT RUN cho đến khi có phép thử thực; không coi đọc file là test.
 
 [Thẻ đầy đủ](../../../tasks/phase-b00.md). Chưa chạy/chưa nghiệm thu.
 
@@ -188,7 +188,7 @@ Kết quả cần có: License/cost bill.
 
 Làm sau: P00-01, A00-13.
 
-Kiểm tra: Ghi source/terms/redistribution của Unity/plugin/model/art/runtime. Tên NYUA và signing/distribution còn mở được ghi riêng, khoản phí phải hỏi.
+Kiểm tra: Ghi source/terms/redistribution của Godot/plugin/model/art/runtime. Tên NYUA và signing/distribution còn mở được ghi riêng, khoản phí phải hỏi.
 
 [Thẻ đầy đủ](../../../tasks/phase-p00.md). Chưa chạy/chưa nghiệm thu.
 
@@ -224,7 +224,7 @@ Kiểm tra: Rà đề cương D-01: đủ đầu vào giả, task tạo bằng c
 
 ## P02-01 — Chọn và dựng renderer thử tối thiểu
 
-Kết quả cần có: Pinned Unity probe.
+Kết quả cần có: Pinned Godot probe.
 
 Làm sau: P00-02, P00-04, B00-02, A00-01.
 
@@ -248,7 +248,7 @@ Kết quả cần có: Coordinate contract/tests.
 
 Làm sau: P02-02, B00-01, B00-02, A00-01.
 
-Kiểm tra: Phân biệt physical/DIP/Unity units và bind layoutgeneration. Move/scale/monitorchange làm vô hiệu target cũ.
+Kiểm tra: Phân biệt physical/DIP/Godot units và bind layoutgeneration. Move/scale/monitorchange làm vô hiệu target cũ.
 
 [Thẻ đầy đủ](../../../tasks/phase-p02.md). Chưa chạy/chưa nghiệm thu.
 
@@ -318,7 +318,7 @@ Kết quả cần có: Latency/quality report.
 
 Làm sau: P03-02, P02-04, B00-03, A00-04.
 
-Kiểm tra: Đo scenevisible→filter/OCR/infer/decision→renderstart với Unity đang chạy. Báo mọi mẫu sai/uncertain/unobserved, không đổi ngưỡng hoặc chọn lại clip.
+Kiểm tra: Đo scenevisible→filter/OCR/infer/decision→renderstart với Godot đang chạy. Báo mọi mẫu sai/uncertain/unobserved, không đổi ngưỡng hoặc chọn lại clip.
 
 [Thẻ đầy đủ](../../../tasks/phase-p03.md). Chưa chạy/chưa nghiệm thu.
 
@@ -1038,7 +1038,7 @@ Kết quả cần có: Case matrix and evidence for AT-SP09.
 
 Làm sau: P00-02, B00-01, P02-05, P40-05.
 
-Kiểm tra: Rà phân công Unity/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở. Enumerate every independently observable clause in the exact requirement, including forbidden behavior and lifecycle interruption. Assign case IDs, expected results, actual result or NOT RUN and evidence path; zero omitted clauses; unresolved expectations block acceptance.
+Kiểm tra: Rà phân công Godot/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở. Enumerate every independently observable clause in the exact requirement, including forbidden behavior and lifecycle interruption. Assign case IDs, expected results, actual result or NOT RUN and evidence path; zero omitted clauses; unresolved expectations block acceptance.
 
 [Thẻ đầy đủ](../../../tasks/phase-v00.md). Chưa chạy/chưa nghiệm thu.
 

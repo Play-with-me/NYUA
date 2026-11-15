@@ -1,6 +1,6 @@
 # Use case specification — v0.1 draft
 
-Actors: user; hostpolicy/life/task engine; Unityrenderer; Windows/browseradapter; localAI; optionalexternalprovider; distributioncomponent. Systemcomponents không thay user consent. “Bước” dưới đây là nghiệp vụ, không command đã implement. Mỗi UC cần tách negativecases ở task tương ứng.
+Actors: user; hostpolicy/life/task engine; Godot renderer; Windows/browseradapter; localAI; optionalexternalprovider; distributioncomponent. Systemcomponents không thay user consent. “Bước” dưới đây là nghiệp vụ, không command đã implement. Mỗi UC cần tách negativecases ở task tương ứng.
 
 ## UC-01 — Khởi tạo và bắt đầu dùng sản phẩm
 

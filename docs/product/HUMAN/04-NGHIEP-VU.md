@@ -59,4 +59,4 @@ Chi tiết chữ nào của tài liệu/clipboard có thể xuất hiện trong 
 
 ## 6. Chỗ chưa được phép đoán
 
-Một “buổi” làm lành dài bao lâu; phím chuyển vị trí; các loại trái cây/thú bông; ngưỡng chuyển sang tự ẩn; cấu hình tối thiểu; tỷ lệ nhận diện đúng; model và dung lượng gói; chi tiết định dạng backup và công nghệ kết nối Unity vẫn cần chốt/đo. Xem [sổ điểm mở](../AI/DECISIONS.md).
+Một “buổi” làm lành dài bao lâu; phím chuyển vị trí; các loại trái cây/thú bông; ngưỡng chuyển sang tự ẩn; cấu hình tối thiểu; tỷ lệ nhận diện đúng; model và dung lượng gói; chi tiết định dạng backup và công nghệ kết nối Godot vẫn cần chốt/đo. Xem [sổ điểm mở](../AI/DECISIONS.md).

@@ -4,7 +4,7 @@ Status: draft. Combines states without taking ownership of policy bypass, raw ca
 
 ## Coordination
 
-One owner/scheduler serializes current intent and policy generation updates; UI command, human input, context/model and Unity events are typed events, not arbitrary method calls. Host output decides render intent, job request or no-action. Model may suggest affect, not execute.
+One owner/scheduler serializes current intent and policy generation updates; UI command, human input, context/model and Godot events are typed events, not arbitrary method calls. Host output decides render intent, job request or no-action. Model may suggest affect, not execute.
 
 Life-state supplies possible own activities; policy filters real-app actions; taskengine executes eligible jobs; body renders. “Mood ownwill” cannot refuse to expose settings/reset/stops, and cannot mutate grants. Prefer simple typed calls until asynchronous topology is justified; no generic agent tool executor with unrestricted desktop tools.
 

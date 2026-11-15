@@ -168,9 +168,9 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Rà baseline và giải quyết mâu thuẫn phạm vi. Đọc quyết định liên quan trong DECISIONS; khóa lại phạm vi đầu ra Baseline/review log.",
@@ -226,14 +226,14 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Khảo sát công cụ thực có cho companion: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.",
-        "Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/companion.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.",
-        "Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.",
+        "Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/companion.ps1 trong whitelist. Renderer phải chọn phiên bản Godot qua D-01; không mặc định MSTest kiểm được Godot.",
+        "Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Godot đã chọn.",
         "Chạy powershell -NoProfile -File tools/verify/companion.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-companion.md; chỉ sau đó mở gate cho task phụ thuộc."
       ],
       "acceptance_ids": [
@@ -262,20 +262,20 @@
         "harness": "agy",
         "model": "gemini-3.8-flash"
       },
-      "output": "Unity fixture bootstrap cô lập và lệnh batch có timeout; không phụ thuộc project renderer sản phẩm",
+      "output": "Godot fixture bootstrap cô lập và lệnh batch có timeout; không phụ thuộc project renderer sản phẩm",
       "source_ids": [],
       "requirement_refs": [],
       "acceptance": [
-        "Project Unity fixture tối thiểu nằm đúng whitelist năm file; editor/package ghim phiên bản có license evidence, scene giả không quyền input/capture/network; không đọc hoặc yêu cầu project P02-01 để tạo fixture.",
+        "Project Godot fixture tối thiểu nằm đúng whitelist năm file; editor/package ghim phiên bản có license evidence, scene giả không quyền input/capture/network; không đọc hoặc yêu cầu project P02-01 để tạo fixture.",
         "Batch dương chạy đúng scene/build fixture, trả 0; nhánh âm cố ý sai trả khác 0; supervisor dừng sau tối đa 120 giây mỗi lượt. Báo cáo giữ exact executable/arguments/log/version/cleanup và NOT RUN cho đến khi có phép thử thực; không coi đọc file là test."
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
         "docs/experiments/bootstrap-desktop-body.md",
-        "tests/bootstrap/desktop-body/UnityFixture/ProjectSettings/ProjectVersion.txt",
-        "tests/bootstrap/desktop-body/UnityFixture/Packages/manifest.json",
-        "tests/bootstrap/desktop-body/UnityFixture/Assets/Editor/BootstrapBuild.cs",
-        "tests/bootstrap/desktop-body/UnityFixture/Assets/Bootstrap.unity"
+        "tests/bootstrap/desktop-body/GodotFixture/project.godot",
+        "tests/bootstrap/desktop-body/GodotFixture/export_presets.cfg",
+        "tests/bootstrap/desktop-body/GodotFixture/scripts/BootstrapVerify.gd",
+        "tests/bootstrap/desktop-body/GodotFixture/scenes/Bootstrap.tscn"
       ],
       "actual_allowed_files": [],
       "open_decisions": [],
@@ -285,15 +285,15 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
-        "Khảo sát Unity Editor thực có và nguồn chính thức/giấy phép cho Windows batch build; đề xuất phiên bản trong báo cáo. Chỉ sau cho phép thử riêng mới tạo project fixture cô lập, không dùng project sản phẩm P02-01.",
-        "Tạo đúng năm đường dẫn whitelist: báo cáo; ProjectVersion.txt ghim editor; manifest.json chỉ package tối thiểu có quyền dùng; scene Bootstrap.unity chỉ primitive giả; BootstrapBuild.cs là editor-only entry cho phép thử. Không avatar/input/capture/network hay nội dung cá nhân. Library/Temp/log/build output là working material tự sinh, không authored file whitelist và không commit.",
-        "Đề xuất entry BootstrapBuild.Verify và nhánh deliberately-failing trong editor script sau khi đối chiếu API của phiên bản đã ghim. Entry dương kiểm scene fixture/build smoke thật, âm trả exit code khác 0 có chủ đích; log/outputs vào TEMP. Không cần project hay bằng chứng P02-01 để bootstrap chạy.",
-        "Ghi executable Unity thực, dùng mẫu batch -batchmode -nographics -quit -projectPath tests/bootstrap/desktop-body/UnityFixture -executeMethod BootstrapBuild.Verify -logFile <TEMP>. Dùng supervisor tiến trình với WaitForExit(120000), kill tiến trình thử nếu timeout; timeout là lỗi. Chạy nhánh dương/âm và lưu lệnh exact, code, log, editor/package version và cleanup. Chưa chạy trong phiên tài liệu; chỉ sau bằng chứng này P02-01 mới có runner để Ready."
+        "Khảo sát Godot Editor (.NET) thực có và nguồn chính thức/giấy phép (MIT, $0) cho Windows headless CLI; đề xuất phiên bản trong báo cáo. Chỉ sau cho phép thử riêng mới tạo project fixture cô lập, không dùng project sản phẩm P02-01.",
+        "Tạo đúng năm đường dẫn whitelist: báo cáo; project.godot ghim cấu hình tối giản; export_presets.cfg; scene scenes/Bootstrap.tscn chỉ primitive giả; scripts/BootstrapVerify.gd là script kiểm thử tối giản cho phép thử. Không avatar/input/capture/network hay nội dung cá nhân. Thư mục .godot/ và log/build output tự sinh là working material, không thuộc whitelist và không commit.",
+        "Đề xuất entry scripts/BootstrapVerify.gd và nhánh deliberately-failing (-- --probe-neg) sau khi đối chiếu CLI của phiên bản Godot đã ghim. Entry dương kiểm scene fixture smoke thật, âm trả exit code khác 0 có chủ đích; log/outputs vào TEMP. Không cần project hay bằng chứng P02-01 để bootstrap chạy.",
+        "Ghi executable Godot (.NET) thực, dùng mẫu CLI --headless --path tests/bootstrap/desktop-body/GodotFixture --script scripts/BootstrapVerify.gd --quit --log-file <TEMP> (và thêm -- --probe-neg cho nhánh âm). Dùng supervisor tiến trình với WaitForExit(120000), kill tiến trình thử nếu timeout; timeout là lỗi. Chạy nhánh dương/âm và lưu lệnh exact, code, log, editor/template version và cleanup. Chưa chạy trong phiên tài liệu; chỉ sau bằng chứng này P02-01 mới có runner để Ready."
       ],
       "acceptance_ids": [
         "AT-B00-02-01",
@@ -304,7 +304,7 @@
         "state": "GATED_NOT_RUN",
         "owner": null,
         "command": null,
-        "command_template": "<verified Unity Editor executable> -batchmode -nographics -quit -projectPath tests/bootstrap/desktop-body/UnityFixture -executeMethod BootstrapBuild.Verify -logFile <TEMP log>; supervisor WaitForExit(120000), timeout -> terminate owned probe and fail",
+        "command_template": "<verified Godot Editor (.NET) executable> --headless --path tests/bootstrap/desktop-body/GodotFixture --script scripts/BootstrapVerify.gd --quit --log-file <TEMP log>; supervisor WaitForExit(120000), timeout -> terminate owned probe and fail",
         "gate": "Bootstrap entry requires separately approved fixture scope and editor/license discovery; it does not require a pre-existing successful runner or the P02-01 product project. This task owns all five fixture paths. Completion requires real bounded positive/negative batch evidence before dependent executable tasks become Ready."
       },
       "implementation_requirements": [],
@@ -347,8 +347,8 @@
       ],
       "steps": [
         "Khảo sát công cụ thực có cho perception: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.",
-        "Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/perception.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.",
-        "Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.",
+        "Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/perception.ps1 trong whitelist. Renderer phải chọn phiên bản Godot qua D-01; không mặc định MSTest kiểm được Godot.",
+        "Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Godot đã chọn.",
         "Chạy powershell -NoProfile -File tools/verify/perception.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-perception.md; chỉ sau đó mở gate cho task phụ thuộc."
       ],
       "acceptance_ids": [
@@ -402,8 +402,8 @@
       ],
       "steps": [
         "Khảo sát công cụ thực có cho policy: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.",
-        "Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/policy.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.",
-        "Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.",
+        "Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/policy.ps1 trong whitelist. Renderer phải chọn phiên bản Godot qua D-01; không mặc định MSTest kiểm được Godot.",
+        "Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Godot đã chọn.",
         "Chạy powershell -NoProfile -File tools/verify/policy.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-policy.md; chỉ sau đó mở gate cho task phụ thuộc."
       ],
       "acceptance_ids": [
@@ -457,8 +457,8 @@
       ],
       "steps": [
         "Khảo sát công cụ thực có cho life-state: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.",
-        "Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/life-state.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.",
-        "Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.",
+        "Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/life-state.ps1 trong whitelist. Renderer phải chọn phiên bản Godot qua D-01; không mặc định MSTest kiểm được Godot.",
+        "Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Godot đã chọn.",
         "Chạy powershell -NoProfile -File tools/verify/life-state.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-life-state.md; chỉ sau đó mở gate cho task phụ thuộc."
       ],
       "acceptance_ids": [
@@ -512,8 +512,8 @@
       ],
       "steps": [
         "Khảo sát công cụ thực có cho task-execution: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.",
-        "Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/task-execution.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.",
-        "Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.",
+        "Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/task-execution.ps1 trong whitelist. Renderer phải chọn phiên bản Godot qua D-01; không mặc định MSTest kiểm được Godot.",
+        "Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Godot đã chọn.",
         "Chạy powershell -NoProfile -File tools/verify/task-execution.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-task-execution.md; chỉ sau đó mở gate cho task phụ thuộc."
       ],
       "acceptance_ids": [
@@ -567,8 +567,8 @@
       ],
       "steps": [
         "Khảo sát công cụ thực có cho distribution: Get-Command dotnet, python; ghi phiên bản bằng dotnet --info / python --version nếu tìm thấy. Đây là kiểm tra môi trường, không phải test sản phẩm.",
-        "Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/distribution.ps1 trong whitelist. Renderer phải chọn phiên bản Unity qua D-01; không mặc định MSTest kiểm được Unity.",
-        "Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Unity đã chọn.",
+        "Sau khi được cho phép riêng, chọn công cụ phù hợp đã xác minh giấy phép; tạo duy nhất fixture/project và tools/verify/distribution.ps1 trong whitelist. Renderer phải chọn phiên bản Godot qua D-01; không mặc định MSTest kiểm được Godot.",
+        "Thiết lập script có timeout hữu hạn, không tải dữ liệu thật, giữ exit code; thêm fixture dương và fixture âm cố ý sai. Với C# dùng dotnet test <project-thực-tế> --configuration Release --no-restore sau bước restore có kiểm soát; renderer ghi đúng lệnh batch của phiên bản Godot đã chọn.",
         "Chạy powershell -NoProfile -File tools/verify/distribution.ps1 cho fixture dương; bật chế độ âm đã ghi trong script và kiểm exit khác 0. Lưu lệnh, version, seed, timeout, cleanup và kết quả trong docs/experiments/bootstrap-distribution.md; chỉ sau đó mở gate cho task phụ thuộc."
       ],
       "acceptance_ids": [
@@ -619,9 +619,9 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đúng phần D-02 trong DECISIONS và nguồn append nguyên văn; trích riêng hành vi đã chốt, không hỏi lại.",
@@ -677,9 +677,9 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đề cương R00-02 và DECISIONS D-02; ghi rõ đây là rà trước phép thử, không nghiệm thu kết quả.",
@@ -732,9 +732,9 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đúng phần D-03 trong DECISIONS và nguồn append nguyên văn; trích riêng hành vi đã chốt, không hỏi lại.",
@@ -787,9 +787,9 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đề cương R00-03 và DECISIONS D-03; ghi rõ đây là rà trước phép thử, không nghiệm thu kết quả.",
@@ -855,9 +855,9 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đối chiếu SP09 với mục tiêu: Rà ranh giới và hợp đồng hybrid. Đọc quyết định D-02, D-03; khóa lại phạm vi đầu ra Module/contract baseline.",
@@ -1076,9 +1076,9 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đúng phần D-13 trong DECISIONS và nguồn append nguyên văn; trích riêng hành vi đã chốt, không hỏi lại.",
@@ -1131,9 +1131,9 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đề cương R00-13 và DECISIONS D-13; ghi rõ đây là rà trước phép thử, không nghiệm thu kết quả.",
@@ -1176,7 +1176,7 @@
         "SP06"
       ],
       "acceptance": [
-        "Ghi source/terms/redistribution của Unity/plugin/model/art/runtime.",
+        "Ghi source/terms/redistribution của Godot/plugin/model/art/runtime.",
         "Tên NYUA và signing/distribution còn mở được ghi riêng, khoản phí phải hỏi."
       ],
       "verification": "python tasks/validate_tasks.py and Python312 docs/product/AI/validate_dossier.py: existing documentation consistency checks only; manual scoped review of named output remains required.",
@@ -1196,13 +1196,13 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
-        "Đối chiếu SP06 với mục tiêu: Lập danh mục giấy phép và chi phí. Đọc quyết định D-13 và SPEC UW-DOC-2026-11-15-r4 (người dùng đã chốt dự án cá nhân không kinh phí dùng Unity Personal và giai đoạn thử chỉ dùng 100% công cụ miễn phí $0); khóa lại phạm vi đầu ra License/cost bill.",
-        "Thực hiện lát có thể nghiệm thu riêng trong docs/licenses/INVENTORY.md; docs/product/AI/DECISIONS.md sau khi được cho phép: Ghi source/terms/redistribution của Unity/plugin/model/art/runtime. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
+        "Đối chiếu SP06 với mục tiêu: Lập danh mục giấy phép và chi phí. Đọc quyết định D-13 và SPEC GW-DOC-2026-11-15-r1 (người dùng đã chốt dự án cá nhân không kinh phí dùng Godot MIT ($0, không cần tài khoản/seat) và giai đoạn thử chỉ dùng 100% công cụ miễn phí $0); khóa lại phạm vi đầu ra License/cost bill.",
+        "Thực hiện lát có thể nghiệm thu riêng trong docs/licenses/INVENTORY.md; docs/product/AI/DECISIONS.md sau khi được cho phép: Ghi source/terms/redistribution của Godot/plugin/model/art/runtime. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Tên NYUA và signing/distribution còn mở được ghi riêng, khoản phí phải hỏi. Không dùng kết quả mẫu giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap: Đối chiếu primary terms và lưu evidence/version. Lệnh chính xác do owner đề cương xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
@@ -1258,15 +1258,15 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc tasks/E02a-USER-ACCEPTANCE.md và quyết định chấp nhận trải nghiệm ngày2026-11-15; giữ quote/ngày/scope và không hỏi lại nghiệm thu đã được user cho đóng.",
         "Đối chiếu tasks/todo.md T04/T05 và docs/E02a-CURRENT-MACHINE-RESULTS.md; tách resize/focus user-confirmed khỏi số đo minimum size,full activation/screenreader và disabled/error coverage chưa kiểm.",
         "Sau scope thực thi riêng và B00-04 cần thiết, thu bằng chứng thật cho từng mục kỹ thuật còn mở; đợt chuẩn bị tài liệu hiện tại không chạy lại product test hoặc UI, không sửa labs.",
-        "Ghi expected/actual/NOT RUN và giới hạn cho technical-closure checklist; task vẫn DRAFT_NOT_AUTHORIZED,không lấy human gate obtained để gọi P01 Done hoặc gateUnity/production đã đạt."
+        "Ghi expected/actual/NOT RUN và giới hạn cho technical-closure checklist; task vẫn DRAFT_NOT_AUTHORIZED,không lấy human gate obtained để gọi P01 Done hoặc gateGodot/production đã đạt."
       ],
       "acceptance_ids": [
         "AT-P01-01-01",
@@ -1323,9 +1323,9 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đúng phần D-01 trong DECISIONS và nguồn append nguyên văn; trích riêng hành vi đã chốt, không hỏi lại.",
@@ -1378,9 +1378,9 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đề cương R00-01 và DECISIONS D-01; ghi rõ đây là rà trước phép thử, không nghiệm thu kết quả.",
@@ -1418,7 +1418,7 @@
         "model": "gpt-6.1-sol",
         "effort": "low"
       },
-      "output": "Pinned Unity probe",
+      "output": "Pinned Godot probe",
       "source_ids": [],
       "requirement_refs": [],
       "acceptance": [
@@ -1427,11 +1427,11 @@
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
-        "unity/CompanionRenderer/ProjectSettings/ProjectVersion.txt",
-        "unity/CompanionRenderer/Packages/manifest.json",
-        "unity/CompanionRenderer/Assets/Probe.unity",
-        "unity/CompanionRenderer/Assets/Runtime/CompanionRenderer.Runtime.asmdef",
-        "unity/CompanionRenderer/Assets/Editor/ProbeBuild.cs"
+        "godot/CompanionRenderer/project.godot",
+        "godot/CompanionRenderer/CompanionRenderer.csproj",
+        "godot/CompanionRenderer/scenes/Probe.tscn",
+        "godot/CompanionRenderer/export_presets.cfg",
+        "godot/CompanionRenderer/scripts/ProbeBuild.gd"
       ],
       "actual_allowed_files": [],
       "open_decisions": [
@@ -1443,15 +1443,15 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
-        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Chọn và dựng renderer thử tối thiểu. Đọc quyết định D-01 và SPEC UW-DOC-2026-11-15-r4; khóa ứng viên Unity 6.3 LTS (6000.3.28f1) dưới gói Unity Personal ($0 dự án cá nhân), backend D3D11 + URP 2D/Core, và .NET Standard 2.1.",
-        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/ProjectSettings/ProjectVersion.txt; unity/CompanionRenderer/Packages/manifest.json; unity/CompanionRenderer/Assets/Probe.unity; unity/CompanionRenderer/Assets/Runtime/CompanionRenderer.Runtime.asmdef; unity/CompanionRenderer/Assets/Editor/ProbeBuild.cs sau khi được cho phép: ghim version/platform/renderpipeline/license, nhân vật chỉ placeholder, asmdef biên dịch mọi script dưới Assets/Runtime và ProbeBuild là static editor build entry.",
-        "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Build Windows (ProbeBuild.BuildWindowsProbe) thoát 0 và nhánh âm (ProbeBuild.VerifyNegative) thoát khác 0 dưới supervisor 120s; không input/capture/network authority.",
-        "Chuẩn bị và chạy sau bootstrap B00-02: Unity editor/build smoke và inventory dependency (UW03); lưu build log, Player hash, exit code và revision vào TEMP/báo cáo, không đánh dấu nghiệm thu khi chưa chạy."
+        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Chọn và dựng renderer thử tối thiểu. Đọc quyết định D-01 và SPEC GW-DOC-2026-11-15-r1; khóa ứng viên Godot 4.7.2 – .NET dưới giấy phép MIT ($0, không cần tài khoản/seat), backend Godot Windows renderer (Compatibility/Vulkan/D3D12, NOT VERIFIED), và C# (.NET).",
+        "Thực hiện lát có thể nghiệm thu riêng đúng whitelist: godot/CompanionRenderer/project.godot; godot/CompanionRenderer/CompanionRenderer.csproj; godot/CompanionRenderer/export_presets.cfg; godot/CompanionRenderer/scenes/Probe.tscn; godot/CompanionRenderer/scripts/ProbeBuild.gd sau khi được cho phép: ghim cấu hình/platform/preset export Windows Desktop, nhân vật chỉ placeholder, biên dịch C# qua CompanionRenderer.csproj (Godot.NET.Sdk).",
+        "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Export Windows Desktop (--headless --path godot/CompanionRenderer --export-release \"Windows Desktop\" <TEMP>/p02-01-player/CompanionRenderer.exe) thoát 0 và nhánh âm (scripts/ProbeBuild.gd -- --probe-neg) thoát khác 0 dưới supervisor 120s; không input/capture/network authority.",
+        "Chuẩn bị và chạy sau bootstrap B00-02: Godot editor/export smoke và inventory dependency (UW03); lưu build log, exported binary hash, exit code và revision vào TEMP/báo cáo, không đánh dấu nghiệm thu khi chưa chạy."
       ],
       "acceptance_ids": [
         "AT-P02-01-01",
@@ -1463,7 +1463,7 @@
         "owner": "B00-02",
         "command": null,
         "gate": "Bootstrap owner must establish and successfully execute an exact bounded runner/build command on owned fixtures, record version/toolchain/results and approved whitelist before this task can become Ready.",
-        "cases": "Unity editor/build smoke và inventory dependency."
+        "cases": "Godot editor/build smoke và inventory dependency."
       },
       "implementation_requirements": [],
       "task_kind": "executable_work"
@@ -1493,7 +1493,7 @@
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
-        "unity/CompanionRenderer/Assets/Runtime/OverlayProbe.cs",
+        "godot/CompanionRenderer/scripts/OverlayProbe.cs",
         "tests/Fixtures/WindowSurface.csproj",
         "tests/Fixtures/WindowSurface.cs",
         "docs/experiments/overlay.md"
@@ -1508,13 +1508,13 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử transparent overlay và hit regions. Đọc quyết định D-01; khóa phạm vi đầu ra Overlay/hit test report.",
-        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Assets/Runtime/OverlayProbe.cs; tests/Fixtures/WindowSurface.csproj; tests/Fixtures/WindowSurface.cs; docs/experiments/overlay.md sau khi được cho phép: OverlayProbe biên dịch qua CompanionRenderer.Runtime.asmdef (P02-01) và xuất marker nạp script trong Player log; WindowSurface là fixture .NET 10 độc lập đo hit/click-through.",
+        "Thực hiện lát có thể nghiệm thu riêng trong godot/CompanionRenderer/scripts/OverlayProbe.cs; tests/Fixtures/WindowSurface.csproj; tests/Fixtures/WindowSurface.cs; docs/experiments/overlay.md sau khi được cho phép: OverlayProbe biên dịch qua CompanionRenderer.csproj (Godot.NET.Sdk, P02-01) và xuất marker nạp script trong Godot log; WindowSurface là fixture .NET 10 độc lập đo hit/click-through.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Focus/topmost/fullscreen modes và fake Shift gesture probe (UW08/UW09 trong OverlayProbe, không hoàn tất P20-03) đo và ghi unsupported, không bypass hay dùng kết quả giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap B00-02 & B00-01: UW04–UW09 trên Windows với WindowSurface và CompanionRenderer.exe; lưu expected/actual từng case, PID/counters, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
@@ -1553,7 +1553,7 @@
       "source_ids": [],
       "requirement_refs": [],
       "acceptance": [
-        "Phân biệt physical/DIP/Unity units và bind layoutgeneration.",
+        "Phân biệt physical/DIP/Godot units và bind layoutgeneration.",
         "Move/scale/monitorchange làm vô hiệu target cũ."
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
@@ -1574,13 +1574,13 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử tọa độ qua monitor và DPI. Đọc quyết định D-01; khóa phạm vi đầu ra Coordinate contract/tests.",
-        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Geometry/Host.Geometry.csproj; src/Host/Geometry/CoordinateMap.cs; tests/Integration/CoordinateMap.Tests.csproj; tests/Integration/CoordinateMapTests.cs; docs/experiments/coordinates.md sau khi được cho phép: CoordinateMap.Tests.csproj đặt EnableDefaultCompileItems=false để chỉ biên dịch CoordinateMapTests.cs; phân biệt physical/DIP/Unity units và bind layoutGeneration.",
+        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Geometry/Host.Geometry.csproj; src/Host/Geometry/CoordinateMap.cs; tests/Integration/CoordinateMap.Tests.csproj; tests/Integration/CoordinateMapTests.cs; docs/experiments/coordinates.md sau khi được cho phép: CoordinateMap.Tests.csproj đặt EnableDefaultCompileItems=false để chỉ biên dịch CoordinateMapTests.cs; phân biệt physical/DIP/Godot units và bind layoutGeneration.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Move/scale/monitorchange (kể cả tọa độ âm) làm vô hiệu target cũ; thiếu phần cứng 2-monitor giữ NOT RUN, không dùng kết quả mẫu giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap B00-01 & B00-02: dotnet test CoordinateMap.Tests.csproj (--filter IT-05/UW10..UW12) kết hợp đo anchor Player từ P02-02; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
@@ -1626,7 +1626,7 @@
       "proposed_files": [
         "src/Host/Transport/Host.Transport.csproj",
         "src/Host/Transport/RendererChannel.cs",
-        "unity/CompanionRenderer/Assets/Runtime/HostChannel.cs",
+        "godot/CompanionRenderer/scripts/HostChannel.cs",
         "tests/Integration/RendererChannel.Tests.csproj",
         "tests/Integration/RendererChannelTests.cs"
       ],
@@ -1640,13 +1640,13 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
-        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử kết nối typed host-renderer. Đọc quyết định D-03 và SPEC UW-DOC-2026-11-15-r4; khóa phạm vi đầu ra IPC probe (Named Pipe CurrentUserOnly + framing JSON 32-bit length prefix).",
-        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Transport/Host.Transport.csproj; src/Host/Transport/RendererChannel.cs; unity/CompanionRenderer/Assets/Runtime/HostChannel.cs; tests/Integration/RendererChannel.Tests.csproj; tests/Integration/RendererChannelTests.cs sau khi được cho phép: HostChannel biên dịch qua CompanionRenderer.Runtime.asmdef (.NET Standard 2.1), RendererChannel.Tests.csproj đặt EnableDefaultCompileItems=false; handshake role/version/session và bounded message validate.",
+        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử kết nối typed host-renderer. Đọc quyết định D-03 và SPEC GW-DOC-2026-11-15-r1; khóa phạm vi đầu ra IPC probe (Named Pipe CurrentUserOnly + framing JSON 32-bit length prefix).",
+        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Transport/Host.Transport.csproj; src/Host/Transport/RendererChannel.cs; godot/CompanionRenderer/scripts/HostChannel.cs; tests/Integration/RendererChannel.Tests.csproj; tests/Integration/RendererChannelTests.cs sau khi được cho phép: HostChannel biên dịch qua CompanionRenderer.csproj (Godot.NET.Sdk), RendererChannel.Tests.csproj đặt EnableDefaultCompileItems=false; handshake role/version/session và bounded message validate.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Duplicate/unknown/reordered/oversize/wrong-elevation messages bị từ chối trước dispatch, không phát input fake sink hoặc đổi grants. Không dùng kết quả mẫu giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap B00-01: dotnet test RendererChannel.Tests.csproj (UW14–UW19 / IT-04 contract/abuse tests); lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
@@ -1699,9 +1699,9 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đúng phần D-10 trong DECISIONS và nguồn append nguyên văn; trích riêng hành vi đã chốt, không hỏi lại.",
@@ -1757,9 +1757,9 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
         "Đọc đề cương R00-10 và DECISIONS D-10; ghi rõ đây là rà trước phép thử, không nghiệm thu kết quả.",
@@ -1826,12 +1826,12 @@
         "docs/YEU_CAU_HIEN_HANH.md",
         "docs/product/AI/SRS.md",
         "docs/product/AI/DECISIONS.md",
-        "docs/unity-windows/SPEC.md",
-        "docs/unity-windows/TEST_PLAN.md",
-        "docs/unity-windows/SOURCES.md"
+        "docs/godot-windows/SPEC.md",
+        "docs/godot-windows/TEST_PLAN.md",
+        "docs/godot-windows/SOURCES.md"
       ],
       "steps": [
-        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử mất kết nối và khôi phục an toàn. Đọc quyết định D-02, D-10 và SPEC UW-DOC-2026-11-15-r4; khóa phạm vi đầu ra Failure state report.",
+        "Đối chiếu SP09 và phạm vi enabler với mục tiêu: Thử mất kết nối và khôi phục an toàn. Đọc quyết định D-02, D-10 và SPEC GW-DOC-2026-11-15-r1; khóa phạm vi đầu ra Failure state report.",
         "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Transport/ConnectionLifecycle.cs; tests/Integration/ConnectionLifecycle.Tests.csproj; tests/Integration/ConnectionLifecycleTests.cs; docs/experiments/disconnect.md sau khi được cho phép: ConnectionLifecycle biên dịch trong Host.Transport.csproj (P02-04); ConnectionLifecycle.Tests.csproj đặt EnableDefaultCompileItems=false; mất renderer/latecallback không cho lệnh click vượt generation.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Reconnect queue UX theo quyết định người dùng (paused + hỏi lại, revalidate toàn bộ, không silent replay); thiếu atomicity write của D-10 giữ BLOCKED/hỏi rõ, không giả thành công.",
         "Chuẩn bị và chạy sau bootstrap B00-01: dotnet test ConnectionLifecycle.Tests.csproj (UW20–UW29 / IT-04 reconnect/kill/stop); lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
@@ -2011,7 +2011,7 @@
         "XP02"
       ],
       "acceptance": [
-        "Đo scenevisible→filter/OCR/infer/decision→renderstart với Unity đang chạy.",
+        "Đo scenevisible→filter/OCR/infer/decision→renderstart với Godot đang chạy.",
         "Báo mọi mẫu sai/uncertain/unobserved, không đổi ngưỡng hoặc chọn lại clip."
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
@@ -2033,7 +2033,7 @@
       ],
       "steps": [
         "Đối chiếu XP02 với mục tiêu: Đo phản ứng toàn luồng dưới tải kết hợp. Đọc quyết định D-04; khóa lại phạm vi đầu ra Latency/quality report.",
-        "Thực hiện lát có thể nghiệm thu riêng trong tools/bench/CombinedBench.cs; contracts/SceneTiming.cs; docs/experiments/local-ai.md sau khi được cho phép: Đo scenevisible→filter/OCR/infer/decision→renderstart với Unity đang chạy. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
+        "Thực hiện lát có thể nghiệm thu riêng trong tools/bench/CombinedBench.cs; contracts/SceneTiming.cs; docs/experiments/local-ai.md sau khi được cho phép: Đo scenevisible→filter/OCR/infer/decision→renderstart với Godot đang chạy. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Báo mọi mẫu sai/uncertain/unobserved, không đổi ngưỡng hoặc chọn lại clip. Không dùng kết quả mẫu giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap: IT-10 timing + RAM/VRAM/CPU/GPU observations. Lệnh chính xác do B00-03 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
@@ -3681,8 +3681,8 @@
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
-        "unity/CompanionRenderer/Assets/Runtime/SurfaceWorld.cs",
-        "unity/CompanionRenderer/Assets/Runtime/BodyMotion.cs",
+        "godot/CompanionRenderer/scripts/SurfaceWorld.cs",
+        "godot/CompanionRenderer/scripts/BodyMotion.cs",
         "tests/Integration/SurfaceWorldTests.cs"
       ],
       "actual_allowed_files": [],
@@ -3698,7 +3698,7 @@
       ],
       "steps": [
         "Đối chiếu NV05, NV07, QD10 với mục tiêu: Di chuyển và bề mặt cửa sổ. Đọc quyết định D-01; khóa lại phạm vi đầu ra Locomotion/surface model.",
-        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Assets/Runtime/SurfaceWorld.cs; unity/CompanionRenderer/Assets/Runtime/BodyMotion.cs; tests/Integration/SurfaceWorldTests.cs sau khi được cho phép: Followmovingwindow; closesupport→fall→land/stand đúng. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
+        "Thực hiện lát có thể nghiệm thu riêng trong godot/CompanionRenderer/scripts/SurfaceWorld.cs; godot/CompanionRenderer/scripts/BodyMotion.cs; tests/Integration/SurfaceWorldTests.cs sau khi được cho phép: Followmovingwindow; closesupport→fall→land/stand đúng. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Geometryonly inputs và forbiddenwindowtitles không lọt renderer. Không dùng kết quả mẫu giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap: AT-NV05/07/QD10 + fixture window lifecycle. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
@@ -4023,7 +4023,7 @@
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
-        "unity/CompanionRenderer/Assets/Runtime/Gestures.cs",
+        "godot/CompanionRenderer/scripts/Gestures.cs",
         "contracts/AvatarInteraction.cs",
         "tests/Integration/GestureTests.cs"
       ],
@@ -4040,7 +4040,7 @@
       ],
       "steps": [
         "Đối chiếu NV09, NV11, SH05 với mục tiêu: Pet/lift/throw và chuyển vị trí an toàn. Đọc quyết định D-05; khóa lại phạm vi đầu ra Gesture recognizer.",
-        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Assets/Runtime/Gestures.cs; contracts/AvatarInteraction.cs; tests/Integration/GestureTests.cs sau khi được cho phép: Phân biệt các gestures bằng ngưỡng đã đo/chốt, no accidentalthrow từ slowmove. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
+        "Thực hiện lát có thể nghiệm thu riêng trong godot/CompanionRenderer/scripts/Gestures.cs; contracts/AvatarInteraction.cs; tests/Integration/GestureTests.cs sau khi được cho phép: Phân biệt các gestures bằng ngưỡng đã đo/chốt, no accidentalthrow từ slowmove. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Refusallift giữ; modifierreposition neutral, readinessgesture có. Không dùng kết quả mẫu giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap: AT-NV09/11/SH05/QH06 + UX gestureplaytest. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
@@ -4099,7 +4099,7 @@
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
-        "unity/CompanionRenderer/Assets/Runtime/PropWorld.cs",
+        "godot/CompanionRenderer/scripts/PropWorld.cs",
         "src/Host/LifeState/FoodInteraction.cs",
         "tests/Integration/PropWorldTests.cs"
       ],
@@ -4116,7 +4116,7 @@
       ],
       "steps": [
         "Đối chiếu SH04, SH07, SH08, XP09 với mục tiêu: Foodtray, đồ vật và animatedcleanup. Đọc quyết định D-14; khóa lại phạm vi đầu ra Food/prop interaction.",
-        "Thực hiện lát có thể nghiệm thu riêng trong unity/CompanionRenderer/Assets/Runtime/PropWorld.cs; src/Host/LifeState/FoodInteraction.cs; tests/Integration/PropWorldTests.cs sau khi được cho phép: Đủ6foods; tray/lẻ/refusal behavior; max5left with inuse exemption. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
+        "Thực hiện lát có thể nghiệm thu riêng trong godot/CompanionRenderer/scripts/PropWorld.cs; src/Host/LifeState/FoodInteraction.cs; tests/Integration/PropWorldTests.cs sau khi được cho phép: Đủ6foods; tray/lẻ/refusal behavior; max5left with inuse exemption. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: Sixthleft waits animatedputaway; usermove/hide always available. Không dùng kết quả mẫu giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap: AT-SH04/07/08/XP09 + interactionstate fixtures. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
@@ -4170,7 +4170,7 @@
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
       "proposed_files": [
         "src/Host/Geometry/MonitorSelection.cs",
-        "unity/CompanionRenderer/Assets/Runtime/Placement.cs",
+        "godot/CompanionRenderer/scripts/Placement.cs",
         "tests/Integration/PlacementTests.cs"
       ],
       "actual_allowed_files": [],
@@ -4186,7 +4186,7 @@
       ],
       "steps": [
         "Đối chiếu NV08 với mục tiêu: Placement nhiều màn hình và fullscreen. Đọc quyết định D-01; khóa lại phạm vi đầu ra Placement/support matrix.",
-        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Geometry/MonitorSelection.cs; unity/CompanionRenderer/Assets/Runtime/Placement.cs; tests/Integration/PlacementTests.cs sau khi được cho phép: Onlychosenmonitors, fullscreenedge withoutmidcenter obstruction. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
+        "Thực hiện lát có thể nghiệm thu riêng trong src/Host/Geometry/MonitorSelection.cs; godot/CompanionRenderer/scripts/Placement.cs; tests/Integration/PlacementTests.cs sau khi được cho phép: Onlychosenmonitors, fullscreenedge withoutmidcenter obstruction. Nếu cần thêm file hoặc thay hợp đồng, chia lát và cập nhật whitelist trước Ready.",
         "Kiểm nhánh lỗi/gián đoạn và bất biến riêng của lát: MixedDPI and unsupportedexclusive modes documented; not universalgame promise. Không dùng kết quả mẫu giả thay nguồn thật.",
         "Chuẩn bị và chạy sau bootstrap: IT-05 native hardware matrix. Lệnh chính xác do B00-02 xác minh; lưu expected/actual từng case, exit code và revision, không đánh dấu nghiệm thu khi chưa chạy."
       ],
@@ -6708,7 +6708,7 @@
         "SP09"
       ],
       "acceptance": [
-        "Rà phân công Unity/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.",
+        "Rà phân công Godot/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.",
         "Enumerate every independently observable clause in the exact requirement, including forbidden behavior and lifecycle interruption. Assign case IDs, expected results, actual result or NOT RUN and evidence path; zero omitted clauses; unresolved expectations block acceptance."
       ],
       "verification": "python tasks/validate_tasks.py (documentation consistency only; never product evidence)",
@@ -6726,7 +6726,7 @@
       ],
       "steps": [
         "Tách từng điều độc lập của SP09 từ source_text trong requirements.json vào bảng case cho AT-SP09; giữ giới hạn/ngoại lệ, không thêm hành vi.",
-        "Đối chiếu đầu ra task P00-02 với tiêu chí: Rà phân công Unity/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở. Ghi rõ case dương, phủ định, restart/revoke/cancel nếu liên quan.",
+        "Đối chiếu đầu ra task P00-02 với tiêu chí: Rà phân công Godot/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở. Ghi rõ case dương, phủ định, restart/revoke/cancel nếu liên quan.",
         "Sau bootstrap B00-01, gắn từng case với lệnh/fixture thực có; lưu vào docs/acceptance/SP09.md với revision, expected, actual hoặc NOT RUN, giới hạn và người duyệt. Không tự xác nhận người dùng đã thử."
       ],
       "acceptance_ids": [

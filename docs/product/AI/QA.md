@@ -15,7 +15,7 @@ Every report: testId/requirementIds, fixture/data rights, build/toolversions, en
 | IT-01 | Mixed allowed/disallowed/private/sensitive visible sources | Forbidden sentinel not in OCR/model/memory/log/network; unknownsafe blocks |
 | IT-02 | Revoke/changesource during capture/inference/result/approach | Pendingresult/action stale, no late disclosure/click |
 | IT-03 | Useraction→bodyapproach→targetmoves→input | Finalcheck prevents oldtargetclick; uncertainty no replay |
-| IT-04 | Unity connectionlost/duplicate/reorder/foreignsession | No unauthorizedinput; reset epoch; queue UX per approved D-02 |
+| IT-04 | Godot connectionlost/duplicate/reorder/foreignsession | No unauthorizedinput; reset epoch; queue UX per approved D-02 |
 | IT-05 | Chosenmonitors, mixedDPI, moved/minimizedsupport/fullscreen | Correct coordinate/surface/hitzone, declaredunsupported no bypass |
 | IT-06 | Humaninput and emergency/off/hide/selfhide/exit/switch | BUSINESS_RULES matrix and ResumeQueue exact; injectedinput nothuman |
 | IT-07 | Pet/lift/throw/protest/modifiermove/recovery | Firstthrow no lastinghurt, refusal maintained, adminmove neutral |

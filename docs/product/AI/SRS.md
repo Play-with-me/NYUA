@@ -4,7 +4,7 @@ Version0.1 — reconciled 2026-11-14. Baseline để rà, không chứng nhận 
 
 ## 1. Purpose, scope, environment
 
-Windows11, Vietnamese first, free initial public release, local data/no account. Companion combines life, perception and embodied interaction. Unity renderer + C#/WPF host + local AI is directional choice; physical architecture/model pending proof. Non-goals and mode matrix are source requirements, not optional defaults.
+Windows11, Vietnamese first, free initial public release, local data/no account. Companion combines life, perception and embodied interaction. Godot renderer + C#/WPF host + local AI is directional choice; physical architecture/model pending proof. Non-goals and mode matrix are source requirements, not optional defaults.
 
 ## 2. Definitions and precedence
 
@@ -85,9 +85,9 @@ Source text below is preserved. Compound source rules remain grouped for provena
 ### SRS-SP09
 
 - Source: SP09 (explicit_id); scope: release1.
-- Requirement: Hướng đã thống nhất để tiếp tục: Unity phụ trách hiển thị/hoạt ảnh nhân vật; C# + WPF phụ trách phần ứng dụng, điều phối và quản lý; AI local phân tích ngữ cảnh/cảm xúc. Phiên bản, cách kết nối, topology tiến trình, hiệu năng và độ tin cậy còn cần thiết kế/kiểm chứng. Không xây giao diện sản phẩm bằng web theo đề xuất cũ. Quyết định 2026-11-14 D-02: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.
+- Requirement: Hướng đã thống nhất để tiếp tục (cập nhật chuyển từ Unity sang **Godot Engine** theo quyết định người dùng 2026-11-15): **Godot Engine** phụ trách hiển thị/hoạt ảnh nhân vật; C# + WPF phụ trách phần ứng dụng, điều phối và quản lý; AI local phân tích ngữ cảnh/cảm xúc. Phiên bản, cách kết nối, topology tiến trình, hiệu năng và độ tin cậy còn cần thiết kế/kiểm chứng. Không xây giao diện sản phẩm bằng web theo đề xuất cũ. Quyết định 2026-11-14 D-02: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.
 - Owner: `companion`; use case: UC-01; task proposal: P00-02.
-- AT-SP09: Rà phân công Unity/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.
+- AT-SP09: Rà phân công Godot/host/WPF/localAI; không đưa web UI làm nền sản phẩm hoặc coi IPC/model đã chứng minh từ sơ đồ. Kiểm cả nhánh cho phép và từ chối: Hình ảnh lỗi thì tạm dừng thao tác lên app khác; phục hồi vẫn tạm dừng và hỏi trước tiếp tục, kiểm quyền/an toàn mới. Không phát lại mù quáng; hợp đồng kết nối/mất kết nối còn mở.
 - Acceptance interpretation: DRAFT; production evidence: not_verified_production.
 
 ### SRS-NV01

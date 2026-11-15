@@ -1,24 +1,24 @@
 {
   "baseline": {
-    "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 216318,
-    "unicode_characters": 865269,
-    "utf8_bytes": 945003
+    "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 216413,
+    "unicode_characters": 865651,
+    "utf8_bytes": 945454
   },
   "baseline_file_sha256": {
     "CONSTRAINTS.md": "dc438569686b9a26ff0ee03654b3ac562c8abbd55e857f7ee93f94a349d08ac0",
-    "docs/YEU_CAU_HIEN_HANH.md": "304fd35e358a4949a821f38a77c80ae06c668f51e7de6fa3e9a882deb6bf4a6c",
-    "docs/product/AI/DECISIONS.md": "730aab990a138c618808a6790942721f59de9942b9d2eed2a064afdd64185a8d",
-    "docs/product/AI/SRS.md": "51b37b4d7445beb9d3f51d479b2041b1e528bec4d4ac71a0204027e57e2214ce",
-    "docs/product/AI/backlog.json": "cb248bb97c0e60633fd934470c384de3acb834f88a9bd331ef1b16609807b2dd",
-    "docs/product/AI/modules/README.md": "8b7edbb765d348e5d843147aecb36226f6b9b52d68037e0f2d7904f0c46721e7",
-    "docs/product/AI/modules/companion.md": "b65113b2307cb8a7502f2b916dd6161c3f275a02b5df9991a37e920ebf4db8fa",
-    "docs/product/AI/modules/desktop-body.md": "8140744b4d419ed2d17981e4049c3d2df6d32a08b75540efb08f5a82971f6cec",
+    "docs/YEU_CAU_HIEN_HANH.md": "a53bfbaafcefe6dee316876d65aba87d1be38b0dafb4cddbaaf539f886e6482f",
+    "docs/product/AI/DECISIONS.md": "270c0a1626625f90f5a597a920c18f803b9e2d3d0d4c91ac7367fdcdfa168863",
+    "docs/product/AI/SRS.md": "b43795ebf4aea88235a8b27036ecd4978cf884a0e8743fc8cab539dfd545ddb4",
+    "docs/product/AI/backlog.json": "09846ee15ec8941415e5df869f7af446b9ae57025346b72e6558b2d7efc85a57",
+    "docs/product/AI/modules/README.md": "338ec8958aa134dcc57bc660446abf841f7710ac73066aaa5f1078d32cd1222b",
+    "docs/product/AI/modules/companion.md": "5a7173843652bcbda0f46acc5a3600bfa966482fe4be9454e1094d7933a91e08",
+    "docs/product/AI/modules/desktop-body.md": "c66c0e11012af71359ab4b5db95e8f6a47347de7fcfd6a3154165143b5164230",
     "docs/product/AI/modules/distribution.md": "82677793d22f809975cd1281dfc60ab4965db55250d56a5939fa835329f8e4d2",
     "docs/product/AI/modules/life-state.md": "911e15e5cb102d1195befd4e68ba797a7c245f3635b9590cf6e3fc2e43f9961f",
     "docs/product/AI/modules/perception.md": "13fc91aeffb7ae5958b09fb9bdffd5259b3668f13f4d4c30bba3c3f3c02e2595",
-    "docs/product/AI/modules/policy.md": "00105cb28e88d529203725cc9816523d414a2ca51a7f3f0511de9bf49f3b716a",
+    "docs/product/AI/modules/policy.md": "6c43f799bbfdd0a82c1c83777827f9b9c1e1ebbec4d06f07519e8c0c86c25cd2",
     "docs/product/AI/modules/task-execution.md": "7efb6dd39e621634a03b795ca5823810de16cb5aa6173c79f0c7c5c28e08e38c",
-    "docs/product/AI/requirements.json": "71a494e7e2e177f3cfc97ab14a62ddc767a05ecd2f83cff1d3e561a015d2ab2f"
+    "docs/product/AI/requirements.json": "1ad16136c6c803bef844bf31a1b3aabe9efff9a64741950b262b0ed305f3ddaf"
   },
   "baseline_files": [
     "docs/YEU_CAU_HIEN_HANH.md",
@@ -40,14 +40,14 @@
   "hash_policy": "utf8-text-bom-removed-universal-newlines-lf-v1",
   "map_fingerprint": "66c2f7c7c75fa43ff12e1689e957a924f7394f0eb3813c8e1e5e9016fad98b6f",
   "method": "Exact Unicode characters and UTF-8 bytes of decoded prompt input (UTF-8 BOM removed, newlines normalized to LF); not raw on-disk file byte totals. chars/4 ceiling is heuristic, not model tokenizer or billing.",
-  "pack_algorithm_sha256": "8d25b4c7c0e749996a50892a5024fe3e404586ba5a322a459066b53bbe00e73d",
+  "pack_algorithm_sha256": "c152f95d51a695d723fab8b4fc4a29e7e9f9741e81a462582405d071cf5509fb",
   "pack_sha256": {
-    "P01-01": "6a2ab5fef298d468c948cd362d1d1f72ae17263740d14e3f1947dcebde35c839",
+    "P01-01": "396d7aea1a57c6bde2a6137043012284f675944cb2511a698a233acbae46ee01",
     "P10-03": "260e2f80ee241ac037653f7ec5b0de31897f15e33e24c85ddea623a4a1aaadc2",
-    "P40-05": "230f4a6de8294b67c5c8cb3b87fbdd582a442b7bcefa826d8842e5025fd5c6cc"
+    "P40-05": "0ebb2c3d2f2ef29f36a94287fbe402c7880b5211d3c67d30abff8e8b9baef645"
   },
   "schema_version": 2,
-  "source_fingerprint": "c553e14ae12a6a40606f53f2d7a6f9587d7f9f4a526436d0daec26907d34ab93",
+  "source_fingerprint": "85f6dda0e15061a362b6b7d62efbc024e397b063da1b767f7b821b6d70219818",
   "tasks": {
     "P01-01": {
       "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 3146,
@@ -60,9 +60,9 @@
       "utf8_bytes": 18428
     },
     "P40-05": {
-      "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 6398,
-      "unicode_characters": 25591,
-      "utf8_bytes": 29097
+      "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 6424,
+      "unicode_characters": 25696,
+      "utf8_bytes": 29219
     }
   }
 }

@@ -82,9 +82,9 @@ def errors(data,req,generated=False):
     for t in ts:
         if t['id'].startswith('B00-'):
             if t['id']=='B00-02':
-                expected={'docs/experiments/bootstrap-desktop-body.md','tests/bootstrap/desktop-body/UnityFixture/ProjectSettings/ProjectVersion.txt','tests/bootstrap/desktop-body/UnityFixture/Packages/manifest.json','tests/bootstrap/desktop-body/UnityFixture/Assets/Editor/BootstrapBuild.cs','tests/bootstrap/desktop-body/UnityFixture/Assets/Bootstrap.unity'}
-                check(set(t['proposed_files'])==expected,'Unity fixture ownership '+t['id'])
-                check('P02-01' not in anc[t['id']],'Unity fixture ownership circularity')
+                expected={'docs/experiments/bootstrap-desktop-body.md','tests/bootstrap/desktop-body/GodotFixture/project.godot','tests/bootstrap/desktop-body/GodotFixture/export_presets.cfg','tests/bootstrap/desktop-body/GodotFixture/scenes/Bootstrap.tscn','tests/bootstrap/desktop-body/GodotFixture/scripts/BootstrapVerify.gd'}
+                check(set(t['proposed_files'])==expected,'Godot fixture ownership '+t['id'])
+                check('P02-01' not in anc[t['id']],'Godot fixture ownership circularity')
             else:check(any(p.startswith('tests/bootstrap/') for p in t['proposed_files']) and any(p.startswith('tools/verify/') for p in t['proposed_files']),'bootstrap fixture scope '+t['id'])
             check('does not require a pre-existing' in t['future_verification']['gate'],'bootstrap self-deadlock '+t['id'])
     for source,forbidden in [('NV11','buổi làm lành'),('QH05','Shift'),('SH04','tai cáo')]:
@@ -117,7 +117,7 @@ def main():
         x=copy.deepcopy(data);next(t for t in x['tasks'] if t['bootstrap_owner'])['bootstrap_owner']='MISSING';cases['bootstrap ordering']=x
         x=copy.deepcopy(data);next(t for t in x['tasks'] if t['id']=='P60-04')['dependencies']=[v for v in next(t for t in x['tasks'] if t['id']=='P60-04')['dependencies'] if v!='C00-04'];cases['release bypass']=x
         x=copy.deepcopy(data);next(t for t in x['tasks'] if t['id']=='P00-01')['future_verification']['state']='GATED_NOT_RUN';cases['document runner deadlock']=x
-        x=copy.deepcopy(data);next(t for t in x['tasks'] if t['id']=='B00-02')['proposed_files'].pop();cases['Unity fixture ownership']=x
+        x=copy.deepcopy(data);next(t for t in x['tasks'] if t['id']=='B00-02')['proposed_files'].pop();cases['Godot fixture ownership']=x
         x=copy.deepcopy(data);next(t for t in x['tasks'] if t['id']=='P01-01')['human_gate']['evidence']='missing.md';cases['false human approval']=x
         for name,x in cases.items():
             result=errors(x,req)

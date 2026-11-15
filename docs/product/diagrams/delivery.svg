@@ -13,7 +13,7 @@
 <text x="362" y="262" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Hai bản cùng nguồn; chỗ chưa biết ghi rõ.</text>
 <rect x="340" y="370" width="1120" height="130" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
 <text x="362" y="414" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Thử các rủi ro chính</text>
-<text x="362" y="452" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Quyền nguồn, Unity desktop, AI local.</text>
+<text x="362" y="452" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Quyền nguồn, Godot desktop, AI local.</text>
 <rect x="340" y="560" width="1120" height="130" rx="12" fill="white" stroke="#b8cdc6" stroke-width="2"/>
 <text x="362" y="604" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="30">Duyệt lát làm tiếp</text>
 <text x="362" y="642" fill="#202b38" font-family="Segoe UI, sans-serif" font-size="24">Spec + hợp đồng + task + tiêu chí kiểm.</text>

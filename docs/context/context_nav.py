@@ -87,7 +87,7 @@ def inputs():
             'docs/YEU_CAU_HIEN_HANH.md', 'tasks/todo.md', 'tasks/README.md', 'tasks/E02a-USER-ACCEPTANCE.md',
             'docs/context/README.md', AI + 'backlog.json', AI + 'requirements.json',
             AI + 'README.md', AI + 'SRS.md', AI + 'DECISIONS.md', AI + 'DECISION_SOURCE_2026-11-14.md',
-            'docs/unity-windows/SPEC.md', 'docs/unity-windows/TEST_PLAN.md', 'docs/unity-windows/SOURCES.md']
+            'docs/godot-windows/SPEC.md', 'docs/godot-windows/TEST_PLAN.md', 'docs/godot-windows/SOURCES.md']
     core += [p.relative_to(ROOT).as_posix() for p in (ROOT / (AI + 'modules')).glob('*.md')]
     return sorted(set(core + source_paths()))
 
