@@ -1,7 +1,7 @@
 """Consistency validator only. Passing does not certify semantics, safety, or readiness."""
 from pathlib import Path
 import csv
-import hashlib
+from source_hash import SOURCE_HASH_POLICY, canonical_source_text, source_sha256
 import json
 import re
 import xml.etree.ElementTree as ET
@@ -16,7 +16,7 @@ def validate():
     errors=[]
     def check(condition,message):
         if not condition: errors.append(message)
-    source=(ROOT/'docs/YEU_CAU_HIEN_HANH.md').read_text(encoding='utf-8')
+    source=canonical_source_text(ROOT/'docs/YEU_CAU_HIEN_HANH.md')
     data=json.loads((HERE/'requirements.json').read_text(encoding='utf-8'))
     requirements=data['records']
     tasks=json.loads((HERE/'backlog.json').read_text(encoding='utf-8'))['tasks']
@@ -24,7 +24,8 @@ def validate():
     taskids={t['id'] for t in tasks}
     check(len(ids)==len(requirements),'Duplicate source IDs')
     check(len(taskids)==len(tasks),'Duplicate task IDs')
-    check(data['source_sha256']==hashlib.sha256((ROOT/'docs/YEU_CAU_HIEN_HANH.md').read_bytes()).hexdigest(),'Canonical source hash drift')
+    check(data.get('source_hash_policy')==SOURCE_HASH_POLICY,'Unknown canonical source hash policy')
+    check(data['source_sha256']==source_sha256(ROOT/'docs/YEU_CAU_HIEN_HANH.md'),'Canonical source hash drift')
     original={}
     for line in source.splitlines():
         m=re.match(r'^\| ([A-Z]{2}\d{2})[^|]*\| (.+) \|$',line) or re.match(r'^- \*\*([A-Z]{2}\d{2}):\*\* (.+)$',line)

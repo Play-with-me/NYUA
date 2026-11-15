@@ -1,7 +1,7 @@
 """Synchronize both reading editions from the agreed source; never invent missing criteria."""
 from pathlib import Path
 import csv
-import hashlib
+from source_hash import SOURCE_HASH_POLICY, canonical_source_text, source_sha256
 import json
 import re
 
@@ -159,7 +159,7 @@ UC_OVERRIDES = {'SP03':'UC-18','SP05':'UC-18','SP06':'UC-18','SP07':'UC-05','SP0
  **{f'XP{i:02}':'UC-12' for i in [11,12,13,14]},'AI01':'UC-10','AI03':'UC-10'}
 
 def sync():
-    source = SOURCE.read_text(encoding='utf-8')
+    source = canonical_source_text(SOURCE)
     human_notes=json.loads((HERE/'human_acceptance_notes.json').read_text(encoding='utf-8'))
     records = []
     for line in source.splitlines():
@@ -186,7 +186,7 @@ def sync():
           'acceptance':f'Chạy cùng kịch bản {name.lower()} ở hai mức; chỉ biểu hiện khả năng được cho phép ở mức đó; downgrade/upgrade giữ dữ liệu theo MC03.',
           'human_acceptance':f'Thử {name.lower()} ở cơ bản và nâng cao; so đúng bảng khả năng, đổi mức không làm mất dữ liệu đã chọn giữ.',
           'acceptance_status':'draft_for_review','task':'P60-02','use_case':'UC-02','evidence':'not_verified_production'})
-    data={'document_version':'0.1','date':'2026-11-14','source_sha256':hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
+    data={'document_version':'0.1','date':'2026-11-14','source_hash_policy':SOURCE_HASH_POLICY,'source_sha256':source_sha256(SOURCE),
           'status':'full_product_review_draft','records':records}
     (HERE/'requirements.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     with (HERE/'TRACEABILITY.csv').open('w',encoding='utf-8-sig',newline='') as f:

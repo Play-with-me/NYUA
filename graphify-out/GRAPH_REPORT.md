@@ -2,8 +2,8 @@
 
 Read this file first; never load full graph.json into the prompt.
 
-- Graphify 0.9.97, local deterministic AST/resolver; 21 C#/Python files,
-  259 nodes, 646 edges: {'EXTRACTED': 603, 'INFERRED': 43}.
+- Graphify 0.9.97, local deterministic AST/resolver; 22 C#/Python files,
+  264 nodes, 660 edges: {'EXTRACTED': 617, 'INFERRED': 43}.
 - Registry: 219 tasks, 109 requirements, 7 modules.
 - No community clustering/Leiden/God-Node claim: raw source extraction only. No semantic/doc LLM pass.
 - Registry/proposed relations live separately in registry-index.json, never labelled AST EXTRACTED.
@@ -20,7 +20,7 @@ Read this file first; never load full graph.json into the prompt.
 
 Default/max pack budget 160000 UTF-8 bytes; overflow emits no partial pack. Task, exact requirements,
 acceptance, full CONSTRAINTS and relevant decisions are never truncated. Code neighborhood is optional,
-one hop/max12 edges, with omitted count. Unknown task fails. E02a human acceptance C3 stays OPEN.
+one hop/max12 edges, with omitted count. Unknown task fails. E02a experience acceptance was closed by the user on2026-11-15; technical limits stay explicit.
 
 Regenerate: `python docs/context/context_nav.py build` (Graphify pinned 0.9.97, 120-second supervisor).
 Verify: `python docs/context/context_nav.py test`; measure: `python docs/context/context_nav.py measure`.

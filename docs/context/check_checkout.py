@@ -26,6 +26,15 @@ def verify(revision='HEAD'):
             bundle.extractall(checkout)
         script = checkout/'docs/context/context_nav.py'
 
+        def dossier(expected=0):
+            result = subprocess.run([sys.executable,'-X','utf8',
+                                    str(checkout/'docs/product/AI/validate_dossier.py')],
+                                    cwd=checkout,capture_output=True,text=True,encoding='utf8',timeout=45)
+            if result.returncode != expected:
+                raise AssertionError((result.returncode,result.stdout,result.stderr))
+            if expected and 'Canonical source hash drift' not in result.stdout:
+                raise AssertionError(result.stdout)
+
         def check(expected=0):
             result = subprocess.run([sys.executable,str(script),'check'],cwd=checkout,
                                     capture_output=True,text=True,timeout=30)
@@ -35,6 +44,7 @@ def verify(revision='HEAD'):
                 raise AssertionError(result.stderr)
 
         check()
+        dossier()
         print('PASS: clean git archive LF source/map/measurement fingerprints')
         manifest=json.loads((checkout/'graphify-out/manifest.json').read_text(encoding='utf-8'))
         paths=set(manifest['sources']) | set(manifest['outputs']) | {
@@ -45,6 +55,7 @@ def verify(revision='HEAD'):
             text=path.read_text(encoding='utf-8-sig')
             path.write_bytes(text.replace('\n','\r\n').encode('utf-8'))
         check()
+        dossier()
         print('PASS: same committed files converted to CRLF remain fresh')
         result=subprocess.run([sys.executable,str(script),'task','P10-03',
                                '--out',str(checkout/'probe-context.json')],cwd=checkout,
@@ -61,6 +72,15 @@ def verify(revision='HEAD'):
             path.write_bytes(original)
             check()
             print('REJECTED content edit (restored): '+name)
+        source=checkout/'docs/YEU_CAU_HIEN_HANH.md'
+        original=source.read_bytes()
+        for mutation in [original+b'\r\nSEMANTIC_TAMPER',original+b' ']:
+            source.write_bytes(mutation)
+            dossier(expected=1)
+            check(expected=2)
+            source.write_bytes(original)
+        dossier()
+        print('PASS: dossier on committed LF/CRLF; semantic and whitespace edits rejected by dossier and context')
         print('PASS: checkout query works; LF/CRLF portability does not bypass content integrity')
 
 

@@ -1,7 +1,7 @@
 # Đọc NYUA bằng ngữ cảnh nhỏ
 
 Chỉ công cụ/tài liệu cục bộ; không cho phép sửa sản phẩm, chạy lại ứng dụng, gửi repository,
-gọi AI bên ngoài hoặc cập nhật PR. Nghiệm thu người dùng E02a/C3 còn mở.
+gọi AI bên ngoài hoặc cập nhật PR. Người dùng đã chấp nhận trải nghiệm demo E02a/C3 ngày2026-11-15; các kiểm tra kỹ thuật chưa chứng minh vẫn còn mở.
 
 ## Bắt đầu cho AI
 

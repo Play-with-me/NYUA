@@ -1,6 +1,6 @@
 # Bắt đầu đọc và giao việc — hồ sơ phục hồi 2026-11-14
 
-**Chỉ tài liệu, không cho phép xây sản phẩm hoặc công bố.** Mẫu E02a còn nghiệm thu người dùng/resize/keyboard trong [todo.md](todo.md); bản này không đánh dấu hoàn thành thay người dùng.
+**Chỉ tài liệu, không cho phép xây sản phẩm hoặc công bố.** Người dùng đã chấp nhận trải nghiệm demo E02a ngày2026-11-15; [phản hồi](E02a-USER-ACCEPTANCE.md). Các kiểm tra kỹ thuật mở rộng còn thiếu bằng chứng ở [todo.md](todo.md), không tự đánh dấu đạt.
 
 AI bắt đầu bằng [GRAPH_REPORT](../graphify-out/GRAPH_REPORT.md) → kiểm freshness → tra module/task ID → đọc context pack → mở đúng source anchors khi cần. Không đọc toàn bộ SRS/registry/backlog trước mỗi task. Rà sâu toàn hồ sơ là lựa chọn riêng: [yêu cầu hiện hành](../docs/YEU_CAU_HIEN_HANH.md), [bản người đọc](../docs/product/HUMAN/README.md), [SRS](../docs/product/AI/SRS.md), [quyết định](../docs/product/AI/DECISIONS.md), [backlog](../docs/product/AI/BACKLOG.md). Registry duy nhất cho task: `docs/product/AI/backlog.json`; không sửa thẻ sinh tự động. Có 219 task dự kiến: 52 lát đầu ra gốc, 7 bootstrap, 18 đề cương nghiên cứu, 18 rà đề cương, 109 bảng nghiệm thu theo mã nguồn (QD07 hoãn), 10 kiểm phi chức năng, 5 checkpoint. Các bảng V00 bổ sung bằng chứng cho owner triển khai, không thay việc triển khai.
 
@@ -54,3 +54,10 @@ Dossier controls có thể chạy lại an toàn bằng Python312 docs/product/A
 Bổ sung vào mẫu prompt: “Trước khi làm, kiểm freshness rồi lấy pack cho đúng ID. Giữ nguyên scope/constraints/acceptance/decisions; pack là cache không thắng nguồn. STALE/UNKNOWN/OVERFLOW thì dừng và báo, không tự rút gọn tiêu chí. AST EXTRACTED/INFERRED giữ provenance gốc; mapping lab reference không chứng minh production tồn tại. Scope tích hợp Graphify chỉ local docs/tooling, không push/cập nhật PR hoặc thực thi sản phẩm. E02a C3 vẫn mở.”
 
 Xem [hướng dẫn context](../docs/context/README.md) cho limits/budget và cách tái tạo. Đây không thay đổi ý nghĩa219 task.
+
+Cập nhật2026-11-15: human gate P01-01 ghi OBTAINED cho trải nghiệm demo theo phản hồi nguyên văn; task P01-01 vẫn chưa được coi hoàn tất mọi tiêu chí kỹ thuật. Các gate artwork/release vẫn NOT_OBTAINED.
+
+
+## Chuẩn bị Unity–Windows — chỉ tài liệu
+
+Đọc SPEC/TEST_PLAN/SOURCES ở docs/unity-windows qua scoped pack của task liên quan. P01 human experience gate obtained không làm Done phần technical. Các gate R/A01/02/03/10/13, P00-02/P00-04 và bootstrap/P02 giữ nguyên dependencies canonical; tương lai build/fixture/install/run authorization NOT_OBTAINED. Chưa tự dispatch task sản phẩm từ tài liệu này.

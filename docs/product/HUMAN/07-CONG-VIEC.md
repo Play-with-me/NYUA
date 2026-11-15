@@ -1,6 +1,6 @@
 # Công việc và điều kiện bắt đầu
 
-Danh sách dự kiến; chưa được phép xây sản phẩm. Không thay nghiệm thu E02a còn mở. Thứ tự thực hiện theo phụ thuộc từng việc, không theo thứ tự nhóm.
+Danh sách dự kiến; chưa được phép xây sản phẩm. Không thay tracker và bằng chứng nghiệm thu E02a. Thứ tự thực hiện theo phụ thuộc từng việc, không theo thứ tự nhóm.
 
 ## P00-01 — Rà baseline và giải quyết mâu thuẫn phạm vi
 
@@ -194,11 +194,11 @@ Kiểm tra: Ghi source/terms/redistribution của Unity/plugin/model/art/runtime
 
 ## P01-01 — Khép kiểm tra UI còn mở của E02a
 
-Kết quả cần có: Lab acceptance evidence.
+Kết quả cần có: E02a technical-closure checklist/evidence, separated from user-obtained demo experience acceptance.
 
 Làm sau: P00-01, B00-04.
 
-Kiểm tra: Kiểm minimumresize/keyboard/focus trên mẫu hiện có bằng bằng chứng thật. Người dùng dùng thử; C3 chỉ đóng khi các tiêu chí bắt buộc đạt.
+Kiểm tra: Kiểm minimumresize có số đo, keyboard activation/focus và phần T05 còn mở trên mẫu hiện có bằng bằng chứng thật; mục chưa kiểm vẫn NOT RUN, không dùng quote trải nghiệm để tự đánh dấu kỹ thuật đạt. Human experience gate E02a đã OBTAINED ngày2026-11-15 theo phản hồi nguyên văn; C3 experience đóng theo người dùng. Hoàn tất kỹ thuật của P01-01 vẫn chờ mọi tiêu chí bắt buộc có evidence; T05 extended checks chưa đủ không được tự đóng.
 
 [Thẻ đầy đủ](../../../tasks/phase-p01.md). Chưa chạy/chưa nghiệm thu.
 
@@ -236,7 +236,7 @@ Kiểm tra: Version/platform/renderpipeline và license được ghi; nhân vậ
 
 Kết quả cần có: Overlay/hit test report.
 
-Làm sau: P02-01, B00-02, A00-01.
+Làm sau: P02-01, B00-01, B00-02, A00-01.
 
 Kiểm tra: Avatar/prop nhận chuột đúng vùng; vùng rỗng không chặn app phía dưới. Focus/topmost/fullscreen modes đo và ghi unsupported, không bypass.
 
@@ -246,7 +246,7 @@ Kiểm tra: Avatar/prop nhận chuột đúng vùng; vùng rỗng không chặn 
 
 Kết quả cần có: Coordinate contract/tests.
 
-Làm sau: P02-02, B00-02, A00-01.
+Làm sau: P02-02, B00-01, B00-02, A00-01.
 
 Kiểm tra: Phân biệt physical/DIP/Unity units và bind layoutgeneration. Move/scale/monitorchange làm vô hiệu target cũ.
 

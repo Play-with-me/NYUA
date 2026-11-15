@@ -32,3 +32,10 @@ Không có lệnh build app production. Lệnh đã tồn tại chỉ cho [mẫu
 
 
 Recovery entry: [tasks / dispatch](../../../tasks/README.md).
+
+
+## Unity–Windows: đề cương tài liệu hiện hành
+
+Hash nguồn yêu cầu dùng `source_hash_policy=utf8-text-bom-removed-universal-newlines-lf-v1`: UTF-8 strict, bỏ BOM đầu file, CRLF/CR đổi LF; giữ nguyên mọi ký tự/khoảng trắng khác. `source_hash.py` dùng chung cho producer và validator; policy lạ bị từ chối, không tự cập nhật baseline khi kiểm. Hash binary/upstream không thay đổi. Chạy `check_dossier_controls.py` cho 5 negative controls, 4 biến thể LF/CRLF/BOM và 8 ca sửa nội dung/khoảng trắng; `docs/context/check_checkout.py HEAD` kiểm git archive độc lập cấu hình autocrlf sau commit, chỉ chạy công cụ tài liệu.
+
+[Đặc tả](../../unity-windows/SPEC.md), [kế hoạch kiểm](../../unity-windows/TEST_PLAN.md), [nguồn](../../unity-windows/SOURCES.md). Chỉ đề xuất để rà; chưa install/fixture/runtime hoặc build authorization. E02a human experience C3 accepted ngày2026-11-15, P01 technical completion/T05 extended checks còn mở.
