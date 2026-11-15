@@ -47,7 +47,7 @@
     "P40-05": "230f4a6de8294b67c5c8cb3b87fbdd582a442b7bcefa826d8842e5025fd5c6cc"
   },
   "schema_version": 2,
-  "source_fingerprint": "2a3e96fc50edbc23bdd320ab512312337c9b1cf6f9354670a473d0d7bf197192",
+  "source_fingerprint": "b60c96a69d2a6f1a5bf73e732d2538ac08b5f5437bc24f97d7e6787e036e177f",
   "tasks": {
     "P01-01": {
       "token_estimate_ceil_chars_div4_NOT_TOKENIZER": 3146,

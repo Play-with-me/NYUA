@@ -28,4 +28,6 @@ Chỉ các nguồn Unity/Microsoft bên dưới được dùng làm căn cứ; c
 
 Các URL Unity cũ `docs.unity3d.com/6000.3/...` đã chuyển tới `docs.unity.com/...` ở lần rà này (riêng tài liệu `.asmdef` dùng đường dẫn `docs.unity3d.com/Manual/...` truy cập trực tiếp được ghi tại S17).
 Không tải Unity/Hub, không chấp nhận terms bằng thao tác cài, không mua seat và không kích hoạt dịch vụ nào trong phiên tài liệu này.
-S01–S19 là mã nguồn tham khảo trong tài liệu này, **không phải task/decision ID mới**.
+S01–S20 là mã nguồn tham khảo trong tài liệu này, **không phải task/decision ID mới**.
+
+S20 — [Microsoft artifacts output layout](https://learn.microsoft.com/en-us/dotnet/core/sdk/artifacts-output), [dotnet restore](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-restore), [dotnet build](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-build): rà 2026-11-15. SDK chia output theo loại/project/pivot; `--artifacts-path` phải truyền nhất quán giữa các lệnh phụ thuộc output. Đề xuất chỉ dùng flag này cho restore/build/test trong cùng dependency closure; không kết hợp props obj/bin muộn trong SDK-style csproj. Chưa chạy .NET để xác minh runtime/build ở phiên này.
