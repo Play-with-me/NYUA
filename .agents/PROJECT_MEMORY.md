@@ -1,3 +1,14 @@
+# Tổng hợp Hồ sơ Tổng quan vào `docsai/` — 2026-11-16 (`nyua-15`)
+
+- **Yêu cầu người dùng:** Tổng hợp dự án thành 3 tài liệu trong thư mục riêng `docsai/` và push lên nhánh `main`:
+  1. `docsai/01-SRS-CHI-TIET.md`: Đặc tả SRS chi tiết toàn sản phẩm (109 điều khoản `SRS-SP01`..`SRS-MODE09`, `UC-01..18`, quy tắc nghiệp vụ, hợp đồng IPC Godot–Host, dữ liệu/bảo mật, Local AI, UX/Art, 10 NFR, `IT-01..20`, `UW01..30`, ADR, `D-01..18`, `R-01..09`).
+  2. `docsai/02-CAU-TRUC-THU-MUC-VA-CONG-CU-NGON-NGU.md`: Cấu trúc thư mục thực tế (168 file tracked) vs dự kiến, công cụ/SDK/giấy phép (`.NET 10.0.404`, `Godot 4.7.2-stable .NET`, `Python 3.12`, `graphifyy 0.9.97`, `PowerShell 5.1`, HTML/CSS/JS) và ngôn ngữ lập trình (`C#`, `XAML`, `GDScript`, `Python`, `PowerShell`, `HTML/JS`, `Mermaid`, `JSON/CSV/MD`).
+  3. `docsai/03-DANH-SACH-TASK-CAN-LAM.md`: Tổng hợp phần `T05` E02a còn mở, toàn bộ 219 task trong `backlog.json` (`DRAFT_NOT_AUTHORIZED`), lộ trình topo, 4 human gates, và ma trận `UW01..30` (`NOT RUN`).
+- **Trạng thái thực tế kế thừa từ `c233f6c`:** `E02a` `C3` experience accepted (`T05` technical open); `B00-01` (`.NET 10`) và `B00-02` (`Godot 4.7.2 .NET` headless GDScript) đã chạy `PASS` trong `TEMP` cô lập (`9ce70d0`), không chứng minh export/DWM/IPC; `UW01–UW30` giữ `NOT RUN`, `219` task trong `backlog.json` giữ `DRAFT_NOT_AUTHORIZED`.
+- **Không đổi:** Canonical `requirements.json`, `backlog.json`, `tasks/todo.md`, `labs/policy-native/`, `tests/bootstrap/`.
+
+---
+
 # Chuyển hướng Engine sang Godot Engine — 2026-11-15 (`nyua-11`, docs-only)
 
 - **Quyết định mới nhất:** Sau khi PR #2 merge vào `main` (`b24268cefd2587bcada966a490b6f8cd8b944f65`), người dùng chỉ đạo **chuyển engine từ Unity sang Godot Engine**.

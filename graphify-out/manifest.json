@@ -26,7 +26,7 @@
   },
   "schema_version": 2,
   "sources": {
-    ".agents/PROJECT_MEMORY.md": "7ef724d5245eeb2e91e4b56d5a6ecfb0b8ba6065f058d96831a377366a30a5f4",
+    ".agents/PROJECT_MEMORY.md": "e0388018ac1a464866fa0fac29d942d4e1a4d0ade7f7bfa78abf25652b0838d4",
     "CAPABILITY_MAP.md": "76b8d1b940224d12c168fa77076ea63f782cd472ac529bbb1ac461bdc7aa9cbb",
     "CONSTRAINTS.md": "dc438569686b9a26ff0ee03654b3ac562c8abbd55e857f7ee93f94a349d08ac0",
     "DESIGN.md": "da7437bc839923c96b0f2f2408a148bfee6f4b65ee953fc4a60c871033565bfe",
